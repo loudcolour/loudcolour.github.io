@@ -1,4 +1,4 @@
-from os import listdir, path
+from os import listdir, path, system
 from sys import argv
 from datetime import datetime
 from termcolor import colored
@@ -157,8 +157,7 @@ def delete_blog_note(perm):
 
     command = "mv " + INPUT_PATH + " " + OUTPUT_PATH
 
-def create_article(head,tail,article):
-    return 0
+    system(command)
 
 if update_list():
     update_category()
