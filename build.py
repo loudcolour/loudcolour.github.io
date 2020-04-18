@@ -15,7 +15,7 @@ def debug_msg(name, value):
 
 # Coverts unix timestamp into ISO 8601 date.
 def format_date(timestamp):
-    return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')                            # fix to local time plz
+    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 
 # Gets the first 4 lines from a markdown note,
 # which contains the language, title, date created, category' of the notes on each line,
