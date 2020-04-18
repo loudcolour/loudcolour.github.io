@@ -18,19 +18,10 @@ def format_date(timestamp):
     return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')                            # fix to local time plz
 
 # Gets the first 4 lines from a markdown note,
-NOTES_PATH      = 'notes'                            # path of notes
-BLOG_PATH       = 'blog'                             # path of blog
-HTML_PATH       = 'html'
-INPUT_EXT       = '.md'                              # extension of files
-OUTPUT_EXT      = '.html'
-LIST_PATH       = 'list.yaml'                        # path of list.yaml
-CATEGORIES_PATH = 'categories.yaml'
-BIN             = '/dev/null'
-
-# Gets the first 4 lines from a markdown note, which contains the language,
-# title, date created, category' of the notes on each line, then returns a
-# dictionary.
-
+# which contains the language, title, date created, category' of the notes on each line,
+# then returns a dictionary.
+#
+# Example of markdown note document:
 # ctime: 1587159587
 # category: mathematics
 # title: Order of a group and the class equation
@@ -48,9 +39,6 @@ def get_meta_from_md(FILE_PATH):
 def update_list():
     NOTES_PATH = 'notes'                            # path of notes
     FILE_EXT   = '.md'                              # extension of files
-    LIST_PATH  = 'list.yaml'                        # path of list.yaml
-    YAML_FILE  = open(LIST_PATH, 'r')               # open list.yaml file as readable and writable
-    YAML_LOAD  = yaml.safe_load(YAML_FILE)          # load yaml data
 
     YAML_FILE.close()
 
@@ -152,8 +140,22 @@ def update_list():
         print(colored("There's nothing changed.", "green"))
         return False
 
-def update_category():
-    return 0
+def generate_blog_note(head,tail,perm):
+    INPUT_PATH = NOTES_PATH + "/" + perm + INPUT_EXT
+    OUTPUT_PATH = BLOG_PATH + "/" + perm + OUTPUT_EXT
+    
+    command = "{cat "+ head +" ; pandoc "
+    command += INPUT_PATH
+    command += " -f gfm -t html ; cat "+ tail +"} > "
+    command += OUTPUT_PATH
+
+    system(command)
+
+def delete_blog_note(perm):
+    INPUT_PATH = NOTES_PATH + "/" + perm + INPUT_EXT
+    OUTPUT_PATH = BIN
+
+    command = "mv " + INPUT_PATH + " " + OUTPUT_PATH
 
 def create_article(head,tail,article):
     return 0
