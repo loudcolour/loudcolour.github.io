@@ -12,39 +12,52 @@ if len(argv) == 2 and argv[1] == 'debug':
 def debug_msg(name, value):
     print(colored("Debug message, "+name+": "+str(value), "grey"))
     
-
 # Coverts unix timestamp into ISO 8601 date.
-def format_date(timestamp):
-    return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')                            # fix to local time plz
 
-# Gets the first 4 lines from a markdown note,
-# which contains the language, title, date created, category' of the notes on each line,
-# then returns a dictionary.
-#
+def format_date(timestamp):
+    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+
+NOTES_PATH      = 'notes'                            # path of notes
+BLOG_PATH       = 'blog'                             # path of blog
+HTML_PATH       = 'html'
+INPUT_EXT       = '.md'                              # extension of files
+OUTPUT_EXT      = '.html'
+LIST_PATH       = 'list.yaml'                        # path of list.yaml
+CATEGORIES_PATH = 'categories.yaml'
+BIN             = '/dev/null'
+
+# Gets the first 4 lines from a markdown note, which contains the language,
+# title, date created, category' of the notes on each line, then returns a
+# dictionary.
+
 # Example of markdown note document:
 # ctime: 1587159587
 # category: mathematics
 # title: Order of a group and the class equation
 # language: english
-# 
+# ---
+# [...]
+
 def get_meta_from_md(FILE_PATH):
     with open(FILE_PATH, 'r') as MD_FILE:             # open markdown note
         yaml_str = "\n".join(MD_FILE.readlines()[:4]) # get 4 lines of yaml data
         return yaml.safe_load(yaml_str)               # load yaml data and return it.
 
-# Updates the list of notes in list.yaml.
-# Changes in notes directory will be automatically detected and applied to list.yaml.
-# If there's any change applied to list, the function will return True.
-# If there's no change applied, the function will return False.
+# Updates the list of notes in list.yaml. Changes in notes directory will be
+# automatically detected and applied to list.yaml. If there's any change
+# applied to list, the function will return True. If there's no change
+# applied, the function will return False.
+
 def update_list():
-    NOTES_PATH = 'notes'                            # path of notes
-    FILE_EXT   = '.md'                              # extension of files
+    YAML_FILE  = open(LIST_PATH, 'r')               # open list.yaml file as readable and writable
+    YAML_LOAD  = yaml.safe_load(YAML_FILE)          # load yaml data
 
     YAML_FILE.close()
 
     # Create list of current notes in directory, and load notes list on list.yaml to compare.
+
     dir_list = list(map(lambda s : NOTES_PATH+"/"+s, listdir(path=NOTES_PATH)))
-    new_list = list(map(lambda s : {'perm' : s[len(NOTES_PATH)+1:-len(FILE_EXT)], 'mtime': int(path.getmtime(s))}, dir_list))
+    new_list = list(map(lambda s : {'perm' : s[len(NOTES_PATH)+1:-len(INPUT_EXT)], 'mtime': int(path.getmtime(s))}, dir_list))
     new_list.sort(key=lambda dic : dic['mtime'] )
     old_list = [{'perm': note['perm'], 'mtime': note['mtime']} for note in YAML_LOAD]
     old_perm_list = [note['perm'] for note in YAML_LOAD]
@@ -77,15 +90,15 @@ def update_list():
             debug_msg("added", added)
 
         if len_modified != 0:
-            print(str(len_modified) + " MODIFICATION(S):")
+            print(colored(str(len_modified) + " MODIFICATION(S):", "yellow"))
             for note in modified:
                 modified_date = format_date(note['mtime'])
-                print(" - " + note["perm"] + FILE_EXT + " at " + modified_date)
+                print(colored(" - " + note["perm"] + INPUT_EXT + " at " + modified_date, "yellow"))
         if len_added != 0:
-            print(str(len_added) + " ADDITION(S):")
+            print(colored(str(len_added) + " ADDITION(S):", "green"))
             for note in added:
                 added_date = format_date(note['mtime'])
-                print(" - " + note["perm"] + FILE_EXT + " at " + added_date)
+                print(colored(" - " + note["perm"] + INPUT_EXT + " at " + added_date,"green"))
 
         base_list_old = list(filter(lambda dic : (not (dic['perm'] in modified_or_added_perm )), old_list))
         base_list_new = list(filter(lambda dic : (not (dic['perm'] in modified_or_added_perm )), new_list))
@@ -107,11 +120,12 @@ def update_list():
         len_removed = len(removed)
 
         if len_removed != 0:
-            print(str(len_removed) + " REMOVE(S):")
+            print(colored(str(len_removed) + " REMOVE(S):", "red"))
             for note in removed:
-                print (" - " + note["perm"] + FILE_EXT)
+                print(colored(" - " + note["perm"] + INPUT_EXT, "red"))
 
         # Add not changed notes.
+
         BASE_YAML_LOAD = list(filter(lambda dic : (not (dic['perm'] in modified_or_added_perm )
                                                    and not (dic['perm'] in removed_perm) ), YAML_LOAD))
 
@@ -119,8 +133,9 @@ def update_list():
             debug_msg("modified_or_added", modified_or_added)
 
         # Add changed notes.
+
         for note in modified_or_added:
-            base_note = get_meta_from_md(NOTES_PATH+"/"+note['perm']+FILE_EXT)
+            base_note = get_meta_from_md(NOTES_PATH+"/"+note['perm']+INPUT_EXT)
             base_note.update(note)
             BASE_YAML_LOAD.append(base_note)
 
@@ -160,5 +175,5 @@ def delete_blog_note(perm):
     system(command)
 
 if update_list():
-    update_category()
-    create_article()
+    HTML_HEAD = HTML_PATH + '/' + 'head.html'
+    HTML_TAIL = HTML_PATH + '/' + 'tail.html'
