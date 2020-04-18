@@ -15,13 +15,22 @@ def debug_msg(name, value):
 
 # Coverts unix timestamp into ISO 8601 date.
 def format_date(timestamp):
-    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+    return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')                            # fix to local time plz
 
 # Gets the first 4 lines from a markdown note,
-# which contains the language, title, date created, category' of the notes on each line,
-# then returns a dictionary.
-#
-# Example of markdown note document:
+NOTES_PATH      = 'notes'                            # path of notes
+BLOG_PATH       = 'blog'                             # path of blog
+HTML_PATH       = 'html'
+INPUT_EXT       = '.md'                              # extension of files
+OUTPUT_EXT      = '.html'
+LIST_PATH       = 'list.yaml'                        # path of list.yaml
+CATEGORIES_PATH = 'categories.yaml'
+BIN             = '/dev/null'
+
+# Gets the first 4 lines from a markdown note, which contains the language,
+# title, date created, category' of the notes on each line, then returns a
+# dictionary.
+
 # ctime: 1587159587
 # category: mathematics
 # title: Order of a group and the class equation
