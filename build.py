@@ -144,9 +144,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     def get_meta_from_md(perm):
         INPUT_PATH = NOTES_PATH + "/" + perm + MD_EXT
         with open(INPUT_PATH, 'r') as MD_FILE:
-            yaml_str = "\n".join(MD_FILE.readlines()[1:5])
+            yaml_str = "\n".join(MD_FILE.readlines()[1:4])
             meta = yaml.safe_load(yaml_str)
-            if sorted(meta.keys()) == ['category','ctime','language','title']: 
+            if sorted(meta.keys()) == ['category','language','title']: 
                 return meta
             else:
                 print(colored("Metadata on note is not valid.", "red"))
@@ -194,9 +194,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
                 debug_message("replaced", '{% '+tag+' %}')
                 debug_message("full_meta[tag]", full_meta[tag])
         
-        for tag in ['ctime', 'mtime']:
-            HEAD_FILLED = HEAD_FILLED.replace('{% '+tag+' %}', format_date(full_meta[tag]))
-            TAIL_FILLED = TAIL_FILLED.replace('{% '+tag+' %}', format_date(full_meta[tag]))
+            HEAD_FILLED = HEAD_FILLED.replace('{% mtime_formatted %}', format_date(full_meta['mtime']))
+            TAIL_FILLED = TAIL_FILLED.replace('{% mtime_formatted %}', format_date(full_meta['mtime']))
 
         urls_meta = {
             'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 

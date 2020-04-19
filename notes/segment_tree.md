@@ -1,6 +1,5 @@
 <!---
 title: '[Example NOTE] Segment Tree에 대하여'
-ctime: 1587251752
 category: Algorithms
 language: Korean
 --->

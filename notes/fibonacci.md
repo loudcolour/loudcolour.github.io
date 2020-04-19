@@ -1,7 +1,6 @@
 <!---
 title: '[Example NOTE] Fibonacci 수 구하기'
 language: Korean
-ctime: 1587251709
 category: Algorithms
 --->
 
