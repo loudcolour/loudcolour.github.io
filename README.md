@@ -1,6 +1,6 @@
 # S. Hyeon
 
-[Keybase](https://keybase.io/loudcolour) [Twitter](https://twitter.com/loudcolour)
+[Keybase](https://keybase.io/loudcolour) | [Twitter](https://twitter.com/loudcolour) |
 [GitHub](https://github.com/loudcolour)
 
 - Email: `loudclr@gmail.com`
