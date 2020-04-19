@@ -10,8 +10,8 @@
 > The philosophers have only interpreted the world, in various ways. The
 > point, however, is to change it.
 >
->  Karl Marx, *Theses on Feuerbach*,
-> — [MIA](https://www.marxists.org/archive/marx/works/1845/theses/theses.htm)
+> — Karl Marx, *Theses on Feuerbach*,
+> [MIA](https://www.marxists.org/archive/marx/works/1845/theses/theses.htm)
 
 > Yesterday I was reading about the reasons for the disappearance of
 > song birds in Germany. \[...\] I was not thinking so much about the
