@@ -198,8 +198,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         urls_meta = {
             'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 
             'category_url': "../" + CATEGORY_PATH + "/" + full_meta['category'] + HTML_EXT,
-            'blame_url': GITHUB_URL + '/blame/master/' + OUTPUT_PATH,
-            'history_url': GITHUB_URL + '/commits/master/' + OUTPUT_PATH,
+            'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
+            'history_url': GITHUB_URL + '/commits/master/' + INPUT_PATH,
         }
 
         for key in urls_meta.keys():
@@ -265,7 +265,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         STYLESHEET = "./" + STYLESHEET_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% stylesheet %}', STYLESHEET)
 
-        ICONS = "./" + ICONS_PATH        
+        ICONS = "./" + ICONS_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
 
         VISIBILITY = "display: none;"        
