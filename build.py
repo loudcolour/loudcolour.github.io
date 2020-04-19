@@ -25,7 +25,7 @@ def debug_message(name, value):
     print(colored("Debug message, "+name+": "+str(value), "grey"))
 
 def format_date(timestamp):
-    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S+0000')
 
 # Variables.
 
@@ -51,7 +51,6 @@ LANGUAGE_PATH = 'language'
 BIN             = '~/.Trash'
 GITHUB_URL      = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
-tag_list = ['title', 'category', 'ctime', 'mtime', 'language']
 
 # Load files.
 
@@ -187,13 +186,17 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         HEAD_FILLED = HEAD_LOAD
         TAIL_FILLED = TAIL_LOAD
 
-        for tag in tag_list:
+        for tag in ['title', 'category', 'language']:
             HEAD_FILLED = HEAD_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
             TAIL_FILLED = TAIL_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
 
             if debug_mode:
                 debug_message("replaced", '{% '+tag+' %}')
                 debug_message("full_meta[tag]", full_meta[tag])
+        
+        for tag in ['ctime', 'mtime']:
+            HEAD_FILLED = HEAD_FILLED.replace('{% '+tag+' %}', format_date(full_meta[tag]))
+            TAIL_FILLED = TAIL_FILLED.replace('{% '+tag+' %}', format_date(full_meta[tag]))
 
         urls_meta = {
             'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 
