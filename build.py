@@ -34,6 +34,7 @@ TITLE = "S. Hyeon"
 NOTES_PATH      = 'notes'
 BLOG_PATH       = 'blog'
 HTML_PATH       = 'html'
+ICONS_PATH      = 'icons'
 MD_EXT          = '.md'
 HTML_EXT        = '.html'
 INDEX           = 'index.html'
@@ -45,7 +46,10 @@ RECENT_NOTES_PATH = 'recent_notes.html'
 MORE_PATH       = 'more.html'
 STYLESHEET_PATH = 'style.css'
 CATEGORIES_PATH = 'categories.yaml'
+CATEGORY_PATH = 'category'
+LANGUAGE_PATH = 'language'
 BIN             = '~/.Trash'
+GITHUB_URL      = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
 tag_list = ['title', 'category', 'ctime', 'mtime', 'language']
 
@@ -186,16 +190,29 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         for tag in tag_list:
             HEAD_FILLED = HEAD_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
             TAIL_FILLED = TAIL_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
+
             if debug_mode:
                 debug_message("replaced", '{% '+tag+' %}')
                 debug_message("full_meta[tag]", full_meta[tag])
-        
-        STYLESHEET = "../" + STYLESHEET_PATH
 
+        urls_meta = {
+            'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 
+            'category_url': "../" + CATEGORY_PATH + "/" + full_meta['category'] + HTML_EXT,
+            'blame_url': GITHUB_URL + '/blame/master/' + OUTPUT_PATH,
+            'history_url': GITHUB_URL + '/commits/master/' + OUTPUT_PATH,
+        }
+
+        for key in urls_meta.keys():
+            HEAD_FILLED = HEAD_FILLED.replace('{% '+key+' %}', urls_meta[key])
+            TAIL_FILLED = TAIL_FILLED.replace('{% '+key+' %}', urls_meta[key])
+
+        STYLESHEET = "../" + STYLESHEET_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% stylesheet %}', STYLESHEET)
 
-        VISIBILITY = ""
-        
+        ICONS = "../" + ICONS_PATH
+        HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
+
+        VISIBILITY = ""        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
@@ -247,6 +264,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         STYLESHEET = "./" + STYLESHEET_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% stylesheet %}', STYLESHEET)
+
+        ICONS = "./" + ICONS_PATH        
+        HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
 
         VISIBILITY = "display: none;"        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
