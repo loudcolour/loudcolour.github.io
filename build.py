@@ -31,25 +31,25 @@ def format_date(timestamp):
 
 TITLE = "S. Hyeon"
 
-NOTES_PATH      = 'notes'
-BLOG_PATH       = 'blog'
-HTML_PATH       = 'html'
-ICONS_PATH      = 'icons'
-MD_EXT          = '.md'
-HTML_EXT        = '.html'
-INDEX           = 'index.html'
-README          = 'README'
-LIST_PATH       = 'list.yaml'
-HEAD_PATH       = 'head.html'
-TAIL_PATH       = 'tail.html'
-RECENT_NOTES_PATH = 'recent_notes.html'
-MORE_PATH       = 'more.html'
-STYLESHEET_PATH = 'style.css'
-CATEGORIES_PATH = 'categories.yaml'
-CATEGORY_PATH = 'category'
-LANGUAGE_PATH = 'language'
-BIN             = '~/.Trash'
-GITHUB_URL      = 'https://github.com/loudcolour/loudcolour.github.io'
+NOTES_PATH          = 'notes'
+BLOG_PATH           = 'blog'
+HTML_PATH           = 'html'
+ICONS_PATH          = 'icons'
+MD_EXT              = '.md'
+HTML_EXT            = '.html'
+INDEX               = 'index.html'
+README              = 'README'
+LIST_PATH           = 'list.yaml'
+HEAD_PATH           = 'head.html'
+TAIL_PATH           = 'tail.html'
+RECENT_NOTES_PATH   = 'recent_notes.html'
+MORE_PATH           = 'more.html'
+STYLESHEET_PATH     = 'style.css'
+CATEGORIES_PATH     = 'categories.yaml'
+CATEGORY_PATH       = 'category'
+LANGUAGE_PATH       = 'language'
+BIN                 = '~/.Trash'
+GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
 
 # Load files.
@@ -57,6 +57,7 @@ RECENT_NOTES_AMOUNT = 5
 HEAD_FILE = open(HTML_PATH + '/' + HEAD_PATH, 'r')
 HEAD_LOAD = HEAD_FILE.read()
 HEAD_FILE.close()
+
 TAIL_FILE = open(HTML_PATH + '/' + TAIL_PATH, 'r')
 TAIL_LOAD = TAIL_FILE.read()
 TAIL_FILE.close()
