@@ -206,6 +206,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'category_url': "../" + CATEGORY_PATH + "/" + full_meta['category'] + HTML_EXT,
             'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
             'history_url': GITHUB_URL + '/commits/master/' + INPUT_PATH,
+            'home_url': "../",
+            'more_url': "../" + MORE_PATH,
+            'issue_url': GITHUB_URL + '/issues/new?title=' + full_meta['title'],
+            'search_url': GITHUB_URL + '/search?q=path%3A%2F' + NOTES_PATH + '%2F'
         }
 
         for key in urls_meta.keys():
