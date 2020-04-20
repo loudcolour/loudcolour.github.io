@@ -24,6 +24,10 @@
 		display: none;
 	}
 
+	.align-right {
+		text-align: right;
+	}
+
 	@media (max-width: 767px) {
 		.markdown-body {
 			padding: 15px;
@@ -34,6 +38,10 @@
 <body>
 <article class="markdown-body">
 <div class="hidden">
+<p class="align-right">
+<a href="{% blame_url %}">Blame</a> | <a href="{% history_url %}">History</a>
+| <a href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=S. Hyeon">Create an issue</a>
+</p>
 <h1>S. Hyeon</h1>
 </div>
 <h1 id="s-hyeon">S. Hyeon</h1>
@@ -58,9 +66,10 @@
 </ul>
 <a href="more.html">More notes</a><div class="hidden">
 <hr>
-<p>Category: <a href="{% category_url %}">{% category %}</a> | Language: <a href="{% language_url %}">{% language %}</a> | <a href="{% blame_url %}">Blame</a> | <a href="{% history_url %}">History</a>
-| <a href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title={% title %}">Create an issue</a></p>
-<p>Last modified: <code>{% mtime_formatted %}</code></p>
+<p>
+    Category: <a href="{% category_url %}">{% category %}</a>, Language: <a href="{% language_url %}">{% language %}</a>,
+    Last modified: <code>{% mtime_formatted %}</code></a>
+</p>
 </div>
 </article>
 </body>
