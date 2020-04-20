@@ -205,11 +205,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 
             'category_url': "../" + CATEGORY_PATH + "/" + full_meta['category'] + HTML_EXT,
             'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
-            'history_url': GITHUB_URL + '/commits/master/' + INPUT_PATH,
             'home_url': "../",
             'more_url': "../" + MORE_PATH,
-            'issue_url': GITHUB_URL + '/issues/new?title=' + full_meta['title'],
-            'search_url': GITHUB_URL + '/search?q=path%3A%2F' + NOTES_PATH + '%2F'
+            'issue_url': GITHUB_URL + '/issues/new?title=' + full_meta['title']
         }
 
         for key in urls_meta.keys():
@@ -296,7 +294,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         with open(HTML_PATH+"/"+RECENT_NOTES_PATH, 'r') as RECENT_NOTES_FILE:
             RECENT_NOTES_FILLED = RECENT_NOTES_FILE.read().replace('{% list %}', RECENT_NOTES)
         
-        RECENT_NOTES_FILLED = RECENT_NOTES_FILLED.replace('{% more %}', MORE_PATH)
+        RECENT_NOTES_FILLED = RECENT_NOTES_FILLED.replace('{% more_url %}', MORE_PATH)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + STDOUT.decode("utf-8") + RECENT_NOTES_FILLED + TAIL_FILLED)
