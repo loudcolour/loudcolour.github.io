@@ -1,9 +1,12 @@
 from os import listdir, path, system, rename
 from sys import argv
-from datetime import datetime
+from datetime import datetime, timezone
 from termcolor import colored
 import yaml
+import tzlocal
 import subprocess as sp
+
+LOCAL_TZ = tzlocal.get_localzone()
 
 # Modes.
 
@@ -25,8 +28,8 @@ def debug_message(name, value):
     print(colored("Debug message, "+name+": "+str(value), "grey"))
 
 def format_date(timestamp):
-    return datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%dT%H:%M:%S+0000')
-
+    return datetime.fromtimestamp(timestamp, LOCAL_TZ).strftime('%Y-%m-%dT%H:%M:%S%z')
+    
 # Variables.
 
 TITLE = "S. Hyeon"
