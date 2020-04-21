@@ -17,7 +17,7 @@ segment tree의 각 node에는 트리의 윗부분부터 높이 계층을 우선
 `x`일 때, 왼쪽 children node는 `2*x-1`, 오른쪽 children node는 `2*x`로 할당하면 된다.
 다음 코드는 배열 `a`가 주어졌을 때, segment tree인 `tree`를 생성하는 코드이다.
 
-``` rust
+```rust
 fn main() {
     let a = vec![11, 14, 56, 13, 6, 12, 67, 34]; // random vector
     let mut tree = vec![0;16];    // zero-initialized tree vector
@@ -43,7 +43,7 @@ fn init(a:&Vec<i64>, tree:&mut Vec<i64>,
 
 재귀를 이용하여, segment tree를 생성하였다. 위의 코드를 실행한 결과는 다음과 같다.
 
-``` shell
+```shell
 [0, 213, 94, 119, 25, 69, 18, 101, 11, 14, 56, 13, 6, 12, 67, 34]
 ```
 
@@ -70,7 +70,7 @@ node가 담당하는 범위가 포함되므로, node 자신의 값만을 return�
 3번과 4번의 경우는 node가 담당하는 값 이외에도 구하고자 하는 범위의 값이 존재하므로,
 재귀를 이용하여 탐색을 이어나갈 필요가 있다. 이를 구현한 코드는 다음과 같다.
 
-``` rust
+```rust
 fn main() {
     let a = vec![11, 14, 56, 13, 6, 12, 67, 34]; // random vector
     let mut tree = vec![0;16];    // zero-initialized tree vector
@@ -110,7 +110,7 @@ fn range_sum(tree:&mut Vec<i64>,
 `index`가 포함되지 않는다면 그대로 탐색을 종료하면 된다.
 다음 코드는 `diff`값을 통해 tree를 업데이트 하는 함수를 구현한 것이다.
 
-``` rust
+```rust
 fn main() {
     let a = vec![11, 14, 56, 13, 6, 12, 67, 34]; // random vector
     let mut tree = vec![0;16];    // zero-initialized tree vector
@@ -148,4 +148,74 @@ fn update_tree(tree:&mut Vec<i64>,
     }
 }
 
+```
+
+```rust
+use std::borrow::Cow;
+use std::collections::TryReserveError::*;
+use std::mem::size_of;
+use std::panic::{catch_unwind, AssertUnwindSafe};
+use std::vec::{Drain, IntoIter};
+
+struct DropCounter<'a> {
+    count: &'a mut u32,
+}
+
+impl Drop for DropCounter<'_> {
+    fn drop(&mut self) {
+        *self.count += 1;
+    }
+}
+
+#[test]
+fn test_small_vec_struct() {
+    assert!(size_of::<Vec<u8>>() == size_of::<usize>() * 3);
+}
+
+#[test]
+fn test_double_drop() {
+    struct TwoVec<T> {
+        x: Vec<T>,
+        y: Vec<T>,
+    }
+
+    let (mut count_x, mut count_y) = (0, 0);
+    {
+        let mut tv = TwoVec { x: Vec::new(), y: Vec::new() };
+        tv.x.push(DropCounter { count: &mut count_x });
+        tv.y.push(DropCounter { count: &mut count_y });
+
+        // If Vec had a drop flag, here is where it would be zeroed.
+        // Instead, it should rely on its internal state to prevent
+        // doing anything significant when dropped multiple times.
+        drop(tv.x);
+
+        // Here tv goes out of scope, tv.y should be dropped, but not tv.x.
+    }
+
+    assert_eq!(count_x, 1);
+    assert_eq!(count_y, 1);
+}
+
+#[test]
+fn test_reserve() {
+    let mut v = Vec::new();
+    assert_eq!(v.capacity(), 0);
+
+    v.reserve(2);
+    assert!(v.capacity() >= 2);
+
+    for i in 0..16 {
+        v.push(i);
+    }
+
+    assert!(v.capacity() >= 16);
+    v.reserve(16);
+    assert!(v.capacity() >= 32);
+
+    v.push(16);
+
+    v.reserve(16);
+    assert!(v.capacity() >= 33)
+}
 ```

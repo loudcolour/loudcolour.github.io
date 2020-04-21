@@ -2,6 +2,11 @@ from os import listdir, path, system, rename
 from sys import argv
 from datetime import datetime, timezone
 from termcolor import colored
+
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+
 import re
 import yaml
 import tzlocal
@@ -53,13 +58,24 @@ def math_tex_to_html(tex_str, display_mode=False):
     return STDOUT.decode("utf-8")[:-1]
 
 MD_MATH_RE = re.compile(r"\$`(.+?)`\$")
-MD_MATH_DISPLAY_RE = re.compile(r"^`{3}math\s+(.+?)\s+`{3}$", flags=re.M)
+MD_MATH_DISPLAY_RE = re.compile(r"^`{3}math\s+(.+?)\s+`{3}$", flags=re.M|re.S)
 
 def apply_math(md_str):
-    md_str = MD_MATH_RE.sub(repl=lambda s: math_tex_to_html(s.group(1), display_mode=False), string=md_str)
-    md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda s: math_tex_to_html(s.group(1), display_mode=True), string=md_str)
+    md_str = MD_MATH_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=False), string=md_str)
+    md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=True), string=md_str)
     return md_str
-    
+
+def highlight_code(code, lang):
+    lexer = get_lexer_by_name(lang, stripAll=True)
+    formatter = HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>")
+    return highlight(code, lexer, formatter)
+
+MD_CODE_RE = re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S)
+
+def apply_code_highlight(md_str):
+    md_str = MD_CODE_RE.sub(repl=lambda obj: highlight_code(obj.group(2), obj.group(1)), string=md_str)
+    return md_str
+
 # Variables.
 
 TITLE = "S. Hyeon"
@@ -82,6 +98,7 @@ CATEGORIES_PATH     = 'categories.yaml'
 CATEGORY_PATH       = 'category'
 LANGUAGE_PATH       = 'language'
 KATEX_PATH          = 'katex'
+HIGHLIGHT_PATH      = 'highlight.css'
 BIN                 = '~/.Trash'
 GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
@@ -211,11 +228,12 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE_RAW = open(INPUT_PATH, 'r')
         ARTICLE_MATH_APPLIED = apply_math(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
-
+        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_MATH_APPLIED)
+        
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
         PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_MATH_APPLIED.encode("utf-8"))
+        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_HIGHLIGHT_APPLIED.encode("utf-8"))
 
         ARTICLE = STDOUT.decode("utf-8")
 
@@ -260,6 +278,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         KATEX = "../" + KATEX_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
 
+        HIGHLIGHT = "../" + HIGHLIGHT_PATH
+        HEAD_FILLED = HEAD_FILLED.replace('{% highlight %}', HIGHLIGHT)
+
         VISIBILITY = ""        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
 
@@ -296,10 +317,17 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         INPUT_PATH = README + MD_EXT
         OUTPUT_PATH = INDEX
 
-        pandoc_command = ["pandoc", INPUT_PATH, "-f", "gfm", "-t", "html"]
+        ARTICLE_RAW = open(INPUT_PATH, 'r')
+        ARTICLE_MATH_APPLIED = apply_math(ARTICLE_RAW.read())
+        ARTICLE_RAW.close()
+        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_MATH_APPLIED)
 
-        PARSED = sp.Popen(pandoc_command, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate()
+        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
+
+        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_HIGHLIGHT_APPLIED.encode("utf-8"))
+
+        ARTICLE = STDOUT.decode("utf-8")
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
@@ -318,6 +346,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         KATEX = "./" + KATEX_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
+
+        HIGHLIGHT = "../" + HIGHLIGHT_PATH
+        HEAD_FILLED = HEAD_FILLED.replace('{% highlight %}', HIGHLIGHT)
 
         VISIBILITY = "display: none;"        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
@@ -340,7 +371,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         RECENT_NOTES_FILLED = RECENT_NOTES_FILLED.replace('{% more_url %}', MORE_PATH)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
-            BLOG_FILE.write(HEAD_FILLED + STDOUT.decode("utf-8") + RECENT_NOTES_FILLED + TAIL_FILLED)
+            BLOG_FILE.write(HEAD_FILLED + ARTICLE + RECENT_NOTES_FILLED + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     generate_index()
