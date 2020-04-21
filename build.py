@@ -2,6 +2,7 @@ from os import listdir, path, system, rename
 from sys import argv
 from datetime import datetime, timezone
 from termcolor import colored
+import re
 import yaml
 import tzlocal
 import subprocess as sp
@@ -11,14 +12,13 @@ LOCAL_TZ = tzlocal.get_localzone()
 # Modes.
 
 debug_mode = False
+regenerate_mode = False
 
-if len(argv) == 2 and argv[1] == 'debug':
+if 'debug' in argv:
     debug_mode = True
     print(colored("Debug mode is ON.", "red"))
 
-regenerate_mode = False
-
-if len(argv) == 2 and argv[1] == 'regenerate':
+if 'regenerate' in argv:
     regenerate_mode = True
     print(colored("Regenerating all notes.", "yellow"))
 
@@ -29,6 +29,36 @@ def debug_message(name, value):
 
 def format_date(timestamp):
     return datetime.fromtimestamp(timestamp, LOCAL_TZ).strftime('%Y-%m-%dT%H:%M:%S%z')
+
+def math_tex_to_html(tex_str, display_mode=False):
+    katex_command = ["./node_modules/.bin/katex"]
+    
+    if display_mode:
+        katex_command.append('-d')
+
+    if debug_mode:
+        debug_message("tex_str", tex_str)
+        debug_message("display_mode", display_mode)
+
+    APPLY_KATEX = sp.Popen(katex_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+    STDOUT, STDERR = APPLY_KATEX.communicate(input=tex_str.encode("utf-8"))
+
+    if debug_mode:
+        debug_message("STDOUT", STDOUT.decode("utf-8"))
+    
+    if STDERR != b'':
+            print(STDERR.decode("utf-8"))
+            exit(1)
+    
+    return STDOUT.decode("utf-8")[:-1]
+
+MD_MATH_RE = re.compile(r"\$`(.+?)`\$")
+MD_MATH_DISPLAY_RE = re.compile(r"^`{3}math\s+(.+?)\s+`{3}$", flags=re.M)
+
+def apply_math(md_str):
+    md_str = MD_MATH_RE.sub(repl=lambda s: math_tex_to_html(s.group(1), display_mode=False), string=md_str)
+    md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda s: math_tex_to_html(s.group(1), display_mode=True), string=md_str)
+    return md_str
     
 # Variables.
 
@@ -51,6 +81,7 @@ STYLESHEET_PATH     = 'style.css'
 CATEGORIES_PATH     = 'categories.yaml'
 CATEGORY_PATH       = 'category'
 LANGUAGE_PATH       = 'language'
+KATEX_PATH          = 'katex'
 BIN                 = '~/.Trash'
 GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
@@ -177,10 +208,16 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         INPUT_PATH = NOTES_PATH + "/" + perm + MD_EXT
         OUTPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
 
-        pandoc_command = ["pandoc", INPUT_PATH, "-f", "gfm", "-t", "html"]
+        ARTICLE_RAW = open(INPUT_PATH, 'r')
+        ARTICLE_MATH_APPLIED = apply_math(ARTICLE_RAW.read())
+        ARTICLE_RAW.close()
 
-        PARSED = sp.Popen(pandoc_command, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate()
+        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
+
+        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_MATH_APPLIED.encode("utf-8"))
+
+        ARTICLE = STDOUT.decode("utf-8")
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
@@ -220,11 +257,14 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ICONS = "../" + ICONS_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
 
+        KATEX = "../" + KATEX_PATH
+        HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
+
         VISIBILITY = ""        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
-            BLOG_FILE.write(HEAD_FILLED + STDOUT.decode("utf-8") + TAIL_FILLED)
+            BLOG_FILE.write(HEAD_FILLED + ARTICLE + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def delete_blog_note(perm):
@@ -275,6 +315,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         ICONS = "./" + ICONS_PATH
         HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
+
+        KATEX = "./" + KATEX_PATH
+        HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
 
         VISIBILITY = "display: none;"        
         HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
