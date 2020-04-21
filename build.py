@@ -292,7 +292,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     for perm in removed_perm:
         delete_blog_note(perm)
 
-    # Generate index.html. perm of index.html is README.
+    # Generate index.html and more.html.
 
     def get_recent_notes(note_amount):
         notes_perm_title_mdate = [{'perm': key,
@@ -359,7 +359,44 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + RECENT_NOTES_FILLED + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
+    def generate_more():
+        OUTPUT_PATH = MORE_PATH
+
+        REPLACEMENT = {'title': TITLE, 'category': "", 'language': ""}
+        REPLACEMENT.update({
+            'blame_url': '',
+            'issue_url': GITHUB_URL + '/issues/new',
+            'category_url': "",
+            'language_url': "",
+            'mtime_formatted': "",
+            'home_url': "./",
+            'more_url': "./" + MORE_PATH,
+            'stylesheet': "./" + STYLESHEET_PATH,
+            'icons': "./" + ICONS_PATH,
+            'katex': "./" + KATEX_PATH,
+            'highlight': "./" + HIGHLIGHT_PATH,
+            'visibility': "display: none;",
+            'github_url': GITHUB_URL,
+            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'list': get_recent_notes(len(BASE_YAML_LOAD)),
+        })
+
+        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+
+        RECENT_NOTES_FILLED = ""
+
+        with open(HTML_PATH+"/"+MORE_PATH, 'r') as RECENT_NOTES_FILE:
+            RECENT_NOTES_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=RECENT_NOTES_FILE.read())
+
+        with open(OUTPUT_PATH, 'w') as BLOG_FILE:
+            BLOG_FILE.write(HEAD_FILLED + RECENT_NOTES_FILLED + TAIL_FILLED)
+            print(colored("Generated " + OUTPUT_PATH, "green"))
+
     generate_index()
+    generate_more()
 
     # Update list.yaml.
 
