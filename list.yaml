@@ -1,10 +1,40 @@
 fibonacci:
+  blame_url: https://github.com/loudcolour/loudcolour.github.io/blame/master/notes/fibonacci.md
   category: Algorithms
+  category_url: ../category/Algorithms.html
+  github_url: https://github.com/loudcolour/loudcolour.github.io
+  highlight: ../highlight.css
+  home_url: ../
+  icons: ../icons
+  issue_url: "https://github.com/loudcolour/loudcolour.github.io/issues/new?title=[Example\
+    \ NOTE] Fibonacci \uC218 \uAD6C\uD558\uAE30"
+  katex: ../katex
   language: Korean
+  language_url: ../language/Korean.html
+  license_url: https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE
+  more_url: ../more.html
   mtime: 1587390234
+  mtime_formatted: 2020-04-20T22:43:54+0900
+  stylesheet: ../style.css
   title: "[Example NOTE] Fibonacci \uC218 \uAD6C\uD558\uAE30"
+  visibility: ''
 segment_tree:
+  blame_url: https://github.com/loudcolour/loudcolour.github.io/blame/master/notes/segment_tree.md
   category: Algorithms
+  category_url: ../category/Algorithms.html
+  github_url: https://github.com/loudcolour/loudcolour.github.io
+  highlight: ../highlight.css
+  home_url: ../
+  icons: ../icons
+  issue_url: "https://github.com/loudcolour/loudcolour.github.io/issues/new?title=[Example\
+    \ NOTE] Segment Tree\uC5D0 \uB300\uD558\uC5EC"
+  katex: ../katex
   language: Korean
+  language_url: ../language/Korean.html
+  license_url: https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE
+  more_url: ../more.html
   mtime: 1587448584
+  mtime_formatted: 2020-04-21T14:56:24+0900
+  stylesheet: ../style.css
   title: "[Example NOTE] Segment Tree\uC5D0 \uB300\uD558\uC5EC"
+  visibility: ''

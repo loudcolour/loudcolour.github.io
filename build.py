@@ -100,6 +100,7 @@ LANGUAGE_PATH       = 'language'
 KATEX_PATH          = 'katex'
 HIGHLIGHT_PATH      = 'highlight.css'
 BIN                 = '~/.Trash'
+LICENSE             = 'LICENSE_NOTE'
 GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
 
@@ -241,48 +242,28 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(STDERR.decode("utf-8"))
             exit(1)
 
-        full_meta = BASE_YAML_LOAD[perm]
-        HEAD_FILLED = HEAD_LOAD
-        TAIL_FILLED = TAIL_LOAD
-
-        for tag in ['title', 'category', 'language']:
-            HEAD_FILLED = HEAD_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
-            TAIL_FILLED = TAIL_FILLED.replace('{% '+tag+' %}', str(full_meta[tag]))
-
-            if debug_mode:
-                debug_message("replaced", '{% '+tag+' %}')
-                debug_message("full_meta[tag]", full_meta[tag])
-        
-            HEAD_FILLED = HEAD_FILLED.replace('{% mtime_formatted %}', format_date(full_meta['mtime']))
-            TAIL_FILLED = TAIL_FILLED.replace('{% mtime_formatted %}', format_date(full_meta['mtime']))
-
-        urls_meta = {
-            'language_url': "../" + LANGUAGE_PATH + "/" + full_meta['language'] + HTML_EXT, 
-            'category_url': "../" + CATEGORY_PATH + "/" + full_meta['category'] + HTML_EXT,
+        REPLACEMENT = BASE_YAML_LOAD[perm]
+        REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'])
+        REPLACEMENT.update({
+            'language_url': "../" + LANGUAGE_PATH + "/" + REPLACEMENT['language'] + HTML_EXT, 
+            'category_url': "../" + CATEGORY_PATH + "/" + REPLACEMENT['category'] + HTML_EXT,
             'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
             'home_url': "../",
             'more_url': "../" + MORE_PATH,
-            'issue_url': GITHUB_URL + '/issues/new?title=' + full_meta['title']
-        }
+            'issue_url': GITHUB_URL + '/issues/new?title=' + REPLACEMENT['title'],
+            'stylesheet': "../" + STYLESHEET_PATH,
+            'icons': "../" + ICONS_PATH,
+            'katex': "../" + KATEX_PATH,
+            'highlight': "../" + HIGHLIGHT_PATH,
+            'visibility': "",
+            'github_url': GITHUB_URL,
+            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+        })
 
-        for key in urls_meta.keys():
-            HEAD_FILLED = HEAD_FILLED.replace('{% '+key+' %}', urls_meta[key])
-            TAIL_FILLED = TAIL_FILLED.replace('{% '+key+' %}', urls_meta[key])
+        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        STYLESHEET = "../" + STYLESHEET_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% stylesheet %}', STYLESHEET)
-
-        ICONS = "../" + ICONS_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
-
-        KATEX = "../" + KATEX_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
-
-        HIGHLIGHT = "../" + HIGHLIGHT_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% highlight %}', HIGHLIGHT)
-
-        VISIBILITY = ""        
-        HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=HEAD_LOAD)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=TAIL_LOAD) 
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + TAIL_FILLED)
@@ -313,6 +294,18 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
     # Generate index.html. perm of index.html is README.
 
+    def get_recent_notes(note_amount):
+        notes_perm_title_mdate = [{'perm': key,
+                                   'title': BASE_YAML_LOAD[key]['title'],
+                                   'mtime': BASE_YAML_LOAD[key]['mtime']} for key in BASE_YAML_LOAD.keys()]
+        notes_perm_title_mdate.sort(key=lambda dic : dic['mtime'], reverse=True)
+        list_of_recent_notes = notes_perm_title_mdate[:note_amount]
+        list_of_recent_notes = list(map(lambda dic: '<li><a href="'
+                                                    +BLOG_PATH+"/"+dic['perm']
+                                                    +HTML_EXT+'">'+dic['title']
+                                                    +"</a></li>",list_of_recent_notes))
+        return "\n".join(list_of_recent_notes)
+
     def generate_index():
         INPUT_PATH = README + MD_EXT
         OUTPUT_PATH = INDEX
@@ -333,42 +326,34 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(STDERR.decode("utf-8"))
             exit(1)
 
-        HEAD_FILLED = HEAD_LOAD
-        TAIL_FILLED = TAIL_LOAD
-        
-        HEAD_FILLED = HEAD_FILLED.replace('{% title %}', TITLE)
+        REPLACEMENT = {'title': TITLE, 'category': "", 'language': ""}
+        REPLACEMENT.update({
+            'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
+            'issue_url': GITHUB_URL + '/issues/new',
+            'category_url': "",
+            'language_url': "",
+            'mtime_formatted': "",
+            'home_url': "./",
+            'more_url': "./" + MORE_PATH,
+            'stylesheet': "./" + STYLESHEET_PATH,
+            'icons': "./" + ICONS_PATH,
+            'katex': "./" + KATEX_PATH,
+            'highlight': "./" + HIGHLIGHT_PATH,
+            'visibility': "display: none;",
+            'github_url': GITHUB_URL,
+            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'list': get_recent_notes(RECENT_NOTES_AMOUNT),
+        })
 
-        STYLESHEET = "./" + STYLESHEET_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% stylesheet %}', STYLESHEET)
+        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        ICONS = "./" + ICONS_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% icons %}', ICONS)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
 
-        KATEX = "./" + KATEX_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% katex %}', KATEX)
-
-        HIGHLIGHT = "../" + HIGHLIGHT_PATH
-        HEAD_FILLED = HEAD_FILLED.replace('{% highlight %}', HIGHLIGHT)
-
-        VISIBILITY = "display: none;"        
-        HEAD_FILLED = HEAD_FILLED.replace('{% visibility %}', VISIBILITY)
-
-        notes_perm_title_mdate = [{'perm': key,
-                                   'title': BASE_YAML_LOAD[key]['title'],
-                                   'mtime': BASE_YAML_LOAD[key]['mtime']} for key in BASE_YAML_LOAD.keys()]
-        notes_perm_title_mdate.sort(key=lambda dic : dic['mtime'], reverse=True)
-        list_of_recent_notes = notes_perm_title_mdate[:RECENT_NOTES_AMOUNT]
-        list_of_recent_notes = list(map(lambda dic: '<li><a href="'
-                                                    +BLOG_PATH+"/"+dic['perm']
-                                                    +HTML_EXT+'">'+dic['title']
-                                                    +"</a></li>",list_of_recent_notes))
-        RECENT_NOTES = "\n".join(list_of_recent_notes)
         RECENT_NOTES_FILLED = ""
 
         with open(HTML_PATH+"/"+RECENT_NOTES_PATH, 'r') as RECENT_NOTES_FILE:
-            RECENT_NOTES_FILLED = RECENT_NOTES_FILE.read().replace('{% list %}', RECENT_NOTES)
-        
-        RECENT_NOTES_FILLED = RECENT_NOTES_FILLED.replace('{% more_url %}', MORE_PATH)
+            RECENT_NOTES_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=RECENT_NOTES_FILE.read())
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + RECENT_NOTES_FILLED + TAIL_FILLED)
