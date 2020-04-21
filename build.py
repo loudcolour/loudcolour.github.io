@@ -242,7 +242,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(STDERR.decode("utf-8"))
             exit(1)
 
-        REPLACEMENT = BASE_YAML_LOAD[perm]
+        REPLACEMENT = BASE_YAML_LOAD[perm].copy()
         REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'])
         REPLACEMENT.update({
             'language_url': "../" + LANGUAGE_PATH + "/" + REPLACEMENT['language'] + HTML_EXT, 
