@@ -3,6 +3,11 @@ fibonacci:
   language: Korean
   mtime: 1587390234
   title: "[Example NOTE] Fibonacci \uC218 \uAD6C\uD558\uAE30"
+public_domain:
+  category: Copyrights
+  language: Japanese
+  mtime: 1587522446
+  title: "[Example NOTES] \u30D1\u30D6\u30EA\u30C3\u30AF\u30C9\u30E1\u30A4\u30F3"
 segment_tree:
   category: Algorithms
   language: Korean
