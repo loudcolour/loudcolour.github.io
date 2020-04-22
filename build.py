@@ -33,8 +33,8 @@ if 'regenerate' in argv:
 def debug_message(name, value):
     print(colored("Debug message, "+name+": "+str(value), "grey"))
 
-def format_date(timestamp):
-    return datetime.fromtimestamp(timestamp, LOCAL_TZ).strftime('%Y-%m-%dT%H:%M:%S%z')
+def format_date(timestamp, date_format):
+    return datetime.fromtimestamp(timestamp, LOCAL_TZ).strftime(date_format)
 
 def math_tex_to_html(tex_str, display_mode=False):
     katex_command = ["./node_modules/.bin/katex"]
@@ -168,13 +168,13 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     if len_modified != 0:
         print(colored(str(len_modified) + " MODIFICATION(S):", "yellow"))
         for dic in modified_perm_mtime:
-            modified_date = format_date(dic['mtime'])
+            modified_date = format_date(dic['mtime'], '%Y-%m-%dT%H:%M:%S%z')
             print(colored(" - " + dic["perm"] + MD_EXT + " at " + modified_date,"yellow"))
         print("")
     if len_added != 0:
         print(colored(str(len_added) + " ADDITION(S):", "green"))
         for dic in added_perm_mtime:
-            added_date = format_date(dic['mtime'])
+            added_date = format_date(dic['mtime'], '%Y-%m-%dT%H:%M:%S%z')
             print(colored(" - " + dic["perm"] + MD_EXT + " at " + added_date,"green"))
         print("")
 
@@ -254,7 +254,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             exit(1)
 
         REPLACEMENT = BASE_YAML_LOAD[perm].copy()
-        REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'])
+        REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'], '%Y-%m-%dT%H:%M:%S%z')
         REPLACEMENT.update({
             'language_url': "../" + LANGUAGE_PATH + "/" + REPLACEMENT['language'] + HTML_EXT, 
             'category_url': "../" + CATEGORY_PATH + "/" + REPLACEMENT['category'] + HTML_EXT,
@@ -323,7 +323,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         category_link_lambda = lambda dic : location + '/' + CATEGORY_PATH + '/' + dic['category'] + HTML_EXT
 
         dict_to_html_li_lambda = lambda dic : html_li_lambda(
-                                        html_span_lambda('category-button', html_link_lambda(category_link_lambda(dic),dic['category']))
+                                        html_span_lambda('modified-date', format_date(dic['mtime'], '%Y-%m-%d'))
+                                        + " " + html_span_lambda('category-button', html_link_lambda(category_link_lambda(dic),dic['category']))
                                         + " " + html_link_lambda(link_lambda(dic), dic['title']))
 
         list_of_recent_notes = notes_perm_title_mdate[:note_amount]
