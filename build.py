@@ -1,4 +1,4 @@
-from os import listdir, path, system, rename
+from os import listdir, path, system, remove
 from sys import argv
 from datetime import datetime, timezone
 from termcolor import colored
@@ -101,7 +101,6 @@ CATEGORY_PATH       = 'category'
 LANGUAGE_PATH       = 'language'
 KATEX_PATH          = 'katex'
 HIGHLIGHT_PATH      = 'highlight.css'
-BIN                 = '~/.Trash'
 LICENSE             = 'LICENSE_NOTE'
 GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
 RECENT_NOTES_AMOUNT = 5
@@ -277,11 +276,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
     def delete_blog_note(perm):
         INPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
-        OUTPUT_PATH = BIN + "/" + perm + HTML_EXT
 
         if path.isfile(INPUT_PATH):
-            rename(INPUT_PATH, OUTPUT_PATH)
-            print(colored("Moved " + INPUT_PATH + " to bin.", "red"))
+            remove(INPUT_PATH)
+            print(colored("Removed " + INPUT_PATH + ".", "red"))
         else:
             print(colored("Couldn't find "+INPUT_PATH+".","yellow"))
 

@@ -1,10 +1,10 @@
 <!---
-title: '[Example NOTE] Fibonacci 수 구하기'
+title: 'Fibonacci 수'
 language: Korean
-category: Algorithms
+category: Mathematics
 --->
 
-## Fibonacci 수, 수열의 정의
+# Fibonacci 수
 
 Fibonacci 수열은 이전의 두 수의 합이 다음 수를 결정하는 수열으로, 이 수열 $`F_n`$을 초항과
 점화식을 이용하여 나타내면,
