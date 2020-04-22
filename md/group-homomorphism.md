@@ -78,6 +78,6 @@ $`H = \text{O}(n)`$을 들 수 있다.
 전단사 사상이므로, 동형 사상이다.
 - 가역행렬의 행렬식을 사상으로 생각하면,
 $`\text{det}:\text{GL}_n(\R)\to\R^{\times}`$와 같이 나타내어지고,
-두 행렬 $`A, B`$에 대해 $`\text{det}(AB) = \text{det}(A)\text{det}(B)`$
-이므로, 이는 준동형 사상임을 알 수 있다. $`\text{Ker}`$의 정의상
+두 행렬 $`A, B`$에 대해 $`\text{det}(AB) = \text{det}(A)\text{det}(B)`$이므로,
+이는 준동형 사상임을 알 수 있다. $`\text{Ker}`$의 정의상
 $`\text{Ker}(\text{det})`$은 $`\text{SL}_n(\R)`$임을 보일 수 있다.
