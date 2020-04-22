@@ -80,8 +80,8 @@ def apply_code_highlight(md_str):
 
 TITLE = "S. Hyeon"
 
-NOTES_PATH          = 'notes'
-BLOG_PATH           = 'blog'
+NOTES_PATH          = 'md'
+BLOG_PATH           = 'notes'
 HTML_PATH           = 'html'
 ICONS_PATH          = 'icons'
 MD_EXT              = '.md'
