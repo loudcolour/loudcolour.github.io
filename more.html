@@ -39,6 +39,28 @@
 		font-size: inherit;
 	}
 
+	.category-button {
+		background-color: #0366d6;
+		color: white;
+		font-size: 11px;
+		padding: 3px 5px 3px;
+		border-radius: 3px;
+		position: relative;
+		bottom: 1.5px;
+	}
+
+	.category-button a {
+		color: white;
+	}
+
+	.category-button a:hover {
+		text-decoration: none;
+	}
+
+	ul.article-list {
+		list-style: none;
+	}
+
 	@media (max-width: 767px) {
 		.markdown-body {
 			padding: 15px;
@@ -55,8 +77,8 @@
 </p>
 </div>
 <h1>More notes</h1>
-<ul>
-<li><a href="./notes/fibonacci.html">Fibonacci 수열</a></li>
+<ul class="article-list">
+<li><span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <a href="./notes/fibonacci.html">Fibonacci 수열</a></li>
 </ul><div class="hidden">
 <hr>
 <p>

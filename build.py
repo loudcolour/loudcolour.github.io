@@ -2,6 +2,7 @@ from os import listdir, path, system, remove
 from sys import argv
 from datetime import datetime, timezone
 from termcolor import colored
+from functools import reduce
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
@@ -93,6 +94,7 @@ HEAD_PATH           = 'head.html'
 TAIL_PATH           = 'tail.html'
 RECENT_NOTES_PATH   = 'recent_notes.html'
 ARTICLE_LIST_PATH   = 'article_list.html'
+LIST_HTML_PATH      = 'list.html'
 MORE_PATH           = 'more.html'
 CATEGORIES_PATH     = 'categories.html'
 LANGUAGES_PATH      = 'languages.html'
@@ -118,6 +120,10 @@ TAIL_FILE.close()
 ARTICLE_LIST_FILE = open(HTML_PATH + '/' + ARTICLE_LIST_PATH, 'r')
 ARTICLE_LIST_LOAD = ARTICLE_LIST_FILE.read()
 ARTICLE_LIST_FILE.close()
+
+LIST_HTML_FILE = open(HTML_PATH + '/' + LIST_HTML_PATH, 'r')
+LIST_HTML_LOAD = LIST_HTML_FILE.read()
+LIST_HTML_FILE.close()
 
 YAML_FILE = open(LIST_PATH, 'r')
 YAML_LOAD = yaml.safe_load(YAML_FILE)
@@ -298,20 +304,30 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
     # Generate index.html, more.html, category pages, and tag pages.
 
-    def make_html_list(content_list):
-        html_content_list = list(map(lambda content: '<li>'+content+'</li>', content_list))
-        return "\n".join(html_content_list)
+    html_link_lambda = lambda link, content : '<a href="' + link + '">' + content + '</a>'
+    html_span_lambda = lambda css_class, content : '<span class="' + css_class + '">' + content + '</span>'
+    html_li_lambda = lambda content : '<li>' + content + '</li>'
 
-    def get_recent_notes(perm_list, note_amount, link_lambda):
+    line_combine_lambda = lambda li_1, li_2: li_1 + "\n" + li_2
+
+    make_html_list = lambda l : reduce(line_combine_lambda, map(html_li_lambda, l))
+
+    def get_recent_notes(perm_list, note_amount, location):
         notes_perm_title_mdate = [{'perm': perm,
                                    'title': BASE_YAML_LOAD[perm]['title'],
-                                   'mtime': BASE_YAML_LOAD[perm]['mtime']} for perm in perm_list]
+                                   'mtime': BASE_YAML_LOAD[perm]['mtime'],
+                                   'category': BASE_YAML_LOAD[perm]['category']} for perm in perm_list]
         notes_perm_title_mdate.sort(key=lambda dic : dic['mtime'], reverse=True)
-        list_of_recent_notes = notes_perm_title_mdate[:note_amount]
-        list_of_recent_notes = list(map(lambda dic: link_lambda(dic) , list_of_recent_notes))
-        html_list = make_html_list(list_of_recent_notes)
 
-        return html_list
+        link_lambda = lambda dic : location + '/' + BLOG_PATH + '/' + dic['perm'] + HTML_EXT
+        category_link_lambda = lambda dic : location + '/' + CATEGORY_PATH + '/' + dic['category'] + HTML_EXT
+
+        dict_to_html_li_lambda = lambda dic : html_li_lambda(
+                                        html_span_lambda('category-button', html_link_lambda(category_link_lambda(dic),dic['category']))
+                                        + " " + html_link_lambda(link_lambda(dic), dic['title']))
+
+        list_of_recent_notes = notes_perm_title_mdate[:note_amount]
+        return reduce(line_combine_lambda, map(dict_to_html_li_lambda, list_of_recent_notes))
 
     def generate_index():
         INPUT_PATH = README + MD_EXT
@@ -334,7 +350,6 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             exit(1)
 
         REPLACEMENT = {'title': TITLE, 'category': "", 'language': ""}
-        link = lambda dic : '<a href="' + "./" + BLOG_PATH + "/" + dic['perm'] + HTML_EXT +'">'+ dic['title'] + "</a>"
         REPLACEMENT.update({
             'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
             'issue_url': GITHUB_URL + '/issues/new',
@@ -350,7 +365,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'visibility': "display: none;",
             'github_url': GITHUB_URL,
             'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': get_recent_notes(BASE_YAML_LOAD.keys(), RECENT_NOTES_AMOUNT, link),
+            'list': get_recent_notes(BASE_YAML_LOAD.keys(), RECENT_NOTES_AMOUNT, '.'),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -371,7 +386,6 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = MORE_PATH
 
         REPLACEMENT = {'title': 'More notes', 'category': "", 'language': ""}
-        link = lambda dic : '<a href="' + "./" + BLOG_PATH + "/" + dic['perm'] + HTML_EXT +'">'+ dic['title'] + "</a>"
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': GITHUB_URL + '/issues/new',
@@ -387,7 +401,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'visibility': "display: none;",
             'github_url': GITHUB_URL,
             'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), link),
+            'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), '.'),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -450,10 +464,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
         TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
 
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
+        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=LIST_HTML_LOAD)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
-            BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + TAIL_FILLED)
+            BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_language_page():
@@ -483,17 +497,16 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
         TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
 
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
+        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=LIST_HTML_LOAD)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
-            BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + TAIL_FILLED)
+            BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_category_pages(category):
         OUTPUT_PATH = CATEGORY_PATH + '/' + category + HTML_EXT
 
         REPLACEMENT = {'title': category, 'category': '', 'language': ''}
-        link = lambda dic : '<a href="' + "../" + BLOG_PATH + "/" + dic['perm'] + HTML_EXT +'">'+ dic['title'] + "</a>"
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': GITHUB_URL + '/issues/new',
@@ -509,7 +522,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'visibility': "display: none;",
             'github_url': GITHUB_URL,
             'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), link),
+            'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), '..'),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -528,7 +541,6 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = LANGUAGE_PATH + '/' + language + HTML_EXT
 
         REPLACEMENT = {'title': language, 'category': '', 'language': ''}
-        link = lambda dic : '<a href="' + "../" + BLOG_PATH + "/" + dic['perm'] + HTML_EXT +'">'+ dic['title'] + "</a>"
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': GITHUB_URL + '/issues/new',
@@ -544,7 +556,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'visibility': "display: none;",
             'github_url': GITHUB_URL,
             'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), link),
+            'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), '..'),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
