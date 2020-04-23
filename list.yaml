@@ -43,6 +43,11 @@ iphone-se:
   language: Korean
   mtime: 1587643764
   title: iPhone SE
+kana-history:
+  category: Japanese
+  language: Japanese
+  mtime: 1587655548
+  title: "\u6B74\u53F2\u7684\u4EEE\u540D\u9063"
 prime-number:
   category: Mathematics
   language: Korean
