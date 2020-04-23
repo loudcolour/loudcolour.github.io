@@ -48,6 +48,15 @@ language: Korean
 - $p\iff q$: 조건 $p$와 조건 $q$가 서로의 필요충분조건이라는 뜻이다. 즉,
 조건 $p$와 조건 $q$가 동치라는 뜻이다.
 
+## 연산자기호
+
+- $a\mid b$: $a$가 $b$의 약수, 즉 $b$가 $a$의 배수임을 의미한다.
+- $n!$: $n$의 계승(팩토리얼)을 의미한다.
+
+## 기타
+
+- □: 증명이 끝났음을 의미한다.
+
 ## 외부링크
 
 - [Supported Functions](https://katex.org/docs/supported.html):
