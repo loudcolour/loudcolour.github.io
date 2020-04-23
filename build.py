@@ -13,7 +13,7 @@ import yaml
 import tzlocal
 import subprocess as sp
 
-LOCAL_TZ = tzlocal.get_localzone()
+tz = tzlocal.get_localzone()
 
 # Modes.
 
@@ -28,54 +28,22 @@ if 'regenerate' in argv:
     regenerate_mode = True
     print(colored("Regenerating all notes.", "yellow"))
 
-# Misc. Functions.
+# Regex dictionary
+
+re_dict = {
+    'math_display': re.compile(r"^(\${2}\s+.+?\s+\${2})$", flags=re.M|re.S),
+    'math': re.compile(r"(\$.+?\$)"),
+    'code': re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S),
+}
+
+# Global functions.
 
 def debug_message(name, value):
     print(colored("Debug message, "+name+": "+str(value), "grey"))
 
-def format_date(timestamp, date_format):
-    return datetime.fromtimestamp(timestamp, LOCAL_TZ).strftime(date_format)
-
-def math_tex_to_html(tex_str, display_mode=False):
-    katex_command = ["./node_modules/.bin/katex"]
-    
-    if display_mode:
-        katex_command.append('-d')
-
-    if debug_mode:
-        debug_message("tex_str", tex_str)
-        debug_message("display_mode", display_mode)
-
-    APPLY_KATEX = sp.Popen(katex_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-    STDOUT, STDERR = APPLY_KATEX.communicate(input=tex_str.encode("utf-8"))
-
-    if debug_mode:
-        debug_message("STDOUT", STDOUT.decode("utf-8"))
-    
-    if STDERR != b'':
-            print(STDERR.decode("utf-8"))
-            exit(1)
-    
-    return STDOUT.decode("utf-8")[:-1]
-
-MD_MATH_DISPLAY_RE = re.compile(r"^(\${2}\s+.+?\s+\${2})$", flags=re.M|re.S)
-MD_MATH_RE = re.compile(r"(\$.+?\$)")
-
-def apply_math(md_str):
-    md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=True), string=md_str)
-    md_str = MD_MATH_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=False), string=md_str)
-    return md_str
-
-def highlight_code(code, lang):
-    lexer = get_lexer_by_name(lang, stripAll=True)
-    formatter = HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>")
-    return highlight(code, lexer, formatter)
-
-MD_CODE_RE = re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S)
-
-def apply_code_highlight(md_str):
-    md_str = MD_CODE_RE.sub(repl=lambda obj: highlight_code(obj.group(2), obj.group(1)), string=md_str)
-    return md_str
+format_date = lambda ts, df : datetime.fromtimestamp(ts, tz).strftime(df)
+codehl = lambda code, lang : highlight(code, get_lexer_by_name(lang, stripAll=True), HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>"))
+md_to_html_codehl = lambda md_str : re_dict['code'].sub(repl=lambda obj: codehl(obj.group(2), obj.group(1)), string=md_str)
 
 # Variables.
 
@@ -238,16 +206,16 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_RAW.read())
+        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
 
         MATH_DISPLAY_PH = "{{%%%%}}"
         MATH_PH = "{{%%}}"
 
-        T_MATH_DISPLAY = MD_MATH_DISPLAY_RE.findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = MD_MATH_DISPLAY_RE.sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
-        T_MATH = MD_MATH_RE.findall(string=MATH_SAFE)
-        MATH_SAFE = MD_MATH_RE.sub(repl=MATH_PH, string=MATH_SAFE)
+        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
+        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
 
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
@@ -347,16 +315,16 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = INDEX
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_RAW.read())
+        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
 
         MATH_DISPLAY_PH = "{{%%%%}}"
         MATH_PH = "{{%%}}"
 
-        T_MATH_DISPLAY = MD_MATH_DISPLAY_RE.findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = MD_MATH_DISPLAY_RE.sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
-        T_MATH = MD_MATH_RE.findall(string=MATH_SAFE)
-        MATH_SAFE = MD_MATH_RE.sub(repl=MATH_PH, string=MATH_SAFE)
+        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
+        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
 
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
@@ -366,9 +334,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE = STDOUT.decode("utf-8")
 
         for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math_tex_to_html(math, display_mode=True), 1)
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math, 1)
         for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math_tex_to_html(math, display_mode=False), 1)
+            ARTICLE = ARTICLE.replace(MATH_PH, math, 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
