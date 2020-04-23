@@ -201,9 +201,13 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE = STDOUT.decode("utf-8")
 
         for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math, 1)
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math.replace('&', '&amp;')
+                                                           .replace('<', '&lt;')
+                                                           .replace('>', '&gt;'), 1)
         for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math, 1)
+            ARTICLE = ARTICLE.replace(MATH_PH, math.replace('&', '&amp;')
+                                                   .replace('<', '&lt;')
+                                                   .replace('>', '&gt;'), 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
