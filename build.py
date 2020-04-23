@@ -53,35 +53,35 @@ settings_f.close()
 
 # Load files.
 
-HEAD_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['head'], 'r')
-HEAD_LOAD = HEAD_FILE.read()
-HEAD_FILE.close()
+head_f = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['head'], 'r')
+head_l = head_f.read()
+head_f.close()
 
-TAIL_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['tail'], 'r')
-TAIL_LOAD = TAIL_FILE.read()
-TAIL_FILE.close()
+tail_f = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['tail'], 'r')
+tail_l = tail_f.read()
+tail_f.close()
 
-ARTICLE_LIST_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['note_list'], 'r')
-ARTICLE_LIST_LOAD = ARTICLE_LIST_FILE.read()
-ARTICLE_LIST_FILE.close()
+note_list_f = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['note_list'], 'r')
+note_list_l = note_list_f.read()
+note_list_f.close()
 
-LIST_HTML_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['list'], 'r')
-LIST_HTML_LOAD = LIST_HTML_FILE.read()
-LIST_HTML_FILE.close()
+html_part_list_f = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['list'], 'r')
+html_part_list_l = html_part_list_f.read()
+html_part_list_f.close()
 
-YAML_FILE = open(settings['path']['note_list_yaml'], 'r')
-YAML_LOAD = yaml.safe_load(YAML_FILE)
-YAML_FILE.close()
+note_list_yaml_f = open(settings['path']['note_list_yaml'], 'r')
+note_list_yaml_l = yaml.safe_load(note_list_yaml_f)
+note_list_yaml_f.close()
 
 if debug_mode:
-    debug_message("YAML_LOAD", YAML_LOAD)
+    debug_message("note_list_yaml_l", note_list_yaml_l)
 
 new_list_perm = list(filter(lambda s : s[-len(settings['ext']['md']):] == settings['ext']['md'], listdir(path=settings['dir_path']['md'])))
 new_list_perm_mtime = list(map(lambda s : {'perm' : s[:-len(settings['ext']['md'])], 'mtime': int(path.getmtime(settings['dir_path']['md']+"/"+s))}, new_list_perm))
 new_list_perm_mtime.sort(key=lambda dic : dic['mtime'])
 
-old_list_perm = list(YAML_LOAD.keys())
-old_list_perm_mtime = [{'perm': perm, 'mtime': YAML_LOAD[perm]['mtime']} for perm in old_list_perm]
+old_list_perm = list(note_list_yaml_l.keys())
+old_list_perm_mtime = [{'perm': perm, 'mtime': note_list_yaml_l[perm]['mtime']} for perm in old_list_perm]
 old_list_perm_mtime.sort(key=lambda dic : dic['mtime'])
 
 if debug_mode:
@@ -164,7 +164,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
                                                      and not (perm in removed_perm) ), old_list_perm))
     BASE_YAML_LOAD = {}
     for perm in BASE_YAML_LOAD_perm:
-        BASE_YAML_LOAD[perm] = YAML_LOAD[perm]
+        BASE_YAML_LOAD[perm] = note_list_yaml_l[perm]
 
     for dic in modified_or_added_perm_mtime:
         base_dic = get_meta_from_md(dic['perm'])
@@ -229,8 +229,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=TAIL_LOAD) 
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + TAIL_FILLED)
@@ -339,8 +339,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
         RECENT_NOTES_FILLED = ""
 
@@ -375,10 +375,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
+        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + TAIL_FILLED)
@@ -430,10 +430,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
-        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=LIST_HTML_LOAD)
+        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
@@ -463,10 +463,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
-        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=LIST_HTML_LOAD)
+        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
@@ -496,10 +496,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
+        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
         CATEGORY_LINK = "<a href='"+ "../" + settings['path']['categories'] +"'>List of categories</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
@@ -530,10 +530,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=HEAD_LOAD)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
+        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
+        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
 
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
+        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
         LANGUAGE_LINK = "<a href='"+ "../" + settings['path']['languages'] +"'>List of languages</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
@@ -553,8 +553,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
     BASE_YAML_FILE = yaml.safe_dump(BASE_YAML_LOAD)
 
-    with open(settings['path']['note_list_yaml'], 'w') as YAML_FILE:
-        YAML_FILE.write(BASE_YAML_FILE)
+    with open(settings['path']['note_list_yaml'], 'w') as note_list_yaml_f:
+        note_list_yaml_f.write(BASE_YAML_FILE)
         if not regenerate_mode:
             print(colored("Total " + str(len_modified+len_added+len_removed) + " change(s) applied.", 'green'))
 
