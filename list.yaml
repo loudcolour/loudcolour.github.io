@@ -1,12 +1,12 @@
 axiom-of-choice:
   category: Mathematics
   language: Korean
-  mtime: 1587559058
+  mtime: 1587607966
   title: "\uC120\uD0DD \uACF5\uB9AC"
 basel-problem:
   category: Mathematics
   language: Korean
-  mtime: 1587564576
+  mtime: 1587608355
   title: "Basel \uBB38\uC81C"
 eco-socialism:
   category: Eco-socialism
@@ -16,12 +16,12 @@ eco-socialism:
 fibonacci:
   category: Mathematics
   language: Korean
-  mtime: 1587535434
+  mtime: 1587608149
   title: "Fibonacci \uC218\uC5F4"
 group-homomorphism:
   category: Mathematics
   language: Korean
-  mtime: 1587557476
+  mtime: 1587608192
   title: "\uAD70\uC758 \uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
 hammerspoon:
   category: macOS
@@ -31,5 +31,5 @@ hammerspoon:
 python-re:
   category: Programming
   language: Korean
-  mtime: 1587554958
+  mtime: 1587569110
   title: "Python\uACFC \uC815\uADDC\uD45C\uD604\uC2DD"

@@ -7,8 +7,8 @@ category: Mathematics
 # Fibonacci 수열
 
 Fibonacci 수열은 이전의 두 항의 합이 다음 항과 같은 수열이다.
-이 수열 $`F_n`$을 초항과 점화식을 이용하여 나타내면,
-$`F_0 = 0`$, $`F_1 = 1`$에 $`F_{n+2} - F_{n+1} - F_{n}=0`$과 같이 나타내어진다.
+이 수열 $F_n$을 초항과 점화식을 이용하여 나타내면,
+$F_0 = 0$, $F_1 = 1$에 $F_{n+2} - F_{n+1} - F_{n}=0$과 같이 나타내어진다.
 
 ## 선형점화식과 행렬
 
@@ -22,24 +22,24 @@ $`F_0 = 0`$, $`F_1 = 1`$에 $`F_{n+2} - F_{n+1} - F_{n}=0`$과 같이 나타내�
 
 구체적으로, 다음과 같은 선형변환을 정의하자.
 
-```math T_A:\R^2\to\R^2 ```
+$$ T_A:\R^2\to\R^2 $$
 
-```math \begin{bmatrix}F_{n+1}\\F_{n}\end{bmatrix}\mapsto\begin{bmatrix}F_{n+2}\\F_{n+1}\end{bmatrix} ```
+$$ \begin{bmatrix}F_{n+1}\\F_{n}\end{bmatrix}\mapsto\begin{bmatrix}F_{n+2}\\F_{n+1}\end{bmatrix} $$
 
-이 선형변환에 대응하는 2차 행렬 $`A`$는 위에서 정의된 점화식에 의해,
-$`A=\begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix}`$임을 알 수 있다.
+이 선형변환에 대응하는 2차 행렬 $A$는 위에서 정의된 점화식에 의해,
+$A=\begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix}$임을 알 수 있다.
 
-```math \begin{bmatrix}F_{n}\\F_{n-1}\end{bmatrix}=T_A\left(\begin{bmatrix}F_{n-1}\\F_{n-2}\end{bmatrix}\right)=\cdots={T_A}^{n-1}\left(\begin{bmatrix}F_{1}\\F_{0}\end{bmatrix}\right) ```
+$$ \begin{bmatrix}F_{n}\\F_{n-1}\end{bmatrix}=T_A\left(\begin{bmatrix}F_{n-1}\\F_{n-2}\end{bmatrix}\right)=\cdots={T_A}^{n-1}\left(\begin{bmatrix}F_{1}\\F_{0}\end{bmatrix}\right) $$
 
 위 식을 대응하는 행렬의 거듭제곱 형태로 변환하면,
 
-```math \begin{bmatrix}F_{n}\\F_{n-1}\end{bmatrix}={A}^{n-1}\begin{bmatrix}1\\0\end{bmatrix} ```
+$$ \begin{bmatrix}F_{n}\\F_{n-1}\end{bmatrix}={A}^{n-1}\begin{bmatrix}1\\0\end{bmatrix} $$
 
 으로 나타내어진다. 실제로 이 행렬의 거듭제곱을 일반항으로 구하면,
 Fibonacci 수열의 일반항을 유도할 수 있다.
 실제로 구하여지는 일반항은 다음과 같다.
 
-```math \frac1{\sqrt5}\left(\left(\frac{1+\sqrt5}2\right)^n-\left(\frac{1-\sqrt5}2\right)^n\right) ```
+$$ \frac1{\sqrt5}\left(\left(\frac{1+\sqrt5}2\right)^n-\left(\frac{1-\sqrt5}2\right)^n\right) $$
 
 ## Python으로 구현
 

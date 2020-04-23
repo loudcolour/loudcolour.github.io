@@ -58,12 +58,12 @@ def math_tex_to_html(tex_str, display_mode=False):
     
     return STDOUT.decode("utf-8")[:-1]
 
-MD_MATH_RE = re.compile(r"\$`(.+?)`\$")
-MD_MATH_DISPLAY_RE = re.compile(r"^`{3}math\s+(.+?)\s+`{3}$", flags=re.M|re.S)
+MD_MATH_DISPLAY_RE = re.compile(r"^\${2}\s+(.+?)\s+\${2}$", flags=re.M|re.S)
+MD_MATH_RE = re.compile(r"\$(.+?)\$")
 
 def apply_math(md_str):
-    md_str = MD_MATH_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=False), string=md_str)
     md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=True), string=md_str)
+    md_str = MD_MATH_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=False), string=md_str)
     return md_str
 
 def highlight_code(code, lang):
@@ -238,16 +238,28 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_MATH_APPLIED = apply_math(ARTICLE_RAW.read())
+        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
-        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_MATH_APPLIED)
-        
+
+        MATH_DISPLAY_PH = "{{%%%%}}"
+        MATH_PH = "{{%%}}"
+
+        T_MATH_DISPLAY = MD_MATH_DISPLAY_RE.findall(string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = MD_MATH_DISPLAY_RE.sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        T_MATH = MD_MATH_RE.findall(string=MATH_SAFE)
+        MATH_SAFE = MD_MATH_RE.sub(repl=MATH_PH, string=MATH_SAFE)
+
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
         PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_HIGHLIGHT_APPLIED.encode("utf-8"))
+        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8"))
 
         ARTICLE = STDOUT.decode("utf-8")
+
+        for math in T_MATH_DISPLAY:
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math_tex_to_html(math, display_mode=True), 1)
+        for math in T_MATH:
+            ARTICLE = ARTICLE.replace(MATH_PH, math_tex_to_html(math, display_mode=False), 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
@@ -335,16 +347,28 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         OUTPUT_PATH = INDEX
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_MATH_APPLIED = apply_math(ARTICLE_RAW.read())
+        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
-        ARTICLE_HIGHLIGHT_APPLIED = apply_code_highlight(ARTICLE_MATH_APPLIED)
+
+        MATH_DISPLAY_PH = "{{%%%%}}"
+        MATH_PH = "{{%%}}"
+
+        T_MATH_DISPLAY = MD_MATH_DISPLAY_RE.findall(string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = MD_MATH_DISPLAY_RE.sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        T_MATH = MD_MATH_RE.findall(string=MATH_SAFE)
+        MATH_SAFE = MD_MATH_RE.sub(repl=MATH_PH, string=MATH_SAFE)
 
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
         PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=ARTICLE_HIGHLIGHT_APPLIED.encode("utf-8"))
+        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8"))
 
         ARTICLE = STDOUT.decode("utf-8")
+
+        for math in T_MATH_DISPLAY:
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math_tex_to_html(math, display_mode=True), 1)
+        for math in T_MATH:
+            ARTICLE = ARTICLE.replace(MATH_PH, math_tex_to_html(math, display_mode=False), 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
