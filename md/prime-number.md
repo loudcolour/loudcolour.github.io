@@ -71,3 +71,4 @@ $\{n\}_{n\in\N}$의 연속부분열인 $(N+1)!+2, (N+1)!+3, \ldots, (N+1)!+(N+1)
 ## 특수한 소수
 
 - $2$: 가장 작은 양의 소수이다.
+- ~~$57$: [Grothendieck 소수](https://en.wikipedia.org/wiki/57_(number)#In_mathematics).~~
