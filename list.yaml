@@ -8,6 +8,11 @@ basel-problem:
   language: Korean
   mtime: 1587608355
   title: "Basel \uBB38\uC81C"
+countable-set:
+  category: Mathematics
+  language: Korean
+  mtime: 1587646603
+  title: "\uC9D1\uD569\uC758 \uB18D\uB3C4\uC640 \uAC00\uC0B0\uC9D1\uD569"
 dn-lcm:
   category: Mathematics
   language: Korean
@@ -33,8 +38,18 @@ hammerspoon:
   language: Korean
   mtime: 1587632998
   title: Hammerspoon
+iphone-se:
+  category: Life
+  language: Korean
+  mtime: 1587643764
+  title: iPhone SE
 python-re:
   category: Programming
   language: Korean
   mtime: 1587569110
   title: "Python\uACFC \uC815\uADDC\uD45C\uD604\uC2DD"
+signs:
+  category: Mathematics
+  language: Korean
+  mtime: 1587646265
+  title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"

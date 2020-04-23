@@ -22,7 +22,7 @@
 <script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
 <link rel="stylesheet" href="../katex/katex.min.css">
 <link rel="stylesheet" href="../highlight.css">
-<title>Korean</title>
+<title>기호에 관한 약속</title>
 
 <style>
 	.markdown-body {
@@ -34,7 +34,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 	.license {
@@ -107,28 +107,62 @@
 <article class="markdown-body">
 <div class="hidden">
 <p class="align-right">
-<a href="../">Home</a> | <a href="../more.html">More notes</a> | <a href="">Blame</a> |
-<a href="https://github.com/loudcolour/loudcolour.github.io/issues/new">Make an issue</a>
+<a href="../">Home</a> | <a href="../more.html">More notes</a> | <a href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/signs.md">Blame</a> |
+<a href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=기호에 관한 약속">Make an issue</a>
 </p>
 </div>
-<h1>Korean</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/countable-set.html">집합의 농도와 가산집합</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/signs.html">기호에 관한 약속</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Life.html">Life</a></span> <a href="../notes/iphone-se.html">iPhone SE</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/macOS.html">macOS</a></span> <a href="../notes/hammerspoon.html">Hammerspoon</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/basel-problem.html">Basel 문제</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/group-homomorphism.html">군의 준동형과 동형</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/fibonacci.html">Fibonacci 수열</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/axiom-of-choice.html">선택 공리</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Programming.html">Programming</a></span> <a href="../notes/python-re.html">Python과 정규표현식</a></li>
-<li><span class="modified-date">2020-04-22</span> <span class="category-button"><a href="../category/Eco-socialism.html">Eco-socialism</a></span> <a href="../notes/eco-socialism.html">생태사회주의</a></li>
-</ul><a href='../languages.html'>List of languages</a><div class="hidden">
+<!---
+title: '기호에 관한 약속'
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="기호에-관한-약속">기호에 관한 약속</h1>
+<p>혼란을 방지하기 위해, 노트들에서 사용되는 몇가지 기호들의 의미를 정리하여 둔다.</p>
+<h2 id="집합-사상">집합, 사상</h2>
+<ul>
+<li><p>$\emptyset$: 공집합, 즉 어떤 원소도 속하지 않는 집합이다.</p></li>
+<li><p>$\N$: 자연수 전체의 집합이다. 여기서 자연수는 $0$를 포함하는 것으로 한다.</p>
+<ul>
+<li>$n\N$: $n\N = \{nx|x\in\N\}$</li>
+</ul></li>
+<li><p>$\Z$: 정수 전체의 집합이다.</p>
+<ul>
+<li>$n\Z$: $n\Z = \{nx|x\in\Z\}$</li>
+</ul></li>
+<li><p>$\mathbb{Q}$: 유리수 전체의 집합이다.</p></li>
+<li><p>$\R$: 실수 전체의 집합이다.</p>
+<ul>
+<li>$\R^{+}$: 양의 실수 전체의 집합이다.</li>
+<li>$\R^{-}$: 음의 실수 전체의 집합이다.</li>
+</ul></li>
+<li><p>$\Complex$: 복소수 전체의 집합이다.</p></li>
+<li><p>$a\in A$: $a$가 집합 $A$의 원소라는 뜻이다.</p></li>
+<li><p>$A\subset B$: 집합 $A$가 집합 $B$의 부분집합이라는 뜻이다.</p></li>
+<li><p>$\mathscr{P}(A)$ 혹은 $2^A$: 집합 $A$의 부분집합 전체의 집합이다.</p></li>
+<li><p>$\forall x \in X$: "집합 $X$에 속하는 모든 $x$는"이라는 뜻이다.</p></li>
+<li><p>$\exists x \in X$: "집합 $X$에 속하는 어떤 $x$는"이라는 뜻이다.</p></li>
+<li><p>$f: A\to B$: "$f$는 $A$를 정의역, $B$를 공역으로 하는 사상이다"라는 뜻이다.</p></li>
+<li><p>$f: x\mapsto y$: "사상 $f$에 의해 $x$는 $y$에 대응한다"라는 뜻이다.</p></li>
+</ul>
+<h2 id="논리기호">논리기호</h2>
+<ul>
+<li>$\lnot p$: 명제 혹은 조건 $p$의 부정이다.</li>
+<li>$p\land q$: 조건 $p$인 동시에 조건 $q$라는 뜻이다.</li>
+<li>$p\lor q$: 조건 $p$ 혹은 조건 $q$라는 뜻이다.</li>
+<li>$p\longrightarrow q$: 조건 $p$인 경우에 조건 $q$"라는 뜻이다. $\neg p\lor q$와 상등하다.</li>
+<li>$p\implies q$: 조건 $p$가 조건 $q$의 충분조건(혹은 조건 $q$가 조건 $p$의 필요조건) 이라는 뜻이다.</li>
+<li>$p\iff q$: 조건 $p$와 조건 $q$가 서로의 필요충분조건이라는 뜻이다. 즉, 조건 $p$와 조건 $q$가 동치라는 뜻이다.</li>
+</ul>
+<h2 id="외부링크">외부링크</h2>
+<ul>
+<li><a href="https://katex.org/docs/supported.html">Supported Functions</a>: 위 기호들을 $\KaTeX$로 입력할 때 참고할 수 있는 문서이다.</li>
+</ul>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-04-23T21:51:05+0900</code></a>
 </p>
 </div>
 <hr>
