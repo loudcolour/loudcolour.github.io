@@ -48,6 +48,11 @@ kana-history:
   language: Japanese
   mtime: 1587660403
   title: "\u6B74\u53F2\u7684\u4EEE\u540D\u9063"
+law-of-excluded-middle:
+  category: Mathematics
+  language: Korean
+  mtime: 1587686094
+  title: "\uBC30\uC911\uB960"
 prime-number:
   category: Mathematics
   language: Korean
