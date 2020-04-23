@@ -129,7 +129,29 @@ $$</p>
 <h2 id="소수는-무한히-존재한다">소수는 무한히 존재한다</h2>
 <p>가장 작은 소수인 $2$부터, 오름차순으로 소수들을 $2, 3, 5, 7, 11,\ldots$와 같이 나열할 수 있다. 그리고 이 수열은 끝나지 않는다. 소수는 무한히 존재하기 때문이다.</p>
 <p><strong>정리</strong>. 소수는 무한히 존재한다.</p>
-<p><em>증명</em>. 소수가 총 $N$개 존재하여 유한하다고 가정하고, 최소의 소수부터 최대의 소수가 오름차순이 되도록 나열한 것을 $p_1, p_2, \ldots, p_N$이라고 하자. $P:=p_1p_2\cdots p_N+1$으로 두면, $P$는 소수가 아니므로 합성수일 것이고, $p_i\mid P$인 $i\in\{1,2,\ldots,N\}$이 존재할 것이다. 따라서 $p_i | 1 = P - p_1p_2\cdots p_N$여야 하나, 이를 만족하는 소수는 만족하지 않으므로 모순이다. 따라서 소수는 무한히 존재한다. □</p>
+<p><em>증명</em>(Euclid의 증명). 소수가 총 $N$개 존재하여 유한하다고 가정하고, 최소의 소수부터 최대의 소수가 오름차순이 되도록 나열한 것을 $p_1, p_2, \ldots, p_N$이라고 하자. $P:=p_1p_2\cdots p_N+1$으로 두면, $P$는 소수가 아니므로 합성수일 것이고, $p_i\mid P$인 $i\in\{1,2,\ldots,N\}$이 존재할 것이다. 따라서 $p_i | 1 = P - p_1p_2\cdots p_N$여야 하나, 이를 만족하는 소수는 만족하지 않으므로 모순이다. 따라서 소수는 무한히 존재한다. □</p>
+<p><em>증명</em>(Euler의 증명). 크기 오름차순으로 소수를 나열했을 때, $n$번째의 소수를 $p_n$으로 두자. $p_n\geq2$이므로, $s&gt;1$에 대해 $0&lt;p_n^{-s}&lt;1$이다. 따라서</p>
+<p>$$
+\begin{aligned}
+\left(1-p_n^{-s}\right)^{-1} &amp;= \sum_{j=0}^{\infty}p_n^{-js} \\
+\prod_{n=1}^{N}\left(1-p_n^{-s}\right)^{-1} &amp;=
+\left(\sum_{j_1=0}^{\infty}p_1^{-j_1s}\right)
+\cdots
+\left(\sum_{j_N=0}^{\infty}p_N^{-j_Ns}\right) \\
+&amp;=\sum_{\left(j_1,\ldots,j_N\right)\in\N^{N}}
+\left(p_1^{j_1}\cdots p_N^{j_N}\right)^{-s}
+\end{aligned}
+$$</p>
+<p>모든 자연수는 각자의 소인수분해에 일의적으로 대응한다는 사실을 통해, 위 식에서</p>
+<p>$$
+\prod_{n=1}^{N}\left(1-p_n^{-s}\right)^{-1} = \sum_{n=1}^{\infty}n^{-s}
+$$</p>
+<p>를 유도할 수 있다. 이 식의 좌변을 흔히 zeta 함수 $\zeta(s)$의 오일러 곱 표기라고 부른다. 또한, $n\in\N\setminus{0}$에 대하여 $n^{-s}\geq\int_{n}^{n+1}x^{-s}\,dx$가 성립하므로,</p>
+<p>$$
+\zeta(s) = \sum_{n=1}^{\infty}n^{-s}\geq \int_{1}^{\infty}x^{-s}\, dx
+= \left[\frac{x^{1-s}}{1-s}\right]^{\infty}_{1} = \frac{1}{1-s}
+$$</p>
+<p>임을 알 수 있다. 즉, $s\to1+0$일 때, $\zeta(s)\to\infty$이다. 만약 소수가 유한개인 $N$개 존재한다면, $\lim_{s\to1+0}\prod_{n=1}^{N}\left(1-p_n^{-s}\right)^{-1}$은 발산하지 않을 것이다. 하지만 $\lim_{s\to1+0}\zeta(s)=\lim_{s\to1+0}\sum_{n=1}^{\infty}n^{-s}$가 발산함은 이미 보여졌으므로, 이는 모순이다. 따라서 소수는 무한개 존재한다. □</p>
 <p>위 정리에 따르면, 소수는 무한히 존재하므로, 적당한 $n\in\N$을 잡으면, $p\geq n$인 소수 $p$가 항상 존재할 것이다. 그러나 그 소수가 생각한 만큼 가까이에 있으리라는 보장은 없다. 아래에서는 그러한 경우와 관련하여 소수 사막에 대해 설명할 것이다.</p>
 <h2 id="소수-사막">소수 사막</h2>
 <p><strong>정리</strong>(소수 사막의 존재). $\forall N\in\N$에 대해, 수열 $\{n\}_{n\in\N}=\{0,1,2,3,\ldots\}$ 중 합성수가 연속하여 $N$번 등장하는 부분(소수 사막)이 존재한다.</p>
@@ -145,7 +167,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-24T00:14:22+0900</code></a>
+    Last modified: <code>2020-04-24T01:44:37+0900</code></a>
 </p>
 </div>
 <hr>

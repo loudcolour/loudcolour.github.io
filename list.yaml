@@ -46,12 +46,12 @@ iphone-se:
 kana-history:
   category: Japanese
   language: Japanese
-  mtime: 1587655548
+  mtime: 1587655665
   title: "\u6B74\u53F2\u7684\u4EEE\u540D\u9063"
 prime-number:
   category: Mathematics
   language: Korean
-  mtime: 1587654862
+  mtime: 1587660277
   title: "\uC18C\uC218"
 python-re:
   category: Programming
