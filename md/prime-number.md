@@ -77,7 +77,7 @@ $$
 
 $$
 \zeta(s) = \sum_{n=1}^{\infty}n^{-s}\geq \int_{1}^{\infty}x^{-s}\, dx
-= \left[\frac{x^{1-s}}{1-s}\right]^{\infty}_{1} = \frac{1}{1-s}
+= \left[\frac{x^{1-s}}{1-s}\right]^{\infty}_{1} = -\frac{1}{1-s}
 $$
 
 임을 알 수 있다. 즉, $s\to1+0$일 때, $\zeta(s)\to\infty$이다.
