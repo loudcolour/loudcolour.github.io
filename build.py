@@ -58,8 +58,8 @@ def math_tex_to_html(tex_str, display_mode=False):
     
     return STDOUT.decode("utf-8")[:-1]
 
-MD_MATH_DISPLAY_RE = re.compile(r"^\${2}\s+(.+?)\s+\${2}$", flags=re.M|re.S)
-MD_MATH_RE = re.compile(r"\$(.+?)\$")
+MD_MATH_DISPLAY_RE = re.compile(r"^(\${2}\s+.+?\s+\${2})$", flags=re.M|re.S)
+MD_MATH_RE = re.compile(r"(\$.+?\$)")
 
 def apply_math(md_str):
     md_str = MD_MATH_DISPLAY_RE.sub(repl=lambda obj: math_tex_to_html(obj.group(1), display_mode=True), string=md_str)
@@ -257,9 +257,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE = STDOUT.decode("utf-8")
 
         for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math_tex_to_html(math, display_mode=True), 1)
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math, 1)
         for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math_tex_to_html(math, display_mode=False), 1)
+            ARTICLE = ARTICLE.replace(MATH_PH, math, 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
