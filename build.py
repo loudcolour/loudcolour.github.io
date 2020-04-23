@@ -45,63 +45,39 @@ format_date = lambda ts, df : datetime.fromtimestamp(ts, tz).strftime(df)
 codehl = lambda code, lang : highlight(code, get_lexer_by_name(lang, stripAll=True), HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>"))
 md_to_html_codehl = lambda md_str : re_dict['code'].sub(repl=lambda obj: codehl(obj.group(2), obj.group(1)), string=md_str)
 
-# Variables.
+# Load settings.yaml
 
-TITLE = "S. Hyeon"
-
-NOTES_PATH          = 'md'
-BLOG_PATH           = 'notes'
-HTML_PATH           = 'html'
-ICONS_PATH          = 'icons'
-MD_EXT              = '.md'
-HTML_EXT            = '.html'
-INDEX               = 'index.html'
-README              = 'README'
-LIST_PATH           = 'list.yaml'
-HEAD_PATH           = 'head.html'
-TAIL_PATH           = 'tail.html'
-RECENT_NOTES_PATH   = 'recent_notes.html'
-ARTICLE_LIST_PATH   = 'article_list.html'
-LIST_HTML_PATH      = 'list.html'
-MORE_PATH           = 'more.html'
-CATEGORIES_PATH     = 'categories.html'
-LANGUAGES_PATH      = 'languages.html'
-STYLESHEET_PATH     = 'style.css'
-CATEGORY_PATH       = 'category'
-LANGUAGE_PATH       = 'language'
-KATEX_PATH          = 'katex'
-HIGHLIGHT_PATH      = 'highlight.css'
-LICENSE             = 'LICENSE_NOTE'
-GITHUB_URL          = 'https://github.com/loudcolour/loudcolour.github.io'
-RECENT_NOTES_AMOUNT = 5
+settings_f = open("settings.yaml", 'r')
+settings = yaml.safe_load(settings_f.read())
+settings_f.close()
 
 # Load files.
 
-HEAD_FILE = open(HTML_PATH + '/' + HEAD_PATH, 'r')
+HEAD_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['head'], 'r')
 HEAD_LOAD = HEAD_FILE.read()
 HEAD_FILE.close()
 
-TAIL_FILE = open(HTML_PATH + '/' + TAIL_PATH, 'r')
+TAIL_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['tail'], 'r')
 TAIL_LOAD = TAIL_FILE.read()
 TAIL_FILE.close()
 
-ARTICLE_LIST_FILE = open(HTML_PATH + '/' + ARTICLE_LIST_PATH, 'r')
+ARTICLE_LIST_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['note_list'], 'r')
 ARTICLE_LIST_LOAD = ARTICLE_LIST_FILE.read()
 ARTICLE_LIST_FILE.close()
 
-LIST_HTML_FILE = open(HTML_PATH + '/' + LIST_HTML_PATH, 'r')
+LIST_HTML_FILE = open(settings['dir_path']['html_part'] + '/' + settings['path']['html_part']['list'], 'r')
 LIST_HTML_LOAD = LIST_HTML_FILE.read()
 LIST_HTML_FILE.close()
 
-YAML_FILE = open(LIST_PATH, 'r')
+YAML_FILE = open(settings['path']['note_list_yaml'], 'r')
 YAML_LOAD = yaml.safe_load(YAML_FILE)
 YAML_FILE.close()
 
 if debug_mode:
     debug_message("YAML_LOAD", YAML_LOAD)
 
-new_list_perm = list(filter(lambda s : s[-len(MD_EXT):] == MD_EXT, listdir(path=NOTES_PATH)))
-new_list_perm_mtime = list(map(lambda s : {'perm' : s[:-len(MD_EXT)], 'mtime': int(path.getmtime(NOTES_PATH+"/"+s))}, new_list_perm))
+new_list_perm = list(filter(lambda s : s[-len(settings['ext']['md']):] == settings['ext']['md'], listdir(path=settings['dir_path']['md'])))
+new_list_perm_mtime = list(map(lambda s : {'perm' : s[:-len(settings['ext']['md'])], 'mtime': int(path.getmtime(settings['dir_path']['md']+"/"+s))}, new_list_perm))
 new_list_perm_mtime.sort(key=lambda dic : dic['mtime'])
 
 old_list_perm = list(YAML_LOAD.keys())
@@ -137,13 +113,13 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         print(colored(str(len_modified) + " MODIFICATION(S):", "yellow"))
         for dic in modified_perm_mtime:
             modified_date = format_date(dic['mtime'], '%Y-%m-%dT%H:%M:%S%z')
-            print(colored(" - " + dic["perm"] + MD_EXT + " at " + modified_date,"yellow"))
+            print(colored(" - " + dic["perm"] + settings['ext']['md'] + " at " + modified_date,"yellow"))
         print("")
     if len_added != 0:
         print(colored(str(len_added) + " ADDITION(S):", "green"))
         for dic in added_perm_mtime:
             added_date = format_date(dic['mtime'], '%Y-%m-%dT%H:%M:%S%z')
-            print(colored(" - " + dic["perm"] + MD_EXT + " at " + added_date,"green"))
+            print(colored(" - " + dic["perm"] + settings['ext']['md'] + " at " + added_date,"green"))
         print("")
 
     base_list_old = list(filter(lambda dic : (not (dic['perm'] in modified_or_added_perm )), old_list_perm_mtime))
@@ -168,13 +144,13 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     if len_removed != 0:
         print(colored(str(len_removed) + " REMOVE(S):", "red"))
         for note in removed_perm_mtime:
-            print(colored(" - " + note["perm"] + MD_EXT, "red"))
+            print(colored(" - " + note["perm"] + settings['ext']['md'], "red"))
         print("")
 
     # Get new tag data.
 
     def get_meta_from_md(perm):
-        INPUT_PATH = NOTES_PATH + "/" + perm + MD_EXT
+        INPUT_PATH = settings['dir_path']['md'] + "/" + perm + settings['ext']['md']
         with open(INPUT_PATH, 'r') as MD_FILE:
             yaml_str = "\n".join(MD_FILE.readlines()[1:4])
             meta = yaml.safe_load(yaml_str)
@@ -202,8 +178,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     # Generate or delete notes.
 
     def generate_blog_note(perm):
-        INPUT_PATH = NOTES_PATH + "/" + perm + MD_EXT
-        OUTPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
+        INPUT_PATH = settings['dir_path']['md'] + "/" + perm + settings['ext']['md']
+        OUTPUT_PATH = settings['dir_path']['notes'] + "/" + perm + settings['ext']['html']
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
         ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
@@ -236,19 +212,19 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT = BASE_YAML_LOAD[perm].copy()
         REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'], '%Y-%m-%dT%H:%M:%S%z')
         REPLACEMENT.update({
-            'language_url': "../" + LANGUAGE_PATH + "/" + REPLACEMENT['language'] + HTML_EXT, 
-            'category_url': "../" + CATEGORY_PATH + "/" + REPLACEMENT['category'] + HTML_EXT,
-            'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
+            'language_url': "../" + settings['dir_path']['language'] + "/" + REPLACEMENT['language'] + settings['ext']['html'], 
+            'category_url': "../" + settings['dir_path']['category'] + "/" + REPLACEMENT['category'] + settings['ext']['html'],
+            'blame_url': settings['github_repo'] + '/blame/master/' + INPUT_PATH,
             'home_url': "../",
-            'more_url': "../" + MORE_PATH,
-            'issue_url': GITHUB_URL + '/issues/new?title=' + REPLACEMENT['title'],
-            'stylesheet': "../" + STYLESHEET_PATH,
-            'icons': "../" + ICONS_PATH,
-            'katex': "../" + KATEX_PATH,
-            'highlight': "../" + HIGHLIGHT_PATH,
+            'more_url': "../" + settings['path']['more'],
+            'issue_url': settings['github_repo'] + '/issues/new?title=' + REPLACEMENT['title'],
+            'stylesheet': "../" + settings['path']['stylesheet'],
+            'icons': "../" + settings['dir_path']['icons'],
+            'katex': "../" + settings['dir_path']['katex'],
+            'highlight': "../" + settings['path']['highlight'],
             'visibility': "",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -261,7 +237,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def delete_blog_note(perm):
-        INPUT_PATH = BLOG_PATH + "/" + perm + HTML_EXT
+        INPUT_PATH = settings['dir_path']['notes'] + "/" + perm + settings['ext']['html']
 
         if path.isfile(INPUT_PATH):
             remove(INPUT_PATH)
@@ -299,8 +275,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
                                    'category': BASE_YAML_LOAD[perm]['category']} for perm in perm_list]
         notes_perm_title_mdate.sort(key=lambda dic : dic['mtime'], reverse=True)
 
-        link_lambda = lambda dic : location + '/' + BLOG_PATH + '/' + dic['perm'] + HTML_EXT
-        category_link_lambda = lambda dic : location + '/' + CATEGORY_PATH + '/' + dic['category'] + HTML_EXT
+        link_lambda = lambda dic : location + '/' + settings['dir_path']['notes'] + '/' + dic['perm'] + settings['ext']['html']
+        category_link_lambda = lambda dic : location + '/' + settings['dir_path']['category'] + '/' + dic['category'] + settings['ext']['html']
 
         dict_to_html_li_lambda = lambda dic : html_li_lambda(
                                         html_span_lambda('modified-date', format_date(dic['mtime'], '%Y-%m-%d'))
@@ -311,8 +287,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         return reduce(line_combine_lambda, map(dict_to_html_li_lambda, list_of_recent_notes))
 
     def generate_index():
-        INPUT_PATH = README + MD_EXT
-        OUTPUT_PATH = INDEX
+        INPUT_PATH = settings['path']['readme']
+        OUTPUT_PATH = settings['path']['index']
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
         ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
@@ -342,23 +318,23 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(STDERR.decode("utf-8"))
             exit(1)
 
-        REPLACEMENT = {'title': TITLE, 'category': "", 'language': ""}
+        REPLACEMENT = {'title': settings['title'], 'category': "", 'language': ""}
         REPLACEMENT.update({
-            'blame_url': GITHUB_URL + '/blame/master/' + INPUT_PATH,
-            'issue_url': GITHUB_URL + '/issues/new',
+            'blame_url': settings['github_repo'] + '/blame/master/' + INPUT_PATH,
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "./",
-            'more_url': "./" + MORE_PATH,
-            'stylesheet': "./" + STYLESHEET_PATH,
-            'icons': "./" + ICONS_PATH,
-            'katex': "./" + KATEX_PATH,
-            'highlight': "./" + HIGHLIGHT_PATH,
+            'more_url': "./" + settings['path']['more'],
+            'stylesheet': "./" + settings['path']['stylesheet'],
+            'icons': "./" + settings['dir_path']['icons'],
+            'katex': "./" + settings['dir_path']['katex'],
+            'highlight': "./" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': get_recent_notes(BASE_YAML_LOAD.keys(), RECENT_NOTES_AMOUNT, '.'),
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
+            'list': get_recent_notes(BASE_YAML_LOAD.keys(), settings['recent_notes_amount'], '.'),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -368,7 +344,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
         RECENT_NOTES_FILLED = ""
 
-        with open(HTML_PATH+"/"+RECENT_NOTES_PATH, 'r') as RECENT_NOTES_FILE:
+        with open(settings['dir_path']['html_part']+"/"+settings['path']['html_part']['recent_notes'], 'r') as RECENT_NOTES_FILE:
             RECENT_NOTES_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=RECENT_NOTES_FILE.read())
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
@@ -376,24 +352,24 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_more():
-        OUTPUT_PATH = MORE_PATH
+        OUTPUT_PATH = settings['path']['more']
 
         REPLACEMENT = {'title': 'More notes', 'category': "", 'language': ""}
         REPLACEMENT.update({
             'blame_url': '',
-            'issue_url': GITHUB_URL + '/issues/new',
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "./",
-            'more_url': "./" + MORE_PATH,
-            'stylesheet': "./" + STYLESHEET_PATH,
-            'icons': "./" + ICONS_PATH,
-            'katex': "./" + KATEX_PATH,
-            'highlight': "./" + HIGHLIGHT_PATH,
+            'more_url': "./" + settings['path']['more'],
+            'stylesheet': "./" + settings['path']['stylesheet'],
+            'icons': "./" + settings['dir_path']['icons'],
+            'katex': "./" + settings['dir_path']['katex'],
+            'highlight': "./" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), '.'),
         })
 
@@ -431,25 +407,25 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             LANGUAGES_DICT[language_of_perm].append(perm)
 
     def generate_category_page():
-        OUTPUT_PATH = CATEGORIES_PATH
+        OUTPUT_PATH = settings['path']['categories']
 
         REPLACEMENT = {'title': 'Categories', 'category': '', 'language': ''}
         REPLACEMENT.update({
             'blame_url': '',
-            'issue_url': GITHUB_URL + '/issues/new',
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "./",
-            'more_url': "./" + MORE_PATH,
-            'stylesheet': "./" + STYLESHEET_PATH,
-            'icons': "./" + ICONS_PATH,
-            'katex': "./" + KATEX_PATH,
-            'highlight': "./" + HIGHLIGHT_PATH,
+            'more_url': "./" + settings['path']['more'],
+            'stylesheet': "./" + settings['path']['stylesheet'],
+            'icons': "./" + settings['dir_path']['icons'],
+            'katex': "./" + settings['dir_path']['katex'],
+            'highlight': "./" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': make_html_list(list(map(lambda key: '<a href="'+CATEGORY_PATH+'/'+key+HTML_EXT+'">'+key+'</a>', CATEGORIES_DICT.keys()))),
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
+            'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['category']+'/'+key+settings['ext']['html']+'">'+key+'</a>', CATEGORIES_DICT.keys()))),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -464,25 +440,25 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_language_page():
-        OUTPUT_PATH = LANGUAGES_PATH
+        OUTPUT_PATH = settings['path']['languages']
 
         REPLACEMENT = {'title': 'Languages', 'category': '', 'language': ''}
         REPLACEMENT.update({
             'blame_url': '',
-            'issue_url': GITHUB_URL + '/issues/new',
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "./",
-            'more_url': "./" + MORE_PATH,
-            'stylesheet': "./" + STYLESHEET_PATH,
-            'icons': "./" + ICONS_PATH,
-            'katex': "./" + KATEX_PATH,
-            'highlight': "./" + HIGHLIGHT_PATH,
+            'more_url': "./" + settings['path']['more'],
+            'stylesheet': "./" + settings['path']['stylesheet'],
+            'icons': "./" + settings['dir_path']['icons'],
+            'katex': "./" + settings['dir_path']['katex'],
+            'highlight': "./" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
-            'list': make_html_list(list(map(lambda key: '<a href="'+LANGUAGE_PATH+'/'+key+HTML_EXT+'">'+key+'</a>', LANGUAGES_DICT.keys()))),
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
+            'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['language']+'/'+key+settings['ext']['html']+'">'+key+'</a>', LANGUAGES_DICT.keys()))),
         })
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
@@ -497,24 +473,24 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_category_pages(category):
-        OUTPUT_PATH = CATEGORY_PATH + '/' + category + HTML_EXT
+        OUTPUT_PATH = settings['dir_path']['category'] + '/' + category + settings['ext']['html']
 
         REPLACEMENT = {'title': category, 'category': '', 'language': ''}
         REPLACEMENT.update({
             'blame_url': '',
-            'issue_url': GITHUB_URL + '/issues/new',
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "../",
-            'more_url': "../" + MORE_PATH,
-            'stylesheet': "../" + STYLESHEET_PATH,
-            'icons': "../" + ICONS_PATH,
-            'katex': "../" + KATEX_PATH,
-            'highlight': "../" + HIGHLIGHT_PATH,
+            'more_url': "../" + settings['path']['more'],
+            'stylesheet': "../" + settings['path']['stylesheet'],
+            'icons': "../" + settings['dir_path']['icons'],
+            'katex': "../" + settings['dir_path']['katex'],
+            'highlight': "../" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), '..'),
         })
 
@@ -524,31 +500,31 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
 
         ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
-        CATEGORY_LINK = "<a href='"+ "../" + CATEGORIES_PATH +"'>List of categories</a>"
+        CATEGORY_LINK = "<a href='"+ "../" + settings['path']['categories'] +"'>List of categories</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + CATEGORY_LINK + TAIL_FILLED)
             print(colored("Generated " + OUTPUT_PATH, "green"))
 
     def generate_language_pages(language):
-        OUTPUT_PATH = LANGUAGE_PATH + '/' + language + HTML_EXT
+        OUTPUT_PATH = settings['dir_path']['language'] + '/' + language + settings['ext']['html']
 
         REPLACEMENT = {'title': language, 'category': '', 'language': ''}
         REPLACEMENT.update({
             'blame_url': '',
-            'issue_url': GITHUB_URL + '/issues/new',
+            'issue_url': settings['github_repo'] + '/issues/new',
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
             'home_url': "../",
-            'more_url': "../" + MORE_PATH,
-            'stylesheet': "../" + STYLESHEET_PATH,
-            'icons': "../" + ICONS_PATH,
-            'katex': "../" + KATEX_PATH,
-            'highlight': "../" + HIGHLIGHT_PATH,
+            'more_url': "../" + settings['path']['more'],
+            'stylesheet': "../" + settings['path']['stylesheet'],
+            'icons': "../" + settings['dir_path']['icons'],
+            'katex': "../" + settings['dir_path']['katex'],
+            'highlight': "../" + settings['path']['highlight'],
             'visibility': "display: none;",
-            'github_url': GITHUB_URL,
-            'license_url': GITHUB_URL + '/blob/master/' + LICENSE,
+            'github_url': settings['github_repo'],
+            'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), '..'),
         })
 
@@ -558,7 +534,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=TAIL_LOAD)
 
         ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=ARTICLE_LIST_LOAD)
-        LANGUAGE_LINK = "<a href='"+ "../" + LANGUAGES_PATH +"'>List of languages</a>"
+        LANGUAGE_LINK = "<a href='"+ "../" + settings['path']['languages'] +"'>List of languages</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + LANGUAGE_LINK + TAIL_FILLED)
@@ -577,7 +553,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
 
     BASE_YAML_FILE = yaml.safe_dump(BASE_YAML_LOAD)
 
-    with open(LIST_PATH, 'w') as YAML_FILE:
+    with open(settings['path']['note_list_yaml'], 'w') as YAML_FILE:
         YAML_FILE.write(BASE_YAML_FILE)
         if not regenerate_mode:
             print(colored("Total " + str(len_modified+len_added+len_removed) + " change(s) applied.", 'green'))

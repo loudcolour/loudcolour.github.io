@@ -1,0 +1,35 @@
+title: 'S. Hyeon'
+path:
+  index: 'index.html'
+  more: 'more.html'
+  readme: 'README.md'
+  note_list_yaml: 'list.yaml'
+  more: 'more.html'
+  categories: 'categories.html'
+  languages: 'languages.html'
+  stylesheet: 'style.css'
+  highlight: 'highlight.css'
+  html_part:
+    head: 'head.html'
+    tail: 'tail.html'
+    recent_notes: 'recent_notes.html'
+    list: 'list.html'
+    note_list: 'article_list.html'
+dir_path:
+  md: 'md'
+  notes: 'notes'
+  html_part: 'html'
+  icons: 'icons'
+  category: 'category'
+  language: 'language'
+  katex: 'katex'
+ext:
+  md: '.md'
+  html: '.html'
+  css: '.css'
+license:
+  project: 'LICENSE'
+  notes: 'LICENSE_NOTE'
+  katex: 'LICENSE_KATEX'
+github_repo: 'https://github.com/loudcolour/loudcolour.github.io'
+recent_notes_amount: 5 
