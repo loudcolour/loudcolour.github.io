@@ -27,6 +27,9 @@ ext:
   md: '.md'
   html: '.html'
   css: '.css'
+debug:
+  math_ph: '{{%%}}'
+  math_display_ph: '{{%%%%}}'
 license:
   project: 'LICENSE'
   notes: 'LICENSE_NOTE'

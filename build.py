@@ -208,13 +208,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
 
-        MATH_DISPLAY_PH = "{{%%%%}}"
-        MATH_PH = "{{%%}}"
-
         T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = re_dict['math_display'].sub(repl=settings['debug']['math_display_ph'], string=ARTICLE_HIGHLIGHT_APPLIED)
         T_MATH = re_dict['math'].findall(string=MATH_SAFE)
-        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
+        MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
 
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
@@ -224,11 +221,11 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE = STDOUT.decode("utf-8")
 
         for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math.replace('&', '&amp;')
+            ARTICLE = ARTICLE.replace(settings['debug']['math_display_ph'], math.replace('&', '&amp;')
                                                            .replace('<', '&lt;')
                                                            .replace('>', '&gt;'), 1)
         for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math.replace('&', '&amp;')
+            ARTICLE = ARTICLE.replace(settings['debug']['math_ph'], math.replace('&', '&amp;')
                                                    .replace('<', '&lt;')
                                                    .replace('>', '&gt;'), 1)
 
@@ -301,13 +298,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
         ARTICLE_RAW.close()
 
-        MATH_DISPLAY_PH = "{{%%%%}}"
-        MATH_PH = "{{%%}}"
-
         T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = re_dict['math_display'].sub(repl=settings['debug']['math_display_ph'], string=ARTICLE_HIGHLIGHT_APPLIED)
         T_MATH = re_dict['math'].findall(string=MATH_SAFE)
-        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
+        MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
 
         pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
 
@@ -317,9 +311,9 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         ARTICLE = STDOUT.decode("utf-8")
 
         for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math, 1)
+            ARTICLE = ARTICLE.replace(settings['debug']['math_display_ph'], math, 1)
         for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math, 1)
+            ARTICLE = ARTICLE.replace(settings['debug']['math_ph'], math, 1)
 
         if STDERR != b'':
             print(STDERR.decode("utf-8"))
