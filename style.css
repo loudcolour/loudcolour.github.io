@@ -1029,3 +1029,31 @@
 ul.article-list {
   list-style: none;
 }
+
+.nav-button {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 3px 10px 3px;
+  border-radius: 4px;
+  position: relative;
+}
+
+ul.navbar {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-button:hover {
+  background-color: #0366d6;
+  color: #FFF;
+}
+
+a.button-link {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a.button-link:hover {
+  text-decoration: none;
+}

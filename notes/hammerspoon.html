@@ -28,13 +28,29 @@
 	.markdown-body {
 		box-sizing: border-box;
 		min-width: 200px;
-		max-width: 980px;
+		max-width: 800px;
 		margin: 0 auto;
 		padding: 45px;
 	}
 
+	.sidebar {
+		grid-area: sidebar;
+		padding-left: 15px;
+	}
+
 	.hidden {
 		
+	}
+
+	.katex {
+  		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
 	}
 
 	@media (max-width: 767px) {
@@ -49,13 +65,20 @@
 </style>
 </head>
 <body>
-<article class="markdown-body">
-<div class="hidden">
-<p class="align-right">
-<a href="../">Home</a> | <a href="../more.html">More notes</a> | <a href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/hammerspoon.md">Blame</a> |
-<a href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=Hammerspoon">Make an issue</a>
-</p>
+
+<div class="container"></div>
+<aside class="sidebar">
+<ul class="navbar">
+	<li><a class="button-link" href="../"><span class="nav-button">Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">More notes</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/hammerspoon.md"><span class="nav-button">Blame</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=Hammerspoon"><span class="nav-button">Make an issue</span></a></li>
+</ul>
+<div class="jump-to-id-list">
+	
 </div>
+</aside>
+<article class="markdown-body">
 <!---
 title: Hammerspoon
 category: macOS
@@ -84,4 +107,5 @@ or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the <a href="https://github.com/loudcolour/loudcolour.github.io">GitHub repo</a> of this site as <a href="https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE">LICENSE_NOTE</a>.</p>
 </article>
+</div>
 </body>

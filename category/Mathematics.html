@@ -28,13 +28,29 @@
 	.markdown-body {
 		box-sizing: border-box;
 		min-width: 200px;
-		max-width: 980px;
+		max-width: 800px;
 		margin: 0 auto;
 		padding: 45px;
 	}
 
+	.sidebar {
+		grid-area: sidebar;
+		padding-left: 15px;
+	}
+
 	.hidden {
 		display: none;
+	}
+
+	.katex {
+  		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
 	}
 
 	@media (max-width: 767px) {
@@ -49,24 +65,31 @@
 </style>
 </head>
 <body>
-<article class="markdown-body">
-<div class="hidden">
-<p class="align-right">
-<a href="../">Home</a> | <a href="../more.html">More notes</a> | <a href="">Blame</a> |
-<a href="https://github.com/loudcolour/loudcolour.github.io/issues/new">Make an issue</a>
-</p>
+
+<div class="container"></div>
+<aside class="sidebar">
+<ul class="navbar">
+	<li><a class="button-link" href="../"><span class="nav-button">Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">More notes</span></a></li>
+	<li><a class="button-link" href=""><span class="nav-button">Blame</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">Make an issue</span></a></li>
+</ul>
+<div class="jump-to-id-list">
+	
 </div>
+</aside>
+<article class="markdown-body">
 <h1>Mathematics</h1>
 <ul class="article-list">
-<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/prime-number.html">소수</a></li>
-<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/law-of-excluded-middle.html">배중률</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/signs.html">기호에 관한 약속</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/fibonacci.html">Fibonacci 수열</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/countable-set.html">집합의 농도와 가산집합</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/basel-problem.html">Basel 문제</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/group-homomorphism.html">군의 준동형과 동형</a></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <a href="../notes/axiom-of-choice.html">선택 공리</a></li>
+<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
+<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/law-of-excluded-middle.html">배중률</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/countable-set.html">집합의 농도와 가산집합</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/group-homomorphism.html">군의 준동형과 동형</a></span></li>
+<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택 공리</a></span></li>
 </ul><a href='../categories.html'>List of categories</a><div class="hidden">
 <hr>
 <p>
@@ -82,4 +105,5 @@ or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the <a href="https://github.com/loudcolour/loudcolour.github.io">GitHub repo</a> of this site as <a href="https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE">LICENSE_NOTE</a>.</p>
 </article>
+</div>
 </body>
