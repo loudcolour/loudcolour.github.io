@@ -47,8 +47,38 @@ format_date = lambda ts, df : datetime.fromtimestamp(ts, tz).strftime(df)
 codehl = lambda code, lang : highlight(code, get_lexer_by_name(lang, stripAll=True), HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>"))
 md_to_html_codehl = lambda md_str : re_dict['code'].sub(repl=lambda obj: codehl(obj.group(2), obj.group(1)), string=md_str)
 
+html_math_char = lambda s : (s.replace('&', '&amp;')
+                              .replace('<', '&lt;' )
+                              .replace('>', '&gt;' ))
+
 japanese_new_line = lambda string : string + '\n' if string == '  ' else string
 japanese_line_merge = lambda string : re_dict['japanese_exception'].sub(repl=lambda obj : japanese_new_line(obj.group(1))+obj.group(2), string=string)
+
+def keep_math(string):
+    list_math_display = re_dict['math_display'].findall(string=string)
+    string = re_dict['math_display'].sub(repl=settings['debug']['math_display_ph'], string=string)
+    list_math = re_dict['math'].findall(string=string)
+    string = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=string)
+    return (string, list_math, list_math_display)
+
+def pandoc_md_to_html(string, Japanese=False):
+    cmd = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+    STDOUT, STDERR = cmd.communicate(input=(japanese_line_merge(string) if Japanese else string).encode("utf-8"))
+    if STDERR != b'':
+        print(STDERR.decode("utf-8"))
+        exit(1)
+    return STDOUT.decode("utf-8")
+
+def replace_ph_with_math(string, list_math, list_math_display):
+    for math in list_math_display:
+            string = string.replace(settings['debug']['math_display_ph'], html_math_char(math), 1)
+    for math in list_math:
+            string = string.replace(settings['debug']['math_ph'], html_math_char(math), 1)
+    return string
+
+def complete_article_from_md(string, Japanese=False):
+    km_tuple = keep_math(md_to_html_codehl(string))
+    return replace_ph_with_math(pandoc_md_to_html(km_tuple[0], Japanese=Japanese), km_tuple[1], km_tuple[2])
 
 # Load settings.yaml
 
@@ -205,31 +235,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         })
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
+        ARTICLE = complete_article_from_md(ARTICLE_RAW.read(), Japanese=(REPLACEMENT['language'] == 'Japanese'))
         ARTICLE_RAW.close()
-
-        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = re_dict['math_display'].sub(repl=settings['debug']['math_display_ph'], string=ARTICLE_HIGHLIGHT_APPLIED)
-        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
-        MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
-
-        PARSED = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8") if REPLACEMENT['language'] != 'Japanese' else japanese_line_merge(MATH_SAFE).encode("utf-8"))
-
-        ARTICLE = STDOUT.decode("utf-8")
-
-        for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(settings['debug']['math_display_ph'], math.replace('&', '&amp;')
-                                                           .replace('<', '&lt;')
-                                                           .replace('>', '&gt;'), 1)
-        for math in T_MATH:
-            ARTICLE = ARTICLE.replace(settings['debug']['math_ph'], math.replace('&', '&amp;')
-                                                   .replace('<', '&lt;')
-                                                   .replace('>', '&gt;'), 1)
-
-        if STDERR != b'':
-            print(STDERR.decode("utf-8"))
-            exit(1)
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
         TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
@@ -292,29 +299,6 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         INPUT_PATH = settings['path']['readme']
         OUTPUT_PATH = settings['path']['index']
 
-        ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
-        ARTICLE_RAW.close()
-
-        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = re_dict['math_display'].sub(repl=settings['debug']['math_display_ph'], string=ARTICLE_HIGHLIGHT_APPLIED)
-        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
-        MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
-
-        PARSED = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8"))
-
-        ARTICLE = STDOUT.decode("utf-8")
-
-        for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(settings['debug']['math_display_ph'], math, 1)
-        for math in T_MATH:
-            ARTICLE = ARTICLE.replace(settings['debug']['math_ph'], math, 1)
-
-        if STDERR != b'':
-            print(STDERR.decode("utf-8"))
-            exit(1)
-
         REPLACEMENT = {'title': settings['title'], 'category': "", 'language': ""}
         REPLACEMENT.update({
             'blame_url': settings['github_repo'] + '/blame/master/' + INPUT_PATH,
@@ -333,6 +317,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), settings['recent_notes_amount'], '.'),
         })
+
+        ARTICLE_RAW = open(INPUT_PATH, 'r')
+        ARTICLE = complete_article_from_md(ARTICLE_RAW.read(), Japanese=(REPLACEMENT['language'] == 'Japanese'))
+        ARTICLE_RAW.close()
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
         TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l)
