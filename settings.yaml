@@ -30,6 +30,12 @@ ext:
 debug:
   math_ph: '{{%%}}'
   math_display_ph: '{{%%%%}}'
+  pandoc_cmd:
+    - 'pandoc'
+    - '-f'
+    - 'gfm'
+    - '-t'
+    - 'html'
 license:
   project: 'LICENSE'
   notes: 'LICENSE_NOTE'

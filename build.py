@@ -213,9 +213,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         T_MATH = re_dict['math'].findall(string=MATH_SAFE)
         MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
 
-        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
-
-        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+        PARSED = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
         STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8") if REPLACEMENT['language'] != 'Japanese' else japanese_line_merge(MATH_SAFE).encode("utf-8"))
 
         ARTICLE = STDOUT.decode("utf-8")
@@ -303,9 +301,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         T_MATH = re_dict['math'].findall(string=MATH_SAFE)
         MATH_SAFE = re_dict['math'].sub(repl=settings['debug']['math_ph'], string=MATH_SAFE)
 
-        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
-
-        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+        PARSED = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
         STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8"))
 
         ARTICLE = STDOUT.decode("utf-8")
