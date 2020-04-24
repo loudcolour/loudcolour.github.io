@@ -36,6 +36,7 @@ re_dict = {
     'code': re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S),
     'japanese_exception': re.compile(r"([^\n]{2})\n([^\n])"),
     'html_repl': re.compile(r'{% (\S+?) %}'),
+    'ruby': re.compile(r'\[\[(.+?)\|(.+?)\]\]'),
 }
 
 # Global functions.
@@ -53,6 +54,17 @@ html_math_char = lambda s : (s.replace('&', '&amp;')
 
 japanese_new_line = lambda string : string + '\n' if string == '  ' else string
 japanese_line_merge = lambda string : re_dict['japanese_exception'].sub(repl=lambda obj : japanese_new_line(obj.group(1))+obj.group(2), string=string)
+
+def make_ruby(rb, rt, Japanese=False):
+    left_rp, right_rp = ('（', '）') if Japanese else (' (', ')')
+    string = '<ruby>'
+    string += '<rb>'+rb+'</rb>'
+    string += '<rp>'+left_rp+'</rp>'+'<rt>'+rt+'</rt>'+'<rp>'+right_rp+'</rp>'
+    string += '</ruby>'
+    return string
+
+def apply_ruby(string, Japanese=False):
+    return re_dict['ruby'].sub(string=string, repl=lambda obj : make_ruby(obj.group(1), obj.group(2), Japanese=Japanese))
 
 def keep_math(string):
     list_math_display = re_dict['math_display'].findall(string=string)
@@ -77,7 +89,7 @@ def replace_ph_with_math(string, list_math, list_math_display):
     return string
 
 def complete_article_from_md(string, Japanese=False):
-    km_tuple = keep_math(md_to_html_codehl(string))
+    km_tuple = keep_math(md_to_html_codehl(apply_ruby(string)))
     return replace_ph_with_math(pandoc_md_to_html(km_tuple[0], Japanese=Japanese), km_tuple[1], km_tuple[2])
 
 # Load settings.yaml
