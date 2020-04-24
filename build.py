@@ -35,6 +35,7 @@ re_dict = {
     'math': re.compile(r"(\$.+?\$)"),
     'code': re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S),
     'japanese_exception': re.compile(r"([^\n]{2})\n([^\n])"),
+    'html_repl': re.compile(r'{% (\S+?) %}'),
 }
 
 # Global functions.
@@ -235,10 +236,8 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             print(STDERR.decode("utf-8"))
             exit(1)
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
-
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + TAIL_FILLED)
@@ -345,15 +344,13 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), settings['recent_notes_amount'], '.'),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
-
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l)
 
         RECENT_NOTES_FILLED = ""
 
         with open(settings['dir_path']['html_part']+"/"+settings['path']['html_part']['recent_notes'], 'r') as RECENT_NOTES_FILE:
-            RECENT_NOTES_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=RECENT_NOTES_FILE.read())
+            RECENT_NOTES_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=RECENT_NOTES_FILE.read())
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE + RECENT_NOTES_FILLED + TAIL_FILLED)
@@ -381,12 +378,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), '.'),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
-
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
+        ARTICLE_LIST_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + ARTICLE_LIST_FILLED + TAIL_FILLED)
@@ -436,12 +431,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['category']+'/'+key+settings['ext']['html']+'">'+key+'</a>', CATEGORIES_DICT.keys()))),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
-
-        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
+        LIST_HTML_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
@@ -469,12 +462,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['language']+'/'+key+settings['ext']['html']+'">'+key+'</a>', LANGUAGES_DICT.keys()))),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
-
-        LIST_HTML_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
+        LIST_HTML_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=html_part_list_l)
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
             BLOG_FILE.write(HEAD_FILLED + LIST_HTML_FILLED + TAIL_FILLED)
@@ -502,12 +493,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), '..'),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
-
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
+        ARTICLE_LIST_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
         CATEGORY_LINK = "<a href='"+ "../" + settings['path']['categories'] +"'>List of categories</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
@@ -536,12 +525,10 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), '..'),
         })
 
-        REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
+        HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
+        TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
 
-        HEAD_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=head_l)
-        TAIL_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=tail_l)
-
-        ARTICLE_LIST_FILLED = REPLACE_ON_HTML.sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
+        ARTICLE_LIST_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)], string=note_list_l)
         LANGUAGE_LINK = "<a href='"+ "../" + settings['path']['languages'] +"'>List of languages</a>"
 
         with open(OUTPUT_PATH, 'w') as BLOG_FILE:
