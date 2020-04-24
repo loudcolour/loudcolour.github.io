@@ -302,7 +302,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         dict_to_html_li_lambda = lambda dic : html_li_lambda(
                                         html_span_lambda('modified-date', format_date(dic['mtime'], '%Y-%m-%d'))
                                         + " " + html_span_lambda('category-button', html_link_lambda(category_link_lambda(dic),dic['category']))
-                                        + " " + html_link_lambda(link_lambda(dic), dic['title']))
+                                        + " " + html_span_lambda('link-to-note', html_link_lambda(link_lambda(dic), dic['title'])))
 
         list_of_recent_notes = notes_perm_title_mdate[:note_amount]
         return reduce(line_combine_lambda, map(dict_to_html_li_lambda, list_of_recent_notes))

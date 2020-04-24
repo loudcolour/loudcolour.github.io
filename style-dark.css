@@ -999,19 +999,8 @@ body {
   text-align: right;
 }
 
-.katex {
-  font-size: inherit;
-}
-
-.katex-display {
-  display: block;
-  padding: 1em 0;
-  overflow: scroll;
-  text-align: center;
-}
-
 .category-button {
-  background-color: #0366d6;
+  background-color: #e4e0dc;
   color: rgb(30, 30, 30);
   font-size: 11px;
   padding: 3px 5px 3px;
@@ -1021,13 +1010,13 @@ body {
 }
 
 .modified-date {
-  background-color: rgb(30, 30, 30);
-  color: #0366d6;
+  background-color:rgb(30, 30, 30);
+  color: #e4e0dc;
   font-size: 11px;
   padding: 2px 5px 2px;
-  border: 1px;
+  border: 1.2px;
   border-style: solid;
-  border-color: #0366d6;
+  border-color: #e4e0dc;
   border-radius: 3px;
   position: relative;
   bottom: 1.5px;
@@ -1035,6 +1024,10 @@ body {
 
 .category-button a {
   color: rgb(30, 30, 30);
+}
+
+.link-to-note a {
+  color: #e4e0dc;
 }
 
 .category-button a:hover {
