@@ -34,6 +34,7 @@ re_dict = {
     'math_display': re.compile(r"^(\${2}\s+.+?\s+\${2})$", flags=re.M|re.S),
     'math': re.compile(r"(\$.+?\$)"),
     'code': re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S),
+    'japanese_exception': re.compile(r"([^\n]{2})\n([^\n])"),
 }
 
 # Global functions.
@@ -44,6 +45,9 @@ def debug_message(name, value):
 format_date = lambda ts, df : datetime.fromtimestamp(ts, tz).strftime(df)
 codehl = lambda code, lang : highlight(code, get_lexer_by_name(lang, stripAll=True), HtmlFormatter(linenos=False, cssclass="highlight", lineseparator="<br>"))
 md_to_html_codehl = lambda md_str : re_dict['code'].sub(repl=lambda obj: codehl(obj.group(2), obj.group(1)), string=md_str)
+
+japanese_new_line = lambda string : string + '\n' if string == '  ' else string
+japanese_line_merge = lambda string : re_dict['japanese_exception'].sub(repl=lambda obj : japanese_new_line(obj.group(1))+obj.group(2), string=string)
 
 # Load settings.yaml
 
@@ -181,38 +185,6 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         INPUT_PATH = settings['dir_path']['md'] + "/" + perm + settings['ext']['md']
         OUTPUT_PATH = settings['dir_path']['notes'] + "/" + perm + settings['ext']['html']
 
-        ARTICLE_RAW = open(INPUT_PATH, 'r')
-        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
-        ARTICLE_RAW.close()
-
-        MATH_DISPLAY_PH = "{{%%%%}}"
-        MATH_PH = "{{%%}}"
-
-        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
-        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
-        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
-        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
-
-        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
-
-        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8"))
-
-        ARTICLE = STDOUT.decode("utf-8")
-
-        for math in T_MATH_DISPLAY:
-            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math.replace('&', '&amp;')
-                                                           .replace('<', '&lt;')
-                                                           .replace('>', '&gt;'), 1)
-        for math in T_MATH:
-            ARTICLE = ARTICLE.replace(MATH_PH, math.replace('&', '&amp;')
-                                                   .replace('<', '&lt;')
-                                                   .replace('>', '&gt;'), 1)
-
-        if STDERR != b'':
-            print(STDERR.decode("utf-8"))
-            exit(1)
-
         REPLACEMENT = BASE_YAML_LOAD[perm].copy()
         REPLACEMENT['mtime_formatted'] = format_date(REPLACEMENT['mtime'], '%Y-%m-%dT%H:%M:%S%z')
         REPLACEMENT.update({
@@ -230,6 +202,38 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
         })
+
+        ARTICLE_RAW = open(INPUT_PATH, 'r')
+        ARTICLE_HIGHLIGHT_APPLIED = md_to_html_codehl(ARTICLE_RAW.read())
+        ARTICLE_RAW.close()
+
+        MATH_DISPLAY_PH = "{{%%%%}}"
+        MATH_PH = "{{%%}}"
+
+        T_MATH_DISPLAY = re_dict['math_display'].findall(string=ARTICLE_HIGHLIGHT_APPLIED)
+        MATH_SAFE = re_dict['math_display'].sub(repl=MATH_DISPLAY_PH, string=ARTICLE_HIGHLIGHT_APPLIED)
+        T_MATH = re_dict['math'].findall(string=MATH_SAFE)
+        MATH_SAFE = re_dict['math'].sub(repl=MATH_PH, string=MATH_SAFE)
+
+        pandoc_command = ["pandoc", "-f", "gfm", "-t", "html"]
+
+        PARSED = sp.Popen(pandoc_command, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+        STDOUT, STDERR = PARSED.communicate(input=MATH_SAFE.encode("utf-8") if REPLACEMENT['language'] != 'Japanese' else japanese_line_merge(MATH_SAFE).encode("utf-8"))
+
+        ARTICLE = STDOUT.decode("utf-8")
+
+        for math in T_MATH_DISPLAY:
+            ARTICLE = ARTICLE.replace(MATH_DISPLAY_PH, math.replace('&', '&amp;')
+                                                           .replace('<', '&lt;')
+                                                           .replace('>', '&gt;'), 1)
+        for math in T_MATH:
+            ARTICLE = ARTICLE.replace(MATH_PH, math.replace('&', '&amp;')
+                                                   .replace('<', '&lt;')
+                                                   .replace('>', '&gt;'), 1)
+
+        if STDERR != b'':
+            print(STDERR.decode("utf-8"))
+            exit(1)
 
         REPLACE_ON_HTML = re.compile(r'{% (\S+?) %}')
 
