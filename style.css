@@ -1031,12 +1031,16 @@ ul.article-list {
 }
 
 .nav-button {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 16px;
+  text-align: left;
+  display: block;
+  width: calc(100% - 16px);
+  font-size: 20px;
+  padding: 8px 8px;
   background-color: rgba(255, 255, 255, 0);
-  padding: 3px 10px 3px;
-  border-radius: 4px;
   position: relative;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #eaecef;
 }
 
 ul.navbar {
@@ -1045,8 +1049,8 @@ ul.navbar {
 }
 
 .nav-button:hover {
-  background-color: #0366d6;
-  color: #FFF;
+  background-color: #d3e7ff;
+  color: #0366d6;
 }
 
 a.button-link {

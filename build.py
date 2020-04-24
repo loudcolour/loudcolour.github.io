@@ -37,6 +37,7 @@ re_dict = {
     'japanese_exception': re.compile(r"([^\n]{2})\n([^\n])"),
     'html_repl': re.compile(r'{% (\S+?) %}'),
     'ruby': re.compile(r'\[\[(.+?)\|(.+?)\]\]'),
+    'jump_to': re.compile(r'<h([1-6]) id="(.+?)">(.+?)<\/h[1-6]>'),
 }
 
 # Global functions.
@@ -91,6 +92,15 @@ def replace_ph_with_math(string, list_math, list_math_display):
 def complete_article_from_md(string, Japanese=False):
     km_tuple = keep_math(md_to_html_codehl(apply_ruby(string)))
     return replace_ph_with_math(pandoc_md_to_html(km_tuple[0], Japanese=Japanese), km_tuple[1], km_tuple[2])
+
+def make_jump_to_list(html_string):
+    match_list = re_dict['jump_to'].findall(string=html_string)
+    string = ""
+    for n_str, html_id, content in match_list:
+        string += '  '*(2*int(n_str)-2)+'- '+'['+content+']'+'('+'#'+html_id+')\n'
+    if debug_mode:
+        debug_message('make_jump_to_list_string', string)
+    return pandoc_md_to_html(string)
 
 # Load settings.yaml
 
@@ -244,11 +254,14 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'visibility': "",
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
+            'jump_to': '',
         })
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
         ARTICLE = complete_article_from_md(ARTICLE_RAW.read(), Japanese=(REPLACEMENT['language'] == 'Japanese'))
         ARTICLE_RAW.close()
+        
+        REPLACEMENT['jump_to'] = make_jump_to_list(ARTICLE)
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
         TAIL_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=tail_l) 
@@ -328,6 +341,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), settings['recent_notes_amount'], '.'),
+            'jump_to': '',
         })
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
@@ -366,6 +380,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), '.'),
+            'jump_to': '',
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -419,6 +434,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['category']+'/'+key+settings['ext']['html']+'">'+key+'</a>', CATEGORIES_DICT.keys()))),
+            'jump_to': '',
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -450,6 +466,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['language']+'/'+key+settings['ext']['html']+'">'+key+'</a>', LANGUAGES_DICT.keys()))),
+            'jump_to': '',
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -481,6 +498,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), '..'),
+            'jump_to': '',
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -513,6 +531,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), '..'),
+            'jump_to': '',
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)

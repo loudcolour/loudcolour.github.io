@@ -15,3 +15,15 @@ A copy of the license is included in the <a href="{% github_url %}">GitHub repo<
 </article>
 </div>
 </body>
+<script>
+    var inside_sidebar = document.getElementById('inside-sidebar');
+    function toggle_list() {
+        if (inside_sidebar.className === 'visible') {
+            inside_sidebar.className = 'invisible';
+        } else {
+            inside_sidebar.className = 'visible'
+        }
+    }
+    var toggle_button = document.getElementById('expand-list')
+    toggle_button.addEventListener('click', toggle_list);
+</script>
