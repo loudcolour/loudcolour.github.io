@@ -3,14 +3,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="Yu7ZDPtBRajRVL44UXQQ1cT-vuIlgmn5igJw9GlE-ks" />
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="./icons/favicon-apple-touch-114.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./icons/favicon-apple-touch-114.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./icons/favicon-apple-touch-144.png">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./icons/favicon-apple-touch-144.png">
-<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="./icons/favicon.ico">
-<link rel="icon" sizes="128x128" href="./icons/favicon.icns">
-<link rel="icon" href="./icons/favicon.png" type="image/x-icon">
-<script defer src="./katex/katex.min.js"></script>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../icons/favicon-apple-touch-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../icons/favicon-apple-touch-144.png">
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="../icons/favicon.ico">
+<link rel="icon" sizes="128x128" href="../icons/favicon.icns">
+<link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+<script defer src="../katex/katex.min.js"></script>
 <script>
 	let delimeters_settings = {
             delimiters: [
@@ -19,12 +19,12 @@
             ]
         };
 </script>
-<script defer src="./katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
-<link rel="stylesheet" href="./katex/katex.min.css">
-<link rel="stylesheet" href="./highlight.css">
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./style-dark.css">
-<title>More notes</title>
+<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
+<link rel="stylesheet" href="../katex/katex.min.css">
+<link rel="stylesheet" href="../highlight.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style-dark.css">
+<title>Riemann의 $\zeta$ 함수</title>
 
 <style>
 	.container {
@@ -142,7 +142,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -156,43 +156,45 @@
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
-	<li><a class="button-link" href="./"><span class="nav-button">🏠 Home</span></a></li>
-	<li><a class="button-link" href="./more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/riemann-zeta-function.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=Riemann의 $\zeta$ 함수"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#riemann의--함수">Riemann의 $\zeta$ 함수</a>
+<ul>
+<li><a href="#복소함수로서의--함수">복소함수로서의 $\zeta$ 함수</a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>More notes</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-04-26</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/riemann-zeta-function.html">Riemann의 $\zeta$ 함수</a></span></li>
-<li><span class="modified-date">2020-04-26</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-04-26</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-04-26</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-25</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/fibonacci.html">Fibonacci 수열</a></span></li>
-<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="./category/Japanese.html">Japanese</a></span> <span class="link-to-note"><a href="./notes/kana-history.html">歴史的仮名遣</a></span></li>
-<li><span class="modified-date">2020-04-24</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/law-of-excluded-middle.html">배중률</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/countable-set.html">집합의 농도와 가산집합</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Life.html">Life</a></span> <span class="link-to-note"><a href="./notes/iphone-se.html">iPhone SE</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/macOS.html">macOS</a></span> <span class="link-to-note"><a href="./notes/hammerspoon.html">Hammerspoon</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/basel-problem.html">Basel 문제</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/group-homomorphism.html">군의 준동형과 동형</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="./notes/axiom-of-choice.html">선택 공리</a></span></li>
-<li><span class="modified-date">2020-04-23</span> <span class="category-button"><a href="./category/Programming.html">Programming</a></span> <span class="link-to-note"><a href="./notes/python-re.html">Python과 정규표현식</a></span></li>
-<li><span class="modified-date">2020-04-22</span> <span class="category-button"><a href="./category/Eco-socialism.html">Eco-socialism</a></span> <span class="link-to-note"><a href="./notes/eco-socialism.html">생태사회주의</a></span></li>
-</ul><div class="hidden">
+<!---
+title: 'Riemann의 $\zeta$ 함수'
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="riemann의--함수">Riemann의 $\zeta$ 함수</h1>
+<h2 id="복소함수로서의--함수">복소함수로서의 $\zeta$ 함수</h2>
+<p>$z\in\Complex$에 대하여 거듭제곱을 $n^{z} = e^{z\log n}$와 같이 적용할 수 있음에 유의하자. $s\in\Complex$에 대하여,</p>
+<p>$$
+\zeta(s) := \sum_{n=1}^{\infty}n^{-s}
+$$</p>
+<p>로 두면, $\Re(s)&gt;1$에서 수렴하는 것이 알려져 있다. 이는 정칙이며, 해석접속 가능한 함수임을 나타낸다.</p>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-04-26T03:02:16+0900</code></a>
 </p>
 <hr>
 

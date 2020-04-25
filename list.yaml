@@ -63,8 +63,13 @@ python-re:
   language: Korean
   mtime: 1587569110
   title: "Python\uACFC \uC815\uADDC\uD45C\uD604\uC2DD"
+riemann-zeta-function:
+  category: Mathematics
+  language: Korean
+  mtime: 1587837736
+  title: "Riemann\uC758 $\\zeta$ \uD568\uC218"
 signs:
   category: Mathematics
   language: Korean
-  mtime: 1587832278
+  mtime: 1587837529
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
