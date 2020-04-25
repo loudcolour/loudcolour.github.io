@@ -170,9 +170,13 @@
 <li><a href="#소수">소수</a>
 <ul>
 <li><a href="#소수는-무한히-존재한다">소수는 무한히 존재한다</a></li>
-<li><a href="#소수-사막">소수 사막</a></li>
 <li><a href="#소수-정리">소수 정리</a></li>
-<li><a href="#소수를-판별하는-알고리즘">소수를 판별하는 알고리즘</a></li>
+<li><a href="#소수를-판별하는-알고리즘">소수를 판별하는 알고리즘</a>
+<ul>
+<li><a href="#까지-나누어-보기">$\lfloor\sqrt{n}\rfloor$까지 나누어 보기</a></li>
+<li><a href="#eratosthenes의-체로-소수-리스트-작성하기">Eratosthenes의 체로 소수 리스트 작성하기</a></li>
+<li><a href="#miller-rabin-소수-판별법">Miller-Rabin 소수 판별법</a></li>
+</ul></li>
 <li><a href="#특수한-소수">특수한 소수</a></li>
 </ul></li>
 </ul>
@@ -222,12 +226,37 @@ $$</p>
 = \left[\frac{x^{1-s}}{1-s}\right]^{\infty}_{1} = -\frac{1}{1-s}
 $$</p>
 <p>임을 알 수 있다. 즉, $s\to1+0$일 때, $\zeta(s)\to\infty$이다. 만약 소수가 유한개인 $N$개 존재한다면, $\lim_{s\to1+0}\prod_{n=1}^{N}\left(1-p_n^{-s}\right)^{-1}$은 발산하지 않을 것이다. 하지만 $\lim_{s\to1+0}\zeta(s)=\lim_{s\to1+0}\sum_{n=1}^{\infty}n^{-s}$가 발산함은 이미 보여졌으므로, 이는 모순이다. 따라서 소수는 무한개 존재한다. □</p>
-<p>위 정리에 따르면, 소수는 무한히 존재하므로, 적당한 $n\in\N$을 잡으면, $p\geq n$인 소수 $p$가 항상 존재할 것이다. 그러나 그 소수가 생각한 만큼 가까이에 있으리라는 보장은 없다. 아래에서는 그러한 경우와 관련하여 소수 사막에 대해 설명할 것이다.</p>
-<h2 id="소수-사막">소수 사막</h2>
+<p>참고로, Euler 곱 표기를 통하여 $\sum_{n=1}^{\infty}\frac{1}{p_n}$은 발산한다는 것을 보일 수 있다.</p>
+<p><strong>명제</strong>. $\sum_{n=1}^{\infty}\frac{1}{p_n}$은 발산한다.</p>
+<p><em>증명</em>. $s&gt;1$에 대해,</p>
+<p>$$
+\log\prod_{n=1}^N\left(1-p_n^{-s}\right)^{-1}
+= -\sum_{n=1}^{\infty}\log\left(1-p_n^{-s}\right)
+$$</p>
+<p>이고, $p_n^{-s}\leq2^{-s}&lt;2^{-1}$, $0\leq x\leq2^{-1}$에 대해 $-\log(1-x)\leq2x$가 성립하므로,</p>
+<p>$$
+\log\prod_{n=1}^N\left(1-p_n^{-s}\right)^{-1}
+\leq2\sum_{n=1}^{N}p_n^{-s}
+\leq2\sum_{n=1}^{\infty}p_n^{-s}
+$$</p>
+<p>이 때, $\sum_{n=1}^{\infty}p_n^{-s}$은 $\sum_{n=1}^{\infty}n^{-s}$의 부분열이므로 수렴한다. $N\to\infty$일 때,</p>
+<p>$$
+\log\zeta(s)\leq2\sum_{n=1}^{\infty}p_n^{-s}
+$$</p>
+<p>이므로, $s\to1+0$일 때 좌항이 발산하므로 우항도 발산한다. □</p>
+<p>실제로 $s_n=\sum^{N}_{n=1}{p_n}^{-1}$은 매우 느리게 발산하는 급수이다. $p$를 소수로 하여 $S(x)=\sum_{p\leq x}p^{-1}$로 두면, $S(x)\sim\log(\log x)$임이 알려져 있다.</p>
+<p>위의 소수의 무한성에 관한 정리에 따르면, 소수는 무한히 존재하므로, 적당한 $n\in\N$을 잡으면, $p\geq n$인 소수 $p$가 항상 존재할 것이다. 그러나 그 소수가 생각한 만큼 가까이에 있으리라는 보장은 없다.</p>
 <p><strong>정리</strong>(소수 사막의 존재). $\forall N\in\N$에 대해, 수열 $\{n\}_{n\in\N}=\{0,1,2,3,\ldots\}$ 중 합성수가 연속하여 $N$번 등장하는 부분(소수 사막)이 존재한다.</p>
 <p><em>증명</em>. $2\leq m\leq N+1$인 $m\in\N$에 대해, $m \mid (N+1)!+m$이므로, $\{n\}_{n\in\N}$의 연속부분열인 $(N+1)!+2, (N+1)!+3, \ldots, (N+1)!+(N+1)$은 길이 $N$의 소수 사막이 된다. □</p>
 <h2 id="소수-정리">소수 정리</h2>
+<p>소수를 나열하여 보면, 특별한 규칙을 갖지 않는 듯이 보인다. 소수의 분포에서 규칙성을 찾아 일반화하는 것은, 수학자들의 오랜 과제였다. 여러 수학자들의 노력에 의해, 다음의 정리가 성립하는 것이 밝혀졌다.</p>
+<p><strong>정리</strong>(소수 정리). $x$ 이하의 소수의 개수를 $\pi(x)$라고 할 때, $\pi(x)\sim\frac{x}{\log(x)}$이다. (단, $\log$는 자연로그이다.)</p>
+<p>위 정리는 Gauss에 의해 예상되었으며, Hadamard와 de la Vallée Poussin에 의해 증명되었다. 현대에는 조금 더 오차 값이 적은 $\pi(x)$의 근사함수로 $\text{li}(x)=\int_{0}^{x}\frac{dt}{\log t}$를 많이 사용한다. $\text{li}(x)\sim\frac{x}{\log x}$ 이므로, $\pi(x)\sim\text{li}(x)$임을 쉽게 알 수 있다.</p>
 <h2 id="소수를-판별하는-알고리즘">소수를 판별하는 알고리즘</h2>
+<h3 id="까지-나누어-보기">$\lfloor\sqrt{n}\rfloor$까지 나누어 보기</h3>
+<h3 id="eratosthenes의-체로-소수-리스트-작성하기">Eratosthenes의 체로 소수 리스트 작성하기</h3>
+<p>주어진 수의 최대값보다 작은 소수의 리스트를 만들어, 나누어 떨어지도록 하는 소수가 리스트 안에 있는지 확인한다.</p>
+<h3 id="miller-rabin-소수-판별법">Miller-Rabin 소수 판별법</h3>
 <h2 id="특수한-소수">특수한 소수</h2>
 <ul>
 <li>$2$: 가장 작은 양의 소수이다.</li>
@@ -237,7 +266,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-24T08:56:49+0900</code></a>
+    Last modified: <code>2020-04-26T01:51:15+0900</code></a>
 </p>
 <hr>
 

@@ -53,6 +53,17 @@ language: Korean
 - $a\mid b$: $a$가 $b$의 약수, 즉 $b$가 $a$의 배수임을 의미한다.
 - $n!$: $n$의 계승(팩토리얼)을 의미한다.
 
+## 근사식
+
+- $a(x) \sim b(x)$: $\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$ 이라는 의미이다.
+의미상의 혼란을 부추기지 않는 경우에 한하여, $x$를 생략하여 표기하는 경우도 존재한다.
+- $f(x)\in O(g(x))$: Landau 기호, 즉
+$\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|<\infty$
+이라는 의미이다.
+- $f(x)\in o(g(x))$: 마찬가지로 Landau 기호로,
+$\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$
+이라는 의미이다.
+
 ## 기타
 
 - □: 증명이 끝났음을 의미한다.
