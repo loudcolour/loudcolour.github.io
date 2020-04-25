@@ -42,5 +42,6 @@ license:
   notes: 'LICENSE_NOTE'
   katex: 'LICENSE_KATEX'
 github_repo: 'https://github.com/loudcolour/loudcolour.github.io'
+site_url: 'https://loudcolour.github.io'
 search_url: 'https://duckduckgo.com/?q=site%3Aloudcolour.github.io'
 recent_notes_amount: 5 

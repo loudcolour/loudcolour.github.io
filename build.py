@@ -560,6 +560,28 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
     for language in LANGUAGES_DICT.keys():
         generate_language_pages(language)
 
+    # Generate sitemap.xml
+
+    base_list = BASE_YAML_LOAD_perm.copy()
+
+    xml_head = '''<?xml version="1.0" encoding="UTF-8"?>
+                  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '''
+    xml_tail = '''</urlset>'''
+
+    wrap_url = lambda s : '<url>\n'+s+'\n</url>'
+    wrap_loc = lambda s : '<loc>'+s+'</loc>'
+    wrap_lastmod = lambda s : '<lastmod>'+s+'</lastmod>'
+    get_url = lambda perm : (settings['site_url']
+                            + '/' + settings['dir_path']['notes']
+                            + '/' + perm + settings['ext']['html'])
+    get_mdate_from_perm = lambda perm :  format_date(BASE_YAML_LOAD[perm]['mtime'], '%Y-%m-%d')
+    format_sitemap_xml = lambda perm : wrap_url(wrap_loc(get_url(perm))+wrap_lastmod(get_mdate_from_perm(perm)))
+    sitemap_xml = xml_head+ "".join(list(map(format_sitemap_xml, base_list))) +xml_tail
+
+    with open(settings['path']['sitemap'], 'w') as sitemap:
+        sitemap.write(sitemap_xml)
+        print(colored("Generated sitemap.xml",'green'))
+
     # Update list.yaml.
 
     BASE_YAML_FILE = yaml.safe_dump(BASE_YAML_LOAD)
@@ -568,6 +590,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         note_list_yaml_f.write(BASE_YAML_FILE)
         if not regenerate_mode:
             print(colored("Total " + str(len_modified+len_added+len_removed) + " change(s) applied.", 'green'))
+
 
 else:
     print(colored("There's nothing changed.", "green"))
