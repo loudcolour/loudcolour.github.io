@@ -33,11 +33,13 @@ A copy of the license is included in the <a href="{% github_url %}">GitHub repo<
     var body = document.getElementById('body');
     var sidebar = document.getElementById('sidebar');
     var md_body = document.getElementById('markdown-body');
+    var dark_mode_button = document.getElementById('toggle-dark-mode');
 
     if (dark_mode) {
             body.className = "dark-mode-on";
             sidebar.className = "sidebar-dark";
             md_body.className = "markdown-body-dark";
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🌃 Turn off dark mode</span>"
     }
 
     function toggle_dark_mode() {
@@ -46,12 +48,16 @@ A copy of the license is included in the <a href="{% github_url %}">GitHub repo<
             sidebar.className = "sidebar";
             md_body.className = "markdown-body";
             dark_mode = false;
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🏙 Turn on dark mode</span>"
         } else {
             body.className = "dark-mode-on";
             sidebar.className = "sidebar-dark";
             md_body.className = "markdown-body-dark";
             dark_mode = true;
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🌃 Turn off dark mode</span>"
         }
     }
+
+    dark_mode_button.addEventListener('click', toggle_dark_mode);
 
 </script>

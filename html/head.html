@@ -124,11 +124,14 @@
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
-	<li><a class="button-link" href="{% home_url %}"><span class="nav-button">Home</span></a></li>
-	<li><a class="button-link" href="{% more_url %}"><span class="nav-button">More notes</span></a></li>
-	<li><a class="button-link" href="{% blame_url %}"><span class="nav-button">Revisions</span></a></li>
-	<li><a class="button-link" href="{% issue_url %}"><span class="nav-button">Create an issue...</span></a></li>
-	<li><a class="button-link" href="{% search_url %}"><span class="nav-button">Search...</span></a></li>
+	<li><a class="button-link" href="{% home_url %}"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="{% more_url %}"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href="{% blame_url %}"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="{% issue_url %}"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="{% search_url %}"><span class="nav-button">🔎 Search...</span></a></li>
+</ul>
+<ul class="navbar">
+	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
 {% jump_to %}

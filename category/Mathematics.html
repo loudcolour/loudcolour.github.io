@@ -124,11 +124,14 @@
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
-	<li><a class="button-link" href="../"><span class="nav-button">Home</span></a></li>
-	<li><a class="button-link" href="../more.html"><span class="nav-button">More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">Create an issue...</span></a></li>
-	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">Search...</span></a></li>
+	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
+</ul>
+<ul class="navbar">
+	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
 
@@ -182,11 +185,13 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
     var body = document.getElementById('body');
     var sidebar = document.getElementById('sidebar');
     var md_body = document.getElementById('markdown-body');
+    var dark_mode_button = document.getElementById('toggle-dark-mode');
 
     if (dark_mode) {
             body.className = "dark-mode-on";
             sidebar.className = "sidebar-dark";
             md_body.className = "markdown-body-dark";
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🌃 Turn off dark mode</span>"
     }
 
     function toggle_dark_mode() {
@@ -195,12 +200,16 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
             sidebar.className = "sidebar";
             md_body.className = "markdown-body";
             dark_mode = false;
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🏙 Turn on dark mode</span>"
         } else {
             body.className = "dark-mode-on";
             sidebar.className = "sidebar-dark";
             md_body.className = "markdown-body-dark";
             dark_mode = true;
+            dark_mode_button.innerHTML = "<span class=\"nav-button\">🌃 Turn off dark mode</span>"
         }
     }
+
+    dark_mode_button.addEventListener('click', toggle_dark_mode);
 
 </script>
