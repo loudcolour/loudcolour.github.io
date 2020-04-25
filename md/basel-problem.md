@@ -9,6 +9,8 @@ language: Korean
 Basel 문제는 Riemann의 $\zeta$ 함수 $\zeta(s) = \sum_{k=1}^{\infty}\frac{1}{k^s}$ 에 대하여
 $\zeta(2)$의 값을 정확하게 닫힌 꼴로 구하는 문제이다.
 
+## Euler의 접근, Weierstrass 분해정리
+
 ## 이중적분과의 관계를 이용하는 풀이
 
 ### 단위 사각형 $\square$과 이중적분
@@ -170,3 +172,7 @@ $$
 $$
 
 임을 쉽게 알아낼 수 있다.
+
+## Fourier 급수를 이용하는 풀이
+
+### 확장
