@@ -53,8 +53,9 @@ html_math_char = lambda s : (s.replace('&', '&amp;')
                               .replace('<', '&lt;' )
                               .replace('>', '&gt;' ))
 
-japanese_new_line = lambda string : string + '\n' if string == '  ' else string
-japanese_line_merge = lambda string : re_dict['japanese_exception'].sub(repl=lambda obj : japanese_new_line(obj.group(1))+obj.group(2), string=string)
+japanese_line_up = lambda string : string + '\n' if string == '  ' else string
+japanese_line_down = lambda string : '\n' + string if string == '- ' else string
+japanese_line_merge = lambda string : re_dict['japanese_exception'].sub(repl=lambda obj : japanese_line_up(obj.group(1))+japanese_line_down(obj.group(2)), string=string)
 
 def make_ruby(rb, rt, Japanese=False):
     left_rp, right_rp = ('（', '）') if Japanese else (' (', ')')
@@ -76,7 +77,8 @@ def keep_math(string):
 
 def pandoc_md_to_html(string, Japanese=False):
     cmd = sp.Popen(settings['debug']['pandoc_cmd'], stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
-    STDOUT, STDERR = cmd.communicate(input=(japanese_line_merge(string) if Japanese else string).encode("utf-8"))
+    #STDOUT, STDERR = cmd.communicate(input=(japanese_line_merge(string) if Japanese else string).encode("utf-8"))
+    STDOUT, STDERR = cmd.communicate(input=(string).encode("utf-8"))
     if STDERR != b'':
         print(STDERR.decode("utf-8"))
         exit(1)
