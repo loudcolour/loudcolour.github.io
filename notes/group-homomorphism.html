@@ -119,7 +119,7 @@
 <div class="container">
 <aside class="sidebar">
 <ul id="navbar" class="navbar">
-<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Expand list</span></a></li>
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Show ▾</span></a></li>
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
@@ -207,13 +207,15 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
 </body>
 <script>
     var inside_sidebar = document.getElementById('inside-sidebar');
+    var toggle_button = document.getElementById('expand-list');
     function toggle_list() {
         if (inside_sidebar.className === 'visible') {
             inside_sidebar.className = 'invisible';
+    		toggle_button.innerHTML = "<span class=\"nav-button\">Show ▾</span>"
         } else {
-            inside_sidebar.className = 'visible'
+            inside_sidebar.className = 'visible';
+    		toggle_button.innerHTML = "<span class=\"nav-button\">Hide ▴</span>"
         }
     }
-    var toggle_button = document.getElementById('expand-list')
     toggle_button.addEventListener('click', toggle_list);
 </script>
