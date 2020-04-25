@@ -1,3 +1,7 @@
+body.dark-mode-off {
+  background-color: #fff;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;
@@ -986,16 +990,7 @@
 
 /* customization */
 
-.license {
-	font-size: 12px;
-	color: #6a737d;
-}
-
-.align-right {
-  text-align: right;
-}
-
-.category-button {
+.markdown-body .category-button {
   background-color: #0366d6;
   color: white;
   font-size: 11px;
@@ -1005,7 +1000,7 @@
   bottom: 1.5px;
 }
 
-.modified-date {
+.markdown-body .modified-date {
   background-color: white;
   color: #0366d6;
   font-size: 11px;
@@ -1018,19 +1013,19 @@
   bottom: 1.5px;
 }
 
-.category-button a {
+.markdown-body .category-button a {
   color: white;
 }
 
-.category-button a:hover {
+.markdown-body .category-button a:hover {
   text-decoration: none;
 }
 
-ul.article-list {
+.markdown-body .article-list {
   list-style: none;
 }
 
-.nav-button {
+.sidebar .nav-button {
   text-align: left;
   display: block;
   width: calc(100% - 16px);
@@ -1043,24 +1038,60 @@ ul.article-list {
   border-color: #eaecef;
 }
 
-ul.navbar {
+.sidebar ul.navbar {
   list-style: none;
   padding: 0;
 }
 
-.nav-button:hover {
+.sidebar .nav-button:hover {
   background-color: #d3e7ff;
   color: #0366d6;
 }
 
-a.button-link {
+.sidebar a.button-link {
   color: #0366d6;
   text-decoration: none;
 }
 
-a.button-link:hover {
+.sidebar a.button-link:hover {
   text-decoration: none;
 }
+
+.sidebar .trigger-list {
+	display: none;
+}
+
+.sidebar .visible {
+	display: block;
+}
+
+.sidebar .invisible {
+	display: block;
+}
+
+.sidebar .jump-to-id-list {
+	font-size: 13px;
+}
+
+.sidebar .jump-to-id-list li {
+	margin: 0.5em 0;
+}
+
+.sidebar .jump-to-id-list ul {
+	list-style: none;
+	padding-left: 13px;
+}
+
+.sidebar .jump-to-id-list>ul {
+	padding-left: 8px;
+}
+
+.sidebar .jump-to-id-list a, .jump-to-id-list a:hover {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+/* common */
 
 .katex {
 	font-size: inherit;
@@ -1073,38 +1104,11 @@ a.button-link:hover {
 	text-align: center;
 }
 
-.trigger-list {
-	display: none;
+.license {
+	font-size: 12px;
+	color: #6a737d;
 }
 
-
-.visible {
-	display: block;
+.align-right {
+  text-align: right;
 }
-
-.invisible {
-	display: block;
-}
-
-.jump-to-id-list {
-	font-size: 13px;
-}
-
-.jump-to-id-list li {
-	margin: 0.5em 0;
-}
-
-.jump-to-id-list ul {
-	list-style: none;
-	padding-left: 13px;
-}
-
-.jump-to-id-list>ul {
-	padding-left: 8px;
-}
-
-.jump-to-id-list a, .jump-to-id-list a:hover {
-	color: #0366d6;
-	text-decoration: none;
-}
-

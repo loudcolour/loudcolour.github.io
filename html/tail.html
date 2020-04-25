@@ -28,4 +28,30 @@ A copy of the license is included in the <a href="{% github_url %}">GitHub repo<
         }
     }
     toggle_button.addEventListener('click', toggle_list);
+
+    var dark_mode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var body = document.getElementById('body');
+    var sidebar = document.getElementById('sidebar');
+    var md_body = document.getElementById('markdown-body');
+
+    if (dark_mode) {
+            body.className = "dark-mode-on";
+            sidebar.className = "sidebar-dark";
+            md_body.className = "markdown-body-dark";
+    }
+
+    function toggle_dark_mode() {
+        if (dark_mode) {
+            body.className = "dark-mode-off";
+            sidebar.className = "sidebar";
+            md_body.className = "markdown-body";
+            dark_mode = false;
+        } else {
+            body.className = "dark-mode-on";
+            sidebar.className = "sidebar-dark";
+            md_body.className = "markdown-body-dark";
+            dark_mode = true;
+        }
+    }
+
 </script>

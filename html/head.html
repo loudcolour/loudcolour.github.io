@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="{% katex %}/katex.min.css">
 <link rel="stylesheet" href="{% highlight %}">
 <link rel="stylesheet" href="{% stylesheet %}">
+<link rel="stylesheet" href="{% stylesheet_dark %}">
 <title>{% title %}</title>
 
 <style>
@@ -40,14 +41,14 @@
 		box-sizing: border-box;
 	}
 
-	.markdown-body {
+	.markdown-body, .markdown-body-dark {
 		grid-area: main;
 		min-width: 200px;
 		max-width: 745px;
 		margin: 0 auto;
 	}
 
-	.sidebar {
+	.sidebar, .sidebar-dark {
 		position: fixed;
 		width: 220px;
 		height: calc(100% - 90px);
@@ -68,7 +69,7 @@
 			row-gap: 15px;
 		}
 
-		.sidebar {
+		.sidebar, .sidebar-dark {
 			width: unset;
 			height: unset;
 			position: relative;
@@ -99,7 +100,7 @@
 			row-gap: 15px;
 		}
 
-		.markdown-body {
+		.markdown-body, .markdown-body-dark {
 			max-width: 100%;
 		}
 
@@ -114,10 +115,10 @@
 
 </style>
 </head>
-<body>
+<body id="body" class="dark-mode-off">
 
 <div class="container">
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar">
 <ul id="navbar" class="navbar">
 <li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Show ▾</span></a></li>
 </ul>
@@ -134,4 +135,4 @@
 </div>
 </div>
 </aside>
-<article class="markdown-body">
+<article id="markdown-body" class="markdown-body">

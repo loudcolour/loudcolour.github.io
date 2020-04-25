@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="../katex/katex.min.css">
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style-dark.css">
 <title>기호에 관한 약속</title>
 
 <style>
@@ -40,14 +41,14 @@
 		box-sizing: border-box;
 	}
 
-	.markdown-body {
+	.markdown-body, .markdown-body-dark {
 		grid-area: main;
 		min-width: 200px;
 		max-width: 745px;
 		margin: 0 auto;
 	}
 
-	.sidebar {
+	.sidebar, .sidebar-dark {
 		position: fixed;
 		width: 220px;
 		height: calc(100% - 90px);
@@ -68,7 +69,7 @@
 			row-gap: 15px;
 		}
 
-		.sidebar {
+		.sidebar, .sidebar-dark {
 			width: unset;
 			height: unset;
 			position: relative;
@@ -99,7 +100,7 @@
 			row-gap: 15px;
 		}
 
-		.markdown-body {
+		.markdown-body, .markdown-body-dark {
 			max-width: 100%;
 		}
 
@@ -114,10 +115,10 @@
 
 </style>
 </head>
-<body>
+<body id="body" class="dark-mode-off">
 
 <div class="container">
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar">
 <ul id="navbar" class="navbar">
 <li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Show ▾</span></a></li>
 </ul>
@@ -144,7 +145,7 @@
 </div>
 </div>
 </aside>
-<article class="markdown-body">
+<article id="markdown-body" class="markdown-body">
 <!---
 title: '기호에 관한 약속'
 category: Mathematics
@@ -238,4 +239,30 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
         }
     }
     toggle_button.addEventListener('click', toggle_list);
+
+    var dark_mode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var body = document.getElementById('body');
+    var sidebar = document.getElementById('sidebar');
+    var md_body = document.getElementById('markdown-body');
+
+    if (dark_mode) {
+            body.className = "dark-mode-on";
+            sidebar.className = "sidebar-dark";
+            md_body.className = "markdown-body-dark";
+    }
+
+    function toggle_dark_mode() {
+        if (dark_mode) {
+            body.className = "dark-mode-off";
+            sidebar.className = "sidebar";
+            md_body.className = "markdown-body";
+            dark_mode = false;
+        } else {
+            body.className = "dark-mode-on";
+            sidebar.className = "sidebar-dark";
+            md_body.className = "markdown-body-dark";
+            dark_mode = true;
+        }
+    }
+
 </script>

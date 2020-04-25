@@ -8,6 +8,7 @@ path:
   categories: 'categories.html'
   languages: 'languages.html'
   stylesheet: 'style.css'
+  stylesheet_dark: 'style-dark.css'
   highlight: 'highlight.css'
   sitemap: 'sitemap.xml'
   html_part:
