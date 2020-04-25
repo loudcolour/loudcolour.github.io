@@ -139,7 +139,7 @@ body.dark-mode-on {
 }
 
 .markdown-body-dark a {
-  color: #e3841f;
+  color: rgb(26,121,193);
   text-decoration: none;
 }
 
@@ -299,7 +299,7 @@ body.dark-mode-on {
 .markdown-body-dark :checked+.radio-label {
   position: relative;
   z-index: 1;
-  border-color: #e3841f;
+  border-color: rgb(26,121,193);
 }
 
 .markdown-body-dark .border {
@@ -991,7 +991,7 @@ body.dark-mode-on {
 /* customization */
 
 .markdown-body-dark .category-button {
-  background-color: #e3841f;
+  background-color: rgb(26,121,193);
   color: rgb(30, 30, 30);
   font-size: 11px;
   padding: 3px 5px 3px;
@@ -1002,12 +1002,12 @@ body.dark-mode-on {
 
 .markdown-body-dark .modified-date {
   background-color: rgb(30, 30, 30);
-  color: #e3841f;
+  color: rgb(26,121,193);
   font-size: 11px;
   padding: 2px 5px 2px;
   border: 1px;
   border-style: solid;
-  border-color: #e3841f;
+  border-color: rgb(26,121,193);
   border-radius: 3px;
   position: relative;
   bottom: 1.5px;
@@ -1044,12 +1044,12 @@ body.dark-mode-on {
 }
 
 .sidebar-dark .nav-button:hover {
-  background-color: rgba(255, 153, 0, 0.2);
-  color: #e3841f;
+  background-color: rgba(0, 93, 180, 0.2);
+  color: rgb(26,121,193);
 }
 
 .sidebar-dark a.button-link {
-  color: #e3841f;
+  color: rgb(26,121,193);
   text-decoration: none;
 }
 
@@ -1075,6 +1075,6 @@ body.dark-mode-on {
 }
 
 .sidebar-dark .jump-to-id-list a, .jump-to-id-list a:hover {
-	color: #e3841f;
+	color: rgb(26,121,193);
 	text-decoration: none;
 }
