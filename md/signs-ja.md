@@ -55,12 +55,12 @@ language: Japanese
 
 ## 近似
 
-- $a(x) \sim b(x)$：$\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$
+- $a(x) \sim b(x)$：$\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$．
 混乱がない限り，$x$を省く場合もある．
 - $f(x)\in O(g(x))$：Landauの記号，
-$\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|<\infty$
+$\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|<\infty$．
 - $f(x)\in o(g(x))$：同様にLandauの記号,
-$\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$
+$\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$．
 
 ## 其の他
 
