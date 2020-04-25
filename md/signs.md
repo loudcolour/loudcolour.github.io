@@ -72,7 +72,7 @@ $\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$
 
 - □: 증명이 끝났음을 의미한다.
 
-## 외부링크
+## 외부 링크
 
 - [Supported Functions](https://katex.org/docs/supported.html):
 위 기호들을 $\KaTeX$로 입력할 때 참고할 수 있는 문서이다.

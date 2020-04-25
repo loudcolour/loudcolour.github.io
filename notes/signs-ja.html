@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>기호에 관한 약속</title>
+<title>記号に関して</title>
 
 <style>
 	.container {
@@ -158,8 +158,8 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/signs.md"><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=기호에 관한 약속"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/signs-ja.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=記号に関して"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
@@ -167,14 +167,14 @@
 </ul>
 <div class="jump-to-id-list">
 <ul>
-<li><a href="#기호에-관한-약속">기호에 관한 약속</a>
+<li><a href="#記号に関して">記号に関して</a>
 <ul>
-<li><a href="#집합-사상">집합, 사상</a></li>
-<li><a href="#논리기호">논리기호</a></li>
-<li><a href="#연산자기호-함수">연산자기호, 함수</a></li>
-<li><a href="#근사식">근사식</a></li>
-<li><a href="#기타">기타</a></li>
-<li><a href="#외부-링크">외부 링크</a></li>
+<li><a href="#集合写像">集合，写像</a></li>
+<li><a href="#論理記号">論理記号</a></li>
+<li><a href="#演算子関数">演算子，関数</a></li>
+<li><a href="#近似">近似</a></li>
+<li><a href="#其の他">其の他</a></li>
+<li><a href="#外部リンク">外部リンク</a></li>
 </ul></li>
 </ul>
 
@@ -182,83 +182,48 @@
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<!---
-title: '기호에 관한 약속'
-category: Mathematics
-language: Korean
---->
+<!---title: '記号に関して'category: Mathematicslanguage: Japanese--->
 
-<h1 id="기호에-관한-약속">기호에 관한 약속</h1>
-<p>혼란을 방지하기 위해, 노트들에서 사용되는 몇가지 기호들의 의미를 정리하여 둔다.</p>
-<h2 id="집합-사상">집합, 사상</h2>
-<p>특수한 집합들의 목록은 다음과 같다.</p>
+<h1 id="記号に関して">記号に関して</h1>
+<p>混乱を防ぐために，ノートに使われる幾つかの記号の定義をまとめておく．</p>
+<h2 id="集合写像">集合，写像</h2>
+<p>特集な集合の記号は以下の通りである．</p>
 <ul>
-<li>$\emptyset$: 공집합, 즉 어떤 원소도 속하지 않는 집합이다.</li>
-<li>$\N$: 자연수 전체의 집합이다. 여기서 자연수는 $0$를 포함하는 것으로 한다.
-<ul>
-<li>$n\N$: $n\N = \{nx|x\in\N\}$</li>
-</ul></li>
-<li>$\Z$: 정수 전체의 집합이다.
-<ul>
-<li>$n\Z$: $n\Z = \{nx|x\in\Z\}$</li>
-</ul></li>
-<li>$\mathbb{Q}$: 유리수 전체의 집합이다.</li>
-<li>$\R$: 실수 전체의 집합이다.
-<ul>
-<li>$\R^{+}$: 양의 실수 전체의 집합이다.</li>
-<li>$\R^{-}$: 음의 실수 전체의 집합이다.</li>
-</ul></li>
-<li>$\Complex$: 복소수 전체의 집합이다.</li>
+<li>$\emptyset$：空集合，つまり何の元も含んでいない集合．- $\N$：自然数全体の集合．此処で，$0$も自然数であることにする． - $n\N$：$n\N = \{nx|x\in\N\}$- $\Z$：整数全体の集合． - $n\Z$：$n\Z = \{nx|x\in\Z\}$- $\mathbb{Q}$：有理数全体の集合．- $\R$：実数全体の集合． - $\R^{+}$：正の実数全体の集合． - $\R^{-}$：負の実数全体の集合．- $\Complex$：複素数全体の集合．</li>
 </ul>
-<p>집합과 원소간의 관계를 나타내는 기호는 다음과 같다.</p>
+<p>集合と元の関係を表す記号は以下の通りである．</p>
 <ul>
-<li>$a\in A$: $a$가 집합 $A$의 원소라는 뜻이다.</li>
-<li>$A\subset B$: 집합 $A$가 집합 $B$의 부분집합이라는 뜻이다.</li>
-<li>$\mathscr{P}(A)$ 혹은 $2^A$: 집합 $A$의 부분집합 전체의 집합이다.</li>
-<li>$\forall x \in X$: "집합 $X$에 속하는 모든 $x$는"이라는 뜻이다.</li>
-<li>$\exists x \in X$: "집합 $X$에 속하는 어떤 $x$는"이라는 뜻이다.</li>
+<li>$a\in A$：$a$が集合$A$に属する．- $A\subset B$：集合$A$は$B$の部分集合である．- $\mathscr{P}(A)$または$2^A$：集合$A$の部分集合全体の集合．- $\forall x \in X$：「集合$X$に属する総ての$x$は…」- $\exists x \in X$：「集合$X$に属するとある$x$は…」</li>
 </ul>
-<p>사상(혹은 함수)에 관한 기호는 다음과 같다.</p>
+<p>写像または関数に関する記号は以下の通りである．</p>
 <ul>
-<li>$f: A\to B$: "$f$는 $A$를 정의역, $B$를 공역으로 하는 사상이다"라는 뜻이다.</li>
-<li>$f: x\mapsto y$: "사상 $f$에 의해 $x$는 $y$에 대응된다"라는 뜻이다.</li>
+<li>$f:A\to B$：$f$は$A$を定義域，$B$を値域とする写像である．- $f:x\mapsto y$：写像$f$により，$x$は$y$対応される．</li>
 </ul>
-<h2 id="논리기호">논리기호</h2>
+<h2 id="論理記号">論理記号</h2>
 <ul>
-<li>$\lnot p$: 명제 혹은 조건 $p$의 부정이다.</li>
-<li>$p\land q$: 조건 $p$인 동시에 조건 $q$라는 뜻이다.</li>
-<li>$p\lor q$: 조건 $p$ 혹은 조건 $q$라는 뜻이다.</li>
-<li>$p\longrightarrow q$: 조건 $p$인 경우에 조건 $q$"라는 뜻이다. $\neg p\lor q$와 상등하다.</li>
-<li>$p\implies q$: 조건 $p$가 조건 $q$의 충분조건(혹은 조건 $q$가 조건 $p$의 필요조건) 이라는 뜻이다.</li>
-<li>$p\iff q$: 조건 $p$와 조건 $q$가 서로의 필요충분조건이라는 뜻이다. 즉, 조건 $p$와 조건 $q$가 동치라는 뜻이다.</li>
+<li>$\lnot p$：条件$p$の否定．- $p\land q$：条件$p$且つ条件$q$．- $p\lor q$：条件$p$又は条件$q$.- $p\longrightarrow q$：条件$p$ならば条件$q$．$\neg p\lor q$と相同．- $p\implies q$：条件$p$が条件$q$の十分条件である．（条件$q$が条件$p$の必要条件である．）- $p\iff q$：条件$p$と条件$q$は互いに必要十分条件である．（条件$p$と条件$q$は同値である．）</li>
 </ul>
-<h2 id="연산자기호-함수">연산자기호, 함수</h2>
+<h2 id="演算子関数">演算子，関数</h2>
 <ul>
-<li>$a\mid b$: $a$가 $b$의 약수, 즉 $b$가 $a$의 배수임을 의미한다.</li>
-<li>$n!$: $n$의 계승(팩토리얼)을 의미한다.</li>
-<li>$\log x$: 로그의 일반적인 의미는 같으나, 별다른 표시가 없는 한, 밑을 $e$로 한다. 즉, 자연로그 $\ln$과 같다.</li>
-<li>$\Re(z)$: 복소수 $z\in\Complex$의 실수부이다.</li>
-<li>$\Im(z)$: 복소수 $z\in\Complex$의 허수부이다.</li>
+<li>$a\mid b$：$a$は$b$の約数．（$b$は$a$の倍数．）- $n!$：$n$の階乗．- $\log x$：別途の表示がない限り，底を$e$とする．- $\Re(z)$：複素数$z\in\Complex$の実数部.- $\Im(z)$：複素数$z\in\Complex$の虚数部.</li>
 </ul>
-<h2 id="근사식">근사식</h2>
+<h2 id="近似">近似</h2>
 <ul>
-<li>$a(x) \sim b(x)$: $\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$ 이라는 의미이다. 의미상의 혼란을 부추기지 않는 경우에 한하여, $x$를 생략하여 표기하는 경우도 존재한다.</li>
-<li>$f(x)\in O(g(x))$: Landau 기호, 즉 $\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|&lt;\infty$ 이라는 의미이다.</li>
-<li>$f(x)\in o(g(x))$: 마찬가지로 Landau 기호로, $\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$ 이라는 의미이다.</li>
+<li>$a(x) \sim b(x)$：$\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$混乱がない限り，$x$を省く場合もある．- $f(x)\in O(g(x))$：Landauの記号，$\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|&lt;\infty$- $f(x)\in o(g(x))$：同様にLandauの記号,$\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$</li>
 </ul>
-<h2 id="기타">기타</h2>
+<h2 id="其の他">其の他</h2>
 <ul>
-<li>□: 증명이 끝났음을 의미한다.</li>
+<li>□：証明終了.</li>
 </ul>
-<h2 id="외부-링크">외부 링크</h2>
+<h2 id="外部リンク">外部リンク</h2>
 <ul>
-<li><a href="https://katex.org/docs/supported.html">Supported Functions</a>: 위 기호들을 $\KaTeX$로 입력할 때 참고할 수 있는 문서이다.</li>
+<li><a href="https://katex.org/docs/supported.html">Supported Functions</a>:上記の記号を$\KaTeX$から入力する時のレファレンス．</li>
 </ul>
 <div class="hidden">
 <hr>
 <p>
-    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-26T03:34:30+0900</code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Japanese.html">Japanese</a>,
+    Last modified: <code>2020-04-26T03:35:27+0900</code></a>
 </p>
 <hr>
 
