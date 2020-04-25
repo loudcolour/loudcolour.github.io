@@ -22,9 +22,7 @@ $F_0 = 0$, $F_1 = 1$에 $F_{n+2} - F_{n+1} - F_{n}=0$과 같이 나타내어진�
 
 구체적으로, 다음과 같은 선형변환을 정의하자.
 
-$$ T_A:\R^2\to\R^2 $$
-
-$$ \begin{bmatrix}F_{n+1}\\F_{n}\end{bmatrix}\mapsto\begin{bmatrix}F_{n+2}\\F_{n+1}\end{bmatrix} $$
+$$ T_A:\R^2\to\R^2, \begin{bmatrix}F_{n+1}\\F_{n}\end{bmatrix}\mapsto\begin{bmatrix}F_{n+2}\\F_{n+1}\end{bmatrix} $$
 
 이 선형변환에 대응하는 2차 행렬 $A$는 위에서 정의된 점화식에 의해,
 $A=\begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix}$임을 알 수 있다.
