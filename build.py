@@ -247,6 +247,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'home_url': "../",
             'more_url': "../" + settings['path']['more'],
             'issue_url': settings['github_repo'] + '/issues/new?title=' + REPLACEMENT['title'],
+            'search_url': settings['search_url'],
             'stylesheet': "../" + settings['path']['stylesheet'],
             'icons': "../" + settings['dir_path']['icons'],
             'katex': "../" + settings['dir_path']['katex'],
@@ -328,6 +329,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': settings['github_repo'] + '/blame/master/' + INPUT_PATH,
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
@@ -367,6 +369,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
@@ -421,6 +424,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
@@ -453,6 +457,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
@@ -485,6 +490,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
@@ -518,6 +524,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
         REPLACEMENT.update({
             'blame_url': '',
             'issue_url': settings['github_repo'] + '/issues/new',
+            'search_url': settings['search_url'],
             'category_url': "",
             'language_url': "",
             'mtime_formatted': "",
