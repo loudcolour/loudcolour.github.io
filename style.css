@@ -1038,7 +1038,7 @@ ul.article-list {
   padding: 8px 8px;
   background-color: rgba(255, 255, 255, 0);
   position: relative;
-  border-top-style: solid;
+  border-bottom-style: solid;
   border-width: 1px;
   border-color: #eaecef;
 }
@@ -1061,3 +1061,50 @@ a.button-link {
 a.button-link:hover {
   text-decoration: none;
 }
+
+.katex {
+	font-size: inherit;
+}
+
+.katex-display {
+	display: block;
+	padding: 1em 0;
+	overflow: scroll;
+	text-align: center;
+}
+
+.trigger-list {
+	display: none;
+}
+
+
+.visible {
+	display: block;
+}
+
+.invisible {
+	display: block;
+}
+
+.jump-to-id-list {
+	font-size: 13px;
+}
+
+.jump-to-id-list li {
+	margin: 0.5em 0;
+}
+
+.jump-to-id-list ul {
+	list-style: none;
+	padding-left: 13px;
+}
+
+.jump-to-id-list>ul {
+	padding-left: 8px;
+}
+
+.jump-to-id-list a, .jump-to-id-list a:hover {
+	color: #0366d6;
+	text-decoration: none;
+}
+

@@ -3,7 +3,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="Yu7ZDPtBRajRVL44UXQQ1cT-vuIlgmn5igJw9GlE-ks" />
-<link rel="stylesheet" href="../style.css">
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../icons/favicon-apple-touch-114.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../icons/favicon-apple-touch-114.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../icons/favicon-apple-touch-144.png">
@@ -23,6 +22,7 @@
 <script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
 <link rel="stylesheet" href="../katex/katex.min.css">
 <link rel="stylesheet" href="../highlight.css">
+<link rel="stylesheet" href="../style.css">
 <title>iPhone SE</title>
 
 <style>
@@ -52,44 +52,6 @@
 		width: 220px;
 		height: calc(100% - 90px);
 		overflow: scroll;
-	}
-
-	.trigger-list {
-		display: none;
-	}
-
-	.trigger-list span {
-		border-bottom-style: solid;
-	}
-
-	.visible {
-		display: block;
-	}
-
-	.invisible {
-		display: block;
-	}
-
-	.jump-to-id-list {
-		font-size: 13px;
-	}
-
-	.jump-to-id-list li {
-		margin: 0.5em 0;
-	}
-
-	.jump-to-id-list ul {
-		list-style: none;
-		padding-left: 13px;
-	}
-	
-	.jump-to-id-list>ul {
-		padding-left: 8px;
-	}
-
-	.jump-to-id-list a, .jump-to-id-list a:hover {
-		color: #0366d6;
-		text-decoration: none;
 	}
 
 	@media (max-width: 1010px) {
@@ -150,16 +112,6 @@
 		
 	}
 
-	.katex {
-  		font-size: inherit;
-	}
-
-	.katex-display {
-		display: block;
-		padding: 1em 0;
-		overflow: scroll;
-		text-align: center;
-	}
 </style>
 </head>
 <body>
@@ -167,14 +119,15 @@
 <div class="container">
 <aside class="sidebar">
 <ul id="navbar" class="navbar">
-	<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Expand list</span></a></li>
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Show ▾</span></a></li>
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">More notes</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/iphone-se.md"><span class="nav-button">Blame</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=iPhone SE"><span class="nav-button">Make an issue</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/iphone-se.md"><span class="nav-button">Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=iPhone SE"><span class="nav-button">Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">Search...</span></a></li>
 </ul>
 <div class="jump-to-id-list">
 <ul>
@@ -222,13 +175,15 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
 </body>
 <script>
     var inside_sidebar = document.getElementById('inside-sidebar');
+    var toggle_button = document.getElementById('expand-list');
     function toggle_list() {
         if (inside_sidebar.className === 'visible') {
             inside_sidebar.className = 'invisible';
+    		toggle_button.innerHTML = "<span class=\"nav-button\">Show ▾</span>"
         } else {
-            inside_sidebar.className = 'visible'
+            inside_sidebar.className = 'visible';
+    		toggle_button.innerHTML = "<span class=\"nav-button\">Hide ▴</span>"
         }
     }
-    var toggle_button = document.getElementById('expand-list')
     toggle_button.addEventListener('click', toggle_list);
 </script>
