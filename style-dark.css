@@ -1057,18 +1057,6 @@ body.dark-mode-on {
   text-decoration: none;
 }
 
-.sidebar-dark .trigger-list {
-	display: none;
-}
-
-.sidebar-dark .visible {
-	display: block;
-}
-
-.sidebar-dark .invisible {
-	display: block;
-}
-
 .sidebar-dark .jump-to-id-list {
 	font-size: 13px;
 }

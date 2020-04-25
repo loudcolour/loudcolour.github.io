@@ -55,6 +55,38 @@
 		overflow: scroll;
 	}
 
+	.katex {
+		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
+	}
+
+	.license {
+		font-size: 12px;
+		color: #6a737d;
+	}
+
+	.align-right {
+	  text-align: right;
+	}
+
+	.trigger-list {
+		display: none;
+	}
+
+	.visible {
+		display: block;
+	}
+
+	.invisible {
+		display: block;
+	}
+
 	@media (max-width: 1010px) {
 		.container {
 			margin: 45px auto;
@@ -120,7 +152,7 @@
 <div class="container">
 <aside id="sidebar" class="sidebar">
 <ul id="navbar" class="navbar">
-<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">Show ▾</span></a></li>
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">🔽 Show</span></a></li>
 </ul>
 <div id="inside-sidebar" class="invisible">
 <ul class="navbar">
@@ -278,10 +310,10 @@ A copy of the license is included in the <a href="https://github.com/loudcolour/
     function toggle_list() {
         if (inside_sidebar.className === 'visible') {
             inside_sidebar.className = 'invisible';
-    		toggle_button.innerHTML = "<span class=\"nav-button\">Show ▾</span>"
+    		toggle_button.innerHTML = "<span class=\"nav-button\">🔽 Show</span>"
         } else {
             inside_sidebar.className = 'visible';
-    		toggle_button.innerHTML = "<span class=\"nav-button\">Hide ▴</span>"
+    		toggle_button.innerHTML = "<span class=\"nav-button\">🔼 Hide</span>"
         }
     }
     toggle_button.addEventListener('click', toggle_list);

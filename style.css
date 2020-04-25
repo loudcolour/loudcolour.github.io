@@ -1057,18 +1057,6 @@ body.dark-mode-off {
   text-decoration: none;
 }
 
-.sidebar .trigger-list {
-	display: none;
-}
-
-.sidebar .visible {
-	display: block;
-}
-
-.sidebar .invisible {
-	display: block;
-}
-
 .sidebar .jump-to-id-list {
 	font-size: 13px;
 }
@@ -1089,26 +1077,4 @@ body.dark-mode-off {
 .sidebar .jump-to-id-list a, .jump-to-id-list a:hover {
 	color: #0366d6;
 	text-decoration: none;
-}
-
-/* common */
-
-.katex {
-	font-size: inherit;
-}
-
-.katex-display {
-	display: block;
-	padding: 1em 0;
-	overflow: scroll;
-	text-align: center;
-}
-
-.license {
-	font-size: 12px;
-	color: #6a737d;
-}
-
-.align-right {
-  text-align: right;
 }
