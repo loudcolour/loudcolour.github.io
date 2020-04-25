@@ -1038,7 +1038,7 @@ ul.article-list {
   padding: 8px 8px;
   background-color: rgba(255, 255, 255, 0);
   position: relative;
-  border-top-style: solid;
+  border-bottom-style: solid;
   border-width: 1px;
   border-color: #eaecef;
 }
@@ -1077,9 +1077,6 @@ a.button-link:hover {
 	display: none;
 }
 
-.trigger-list span {
-	border-bottom-style: solid;
-}
 
 .visible {
 	display: block;
