@@ -154,7 +154,7 @@ $\pi(x)\sim\text{li}(x)$임을 쉽게 알 수 있다.
 **추측**(쌍둥이 소수 추측). 쌍둥이 소수는 무한히 존해한다.
 
 쌍둥이 소수란, $p$와 $p+2$가 동시에 소수인 소수쌍 $(p,p+2)$를 의미한다.
-$(3,5)$, $(5,7)$, $11,13$등은 쌍둥이 소수이다. 위 추측은 어느 결과로도 증명되지 않았다.
+$(3,5)$, $(5,7)$, $(11,13)$등은 쌍둥이 소수이다. 위 추측은 어느 결과로도 증명되지 않았다.
 
 **추측**(Goldbach 예상). 모든 3보다 큰 짝수는 두 소수의 합으로 나타내는 것이 가능하다.
 
@@ -187,7 +187,31 @@ def is_prime(number):
 
 ### Eratosthenes의 체로 소수 리스트 작성하기
 
-주어진 수의 최대값보다 작은 소수의 리스트를 만들어, 나누어 떨어지도록 하는 소수가 리스트 안에 있는지 확인한다.
+위의 방법은 실제로 활용 가능할 정도로 느리지 않은 알고리즘이라고 할 수 있으나, (32비트 부호 정수 내의 소수를
+판별하는데에 큰 지연이 없다는 정도) 잘 생각해보면 계산에 있어서 낭비가 존재한다.
+예를 들어, 어떤 수가 소수인지 판별할 때, 그 수가 2로 나누어 떨어지지 않는다면, 4로 나누어 떨어지는 지
+확인하는 계산을 실행하는 것은 자원 낭비이다. 왜냐하면 2의 배수가 아니면서 4의 배수인 정수는 존재하지 않기 때문이다.
+또한, 단순히 하나의 수를 비교하는 경우보다도, 복수의 수가 주어진 경우라면 정해진 범위 내의 소수를 미리 구하여
+나누어 보는 것이 보다 효율적이라는 사실을 증명 없이도 가늠할 수 있을 것이다.
+
+이에 따라, 주어진 수의 최대값의 제곱근보다 작은 소수의 리스트를 만들어, 나누어 떨어지도록 하는 소수가 리스트 안에 있는지
+확인하는 것으로 소수임을 판별할 수 있다.
+이러한 소수의 리스트를 작성하는 알고리즘이 바로 Eratosthenes의 체이다.
+원리는 간단하다. 구하고자 하는 범위를 지정하여 $2$부터 연속하는 자연수의 리스트를 작성한다.
+$2$부터 시작하면, 먼저 리스트 내의 $2$의 배수를 삭제한다. 그러면 $3$이 $2$의 바로 다음 소수라는 것을 알 수 있고,
+리스트 내에서 $3$의 배수를 삭제한다. 그다음 $5$, 그다음은 $7$, 그 다음은 $11$과 같이 소수의 목록을 얻을 수 있을 것이다.
+이와 같은 작업은 리스트의 길이의 제곱근까지만 수행하는 것으로도 충분하다.
+
+```python
+def get_eratos(list_max):
+    o_list = list(range(2,list_max+1))
+    p_list = []
+    while o_list[0]*o_list[0] <= list_max :
+        p_list.append(o_list[0])
+        o_list = list(filter(lambda x : x % o_list[0] != 0, o_list))
+    p_list += o_list
+    return p_list
+```
 
 ### Miller-Rabin 소수 판별법
 
@@ -219,3 +243,8 @@ is_prime = lambda n : False if re.match(r'^1?$|^(11+?)\1+$', '1'*n) else True
 - $2$: 가장 작은 양의 소수이다.
 - ~~$57$: [Grothendieck 소수](https://en.wikipedia.org/wiki/57_(number)#In_mathematics).~~
 - $2\,147\,483\,647$: 32-bit signed int의 최고치이다. 동시에 이중 Mersenne 소수이다.
+
+## 참고문헌
+
+- John Derbyshire, *Prime Obsession: Bernhard Riemann and the Greatest Unsolved Problem in Mathematics*, Joseph Henry Press, 2003
+- *[Goldbach Conjecture](https://mathworld.wolfram.com/GoldbachConjecture.html)*, Wolfram MathWorld
