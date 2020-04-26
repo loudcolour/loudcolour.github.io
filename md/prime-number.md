@@ -203,4 +203,4 @@ is_prime = lambda n : False if re.match(r'^1?$|^(11+?)\1+$', '1'*n) else True
 
 - $2$: 가장 작은 양의 소수이다.
 - ~~$57$: [Grothendieck 소수](https://en.wikipedia.org/wiki/57_(number)#In_mathematics).~~
-- $2\,147\,483\,647$: 32 bit signed int의 최고치이다. 동시에 이중 Mersenne 소수이다.
+- $2\,147\,483\,647$: 32-bit signed int의 최고치이다. 동시에 이중 Mersenne 소수이다.
