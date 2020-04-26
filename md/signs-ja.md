@@ -69,4 +69,4 @@ $\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$．
 ## 外部リンク
 
 - [Supported Functions](https://katex.org/docs/supported.html):
-上記の記号を$\KaTeX$から入力する時のレファレンス．
+上記の記号を$\KaTeX$から入力する時の参考文献．
