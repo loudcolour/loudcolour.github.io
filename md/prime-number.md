@@ -213,7 +213,7 @@ def get_eratos(list_max):
     return p_list
 ```
 
-### Miller-Rabin 소수 판별법
+<!---### Miller-Rabin 소수 판별법--->
 
 ### 정규표현식?
 

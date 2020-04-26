@@ -176,7 +176,6 @@
 <ul>
 <li><a href="#까지-나누어-보기">$\lfloor\sqrt{n}\rfloor$까지 나누어 보기</a></li>
 <li><a href="#eratosthenes의-체로-소수-리스트-작성하기">Eratosthenes의 체로 소수 리스트 작성하기</a></li>
-<li><a href="#miller-rabin-소수-판별법">Miller-Rabin 소수 판별법</a></li>
 <li><a href="#정규표현식">정규표현식?</a></li>
 </ul></li>
 <li><a href="#특수한-소수">특수한 소수</a></li>
@@ -271,7 +270,8 @@ $$</p>
 <p>이에 따라, 주어진 수의 최대값의 제곱근보다 작은 소수의 리스트를 만들어, 나누어 떨어지도록 하는 소수가 리스트 안에 있는지 확인하는 것으로 소수임을 판별할 수 있다. 이러한 소수의 리스트를 작성하는 알고리즘이 바로 Eratosthenes의 체이다. 원리는 간단하다. 구하고자 하는 범위를 지정하여 $2$부터 연속하는 자연수의 리스트를 작성한다. $2$부터 시작하면, 먼저 리스트 내의 $2$의 배수를 삭제한다. 그러면 $3$이 $2$의 바로 다음 소수라는 것을 알 수 있고, 리스트 내에서 $3$의 배수를 삭제한다. 그다음 $5$, 그다음은 $7$, 그 다음은 $11$과 같이 소수의 목록을 얻을 수 있을 것이다. 이와 같은 작업은 리스트의 길이의 제곱근까지만 수행하는 것으로도 충분하다.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_eratos</span><span class="p">(</span><span class="n">list_max</span><span class="p">):</span><br>    <span class="n">o_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">list_max</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><br>    <span class="n">p_list</span> <span class="o">=</span> <span class="p">[]</span><br>    <span class="k">while</span> <span class="n">o_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">o_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">list_max</span> <span class="p">:</span><br>        <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><br>        <span class="n">o_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="n">o_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">o_list</span><span class="p">))</span><br>    <span class="n">p_list</span> <span class="o">+=</span> <span class="n">o_list</span><br>    <span class="k">return</span> <span class="n">p_list</span><br></pre></div>
 
-<h3 id="miller-rabin-소수-판별법">Miller-Rabin 소수 판별법</h3>
+<!---### Miller-Rabin 소수 판별법--->
+
 <h3 id="정규표현식">정규표현식?</h3>
 <p>조금 재미있는 방식이다. 무려 한줄짜리 정규식으로 소수를 판별할 수 있다. 숏코딩이라면 숏코딩이다.</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span><br><span class="n">is_prime</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span> <span class="p">:</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^1?$|^(11+?)\1+$&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="k">else</span> <span class="kc">True</span><br></pre></div>
@@ -294,7 +294,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-27T03:00:54+0900</code></a>
+    Last modified: <code>2020-04-27T03:23:28+0900</code></a>
 </p>
 <hr>
 
