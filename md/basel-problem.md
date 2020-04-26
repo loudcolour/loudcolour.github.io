@@ -175,4 +175,8 @@ $$
 
 ## Fourier 급수를 이용하는 풀이
 
-### 확장: $n\in\N$일 때의 $\zeta(2n)$과 $\zeta(2n+1)$
+## 확장: $n\in\N$일 때의 $\zeta(2n)$과 $\zeta(2n+1)$
+
+## 참고문헌
+
+- Z. K. Silagadze, *Sums of generalized harmonic series for kids from five to fifteen*, Resonance 20N9 (2015), 822-843, [arXiv:1003.3602](https://arxiv.org/abs/1003.3602) \[math.CA\]

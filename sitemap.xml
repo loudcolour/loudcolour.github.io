@@ -2,8 +2,6 @@
                   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url>
 <loc>https://loudcolour.github.io/notes/axiom-of-choice.html</loc><lastmod>2020-04-23</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-04-26</lastmod>
-</url><url>
 <loc>https://loudcolour.github.io/notes/countable-set.html</loc><lastmod>2020-04-23</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/dn-lcm.html</loc><lastmod>2020-04-26</lastmod>
@@ -33,4 +31,6 @@
 <loc>https://loudcolour.github.io/notes/signs-ja.html</loc><lastmod>2020-04-26</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/prime-number.html</loc><lastmod>2020-04-27</lastmod>
+</url><url>
+<loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-04-27</lastmod>
 </url></urlset>
