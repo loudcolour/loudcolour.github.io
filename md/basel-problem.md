@@ -9,7 +9,7 @@ language: Korean
 Basel 문제는 Riemann의 $\zeta$ 함수 $\zeta(s) = \sum_{k=1}^{\infty}\frac{1}{k^s}$ 에 대하여
 $\zeta(2)$의 값을 정확하게 닫힌 꼴로 구하는 문제이다.
 
-## Euler의 접근, Weierstrass 분해정리
+<!---## Euler의 접근, Weierstrass 분해정리--->
 
 ## 이중적분과의 관계를 이용하는 풀이
 
@@ -173,10 +173,11 @@ $$
 
 임을 쉽게 알아낼 수 있다.
 
+<!---
 ## Fourier 급수를 이용하는 풀이
 
 ## 확장: $n\in\N$일 때의 $\zeta(2n)$과 $\zeta(2n+1)$
-
+--->
 ## 참고문헌
 
 - Z. K. Silagadze, *Sums of generalized harmonic series for kids from five to fifteen*, Resonance 20N9 (2015), 822-843, [arXiv:1003.3602](https://arxiv.org/abs/1003.3602) \[math.CA\]
