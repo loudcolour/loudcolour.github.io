@@ -66,10 +66,6 @@ language: Korean
 즉, 자연로그 $\ln$과 같다.
 - $\Re(z)$: 복소수 $z\in\Complex$의 실수부이다.
 - $\Im(z)$: 복소수 $z\in\Complex$의 허수부이다.
-- $G/H$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff x^{-1}y\in H$를
-동치관계로 한 $G$의 왼쪽 잉여류 전체의 집합이다.
-- $H\backslash G$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff yx^{-1}\in H$를
-동치관계로 한 $G$의 오른쪽 잉여류 전체의 집합이다.
 
 ## 대수구조
 
@@ -85,6 +81,10 @@ $\text{Ker}(\phi) = \left\{x\in G_1 | \phi(x) = 1_{G_2}\right\}$
 즉, $\phi:G_1\to G_2$라고 하면,
 $\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$
 - $\text{Aut}\,G$: 군에 준하는 대수구조 $G$의 자기동형군이다.
+- $G/H$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff x^{-1}y\in H$를
+동치관계로 한 $G$의 왼쪽 잉여류 전체의 집합이다.
+- $H\backslash G$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff yx^{-1}\in H$를
+동치관계로 한 $G$의 오른쪽 잉여류 전체의 집합이다.
 
 ### 특수한 군
 
