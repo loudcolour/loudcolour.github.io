@@ -169,9 +169,19 @@
 <ul>
 <li><a href="#기호에-관한-약속">기호에 관한 약속</a>
 <ul>
-<li><a href="#집합-사상">집합, 사상</a></li>
+<li><a href="#집합-사상">집합, 사상</a>
+<ul>
+<li><a href="#특수한-집합">특수한 집합</a></li>
+<li><a href="#집합과-원소간의-관계">집합과 원소간의 관계</a></li>
+<li><a href="#집합의-연산">집합의 연산</a></li>
+<li><a href="#사상혹은-함수">사상(혹은 함수)</a></li>
+</ul></li>
 <li><a href="#논리기호">논리기호</a></li>
 <li><a href="#연산자기호-함수">연산자기호, 함수</a></li>
+<li><a href="#대수구조">대수구조</a>
+<ul>
+<li><a href="#특수한-군">특수한 군</a></li>
+</ul></li>
 <li><a href="#근사식">근사식</a></li>
 <li><a href="#기타">기타</a></li>
 <li><a href="#외부-링크">외부 링크</a></li>
@@ -191,7 +201,7 @@ language: Korean
 <h1 id="기호에-관한-약속">기호에 관한 약속</h1>
 <p>혼란을 방지하기 위해, 노트들에서 사용되는 몇가지 기호들의 의미를 정리하여 둔다.</p>
 <h2 id="집합-사상">집합, 사상</h2>
-<p>특수한 집합들의 목록은 다음과 같다.</p>
+<h3 id="특수한-집합">특수한 집합</h3>
 <ul>
 <li>$\emptyset$: 공집합, 즉 어떤 원소도 속하지 않는 집합이다.</li>
 <li>$\N$: 자연수 전체의 집합이다. 여기서 자연수는 $0$를 포함하는 것으로 한다.
@@ -210,15 +220,24 @@ language: Korean
 </ul></li>
 <li>$\Complex$: 복소수 전체의 집합이다.</li>
 </ul>
-<p>집합과 원소간의 관계를 나타내는 기호는 다음과 같다.</p>
+<h3 id="집합과-원소간의-관계">집합과 원소간의 관계</h3>
 <ul>
 <li>$a\in A$: $a$가 집합 $A$의 원소라는 뜻이다.</li>
 <li>$A\subset B$: 집합 $A$가 집합 $B$의 부분집합이라는 뜻이다.</li>
-<li>$\mathscr{P}(A)$ 혹은 $2^A$: 집합 $A$의 부분집합 전체의 집합이다.</li>
 <li>$\forall x \in X$: "집합 $X$에 속하는 모든 $x$는"이라는 뜻이다.</li>
 <li>$\exists x \in X$: "집합 $X$에 속하는 어떤 $x$는"이라는 뜻이다.</li>
 </ul>
-<p>사상(혹은 함수)에 관한 기호는 다음과 같다.</p>
+<h3 id="집합의-연산">집합의 연산</h3>
+<ul>
+<li>$A\cup B$: 집합 $A$와 집합 $B$의 합집합.</li>
+<li>$A\cap B$: 집합 $A$와 집합 $B$의 교집합.</li>
+<li>$A\setminus B$: 집합 $A$의 집합 $B$에 대한 차집합.</li>
+<li>$A^{C}$: 집합 $A$의 여집합.</li>
+<li>$\mathscr{P}(A)$ 혹은 $2^A$: 집합 $A$의 부분집합 전체의 집합.</li>
+<li>$A/\sim$: 동치관계 $\sim$에 의한 집합 $A$의 동치류 전체의 집합.</li>
+<li>$A\times B$: 집합 $A$와 집합 $B$의 곱집합. 즉 $A\times B=\{(a,b)|a\in A, b\in B\}$</li>
+</ul>
+<h3 id="사상혹은-함수">사상(혹은 함수)</h3>
 <ul>
 <li>$f: A\to B$: "$f$는 $A$를 정의역, $B$를 공역으로 하는 사상이다"라는 뜻이다.</li>
 <li>$f: x\mapsto y$: "사상 $f$에 의해 $x$는 $y$에 대응된다"라는 뜻이다.</li>
@@ -235,10 +254,31 @@ language: Korean
 <h2 id="연산자기호-함수">연산자기호, 함수</h2>
 <ul>
 <li>$a\mid b$: $a$가 $b$의 약수, 즉 $b$가 $a$의 배수임을 의미한다.</li>
+<li>$a\perp b$: $a$와 $b$가 서로소임을 의미한다.</li>
 <li>$n!$: $n$의 계승(팩토리얼)을 의미한다.</li>
 <li>$\log x$: 로그의 일반적인 의미는 같으나, 별다른 표시가 없는 한, 밑을 $e$로 한다. 즉, 자연로그 $\ln$과 같다.</li>
 <li>$\Re(z)$: 복소수 $z\in\Complex$의 실수부이다.</li>
 <li>$\Im(z)$: 복소수 $z\in\Complex$의 허수부이다.</li>
+<li>$G/H$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff x^{-1}y\in H$를 동치관계로 한 $G$의 왼쪽 잉여류 전체의 집합이다.</li>
+<li>$H\backslash G$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff yx^{-1}\in H$를 동치관계로 한 $G$의 오른쪽 잉여류 전체의 집합이다.</li>
+</ul>
+<h2 id="대수구조">대수구조</h2>
+<ul>
+<li>$1_G$: 승법(곱셈)이 주어진 대수구조 $G$의 승법에 대한 항등원이다.</li>
+<li>$0_G$: 가법(덧셈)이 주어진 대수구조 $G$의 가법에 대한 항등원이다.</li>
+<li>$A^{\times}$: $A$의 가역원 전체의 집합이다.</li>
+<li>$\langle S\rangle$: 어떤 군에 준하는 대수구조 $G$가 주어졌을 때, $S\subset G$에 의해 생성된 부분군이다.</li>
+<li>$\text{Ker}(\phi)$: 준동형 사상 $\phi$의 핵이다. 즉, $\phi:G_1\to G_2$라고 하면, $\text{Ker}(\phi) = \left\{x\in G_1 | \phi(x) = 1_{G_2}\right\}$</li>
+<li>$\text{Im}(\phi)$: 준동형 사상 $\phi$의 상이다. 즉, $\phi:G_1\to G_2$라고 하면, $\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$</li>
+<li>$\text{Aut}\,G$: 군에 준하는 대수구조 $G$의 자기동형군이다.</li>
+</ul>
+<h3 id="특수한-군">특수한 군</h3>
+<ul>
+<li>$\mathfrak{S}_n$: $n$차 대칭군($n$차 치환 전체의 집합)이다.</li>
+<li>$\text{GL}_{n}(K)$: $K$에 대한 $n$차 일반선형군이다.</li>
+<li>$\text{SL}_{n}(K)$: $K$에 대한 $n$차 특수선형군이다.</li>
+<li>$\text{O}(n)$: $n$차 직교군이다.</li>
+<li>$\text{SO}(n)$: $n$차 특수직교군이다.</li>
 </ul>
 <h2 id="근사식">근사식</h2>
 <ul>
@@ -258,7 +298,7 @@ language: Korean
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-26T03:34:30+0900</code></a>
+    Last modified: <code>2020-04-27T16:46:16+0900</code></a>
 </p>
 <hr>
 
