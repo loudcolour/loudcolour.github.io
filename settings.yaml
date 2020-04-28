@@ -11,6 +11,7 @@ path:
   stylesheet_dark: 'style-dark.css'
   highlight: 'highlight.css'
   sitemap: 'sitemap.xml'
+  common_js: 'common.js'
   html_part:
     head: 'head.html'
     tail: 'tail.html'

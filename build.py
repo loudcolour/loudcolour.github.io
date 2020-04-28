@@ -248,6 +248,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'github_url': settings['github_repo'],
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'jump_to': '',
+            'common_js': '../' + settings['path']['common_js'],
         })
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
@@ -337,6 +338,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), settings['recent_notes_amount'], '.'),
             'jump_to': '',
+            'common_js': './' + settings['path']['common_js'],
         })
 
         ARTICLE_RAW = open(INPUT_PATH, 'r')
@@ -378,6 +380,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(BASE_YAML_LOAD.keys(), len(BASE_YAML_LOAD), '.'),
             'jump_to': '',
+            'common_js': './' + settings['path']['common_js'],
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -434,6 +437,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['category']+'/'+key+settings['ext']['html']+'">'+key+'</a>', CATEGORIES_DICT.keys()))),
             'jump_to': '',
+            'common_js': './' + settings['path']['common_js'],
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -468,6 +472,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': make_html_list(list(map(lambda key: '<a href="'+settings['dir_path']['language']+'/'+key+settings['ext']['html']+'">'+key+'</a>', LANGUAGES_DICT.keys()))),
             'jump_to': '',
+            'common_js': './' + settings['path']['common_js'],
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -502,6 +507,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(CATEGORIES_DICT[category], len(CATEGORIES_DICT[category]), '..'),
             'jump_to': '',
+            'common_js': '../' + settings['path']['common_js'],
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
@@ -537,6 +543,7 @@ if (new_list_perm_mtime != old_list_perm_mtime) or regenerate_mode:
             'license_url': settings['github_repo'] + '/blob/master/' + settings['license']['notes'],
             'list': get_recent_notes(LANGUAGES_DICT[language], len(LANGUAGES_DICT[language]), '..'),
             'jump_to': '',
+            'common_js': '../' + settings['path']['common_js'],
         })
 
         HEAD_FILLED = re_dict['html_repl'].sub(repl=lambda obj: REPLACEMENT[obj.group(1)],string=head_l)
