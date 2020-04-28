@@ -27,4 +27,6 @@ iPhone을 교체할까 생각하고는 있었지만, 신형 iPhone으로 교체�
 
 <blockquote class="twitter-tweet"><p lang="ko" dir="ltr">아이폰SE보다 케이스가 먼저 도착. 아이폰7에 끼워서 먼저 사용하기 시작했다 <a href="https://t.co/MDDwJpW2Ld">pic.twitter.com/MDDwJpW2Ld</a></p>&mdash; 현무암 (@loudcolour) <a href="https://twitter.com/loudcolour/status/1253289282921353216?ref_src=twsrc%5Etfw">April 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-4월 22일, 같이 주문한 케이스가 먼저 도착했다. 기기 출하는 24일부터인 듯 하다.
+4월 22일, 같이 주문한 케이스가 먼저 도착했다. 기기 출하는 28일부터인 듯 하다.
+
+그리고 28일 당일, 발송되었다는 메일이 도착했다.
