@@ -8,7 +8,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
-import re
+from modules.regex import re_dict
+
 import yaml
 import tzlocal
 import subprocess as sp
@@ -27,18 +28,6 @@ if 'debug' in argv:
 if 'regenerate' in argv:
     regenerate_mode = True
     print(colored("Regenerating all notes.", "yellow"))
-
-# Regex dictionary
-
-re_dict = {
-    'math_display': re.compile(r"^(\${2}\s+.+?\s+\${2})$", flags=re.M|re.S),
-    'math': re.compile(r"(\$.+?\$)"),
-    'code': re.compile(r"^`{3}([a-z]+?)\s+(.+?)\s+`{3}$", flags=re.M|re.S),
-    'japanese_exception': re.compile(r"([^\n]{2})\n([^\n])"),
-    'html_repl': re.compile(r'{% (\S+?) %}'),
-    'ruby': re.compile(r'\[\[(.+?)\|(.+?)\]\]'),
-    'jump_to': re.compile(r'<h([1-6]) id="(.+?)">(.+?)<\/h[1-6]>'),
-}
 
 # Global functions.
 
