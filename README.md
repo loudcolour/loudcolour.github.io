@@ -22,3 +22,4 @@
 > — Rosa Luxemburg, *Letters to Sophie Liebknecht, Wronke, May 2,
 > 1917*,
 > [MIA](https://www.marxists.org/archive/luxemburg/1917/05/02.htm)
+>
