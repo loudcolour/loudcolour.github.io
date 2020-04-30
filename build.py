@@ -124,7 +124,8 @@ note_list_yaml_f.close()
 if debug_mode:
     debug_message("note_list_yaml_l", note_list_yaml_l)
 
-new_list_perm = list(filter(lambda s : s[-len(settings['ext']['md']):] == settings['ext']['md'], listdir(path=settings['dir_path']['md'])))
+new_list_perm = list(filter(lambda s : s[:2] != '__',
+        filter(lambda s : '.' + s.split('.')[-1] == settings['ext']['md'], listdir(path=settings['dir_path']['md']))))
 new_list_perm_mtime = list(map(lambda s : {'perm' : s[:-len(settings['ext']['md'])], 'mtime': int(path.getmtime(settings['dir_path']['md']+"/"+s))}, new_list_perm))
 new_list_perm_mtime.sort(key=lambda dic : dic['mtime'])
 
