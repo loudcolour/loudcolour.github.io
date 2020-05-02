@@ -66,7 +66,7 @@ language: Korean
 구현하는 소프트웨어 중 하나입니다. GnuPG를 통해 자신만의 개인키와 공개키를 생성,
 공개키를 배포하여 안전한 통신환경을 구축할 수 있습니다.
 
-### 공개키 암호화란?
+### 공개키 암호화란
 
 공개키 암호화 기법이라는 용어는 다소 생소할 수 있다고 생각합니다.
 이 노트는 공개키 암호화 기법에 대한 **매우** 간략한 설명만을 담고 있습니다.
@@ -611,7 +611,7 @@ gpg:                using RSA key [Fingerprint]
 gpg: Good signature from "[이름] ([코멘트]) <[이메일]>" [유효성]
 ```
 
-### 키 해지하기, 키 해지 인증서 발급/사용하기
+### 키 해지 인증서 발급/사용하기
 
 GnuPG를 사용하다보면, 해킹을 비롯한 사건사고에 의해 키를 도난당하는 사건이 발생할 수도 있습니다.
 이런 일이 발생할 확률이 결코 낮지 않은 실상입니다.
@@ -761,6 +761,7 @@ check       check signatures
 
 ## 외부 링크
 
+- [정보인권의 이해](http://guide.jinbo.net/digital-rights/wp-content/uploads/sites/4/2016/07/%EC%A0%95%EB%B3%B4%EC%9D%B8%EA%B6%8C-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81-III-PDF.pdf)
 - [디지털보안가이드: 기초편 – 위협 모델링](https://slownews.kr/52112)
 - [디지털보안가이드: 통신 보안 – 공개키 암호화와 PGP 소개](https://slownews.kr/58148)
 - [IDEA instructions](https://idea-instructions.com/): IKEA 제품의 설명서처럼 간단하고 알기 쉬운 알고리즘
