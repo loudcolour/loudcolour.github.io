@@ -567,6 +567,10 @@ gpg --decrypt [파일]
 을 지정하면 출력을 저장할 파일을 지정할 수 있습니다. `[파일]`이 지정된 경우에는 `[파일].gpg`로 출력이 저장되고, `[파일]`이 지정되지 않으면 STDOUT으로
 출력을 내보내는 것 역시 암호화와 같습니다.
 
+![XKCD, HOW TO USE PGP TO VERIFY THAT AN EMAIL IS AUTHENTIC; LOOK FOR THIS TEXT AT THE TOP: "BEGIN PGP SIGNED MESSAGE", IF IT'S THERE, THE EMAIL IS PROBABLY FINE.](../images/00006.png)
+
+🔼"[PGP](https://xkcd.com/1181/)", [CC by-nc 2.5](https://creativecommons.org/licenses/by-nc/2.5/).
+
 ```
 gpg --sign [파일]
 ```

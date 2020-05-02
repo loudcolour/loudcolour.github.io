@@ -482,6 +482,8 @@ gpg:               imported: 1
 <li><code>--clearsign</code>: 문자열로 읽어들일 수 있는 파일을 입력으로 받아, 파일 원본에 ASCII 인코딩으로 인코딩한 서명을 덧붙여 출력합니다. 출력한 내용은 이메일이나 블로그 포스트 등에서 사용할 수 있습니다. <code>detach-sign</code>과 마찬가지로 검증하기 전에 미리 내용을 확인할 수 있습니다.</li>
 </ol>
 <p><code>--sign</code>은 다음과 같은 명령을 통해 실행합니다. 암호화와 동일하게, <code>--armor</code> 옵션을 붙이면 인코딩된 결과를 얻을 수 있고, <code>--output [저장할 파일명]</code> 을 지정하면 출력을 저장할 파일을 지정할 수 있습니다. <code>[파일]</code>이 지정된 경우에는 <code>[파일].gpg</code>로 출력이 저장되고, <code>[파일]</code>이 지정되지 않으면 STDOUT으로 출력을 내보내는 것 역시 암호화와 같습니다.</p>
+<p><img src="../images/00006.png" alt="XKCD, HOW TO USE PGP TO VERIFY THAT AN EMAIL IS AUTHENTIC; LOOK FOR THIS TEXT AT THE TOP: &quot;BEGIN PGP SIGNED MESSAGE&quot;, IF IT&#39;S THERE, THE EMAIL IS PROBABLY FINE." /></p>
+<p>🔼"<a href="https://xkcd.com/1181/">PGP</a>", <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC by-nc 2.5</a>.</p>
 <pre><code>gpg --sign [파일]
 </code></pre>
 <p><code>[파일]</code>이나 STDIN으로 서명하고자 하는 내용을 입력하여 <code>--detach-sign</code>을 실행하면, <code>[파일]</code>이 주어진 경우에는 <code>[파일].sig</code>로 서명 파일이 저장되고, STDIN으로 입력된 내용의 결과물은 STDOUT으로 출력될 것입니다. 동일하게 <code>--armor</code> 옵션과 <code>--output [저장할 파일명]</code> 옵션을 사용할 수 있습니다.</p>
@@ -577,7 +579,7 @@ check       check signatures
 <hr>
 <p>
     Category: <a href="../category/Security.html">Security</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-05-02T09:45:04+0900</code></a>
+    Last modified: <code>2020-05-02T10:21:41+0900</code></a>
 </p>
 <hr>
 
