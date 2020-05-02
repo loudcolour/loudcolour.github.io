@@ -184,8 +184,8 @@
 <ul>
 <li><a href="#공개키-암호화란">공개키 암호화란?</a></li>
 </ul></li>
-<li><a href="#gpg-설치하기">GPG 설치하기</a></li>
-<li><a href="#pgp-키-구하기">PGP 키 구하기</a>
+<li><a href="#gnupg-설치하기">GnuPG 설치하기</a></li>
+<li><a href="#openpgp-키-구하기">OpenPGP 키 구하기</a>
 <ul>
 <li><a href="#keysopenpgporg">keys.openpgp.org</a></li>
 <li><a href="#keybase">Keybase</a></li>
@@ -231,7 +231,7 @@ language: Korean
 <ul>
 <li>이 페이지의 내용은 <strong>스스로의 안전과 자유의 보호</strong> 이외의 목적을 상정하고 쓰여지지 않았음을 재차 강조합니다.</li>
 </ul></li>
-<li><strong>필자는 암호학을 전공하는 전문가가 아닙니다.</strong> 절대로 이 노트에 쓰여진 필자의 견해를 전문가의 의견으로서 받아들이지도, 인용하지도 마세요.</li>
+<li><strong>필자는 암호학을 전공하는 전문가가 아닙니다.</strong> 절대로 이 노트에 쓰여진 필자의 견해를 전문가의 의견으로 받아들이지도, 인용하지도 마세요.</li>
 <li>절대적으로 안전한 암호 알고리즘은 존재하지 않음에 유의하세요.
 <ul>
 <li>현역으로 사용되고 있는 암호 알고리즘에도 크고 작은 결함이 존재할 수 있습니다.</li>
@@ -255,7 +255,7 @@ language: Korean
 </ul></li>
 <li>주변 환경에서 감청, 감시가 일어나고 있는지 항상 확인하세요.
 <ul>
-<li>사용하는 기기 상의 <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8C%8C%EC%9D%B4%EC%9B%A8%EC%96%B4">스파이웨어</a> 등의 설치 여부에 주의하세요.</li>
+<li>사용하는 기기에 <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8C%8C%EC%9D%B4%EC%9B%A8%EC%96%B4">스파이웨어</a>가 설치되어 있지 않도록 주의하세요.</li>
 <li>주변에 감청, 감시 도구(CCTV, 도청기, 소형 카메라 등)나 감시원으로 추정되는 인원이 있는지 확인하세요.</li>
 <li>소프트웨어의 취약점을 노린 공격을 방지하기 위해 항상 최신 버전을 유지하세요.</li>
 </ul></li>
@@ -291,7 +291,7 @@ language: Korean
 <li><strong>DSA</strong>: 역시 이산로그와 관련</li>
 </ul>
 <p>위 3가지 알고리즘 모두 수학적으로 흥미로운 주제와 연관되어 있기 때문에 차후에 수학 카테고리의 노트에서 다루게 될 것입니다. 하지만 이 노트의 목적은 빠르게 GnuPG를 사용하는 방법에 대해 알아보는 것이므로 여기서는 잠깐 생략하도록 하겠습니다.</p>
-<h2 id="gpg-설치하기">GPG 설치하기</h2>
+<h2 id="gnupg-설치하기">GnuPG 설치하기</h2>
 <p>대부분의 Linux 배포판은 각자의 저장소에서 GnuPG를 다운로드하여 설치할 수 있도록 하고 있습니다. Debian 계열의 배포판이라면 <code>apt-get</code>을, Arch Linux라면 <code>pacman</code>을, Red Hat과 Fedora라면 <code>yum</code>을 통해 GnuPG를 설치할 수 있습니다.</p>
 <p>macOS를 사용중이라면 <a href="https://brew.sh/">Homebrew</a>를 통해 GnuPG를 설치할 수 있습니다.</p>
 <pre><code>brew install gnupg
@@ -304,7 +304,7 @@ language: Korean
 killall gpg-agent
 </code></pre>
 <p>Windows에서는 GnuPG의 Windows 버전인 <a href="https://www.gpg4win.org/">GPG4Win</a>을 설치하여 GnuPG의 기능을 사용할 수 있습니다.</p>
-<h2 id="pgp-키-구하기">PGP 키 구하기</h2>
+<h2 id="openpgp-키-구하기">OpenPGP 키 구하기</h2>
 <p>방금 설치한 GnuPG를 활용하기 위해, 공개키를 구하여 암호화한 내용을 이메일로 보내 보고자 합니다. 그렇다면 이메일을 보낼 상대가 사용하는 공개키는 어디에서 구할 수 있을까요? 상대방의 홈페이지에 상대방이 올려놓은 공개키를 다운로드하거나, 이메일로 사정을 설명하고 공개키를 보내달라고 요청할 수도 있습니다. 하지만 GPG(를 비롯한 <a href="https://www.openpgp.org/">OpenPGP</a> 소프트웨어) 사용자들은 보통 '키 서버'라는 곳에 자신의 키를 업로드합니다. 그리고 공개키가 필요할 때마다, 키 서버에서 공개키를 다운로드할 수 있습니다.</p>
 <p>'키 서버'에 키를 업로드하면 일일이 상대방의 홈페이지를 찾아가거나 이메일로 공개키를 달라고 요청하는 번거로움이 없다는 장점이 있습니다. 아래에서는 키 서버 중 하나인 <a href="https://keys.openpgp.org">keys.openpgp.org</a> 을 예시로 들었지만, 어느 신뢰할 수 있는 키 서버를 발견했다면, 그 서버를 사용하여도 됩니다.</p>
 <h3 id="keysopenpgporg">keys.openpgp.org</h3>
@@ -576,7 +576,7 @@ check       check signatures
 <hr>
 <p>
     Category: <a href="../category/Security.html">Security</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-05-02T09:34:51+0900</code></a>
+    Last modified: <code>2020-05-02T09:40:12+0900</code></a>
 </p>
 <hr>
 
