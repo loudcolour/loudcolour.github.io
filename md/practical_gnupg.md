@@ -55,7 +55,7 @@ language: Korean
 	등의 설치 여부에 주의하세요.
 	- 주변에 감청, 감시 도구(CCTV, 도청기, 소형 카메라 등)나 감시원으로 추정되는 인원이 있는지 확인하세요.
 	- 소프트웨어의 취약점을 노린 공격을 방지하기 위해 항상 최신 버전을 유지하세요.
-- 암호를 저장하는 장치로써, 후술할 스마트카드(OpenPGP 카드)와 Yubico, Nitrokey 등을 적극 활용하세요.
+- 암호를 저장하는 장치로써 스마트카드(OpenPGP 카드)와 Yubico, Nitrokey 등을 적극 활용하세요.
 - 이 노트에서는 macOS의 사용법을 중점적으로 다루고 있습니다. 타 OS에서는
 설정, 조작 방법, 동작 상의 미묘한 차이가 존재할 수 있습니다. 또한 이 노트에서 다루는 실습의 많은 부분은
 간단하게나마 *nix계 OS의 터미널을 이용하는 방법을 숙지하고 있다는 전제하에 작성되었습니다.
@@ -759,41 +759,13 @@ check       check signatures
 ...
 ```
 
-## GnuPG를 더욱 편리하게
-
-이 많은 글들을 읽느라 수고하셨습니다!
-
-### 웹브라우저 플러그인 Mailvelope
-
-### Keybase 이용하기
-
-
-## OpenPGP 카드 사용하기
-
-### OpenPGP 카드란 무엇인가
-
-### OpenPGP 카드 구입하기
-
-사실은 OpenPGP 카드 뿐만이 아니라 Yubico와 Nitrokey 또한 이 기능을 지원합니다.
-
-
-## GnuPG, 고급편?
-
-### 고급: Git Commit에 서명하기
-
-### 고급: SSH 너머로 사용하기
-
 ## 외부 링크
 
+- [디지털보안가이드: 기초편 – 위협 모델링](https://slownews.kr/52112)
+- [디지털보안가이드: 통신 보안 – 공개키 암호화와 PGP 소개](https://slownews.kr/58148)
+- [IDEA instructions](https://idea-instructions.com/): IKEA 제품의 설명서처럼 간단하고 알기 쉬운 알고리즘
+설명을 볼 수 있습니다.
 - [keys.openpgp.org - Usage](https://keys.openpgp.org/about/usage): GnuPG 외에 다른 소프트웨어로
 keys.openpgp.org 키 서버를 활용하는 방법을 알 수 있습니다.
-
-## 생략할 링크
-
-- [GPG Quickstart Guide](https://medium.com/@acparas/gpg-quickstart-guide-d01f005ca99)
-- [디지털보안가이드: 통신 보안](https://slownews.kr/58574)
-- [테러방지법 반대 필리버스터](https://ko.wikipedia.org/wiki/%ED%85%8C%EB%9F%AC%EB%B0%A9%EC%A7%80%EB%B2%95_%EB%B0%98%EB%8C%80_%ED%95%84%EB%A6%AC%EB%B2%84%EC%8A%A4%ED%84%B0)
-- [Cryptography](https://idea-instructions.com/)
-- [Subkey](https://www.void.gr/kargig/blog/2013/12/02/creating-a-new-gpg-key-with-subkeys/)
-- [Stack Exchange](https://unix.stackexchange.com/questions/407062/gpg-list-keys-command-outputs-uid-unknown-after-importing-private-key-onto)
-- [secure-gpg-keys-guide](https://spin.atomicobject.com/2013/11/24/secure-gpg-keys-guide/)
+- [Validating other keys on your public keyring](https://www.gnupg.org/gph/en/manual/x334.html):
+신뢰성 데이터베이스로부터 유효성을 평가하는 예시가 나와 있습니다.
