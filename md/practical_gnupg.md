@@ -763,6 +763,49 @@ check       check signatures
 ...
 ```
 
+## GnuPG, 고급편?
+
+기본적인 GnuPG의 기능은 이전 장의 내용을 기초로 하여 활용할 수 있습니다.
+이전 장에서는 단순이 문자열이나 파일의 내용을 암호화, 복호화, 서명, 검증하는데에
+그쳤다면, GnuPG를 그 이외의 상황에서 활용하는 예제를 조금이나 다루어 보겠습니다.
+
+### Git commit에 서명하기
+
+개발자라면 버전 관리 시스템을 적극적으로 활용하는 분이 많을 것입니다.
+Git 또한 이런 버전 관리 시스템의 일종인데, Git을 사용하게 된다면
+하루에 몇건씩 commit을 하여 내용을 업데이트하게 됩니다.
+이 때, 서명을 덧붙여 이메일을 보내듯, 각 commit마다
+자신의 서명을 덧붙여 기록하는 것도 가능합니다.
+이를 위해서는 우선 `~/.gitconfig`를 수정하여야 합니다.
+그렇다면, `[user]`란 아래에 `email`과 `name`이 등록되어 있을 것이고,
+자신의 `[키 ID]`를 `signingkey = ` 뒤에 입력하여 추가해주면,
+commit 서명 기능을 이용할 수 있습니다.
+
+```
+[user]
+    email = user@example.com
+    name = Example User
+    signingkey = [키 ID]
+```
+
+commit에 서명을 추가하기 위해서는 `-S` 옵션을 `git commit` 명령어에 붙여
+실행하면 됩니다. `-S` 옵션을 기본값으로 주어, 별도로 옵션을 표시하지 않아도
+서명을 추가하도록 설정할 경우에는, `~/.gitconfig`에
+다음을 추가하면 됩니다.
+
+```
+[commit]
+    gpgsign = true
+```
+
+이렇게 추가된 서명은 GitHub등에서 공개키를 등록하여 검증되었음을 표시하도록 할
+수 있습니다.
+
+<!---
+### SSH 인증서로 사용하기
+--->
+
+
 ## 외부 링크
 
 - [정보인권의 이해](http://guide.jinbo.net/digital-rights/wp-content/uploads/sites/4/2016/07/%EC%A0%95%EB%B3%B4%EC%9D%B8%EA%B6%8C-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81-III-PDF.pdf)
