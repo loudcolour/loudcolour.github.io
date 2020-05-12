@@ -207,6 +207,7 @@ language: Korean
 <li>두 유한집합이 동능인 것과 원소의 개수가 같은 것은 동치이다.</li>
 <li>$\R^{+}=\{r\in\R|r&gt;0\}$과 $\R$은 동능이다. $f:\R\to\R^{+}, x\mapsto e^x$와 같은 전단사 사상이 존재하기 때문이다.</li>
 <li>$\R$과 $\mathbb{Q}$는 동능이 아니다. 이에 대해서는 뒤에서 자세히 설명한다.</li>
+<li>전단사 사상을 합성하여 새로운 전단사 사상을 만들 수 있으므로, $|X| = |Y|$이고, $|Y| = |Z|$ 이면, $|X| = |Z|$이다. 이 때, $|X|=|Y|$이면 $|Y|=|X|$가 성립하고, $|X|=|X|$이므로, $X \sim Y \iff |X|=|Y|$라 관계 $\sim$ 를 정의하면, 이는 동치관계이다.</li>
 </ul>
 <p><strong>정의</strong>. $\N$과 동능인 집합을 가산무한집합이라고 한다. 가산무한집합이거나 유한집합인 집합을 <strong>가산집합</strong>, 혹은 <strong>가부번집합</strong>이라고 한다.</p>
 <ul>
@@ -226,6 +227,8 @@ language: Korean
 (0,0),\,(0,1),\,(1,0),\,(0,2),\,(1,1),\,(2,0),\,\ldots
 $$</p>
 <p>번호를 붙여 자연수 집합과의 전단사 사상을 만드는 것이 가능하다. 따라서 이 집합또한 가산집합이다. □</p>
+<p><strong>따름정리</strong>. $\mathbb{Q}$는 가산집합이다.</p>
+<p><em>증명</em>. $\N\times\N$은 가산집합이므로, 전사 사상 $f:\N\times\N\to\mathbb{Q}$이 존재함을 보이면 된다.</p>
 <p><strong>정리</strong>. 집합 $X$에서 $\mathscr{P}(X)$로의 전사 사상은 존재하지 않는다.</p>
 <p><em>증명</em>. 임의의 사상 $f:X\to\mathscr{P}(X)$를 가정하자. 이 때, $I=\{x\in X|x\not\in f(x)\}$를 가정하면, $I$는 $X$의 부분집합이므로 $I\in\mathscr{P}(X)$이다. 임의의 $x\in X$에 대하여 $x\in f(x)$라면, $x\not\in I$이고, $x\not\in f(x)$라면 $x\in I$일 것이므로, $f(x)\not= I$이다. 즉, 어떠한 $x\in X$도 $f$에 의해 $I$에 대응되지 않으므로, 전사 사상은 존재하지 않는다. □</p>
 <p><strong>따름정리</strong>. $\mathscr{P}(\N)$은 가산집합이 아니다.</p>
@@ -234,7 +237,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-04-27T07:18:59+0900</code></a>
+    Last modified: <code>2020-05-12T16:07:59+0900</code></a>
 </p>
 <hr>
 
