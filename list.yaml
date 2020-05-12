@@ -6,7 +6,7 @@ archlinux:
 axiom-of-choice:
   category: Mathematics
   language: Korean
-  mtime: 1589283154
+  mtime: 1589293656
   title: "\uC120\uD0DD \uACF5\uB9AC"
 basel-problem:
   category: Mathematics
@@ -16,17 +16,17 @@ basel-problem:
 countable-set:
   category: Mathematics
   language: Korean
-  mtime: 1589293323
+  mtime: 1589293777
   title: "\uC9D1\uD569\uC758 \uB18D\uB3C4\uC640 \uAC00\uC0B0\uC9D1\uD569"
 dn-lcm:
   category: Mathematics
   language: Korean
-  mtime: 1587828988
+  mtime: 1589293871
   title: "$1,\\ldots,n$\uC758 \uCD5C\uC18C\uACF5\uBC30\uC218"
 e:
   category: Mathematics
   language: Korean
-  mtime: 1587909348
+  mtime: 1589294107
   title: "\uC790\uC5F0\uC0C1\uC218 $e$"
 eco-socialism:
   category: Eco-socialism
@@ -41,7 +41,7 @@ fibonacci:
 group-homomorphism:
   category: Mathematics
   language: Korean
-  mtime: 1587608192
+  mtime: 1589294043
   title: "\uAD70\uC758 \uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
 iphone-se:
   category: Life
@@ -66,7 +66,7 @@ practical_gnupg:
 prime-number:
   category: Mathematics
   language: Korean
-  mtime: 1587925408
+  mtime: 1589294105
   title: "\uC18C\uC218"
 python-re:
   category: Programming
