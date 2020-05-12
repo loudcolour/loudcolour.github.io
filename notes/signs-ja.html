@@ -183,9 +183,19 @@
 <ul>
 <li><a href="#記号に関して">記号に関して</a>
 <ul>
-<li><a href="#集合写像">集合，写像</a></li>
+<li><a href="#集合写像">集合，写像</a>
+<ul>
+<li><a href="#特殊な集合">特殊な集合</a></li>
+<li><a href="#集合と元に対する関係">集合と元に対する関係</a></li>
+<li><a href="#集合の演算">集合の演算</a></li>
+<li><a href="#写像又は関数">写像又は関数</a></li>
+</ul></li>
 <li><a href="#論理記号">論理記号</a></li>
 <li><a href="#演算子関数">演算子，関数</a></li>
+<li><a href="#代数構造">代数構造</a>
+<ul>
+<li><a href="#特殊な群">特殊な群</a></li>
+</ul></li>
 <li><a href="#近似">近似</a></li>
 <li><a href="#其の他">其の他</a></li>
 <li><a href="#外部リンク">外部リンク</a></li>
@@ -205,7 +215,7 @@ language: Japanese
 <h1 id="記号に関して">記号に関して</h1>
 <p>混乱を防ぐために，ノートに遣われる幾つかの記号の定義を纏めて置く．</p>
 <h2 id="集合写像">集合，写像</h2>
-<p>特集な集合の記号は以下の通りである．</p>
+<h3 id="特殊な集合">特殊な集合</h3>
 <ul>
 <li>$\emptyset$：空集合，つまり何の元も含んでいない集合．</li>
 <li>$\N$：自然数全体の集合．此処では$0$も自然数であることにする．
@@ -224,15 +234,24 @@ language: Japanese
 </ul></li>
 <li>$\Complex$：複素数全体の集合．</li>
 </ul>
-<p>集合と元の関係を表す記号は以下の通りである．</p>
+<h3 id="集合と元に対する関係">集合と元に対する関係</h3>
 <ul>
 <li>$a\in A$：$a$が集合$A$に属する．</li>
 <li>$A\subset B$：集合$A$は$B$の部分集合である．</li>
-<li>$\mathscr{P}(A)$または$2^A$：集合$A$の部分集合全体の集合．</li>
 <li>$\forall x \in X$：「集合$X$に属する総ての$x$は…」</li>
 <li>$\exists x \in X$：「集合$X$に属するとある$x$は…」</li>
 </ul>
-<p>写像または関数に関する記号は以下の通りである．</p>
+<h3 id="集合の演算">集合の演算</h3>
+<ul>
+<li>$A\cup B$：集合$A$と集合$B$の和集合．</li>
+<li>$A\cap B$：集合$A$と集合$B$の共通部分集合．</li>
+<li>$A\setminus B$：集合$A$の集合$B$に対する差集合．</li>
+<li>$A^{C}$：集合$A$の補集合．</li>
+<li>$\mathscr{P}(A)$又は$2^A$：集合$A$の部分集合全体の集合．冪集合．</li>
+<li>$A/\sim$：同値関係$\sim$に依る集合$A$の同値類全体の集合．</li>
+<li>$A\times B$：集合$A$と集合$B$の直積．即ち$A\times B=\{(a,b)|a\in A, b\in B\}$．</li>
+</ul>
+<h3 id="写像又は関数">写像又は関数</h3>
 <ul>
 <li>$f:A\to B$：$f$は$A$を定義域，$B$を値域とする写像である．</li>
 <li>$f:x\mapsto y$：写像$f$により，$x$は$y$に対応される．</li>
@@ -249,20 +268,41 @@ language: Japanese
 <h2 id="演算子関数">演算子，関数</h2>
 <ul>
 <li>$a\mid b$：$a$は$b$の約数．（$b$は$a$の倍数．）</li>
+<li>$a\perp b$：$a$と$b$は互いに素である．</li>
 <li>$n!$：$n$の階乗．</li>
 <li>$\log x$：別途の表示がない限り，底を$e$とする．</li>
 <li>$\Re(z)$：複素数$z\in\Complex$の実数部.</li>
 <li>$\Im(z)$：複素数$z\in\Complex$の虚数部.</li>
 </ul>
+<h2 id="代数構造">代数構造</h2>
+<ul>
+<li>$1_G$：乗法が与えられた群$G$の乗法に対する単位元．</li>
+<li>$0_G$: 加法が与えられた群$G$の加法に対する単位元．</li>
+<li>$A^{\times}$：$A$の可逆元全体の集合．</li>
+<li>$\langle S\rangle$：ある群に準ずる代数構造$G$が与えられた時，$S\subset G$に依り生成された部分群.</li>
+<li>$\text{Ker}(\phi)$：準同型写像$\phi$の核．即ち，$\phi:G_1\to G_2$とすると，$\text{Ker}(\phi) = \left\{x\in G_1 | \phi(x) = 1_{G_2}\right\}$．</li>
+<li>$\text{Im}(\phi)$：準同型写像$\phi$の像．即ち，$\phi:G_1\to G_2$とすると，$\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$．</li>
+<li>$\text{Aut}\,G$：群に準ずる代数構造$G$の自己同型群.</li>
+<li>$G/H$：群$G$と其の部分群$H$に対し，$x\sim y \iff x^{-1}y\in H$を同値関係とする$G$の左剰余類全体の集合．</li>
+<li>$H\backslash G$：群$G$と其の部分群$H$に対し，$x\sim y \iff yx^{-1}\in H$を同値関係とする $G$の右剰余類全体の集合．</li>
+</ul>
+<h3 id="特殊な群">特殊な群</h3>
+<ul>
+<li>$\mathfrak{S}_n$：$n$次対称群．即ち，$n$次置換全体の集合．</li>
+<li>$\text{GL}_{n}(K)$：$K$に対する$n$次一般線形群．</li>
+<li>$\text{SL}_{n}(K)$：$K$に対する$n$次特殊線形群．</li>
+<li>$\text{O}(n)$：$n$次直交群．</li>
+<li>$\text{SO}(n)$：$n$次特殊直交群．</li>
+</ul>
 <h2 id="近似">近似</h2>
 <ul>
 <li>$a(x) \sim b(x)$：$\lim_{x\to\infty}\frac{a(x)}{b(x)}=1$． 混乱がない限り，$x$を省く場合もある．</li>
 <li>$f(x)\in O(g(x))$：Landauの記号， $\lim_{x\to\infty}\left|\frac{f(x)}{g(x)}\right|&lt;\infty$．</li>
-<li>$f(x)\in o(g(x))$：同様にLandauの記号, $\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$．</li>
+<li>$f(x)\in o(g(x))$：同様にLandauの記号， $\lim_{x\to\infty}\frac{f(x)}{g(x)}=0$．</li>
 </ul>
 <h2 id="其の他">其の他</h2>
 <ul>
-<li>□：証明終了.</li>
+<li>□：証明終了．</li>
 </ul>
 <h2 id="外部リンク">外部リンク</h2>
 <ul>
@@ -272,7 +312,7 @@ language: Japanese
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Japanese.html">Japanese</a>,
-    Last modified: <code>2020-04-26T23:28:07+0900</code></a>
+    Last modified: <code>2020-05-12T15:42:24+0900</code></a>
 </p>
 <hr>
 
