@@ -2,17 +2,19 @@
                   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url>
 <loc>https://loudcolour.github.io/notes/archlinux.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/axiom-of-choice.html</loc><lastmod>2020-05-12</lastmod>
-</url><url>
 <loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-04-27</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/countable-set.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/dn-lcm.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
+<loc>https://loudcolour.github.io/notes/e.html</loc><lastmod>2020-05-12</lastmod>
+</url><url>
 <loc>https://loudcolour.github.io/notes/eco-socialism.html</loc><lastmod>2020-04-22</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/fibonacci.html</loc><lastmod>2020-04-25</lastmod>
+</url><url>
+<loc>https://loudcolour.github.io/notes/group-homomorphism.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/iphone-se.html</loc><lastmod>2020-04-29</lastmod>
 </url><url>
@@ -22,6 +24,8 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/practical_gnupg.html</loc><lastmod>2020-05-11</lastmod>
 </url><url>
+<loc>https://loudcolour.github.io/notes/prime-number.html</loc><lastmod>2020-05-12</lastmod>
+</url><url>
 <loc>https://loudcolour.github.io/notes/python-re.html</loc><lastmod>2020-04-23</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/riemann-zeta-function.html</loc><lastmod>2020-04-26</lastmod>
@@ -30,9 +34,5 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/signs-ja.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/group-homomorphism.html</loc><lastmod>2020-05-12</lastmod>
-</url><url>
-<loc>https://loudcolour.github.io/notes/prime-number.html</loc><lastmod>2020-05-12</lastmod>
-</url><url>
-<loc>https://loudcolour.github.io/notes/e.html</loc><lastmod>2020-05-12</lastmod>
+<loc>https://loudcolour.github.io/notes/axiom-of-choice.html</loc><lastmod>2020-05-13</lastmod>
 </url></urlset>
