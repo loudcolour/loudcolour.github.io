@@ -56,12 +56,12 @@ $$
 양변에 $\phi(1_{G_1})^{-1}$을 오른쪽에 (혹은 왼쪽에) 곱하면, $1_{G_2} = \phi(1_{G_1})$
 1. $1_{G_2} = \phi(1_{G_1}) = \phi(xx^{-1}) = \phi(x)\phi(x^{-1})$,
 양변에 $\phi(x)^{-1}$을 왼쪽으로 곱하면 $\phi(x^{-1}) = {\phi(x)}^{-1}$
-1. $\text{Ker}(\phi)$은 $G_1$의 부분군이다: 1번에서 알 수 있듯이 $1_{G_1}\in\text{Ker}(\phi)$ 이다.
+1. **$\text{Ker}(\phi)$은 $G_1$의 부분군이다**: 1번에서 알 수 있듯이 $1_{G_1}\in\text{Ker}(\phi)$ 이다.
 $x,y \in\text{Ker}(\phi)$이라고 하면, $\phi(xy) = \phi(x)\phi(y) = 1_{G_2}\cdot1_{G_2} = 1_{G_2}$,
 따라서 $xy\in\text{Ker}(\phi)$, $\text{Ker}(\phi)$는 주어진 연산에 대해 닫혀있다.
 마지막으로 2번에 의해 $\phi(x)=1_{G_2}$라면, $\phi(x^{-1}) = \phi(x)^{-1}=1_{G_2}$,
 $\text{Ker}(\phi)$는 역원에 대해서도 닫혀있음을 알 수 있다.  
-$\text{Im}(\phi)$은 $G_2$의 부분군이다: 역시 1번에 의해 $1_{G_{2}}\in\text{Im}(\phi)$. $x,y \in\text{Im}(\phi)$일 때, $\phi(a) = x$,
+**$\text{Im}(\phi)$은 $G_2$의 부분군이다**: 역시 1번에 의해 $1_{G_{2}}\in\text{Im}(\phi)$. $x,y \in\text{Im}(\phi)$일 때, $\phi(a) = x$,
 $\phi(b) = y$인 $a, b\in G_1$가 존재한다.
 $\phi(ab)=\phi(a)\phi(b)=xy$이므로, $\text{Im}(\phi)$은 닫혀있다.
 $x \in\text{Im}(\phi)$ 이라고 하면 $\phi(a)=x$인 $a\in G_1$이 존재하고, 2번에 의해

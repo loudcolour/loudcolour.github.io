@@ -23,12 +23,16 @@ language: Korean
 > 즉, 모든 $i\in I$에 대해 $g(i)\in A_i$인 사상
 > $g:I\to\bigcup_{i\in I}A_i$가 존재한다.
 
-*증명*. ($1\implies2$) 선택 공리를 가정한다.
+*증명*.  
+
+**1에서 2를 유도**  
 이 때, $X = \mathscr{P}(A)\setminus\left\{\emptyset\right\}$로 두면, $X$의 모든 원소는
 공집합이 아니므로, 선택 공리에 의하여
 $\forall x\in X$에 대해, $f(x)\in x$인 사상 $f:X\to A$가 존재한다.
 ($\because\,\bigcup\mathscr{P}(A) = A$)  
-($2\implies3$) $X=\bigcup_{i\in I} A_i$ 라고 두면,
+
+**2에서 3을 유도**  
+$X=\bigcup_{i\in I} A_i$ 라고 두면,
 $X\not=\emptyset$이다.
 따라서 $\forall x\in \mathscr{P}(X)\setminus\left\{\emptyset\right\}$에 대하여,
 $f(x)\in x$인 사상 $f:\mathscr{P}(X)\setminus\left\{\emptyset\right\}\to X$가
@@ -37,7 +41,8 @@ $\forall i\in I$에 대해 $A_i\in \mathscr{P}(X)\setminus\left\{\emptyset\right
 $f(A_i)\in A_i$가 성립한다. 여기서 $g:I\to X$, $i\mapsto f(A_i)$와 같은 사상을 정의하면,
 $g(i)\in A_i$이므로 각 $i\in I$에 대해 해당하는 $g(i)$를 선택하여
 $g(i)$로 순서쌍 $o(g)$을 만들면 $o(g)\in\prod_{i\in I}A_i$, 따라서 $\prod_{i\in I}A_i\not=\emptyset$  
-($3\implies1$)
+
+**3에서 1을 유도**  
 $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\rangle$와 같다.
 따라서, 모든 $x\in A$에 대해 $g(x)\in x$를 만족하는 사상 $g:A\to\bigcup A$가 존재하고,
 이는 선택 공리의 진술과 같다. □
