@@ -780,7 +780,7 @@ body.dark-mode-on {
   padding: .2em .4em;
   margin: 0;
   font-size: 85%;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(60, 60, 60);
   border-radius: 3px;
 }
 
@@ -813,7 +813,7 @@ body.dark-mode-on {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(60, 60, 60);
   border-radius: 3px;
 }
 
