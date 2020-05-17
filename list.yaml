@@ -58,6 +58,11 @@ law-of-excluded-middle:
   language: Korean
   mtime: 1587686174
   title: "\uBC30\uC911\uB960"
+pells-equation:
+  category: Mathematics
+  language: Korean
+  mtime: 1589683596
+  title: "Pell\uC758 \uBC29\uC815\uC2DD"
 practical_gnupg:
   category: Security
   language: Korean
