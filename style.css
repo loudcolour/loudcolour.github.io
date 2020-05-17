@@ -997,6 +997,7 @@ body.dark-mode-off {
   border-radius: 3px;
   position: relative;
   bottom: 1.5px;
+  font-variant-numeric: tabular-nums;
 }
 
 .markdown-body .category-button a {
