@@ -149,8 +149,13 @@ $x+y\sqrt{D}\geq x_1+y_1\sqrt{D}$)
 - $-\left(\overline{x+y\sqrt{D}}\right) = -\left(x_1+y_1\sqrt{D}\right)^{-n} \in B$
 - $\pm1 = \pm\left(x_1+y_1\sqrt{D}\right)^0\in B$
 
-이 성립하므로, $A=\left(A^+\cup\left\{-x\,|\,x\in A^+\right\}\cup\left\{\overline{x}\,|\,x\in A^+\right\}\cup\left\{-\overline{x}\,|\,x\in A^+\right\}\cup\left\{1,-1\right\}\right)\subset B$가
-성립하게 된다. 따라서 $A\subset B$임을 보이기 위해서는,
+이 성립하므로,
+
+$$
+A=\left(A^+\cup\left\{-x\,|\,x\in A^+\right\}\cup\left\{\overline{x}\,|\,x\in A^+\right\}\cup\left\{-\overline{x}\,|\,x\in A^+\right\}\cup\left\{1,-1\right\}\right)\subset B
+$$
+
+가 성립하게 된다. 따라서 $A\subset B$임을 보이기 위해서는,
 $A^+\subset B^+$을 보이는 것으로 충분하다.
 이를 보이기 위해 $p\in A^+$를 만족하는 동시에 $p\not\in B^+$를 만족하는 $p=x'+y'\sqrt{D}$가
 존재한다고 가정하자. ($x',y'\in\N^+$) 그렇다면 적절한 $k\in\N^+$가 존재하여
