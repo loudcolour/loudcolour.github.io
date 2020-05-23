@@ -35,7 +35,6 @@ Colemak의 `[레이아웃 이름]`은 `colemak`이다.
 - 추가적인 소프트웨어들을 다운로드한다.
   - 네트워크 관련: `netctl`, `wpa_supplicant`, `dhcpcd`, `networkmanager`
   - 시스템: `zsh`, `sudo`, `grub`, `efibootmgr`(EFI의 경우)
-  - DE, DM: 데스크탑 환경이나 디스플레이 매니저는 원하는 것을 설치한다. `gdm`은 이미 `gnome` 그룹안에 있으므로 `gnome`만을 적어 둠.
   - 기타: `dialog`, `vim`, `man-db`, `man-pages`, `texinfo`
 - 디스크가 마운트되어 있는 것을 확인한 뒤, `fstab`을 생성한다. `genfstab -U /mnt >> /mnt/etc/fstab`
 - `arch-chroot`로 `/mnt`에 진입한다.
@@ -59,5 +58,4 @@ Colemak의 `[레이아웃 이름]`은 `colemak`이다.
 - 관리자 계정으로 로그인하여 필요한 서비스를 활성화하자.
   - Bluetooth의 경우는 `systemd enable bluetooth.service`
   - NetworkManager의 경우는 `systemd enable NetworkManager.service`
-  - GDM의 경우는 `systemd enable gdm.service`
-- 이제 재부팅하면, GDM의 로그인 화면이 반겨줄 것이다.
+- 재부팅한다.

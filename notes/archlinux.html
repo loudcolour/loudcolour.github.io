@@ -227,7 +227,6 @@ language: Korean
 <ul>
 <li>네트워크 관련: <code>netctl</code>, <code>wpa_supplicant</code>, <code>dhcpcd</code>, <code>networkmanager</code></li>
 <li>시스템: <code>zsh</code>, <code>sudo</code>, <code>grub</code>, <code>efibootmgr</code>(EFI의 경우)</li>
-<li>DE, DM: 데스크탑 환경이나 디스플레이 매니저는 원하는 것을 설치한다. <code>gdm</code>은 이미 <code>gnome</code> 그룹안에 있으므로 <code>gnome</code>만을 적어 둠.</li>
 <li>기타: <code>dialog</code>, <code>vim</code>, <code>man-db</code>, <code>man-pages</code>, <code>texinfo</code></li>
 </ul></li>
 <li>디스크가 마운트되어 있는 것을 확인한 뒤, <code>fstab</code>을 생성한다. <code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></li>
@@ -255,15 +254,14 @@ language: Korean
 <ul>
 <li>Bluetooth의 경우는 <code>systemd enable bluetooth.service</code></li>
 <li>NetworkManager의 경우는 <code>systemd enable NetworkManager.service</code></li>
-<li>GDM의 경우는 <code>systemd enable gdm.service</code></li>
 </ul></li>
-<li>이제 재부팅하면, GDM의 로그인 화면이 반겨줄 것이다.</li>
+<li>재부팅한다.</li>
 </ul>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Linux.html">Linux</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-05-12T20:07:54+0900</code></a>
+    Last modified: <code>2020-05-24T05:11:01+0900</code></a>
 </p>
 <hr>
 
