@@ -1,23 +1,18 @@
+answer:
+  category: Mathematics
+  language: Korean
+  mtime: 1590578307
+  title: "\uB2F5\uC548 \uC791\uC131 \uCCB4\uD06C\uB9AC\uC2A4\uD2B8"
 archlinux:
   category: Linux
   language: Korean
   mtime: 1590351327
   title: "Arch Linux \uC124\uCE58 \uCCB4\uD06C\uB9AC\uC2A4\uD2B8"
-axiom-of-choice:
-  category: Mathematics
-  language: Korean
-  mtime: 1589302117
-  title: "\uC120\uD0DD \uACF5\uB9AC"
 basel-problem:
   category: Mathematics
   language: Korean
   mtime: 1587925309
   title: "Basel \uBB38\uC81C"
-countable-set:
-  category: Mathematics
-  language: Korean
-  mtime: 1590461202
-  title: "\uC9D1\uD569\uC758 \uB18D\uB3C4\uC640 \uAC00\uC0B0\uC9D1\uD569"
 dn-lcm:
   category: Mathematics
   language: Korean
@@ -26,38 +21,13 @@ dn-lcm:
 e:
   category: Mathematics
   language: Korean
-  mtime: 1589294107
+  mtime: 1590577826
   title: "\uC790\uC5F0\uC0C1\uC218 $e$"
-eco-socialism:
-  category: Eco-socialism
-  language: Korean
-  mtime: 1587556488
-  title: "\uC0DD\uD0DC\uC0AC\uD68C\uC8FC\uC758"
 fibonacci:
   category: Mathematics
   language: Korean
   mtime: 1587805964
   title: "Fibonacci \uC218\uC5F4"
-group-homomorphism:
-  category: Mathematics
-  language: Korean
-  mtime: 1589300616
-  title: "\uAD70\uC758 \uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
-iphone-se:
-  category: Life
-  language: Korean
-  mtime: 1588150968
-  title: iPhone SE
-kana-history:
-  category: Japanese
-  language: Japanese
-  mtime: 1587928520
-  title: "\u6B74\u53F2\u7684\u4EEE\u540D\u9063"
-law-of-excluded-middle:
-  category: Mathematics
-  language: Korean
-  mtime: 1587686174
-  title: "\uBC30\uC911\uB960"
 pells-equation:
   category: Mathematics
   language: Korean
@@ -73,23 +43,8 @@ prime-number:
   language: Korean
   mtime: 1589294105
   title: "\uC18C\uC218"
-python-re:
-  category: Programming
-  language: Korean
-  mtime: 1587569110
-  title: "Python\uACFC \uC815\uADDC\uD45C\uD604\uC2DD"
-riemann-zeta-function:
-  category: Mathematics
-  language: Korean
-  mtime: 1587837736
-  title: "Riemann\uC758 $\\zeta$ \uD568\uC218"
 signs:
   category: Mathematics
   language: Korean
   mtime: 1589732985
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
-signs-ja:
-  category: Mathematics
-  language: Japanese
-  mtime: 1589265744
-  title: "\u8A18\u53F7\u306B\u95A2\u3057\u3066"
