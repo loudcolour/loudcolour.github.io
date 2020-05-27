@@ -18,11 +18,6 @@ dn-lcm:
   language: Korean
   mtime: 1589293871
   title: "$1,\\ldots,n$\uC758 \uCD5C\uC18C\uACF5\uBC30\uC218"
-e:
-  category: Mathematics
-  language: Korean
-  mtime: 1590577826
-  title: "\uC790\uC5F0\uC0C1\uC218 $e$"
 fibonacci:
   category: Mathematics
   language: Korean
