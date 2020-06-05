@@ -34,9 +34,10 @@ Colemak의 `[레이아웃 이름]`은 `colemak`이다.
   - 미러 리스트는 `/etc/pacman.d/mirrorlist`에 있다. 적절하게 우선순위를 바꾸어준다. (`vim`등을 통해)
   - `pacstrap /mnt base linux linux-firmware`으로 `/mnt`에 설치한다.
 - 추가적인 소프트웨어들을 다운로드한다.
-  - 네트워크 관련: `netctl`, `wpa_supplicant`, `dhcpcd`, `networkmanager`, `ufw`
+  - 네트워크: `netctl`, `wpa_supplicant`, `dhcpcd`, `networkmanager`, `ufw`
   - 시스템: `zsh`, `openssh`, `sudo`, `grub`, `efibootmgr`(EFI의 경우)
-  - 기타: `dialog`, `vim`, `man-db`, `man-pages`, `texinfo`
+  - 개발 환경: `python`, `python-pip`, `gcc`, `yarn`, `nodejs`, `rust`(`pacman`이외에도 추후에 `rustup`을 이용한 설치 가능)
+  - 기타: `dialog`, `vim` (혹은 `neovim`), `git`, `man-db`, `man-pages`, `texinfo`, `fd`, `exa`
 - 디스크가 마운트되어 있는 것을 확인한 뒤, `fstab`을 생성한다. `genfstab -U /mnt >> /mnt/etc/fstab`
 - `arch-chroot`로 `/mnt`에 진입한다.
 - 시간대를 설정한다. `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`
@@ -46,6 +47,8 @@ Colemak의 `[레이아웃 이름]`은 `colemak`이다.
 - `/etc/vconsole.conf`에 사용할 키보드 레이아웃에 맞추어 `KEYMAP=colemak` 등을 추가한다.
 - `/etc/hostname`을 수정하여 호스트네임을 설정한다.
 - `/etc/hosts` 파일을 수정한다. `127.0.0.1`, `127.0.1.1`, `::1` 항목을 추가하자.
+  - `127.0.0.1`, `::1`을 `localhost`로.
+  - `127.0.1.1`을 `[hostname].localdomain [hostname]`으로.
 - `passwd`를 실행하여 `root` 계정의 패스워드를 설정한다.
 - `useradd -m -G superusers -s /bin/zsh [계정명]` 과 같이 `root` 계정이 아닌, 관리자 계정을 만들자.
   - 계정을 만든 뒤에는 `passwd [계정명]`을 입력하여 패스워드를 설정한다.

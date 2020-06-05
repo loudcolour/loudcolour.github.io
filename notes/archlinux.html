@@ -225,9 +225,10 @@ language: Korean
 </ul></li>
 <li>추가적인 소프트웨어들을 다운로드한다.
 <ul>
-<li>네트워크 관련: <code>netctl</code>, <code>wpa_supplicant</code>, <code>dhcpcd</code>, <code>networkmanager</code>, <code>ufw</code></li>
+<li>네트워크: <code>netctl</code>, <code>wpa_supplicant</code>, <code>dhcpcd</code>, <code>networkmanager</code>, <code>ufw</code></li>
 <li>시스템: <code>zsh</code>, <code>openssh</code>, <code>sudo</code>, <code>grub</code>, <code>efibootmgr</code>(EFI의 경우)</li>
-<li>기타: <code>dialog</code>, <code>vim</code>, <code>man-db</code>, <code>man-pages</code>, <code>texinfo</code></li>
+<li>개발 환경: <code>python</code>, <code>python-pip</code>, <code>gcc</code>, <code>yarn</code>, <code>nodejs</code>, <code>rust</code>(<code>pacman</code>이외에도 추후에 <code>rustup</code>을 이용한 설치 가능)</li>
+<li>기타: <code>dialog</code>, <code>vim</code> (혹은 <code>neovim</code>), <code>git</code>, <code>man-db</code>, <code>man-pages</code>, <code>texinfo</code>, <code>fd</code>, <code>exa</code></li>
 </ul></li>
 <li>디스크가 마운트되어 있는 것을 확인한 뒤, <code>fstab</code>을 생성한다. <code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></li>
 <li><code>arch-chroot</code>로 <code>/mnt</code>에 진입한다.</li>
@@ -237,7 +238,11 @@ language: Korean
 <li><code>/etc/locale.conf</code>에 사용할 언어에 맞추어 <code>LANG=en_US.UTF-8</code> 등을 추가한다.</li>
 <li><code>/etc/vconsole.conf</code>에 사용할 키보드 레이아웃에 맞추어 <code>KEYMAP=colemak</code> 등을 추가한다.</li>
 <li><code>/etc/hostname</code>을 수정하여 호스트네임을 설정한다.</li>
-<li><code>/etc/hosts</code> 파일을 수정한다. <code>127.0.0.1</code>, <code>127.0.1.1</code>, <code>::1</code> 항목을 추가하자.</li>
+<li><code>/etc/hosts</code> 파일을 수정한다. <code>127.0.0.1</code>, <code>127.0.1.1</code>, <code>::1</code> 항목을 추가하자.
+<ul>
+<li><code>127.0.0.1</code>, <code>::1</code>을 <code>localhost</code>로.</li>
+<li><code>127.0.1.1</code>을 <code>[hostname].localdomain [hostname]</code>으로.</li>
+</ul></li>
 <li><code>passwd</code>를 실행하여 <code>root</code> 계정의 패스워드를 설정한다.</li>
 <li><code>useradd -m -G superusers -s /bin/zsh [계정명]</code> 과 같이 <code>root</code> 계정이 아닌, 관리자 계정을 만들자.
 <ul>
@@ -262,7 +267,7 @@ language: Korean
 <hr>
 <p>
     Category: <a href="../category/Linux.html">Linux</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-05-25T05:15:27+0900</code></a>
+    Last modified: <code>2020-06-06T00:34:48+0900</code></a>
 </p>
 <hr>
 

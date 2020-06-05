@@ -2,8 +2,6 @@
                   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url>
 <loc>https://loudcolour.github.io/notes/answer.html</loc><lastmod>2020-05-27</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/archlinux.html</loc><lastmod>2020-05-25</lastmod>
-</url><url>
 <loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-04-27</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/dn-lcm.html</loc><lastmod>2020-05-12</lastmod>
@@ -17,4 +15,6 @@
 <loc>https://loudcolour.github.io/notes/prime-number.html</loc><lastmod>2020-05-12</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/signs.html</loc><lastmod>2020-05-18</lastmod>
+</url><url>
+<loc>https://loudcolour.github.io/notes/archlinux.html</loc><lastmod>2020-06-06</lastmod>
 </url></urlset>
