@@ -1,5 +1,5 @@
 <!---
-title: "$\LaTeX$에서 행렬 표시하기"
+title: "$\\LaTeX$에서 행렬 표시하기"
 category: Typesetting
 language: Korean
 --->

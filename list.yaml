@@ -66,13 +66,14 @@ korean-spacing:
 latex-font:
   category: Typesetting
   language: Korean
-  mtime: 1592066564
-  title: "$\LaTeX$ \uC218\uC2DD\uC5D0\uC11C \uC0AC\uC6A9\uAC00\uB2A5\uD55C \uD3F0\uD2B8"
+  mtime: 1592067018
+  title: "$\\LaTeX$ \uC218\uC2DD\uC5D0\uC11C \uC0AC\uC6A9\uAC00\uB2A5\uD55C \uD3F0\
+    \uD2B8"
 latex-matrix:
   category: Typesetting
   language: Korean
-  mtime: 1592066660
-  title: "$\LaTeX$\uC5D0\uC11C \uD589\uB82C \uD45C\uC2DC\uD558\uAE30"
+  mtime: 1592067006
+  title: "$\\LaTeX$\uC5D0\uC11C \uD589\uB82C \uD45C\uC2DC\uD558\uAE30"
 pells-equation:
   category: Mathematics
   language: Korean

@@ -1,5 +1,5 @@
 <!---
-title: "$\LaTeX$ 수식에서 사용가능한 폰트"
+title: "$\\LaTeX$ 수식에서 사용가능한 폰트"
 category: Typesetting
 language: Korean
 --->
