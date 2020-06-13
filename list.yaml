@@ -18,6 +18,11 @@ dn-lcm:
   language: Korean
   mtime: 1589293871
   title: "$1,\\ldots,n$\uC758 \uCD5C\uC18C\uACF5\uBC30\uC218"
+e-inequality:
+  category: Mathematics
+  language: Korean
+  mtime: 1592042398
+  title: $n!>\left( \frac{n}{e} \right)^n$
 fibonacci:
   category: Mathematics
   language: Korean
@@ -28,10 +33,10 @@ pells-equation:
   language: Korean
   mtime: 1591435734
   title: "Pell\uC758 \uBC29\uC815\uC2DD"
-practical_gnupg:
+practical-gnupg:
   category: Security
   language: Korean
-  mtime: 1589150004
+  mtime: 1592042509
   title: "GnuPG \uC2E4\uC804\uD3B8"
 prime-number:
   category: Mathematics

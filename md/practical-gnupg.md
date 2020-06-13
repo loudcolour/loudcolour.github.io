@@ -815,3 +815,4 @@ commit에 서명을 추가하기 위해서는 `-S` 옵션을 `git commit` 명령
 keys.openpgp.org 키 서버를 활용하는 방법을 알 수 있습니다.
 - [Validating other keys on your public keyring](https://www.gnupg.org/gph/en/manual/x334.html):
 신뢰성 데이터베이스로부터 유효성을 평가하는 예시가 나와 있습니다.
+

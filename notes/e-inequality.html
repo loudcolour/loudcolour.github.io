@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Security</title>
+<title>$n!>\left( \frac{n}{e} \right)^n$</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,27 +172,41 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/e-inequality.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=$n!>\left( \frac{n}{e} \right)^n$"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#section">$n!&gt;\left( \frac{n}{e} \right)^n$</a></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Security</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Security.html">Security</a></span> <span class="link-to-note"><a href="../notes/practical-gnupg.html">GnuPG 실전편</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: '$n!&gt;\left( \frac{n}{e} \right)^n$'
+language: Korean
+category: Mathematics
+--->
+
+<h1 id="section">$n!&gt;\left( \frac{n}{e} \right)^n$</h1>
+<p>$\left( 1+\frac{1}{n} \right)^n&lt;e$라는 것을 이항정리와 단조증가성으로부터 알 수 있다. 이 결과를 이용하여, 계승에 관한 부등식 $n!&gt;\left( \frac{n}{e} \right)^n$ 를 수학적 귀납법으로 유도할 수 있다.</p>
+<p>$n=1$인 경우에는 $1!&gt;\frac{1}{e}$ 이 성립한다. $n=k$인 경우에 $k!&gt;\left( \frac{k}{e} \right)^k$이 성립한다면 $\left( 1+\frac{1}{k} \right)^k&lt;e$로부터 $k+1&gt; \frac{\left( k+1 \right)^{k+1}}{ek^k}$이 성립하므로,</p>
+<p>$$
+(k+1)! = k!\cdot(k+1) &gt; \left( \frac{k}{e} \right)^k\cdot
+\frac{\left( k+1 \right)^{k+1}}{ek^k}= \left( \frac{k+1}{e} \right)^{k+1}
+$$</p>
+<p>와 같이 $n=k+1$일 때에도 성립하는 것을 알 수 있다. 따라서 부등식 $n!&gt;\left( \frac{n}{e} \right)^n$이 성립한다.</p>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-13T18:59:58+0900</code></a>
 </p>
 <hr>
 
