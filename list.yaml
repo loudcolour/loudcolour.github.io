@@ -21,7 +21,7 @@ dn-lcm:
 e-inequality:
   category: Mathematics
   language: Korean
-  mtime: 1592042398
+  mtime: 1592043225
   title: $n!>\left( \frac{n}{e} \right)^n$
 fibonacci:
   category: Mathematics
