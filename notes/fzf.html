@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="Yu7ZDPtBRajRVL44UXQQ1cT-vuIlgmn5igJw9GlE-ks" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../icons/favicon-apple-touch-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../icons/favicon-apple-touch-144.png">
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="../icons/favicon.ico">
+<link rel="icon" sizes="128x128" href="../icons/favicon.icns">
+<link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+<script defer src="../katex/katex.min.js"></script>
+<script>
+	let delimeters_settings = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        };
+</script>
+<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
+<link rel="stylesheet" href="../katex/katex.min.css">
+<link rel="stylesheet" href="../highlight.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style-dark.css">
+<title>fzf</title>
+
+<style>
+	.container {
+		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+		margin: 45px auto;
+		max-width: 980px;
+
+		display: grid;
+		grid-template-columns: auto 220px 745px auto;
+		grid-template-rows: auto;
+		grid-template-areas: ". sidebar main .";
+		column-gap: 15px;
+
+		box-sizing: border-box;
+	}
+
+	p, h1, h2, h3, h4, h5, h6, li {
+		word-break: keep-all;
+	}
+
+	.markdown-body, .markdown-body-dark {
+		grid-area: main;
+		min-width: 200px;
+		max-width: 745px;
+		margin: 0 auto;
+	}
+
+	.sidebar, .sidebar-dark {
+		position: fixed;
+		width: 220px;
+		height: calc(100% - 90px);
+		overflow: scroll;
+	}
+
+	.katex {
+		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
+	}
+
+	.license {
+		font-size: 12px;
+		color: #6a737d;
+	}
+
+	.align-right {
+	  text-align: right;
+	}
+
+	.trigger-list {
+		display: none;
+	}
+
+	.visible {
+		display: block;
+	}
+
+	.invisible {
+		display: block;
+	}
+
+	p img {
+		display: block;
+		margin: auto;
+		max-width: 70%;
+	}
+
+	@media (max-width: 1010px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: auto 745px auto;
+			grid-template-rows: auto;
+			grid-template-areas: 
+			". sidebar ."
+			". main .";
+			column-gap: 15px;
+			row-gap: 15px;
+		}
+
+		.sidebar, .sidebar-dark {
+			width: unset;
+			height: unset;
+			position: relative;
+			grid-area: sidebar;
+			min-width: 220px;
+		}
+
+		.trigger-list {
+			display: block;
+		}
+
+		.invisible {
+			display: none;
+		}
+	}
+
+	@media (max-width: 775px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: 15px auto 15px;
+			grid-template-rows: auto;
+			grid-template-areas:
+			". sidebar ."
+			". main .";
+			column-gap: 0px;
+			row-gap: 15px;
+		}
+
+		.markdown-body, .markdown-body-dark {
+			max-width: 100%;
+		}
+
+		ul.article-list {
+			padding-left: 0;
+		}
+
+		p img {
+			max-width: 100%;
+		}
+	}
+
+	.hidden {
+		
+	}
+
+</style>
+</head>
+<body id="body" class="dark-mode-off">
+
+<div class="container">
+<aside id="sidebar" class="sidebar">
+<ul id="navbar" class="navbar">
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">🔽 Show</span></a></li>
+</ul>
+<div id="inside-sidebar" class="invisible">
+<ul class="navbar">
+	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/fzf.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=fzf"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
+</ul>
+<ul class="navbar">
+	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
+</ul>
+<div class="jump-to-id-list">
+<ul>
+<li><a href="#fzf">fzf</a>
+<ul>
+<li><a href="#설치하기">설치하기</a></li>
+<li><a href="#사용하기">사용하기</a></li>
+<li><a href="#단축키-fuzzy-completion-사용하기">단축키, fuzzy completion 사용하기</a></li>
+<li><a href="#vim과-연동하여-사용하기"><code>vim</code>과 연동하여 사용하기</a></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+</aside>
+<article id="markdown-body" class="markdown-body">
+<!---
+title: fzf
+language: Korean
+category: Linux
+--->
+
+<h1 id="fzf">fzf</h1>
+<h2 id="설치하기">설치하기</h2>
+<p>Homebrew를 비롯한 여러 패키지 매니저를 이용하여 <code>fzf</code>를 설치할 수 있다. 터미널 상에서의 키 바인딩과 fuzzy completion을 이용하기 위해서는 아래의 설치 스크립트를 실행하여야 한다.</p>
+<pre><code>brew install fzf
+$(brew --prefix)/opt/fzf/install
+</code></pre>
+<p>vim의 경우 <code>fzf</code> 플러그인을 Vim-Plug 등의 플러그인 매니저로 설치할 수 있다. 다음을 <code>.vimrc</code>에 추가하여 <code>:PlugInstall</code>을 실행하면 된다.</p>
+<pre><code>Plug &#39;junegunn/fzf&#39;, { &#39;do&#39;: { -&gt; fzf#install()} }
+Plug &#39;junegunn/fzf.vim&#39;
+</code></pre>
+<p>플러그인의 설치와 업그레이드에 관한 자세한 정보는 <a href="https://github.com/junegunn/fzf#using-the-finder">GitHub 저장소</a>를 참고.</p>
+<h2 id="사용하기">사용하기</h2>
+<p><code>fzf</code>는 인터랙티브 파인더를 불러와 STDIN으로 리스트를 불러들인 후 선택된 항목을 STDOUT으로 쓴다. STDIN 파이프가 주어지지 않을 경우에는 자체적으로 (숨김처리 되지 않은) 파일의 리스트를 불러오기 위해 <code>find</code> 명령어를 사용한다. <code>find</code> 이외의 명령어를 사용하기를 원한다면 <code>FZF_DEFAULT_COMMAND</code> 변수를 변경하여 설정할 수 있다. (<code>find</code> 대신 <code>fd</code>를 사용하는 경우 등.)</p>
+<p><code>find</code> (혹은 <code>fd</code>)를 기본 명령어를 사용하면 다음과 같은 명령어로 어떤 파일을 vim으로 편집할 지 선택하는 것도 가능하다.</p>
+<pre><code>vim $(fzf)
+</code></pre>
+<p>인터랙티브 파인더에서는 emacs-like 단축키를 사용할 수 있다. 항목을 선택하기 위해서는 <code>Enter</code> 를, 나가기 위해서는 <code>Ctrl-c</code>, <code>Ctrl-g</code> 중 어느 하나를 누르면 된다. 복수 선택을 원하는 경우, <code>-m</code> 옵션을 주어 실행하면 된다. 이 때는 <code>Tab</code>과 <code>Shift-Tab</code>을 이용하여 항목을 마킹하면 된다. 모두 선택하는 단축키는 <code>Meta-a</code>, 모두 선택해제하는 단축키는 <code>Meta-e</code>이다. 이외에도 마우스 동작을 이용하여 항목을 선택할 수도 있다.</p>
+<p>별도로 지정되지 않는 한, <code>fzf</code>는 <code>extended-search mode</code> 로 실행된다. 공백으로 분리하여 검색 키워드를 지정할 수 있으며, 각각의 키워드에는 여러가지 토큰을 지정하여 특수한 매치를 얻을 수 있다. 예를 들어 <code>^</code>, <code>$</code>으로 줄의 prefix, suffix를 매치하거나, <code>!</code>를 통해 부정에 해당하는 매치를 얻을 수 있다. <code>exact-match</code>를 원하는 경우에도 <code>'</code> 토큰을 지정하여 매치를 얻을 수 있다. (처음부터 <code>-e</code>, <code>--exact</code> 옵션을 지정하여도 된다.)</p>
+<p>키워드 사이의 공백은 AND로 인식된다. OR을 원하는 경우에는 공백 사이에 <code>|</code>를 넣으면 된다.</p>
+<h2 id="단축키-fuzzy-completion-사용하기">단축키, fuzzy completion 사용하기</h2>
+<p>설치 스크립트에 의해서 설치된 <code>fzf</code>의 단축키를 쉘 상에서 사용할 수 있다. 스크립트를 통해 설치되는 단축키는 3가지로, 기본적으로 설정되어 있는 기능은 다음과 같다.</p>
+<ul>
+<li><code>Ctrl-t</code>: fzf를 열어서, 선택된 파일, 디렉토리를 커맨드라인에 붙여넣기 한다.</li>
+<li><code>Ctrl-r</code>: fzf를 열어서, 선택된 히스토리 상의 명령어를 커맨드라인에 붙여넣기 한다.</li>
+<li><code>Meta-c</code>: 선택된 디렉토리로 들어간다.</li>
+</ul>
+<p>fuzzy completion을 사용하기 위해서는, 명령어 뒤에 <code>**</code>을 커맨드라인에 입력 후 <code>Tab</code>키를 눌러 바로 fuzzy pattern을 입력할 수 있는 창을 활성화 시키면 된다. <code>**Tab</code> 이외에도 <code>[디렉토리 경로]**Tab</code>을 입력 시, 해당 <code>[디렉토리]</code> 상의 파일 목록을 불러오며, <code>[fuzzy pattern]**Tab</code>을 입력하면 즉시 <code>[fuzzy pattern]</code>에 매치된 목록을 불러온다.</p>
+<pre><code>vim **[Tab]
+vim ../**[Tab]
+</code></pre>
+<p>fuzzy completion을 사용할 수 있는 것은 파일과 디렉토리 뿐만이 아니다. 다음과 같이, 프로세스 ID, 호스트네임, 환경변수, 바로가기 등에서도 fuzzy completion을 사용할 수 있으며, 별도의 설정으로 작성한 completion API를 사용하는 것도 가능하다.</p>
+<pre><code>kill -9 [Tab]
+
+ssh **[Tab]
+telnet **[Tab]
+
+unset **[Tab]
+export **[Tab]
+unalias **[Tab]
+</code></pre>
+<h2 id="vim과-연동하여-사용하기"><code>vim</code>과 연동하여 사용하기</h2>
+<p><code>fzf</code>에서 지원하는 기능을 <code>vim</code>에서 사용할 수 있도록 플러그인이 마련되어 있다. 이를 설치하는 방법은 위에서 설명하였다. 더 자세한 설명은 <a href="https://github.com/junegunn/fzf/blob/master/README-VIM.md">fzf의 공식 문서</a> 와 <a href="https://github.com/junegunn/fzf.vim/blob/master/README.md">fzf.vim의 공식 문서</a> 에서 확인할 수 있다.</p>
+<p><code>fzf</code>의 <code>vim</code> 플러그인은 크게 두가지 코어 기능을 제공한다. 또한 이를 바탕으로 작성된 편리한 명령어 <code>:FZF</code>를 사용할 수 있게 한다.</p>
+<ol>
+<li><code>fzf#run([spec dict])</code>: 주어진 <code>[spec dict]</code>에 맞추어 <code>vim</code> 내에서 <code>fzf</code>를 실행한다.
+<ul>
+<li><code>call fzf#run({'source': 'ls'})</code></li>
+</ul></li>
+<li><code>fzf#wrap([spec dict]) -&gt; (dict)</code>: 주어진 스펙을 전역 설정에서 지정된 추가 옵션을 덧붙여, 스펙을 생성한다. <code>fzf#run</code>을 실행과 함께 쓰인다.
+<ul>
+<li><code>call fzf#run(fzf#wrap({'source': 'ls'}))</code></li>
+</ul></li>
+<li><code>:FZF</code>: 기본적인 <code>fzf</code>를 이용한 파일 선택기이다. <code>fzf</code>의 옵션과 파일 검색의 디렉토리를 인자로 받는다.</li>
+</ol>
+<p>특히 <code>:FZF</code>를 실행할 때, 파일을 여는 단축키 4가지는 다음과 같다.</p>
+<ul>
+<li><code>Enter</code>: 현재 창에서 열기</li>
+<li><code>Ctrl-t</code>: 새 탭에서 열기</li>
+<li><code>Ctrl-x</code>: 수평 분할 창에서 열기</li>
+<li><code>Ctrl-v</code>: 수직 분할 창에서 열기</li>
+</ul>
+<p>별도의 설정 없이도 <code>:FZF</code>는 기본 쉘의 <code>fzf</code>와 같은 환경변수 설정(<code>$FZF_DEFAULT_COMMAND</code> 등) 을 공유한다.</p>
+<p><code>junegunn/fzf.vim</code> 플러그인에서는 <code>:FZF</code> 이외의 다양한 기능을 제공한다.</p>
+<ul>
+<li><code>:Files [경로]</code>: <code>[경로]</code>의 파일을 <code>$FZF_DEFAULT_COMMAND</code>에서 정의된 파일 탐색기를 이용하여 표시한다.</li>
+<li><code>:GFiles [옵션]</code>: <code>git</code> 상의 파일을 표시한다. (<code>git ls-files</code>)</li>
+<li><code>:GFiles?</code>: <code>git status</code>를 표시한다.</li>
+<li><code>:Buffers</code>: 버퍼를 표시한다.</li>
+<li><code>:Colors</code>: 컬러스킴을 표시한다.</li>
+<li><code>:Ag [패턴]</code>: <code>ag</code> 검색의 결과를 표시한다.</li>
+<li><code>:Rg [패턴]</code>: <code>rg</code> 검색의 결과를 표시한다.</li>
+</ul>
+<div class="hidden">
+<hr>
+<p>
+    Category: <a href="../category/Linux.html">Linux</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-13T23:07:31+0900</code></a>
+</p>
+<hr>
+
+<div id="utterances">
+<script src="https://utteranc.es/client.js" repo="loudcolour/loudcolour.github.io" issue-term="pathname" label="💬" theme="github-light" crossorigin="anonymous" async></script>
+</div>
+
+</div>
+<hr>
+<p class="license">Copyright © 2020 S. Hyeon.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU Free Documentation License, Version 1.3</a>
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the <a href="https://github.com/loudcolour/loudcolour.github.io">GitHub repo</a> of this site as <a href="https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE">LICENSE_NOTE</a>.</p>
+</article>
+</div>
+</body>
+<script src="../common.js">
+</script>

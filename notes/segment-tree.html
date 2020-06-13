@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="Yu7ZDPtBRajRVL44UXQQ1cT-vuIlgmn5igJw9GlE-ks" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../icons/favicon-apple-touch-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../icons/favicon-apple-touch-144.png">
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="../icons/favicon.ico">
+<link rel="icon" sizes="128x128" href="../icons/favicon.icns">
+<link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+<script defer src="../katex/katex.min.js"></script>
+<script>
+	let delimeters_settings = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        };
+</script>
+<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
+<link rel="stylesheet" href="../katex/katex.min.css">
+<link rel="stylesheet" href="../highlight.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style-dark.css">
+<title>Segment tree</title>
+
+<style>
+	.container {
+		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+		margin: 45px auto;
+		max-width: 980px;
+
+		display: grid;
+		grid-template-columns: auto 220px 745px auto;
+		grid-template-rows: auto;
+		grid-template-areas: ". sidebar main .";
+		column-gap: 15px;
+
+		box-sizing: border-box;
+	}
+
+	p, h1, h2, h3, h4, h5, h6, li {
+		word-break: keep-all;
+	}
+
+	.markdown-body, .markdown-body-dark {
+		grid-area: main;
+		min-width: 200px;
+		max-width: 745px;
+		margin: 0 auto;
+	}
+
+	.sidebar, .sidebar-dark {
+		position: fixed;
+		width: 220px;
+		height: calc(100% - 90px);
+		overflow: scroll;
+	}
+
+	.katex {
+		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
+	}
+
+	.license {
+		font-size: 12px;
+		color: #6a737d;
+	}
+
+	.align-right {
+	  text-align: right;
+	}
+
+	.trigger-list {
+		display: none;
+	}
+
+	.visible {
+		display: block;
+	}
+
+	.invisible {
+		display: block;
+	}
+
+	p img {
+		display: block;
+		margin: auto;
+		max-width: 70%;
+	}
+
+	@media (max-width: 1010px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: auto 745px auto;
+			grid-template-rows: auto;
+			grid-template-areas: 
+			". sidebar ."
+			". main .";
+			column-gap: 15px;
+			row-gap: 15px;
+		}
+
+		.sidebar, .sidebar-dark {
+			width: unset;
+			height: unset;
+			position: relative;
+			grid-area: sidebar;
+			min-width: 220px;
+		}
+
+		.trigger-list {
+			display: block;
+		}
+
+		.invisible {
+			display: none;
+		}
+	}
+
+	@media (max-width: 775px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: 15px auto 15px;
+			grid-template-rows: auto;
+			grid-template-areas:
+			". sidebar ."
+			". main .";
+			column-gap: 0px;
+			row-gap: 15px;
+		}
+
+		.markdown-body, .markdown-body-dark {
+			max-width: 100%;
+		}
+
+		ul.article-list {
+			padding-left: 0;
+		}
+
+		p img {
+			max-width: 100%;
+		}
+	}
+
+	.hidden {
+		
+	}
+
+</style>
+</head>
+<body id="body" class="dark-mode-off">
+
+<div class="container">
+<aside id="sidebar" class="sidebar">
+<ul id="navbar" class="navbar">
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">🔽 Show</span></a></li>
+</ul>
+<div id="inside-sidebar" class="invisible">
+<ul class="navbar">
+	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/segment-tree.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=Segment tree"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
+</ul>
+<ul class="navbar">
+	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
+</ul>
+<div class="jump-to-id-list">
+<ul>
+<li><a href="#segment-tree">Segment tree</a>
+<ul>
+<li><a href="#구간의-총합-구하기">구간의 총합 구하기</a></li>
+<li><a href="#수-변경하기">수 변경하기</a></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+</aside>
+<article id="markdown-body" class="markdown-body">
+<!---
+title: Segment tree
+category: Algorithms
+language: Korean
+--->
+
+<h1 id="segment-tree">Segment tree</h1>
+<p>배열의 부분열의 총합을 구하는 문제를 생각하자. 이 때, 배열을 수열로 생각하여 부분합을 미리 계산하여 부분합의 차로 부분열의 총합을 구하는 방법이 고려되나, 이는 $O(N)$의 시간복잡도를 가진다. 부분합의 배열대신. segment tree를 생성하여, 해당하는 연산의 시간복잡도를 $O(\log N)$으로 단축할 수 있다.</p>
+<p>segment tree는 바이너리 트리를 기반으로 하여, children node에는 배열에 저장된 값을, 해당하는 parent node에는 children node들의 합을 저장하도록 한다. segment tree의 각 node에는 트리의 윗부분부터 높이 계층을 우선시하여 번호를 부여한다. 이를 위해서는, 최상위 node의 번호를 0로 잡아 어떤 node의 번호가 <code>x</code>일 때, 왼쪽 children node는 <code>2*x-1</code>, 오른쪽 children node는 <code>2*x</code>로 할당하면 된다. 다음 코드는 배열 <code>a</code>가 주어졌을 때, segment tree인 <code>tree</code>를 생성하는 코드이다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">let</span> a <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">11</span><span class="op">,</span> <span class="dv">14</span><span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">67</span><span class="op">,</span> <span class="dv">34</span>]<span class="op">;</span> <span class="co">// random vector</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="kw">let</span> <span class="kw">mut</span> tree <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">0</span><span class="op">;</span><span class="dv">16</span>]<span class="op">;</span>    <span class="co">// zero-initialized tree vector</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="kw">let</span> l <span class="op">=</span> a<span class="op">.</span>len()<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    init(<span class="op">&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l)<span class="op">;</span>             <span class="co">// generate segtree</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> a)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> tree)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="kw">fn</span> init(a<span class="op">:&amp;</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span> tree<span class="op">:&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>        n<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>        b<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> e<span class="op">:</span><span class="dt">usize</span>) <span class="op">-&gt;</span> <span class="dt">i64</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="kw">if</span> b <span class="op">==</span> e <span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>        tree[n] <span class="op">=</span> a[b]<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>        <span class="kw">return</span> tree[n]<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>        <span class="kw">let</span> k <span class="op">=</span> (b<span class="op">+</span>e)<span class="op">/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>        tree[n] <span class="op">=</span> init(a<span class="op">,</span> tree<span class="op">,</span> <span class="dv">2</span><span class="op">*</span>n<span class="op">,</span> b<span class="op">,</span> k) <span class="op">+</span> init(a<span class="op">,</span> tree<span class="op">,</span> <span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span><span class="op">,</span> k<span class="op">+</span><span class="dv">1</span><span class="op">,</span> e)<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>        <span class="kw">return</span> tree[n]<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="op">}</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="op">}</span></span></code></pre></div>
+<p>재귀를 이용하여, segment tree를 생성하였다. 위의 코드를 실행한 결과는 다음과 같다.</p>
+<pre class="shell"><code>[0, 213, 94, 119, 25, 69, 18, 101, 11, 14, 56, 13, 6, 12, 67, 34]
+</code></pre>
+<p><code>tree</code>의 <code>1</code>번 index를 최상단 node로 하였으므로 위와 같은 결과를 얻는다. 위의 코드에서는 segment tree의 크기를 적당히 <code>16</code>으로 정하였지만, 실제로는 주어진 배열의 크기가 $N$이라면, $H=\lceil \log_2N\rceil$으로 둘 때, segment tree의 크기를 $2^{H+1}$로 두는 것이 적당하다.</p>
+<h2 id="구간의-총합-구하기">구간의 총합 구하기</h2>
+<p>어떤 node가 담당하고 있는 구간을 <code>[b,e]</code>, 합을 구하려하는 구간을 <code>[left,right]</code>로 둘 때, tree를 순회하면서 적합한 node를 탐색하는 경우를 생각하자. <code>[b,e]</code>와 <code>[left,right]</code> 사이의 관계를 고찰하면,</p>
+<ol>
+<li><code>[b,e]</code>와 <code>[left,right]</code>가 겹치지 않는 경우.</li>
+<li><code>left &lt;= b</code>, <code>e &lt;= right</code>인 경우.</li>
+<li><code>b &lt; left</code>, <code>right &lt; e</code>인 경우.</li>
+<li>셋 중 어느 것에도 속하지 않는 경우.</li>
+</ol>
+<p>가 있다. 1번의 경우, 더이상 구하고자 하는 범위에 children node가 존재하지 않으므로 0를 return하여 탐색을 종료하면 된다. 2번의 경우 역시, 구하고자 하는 범위 내에 node가 담당하는 범위가 포함되므로, node 자신의 값만을 return하여 탐색을 종료하면 된다.</p>
+<p>3번과 4번의 경우는 node가 담당하는 값 이외에도 구하고자 하는 범위의 값이 존재하므로, 재귀를 이용하여 탐색을 이어나갈 필요가 있다. 이를 구현한 코드는 다음과 같다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">let</span> a <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">11</span><span class="op">,</span> <span class="dv">14</span><span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">67</span><span class="op">,</span> <span class="dv">34</span>]<span class="op">;</span> <span class="co">// random vector</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw">let</span> <span class="kw">mut</span> tree <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">0</span><span class="op">;</span><span class="dv">16</span>]<span class="op">;</span>    <span class="co">// zero-initialized tree vector</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="kw">let</span> l <span class="op">=</span> a<span class="op">.</span>len()<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    init(<span class="op">&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l)<span class="op">;</span>             <span class="co">// generate segtree</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> a)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> tree)<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> range_sum(<span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span>))<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="op">}</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="kw">fn</span> init() <span class="op">{</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="op">...</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="kw">fn</span> range_sum(tree<span class="op">:&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>             n<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>             b<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> e<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>             left<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> right<span class="op">:</span><span class="dt">usize</span>) <span class="op">-&gt;</span> <span class="dt">i64</span> <span class="op">{</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>    <span class="kw">if</span>      (left<span class="op">&gt;</span>e) <span class="op">||</span> (right<span class="op">&lt;</span>b)   <span class="op">{</span><span class="dv">0</span><span class="op">}</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="kw">else</span> <span class="kw">if</span> (left<span class="op">&lt;=</span>b) <span class="op">&amp;&amp;</span> (right<span class="op">&gt;=</span>e) <span class="op">{</span>tree[n]<span class="op">}</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>    <span class="kw">else</span> <span class="op">{</span><span class="kw">let</span> k <span class="op">=</span> (b<span class="op">+</span>e)<span class="op">/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>          range_sum(tree<span class="op">,</span> <span class="dv">2</span><span class="op">*</span>n<span class="op">,</span> b<span class="op">,</span> k<span class="op">,</span> left<span class="op">,</span> right)</span>
+<span id="cb3-23"><a href="#cb3-23"></a>        <span class="op">+</span> range_sum(tree<span class="op">,</span> <span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span><span class="op">,</span> k<span class="op">+</span><span class="dv">1</span><span class="op">,</span> e<span class="op">,</span> left<span class="op">,</span> right)<span class="op">}</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="수-변경하기">수 변경하기</h2>
+<p>중간의 어떤 수<code>a[index]</code>를 <code>val</code>로 변경한다면 그 변경사항에 맞도록 tree 또한 업데이트할 필요가 있다. 변경되는 수를 가지는 요소에 해당되는 leaf node를 탐색해가며, 경로 위의 모든 node를 업데이트하여야 한다. 해당 leaf node의 모든 ancestor node의 diff는 <code>val-a[index]</code>로 일치함을 이용하면 된다.</p>
+<p>노드 탐색을 시작하여, 어떤 node가 담당하는 범위 내에 <code>index</code>가 포함되면 diff를 더하고 자식 노드로 진행하게 하는 식으로 탐색을 진행하면 된다. <code>index</code>가 포함되지 않는다면 그대로 탐색을 종료하면 된다. 다음 코드는 <code>diff</code>값을 통해 tree를 업데이트 하는 함수를 구현한 것이다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="kw">let</span> a <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">11</span><span class="op">,</span> <span class="dv">14</span><span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">67</span><span class="op">,</span> <span class="dv">34</span>]<span class="op">;</span> <span class="co">// random vector</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw">let</span> <span class="kw">mut</span> tree <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">0</span><span class="op">;</span><span class="dv">16</span>]<span class="op">;</span>    <span class="co">// zero-initialized tree vector</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="kw">let</span> l <span class="op">=</span> a<span class="op">.</span>len()<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    init(<span class="op">&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l)<span class="op">;</span>             <span class="co">// generate segtree</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> a)<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> tree)<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> range_sum(<span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span>))<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    update_tree(<span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="op">-</span><span class="dv">23</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l)<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="pp">println!</span>(<span class="st">&quot;{:?}&quot;</span><span class="op">,</span> tree)<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> range_sum(<span class="op">&amp;</span><span class="kw">mut</span> tree<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> l<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span>))<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="op">}</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="kw">fn</span> init(a<span class="op">:&amp;</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span> tree<span class="op">:&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="op">...</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="op">}</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="kw">fn</span> range_sum(tree<span class="op">:&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>             n<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>             b<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> e<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>             left<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> right<span class="op">:</span><span class="dt">usize</span>) <span class="op">-&gt;</span> <span class="dt">i64</span> <span class="op">{</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="op">...</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="op">}</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="kw">fn</span> update_tree(tree<span class="op">:&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">i64</span><span class="op">&gt;,</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a>               index<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> diff<span class="op">:</span><span class="dt">i64</span><span class="op">,</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a>               n<span class="op">:</span><span class="dt">usize</span><span class="op">,</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>               b<span class="op">:</span><span class="dt">usize</span><span class="op">,</span> e<span class="op">:</span><span class="dt">usize</span>) <span class="op">{</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>    <span class="kw">if</span> (index <span class="op">&lt;</span> b) <span class="op">||</span> (index <span class="op">&gt;</span> e) <span class="op">{</span><span class="kw">return</span><span class="op">;}</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a>    tree[n] <span class="op">+=</span> diff<span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a>    <span class="kw">if</span> b <span class="op">!=</span> e <span class="op">{</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>        <span class="kw">let</span> k <span class="op">=</span> (b<span class="op">+</span>e)<span class="op">/</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>        update_tree(tree<span class="op">,</span>index<span class="op">,</span>diff<span class="op">,</span><span class="dv">2</span><span class="op">*</span>n<span class="op">,</span>b<span class="op">,</span>k)<span class="op">;</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>        update_tree(tree<span class="op">,</span>index<span class="op">,</span>diff<span class="op">,</span><span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span><span class="op">,</span>k<span class="op">+</span><span class="dv">1</span><span class="op">,</span>e)<span class="op">;</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>    <span class="op">}</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="op">}</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a></span></code></pre></div>
+<div class="hidden">
+<hr>
+<p>
+    Category: <a href="../category/Algorithms.html">Algorithms</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-13T23:04:15+0900</code></a>
+</p>
+<hr>
+
+<div id="utterances">
+<script src="https://utteranc.es/client.js" repo="loudcolour/loudcolour.github.io" issue-term="pathname" label="💬" theme="github-light" crossorigin="anonymous" async></script>
+</div>
+
+</div>
+<hr>
+<p class="license">Copyright © 2020 S. Hyeon.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU Free Documentation License, Version 1.3</a>
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the <a href="https://github.com/loudcolour/loudcolour.github.io">GitHub repo</a> of this site as <a href="https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE">LICENSE_NOTE</a>.</p>
+</article>
+</div>
+</body>
+<script src="../common.js">
+</script>

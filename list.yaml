@@ -13,6 +13,11 @@ basel-problem:
   language: Korean
   mtime: 1587925309
   title: "Basel \uBB38\uC81C"
+dfs-bfs:
+  category: Algorithms
+  language: Korean
+  mtime: 1592056824
+  title: "DFS\uC640 BFS"
 dn-lcm:
   category: Mathematics
   language: Korean
@@ -23,11 +28,26 @@ e-inequality:
   language: Korean
   mtime: 1592043714
   title: $n!>\left( \frac{n}{e} \right)^n$
+entropy:
+  category: CompSci
+  language: Korean
+  mtime: 1592056881
+  title: "\uC815\uBCF4 \uC5D4\uD2B8\uB85C\uD53C"
+fft:
+  category: Algorithms
+  language: Korean
+  mtime: 1592056865
+  title: "\uBE60\uB978 Fourier \uBCC0\uD658"
 fibonacci:
   category: Mathematics
   language: Korean
   mtime: 1587805964
   title: "Fibonacci \uC218\uC5F4"
+fzf:
+  category: Linux
+  language: Korean
+  mtime: 1592057251
+  title: fzf
 pells-equation:
   category: Mathematics
   language: Korean
@@ -43,8 +63,23 @@ prime-number:
   language: Korean
   mtime: 1589294105
   title: "\uC18C\uC218"
+regex:
+  category: Programming
+  language: Korean
+  mtime: 1592056287
+  title: "\uC815\uADDC\uD45C\uD604\uC2DD"
+segment-tree:
+  category: Algorithms
+  language: Korean
+  mtime: 1592057055
+  title: Segment tree
 signs:
   category: Mathematics
   language: Korean
   mtime: 1589732985
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
+vim:
+  category: Linux
+  language: Korean
+  mtime: 1592057370
+  title: "vim \uB2E8\uCD95\uD0A4\uC640 \uAE30\uCD08 \uC0AC\uC6A9\uBC95"
