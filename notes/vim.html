@@ -196,6 +196,7 @@
 <li><a href="#종료하기">종료하기</a></li>
 <li><a href="#검색하기">검색하기</a></li>
 <li><a href="#버퍼-탭">버퍼, 탭</a></li>
+<li><a href="#참고문헌">참고문헌</a></li>
 </ul></li>
 </ul>
 
@@ -210,7 +211,7 @@ language: Korean
 --->
 
 <h1 id="vim-단축키와-기초-사용법">vim 단축키와 기초 사용법</h1>
-<p>아래의 단축키 동작은 모두 나의 사용환경에 맞게 작성되어 일반적인 <code>vim</code>과 다르게 동작하는 부분이 있을 수 있다. 이는 미리 작성한 <code>.vimrc</code>를 참고하면 나의 사용환경에서 특수하게 변경된 사항을 확인할 수 있다.</p>
+<p>아래의 단축키 동작은 모두 <a href="https://github.com/loudcolour/dotfiles">나의 사용환경</a>에 맞게 작성되어 일반적인 <code>vim</code>과 다르게 동작하는 부분이 있을 수 있다.</p>
 <h2 id="기초">기초</h2>
 <ul>
 <li><code>:help keyword</code>: <code>keyword</code>에 대해서 도움말을 표시한다.</li>
@@ -220,7 +221,7 @@ language: Korean
 </ul>
 <h2 id="커서-동작">커서 동작</h2>
 <ul>
-<li>커서를 <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> 키를 이용해서 움직일 수 있다. 실제로 움직임을 확인해 볼 것.</li>
+<li>커서를 <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> 키를 이용해서 움직일 수 있다.</li>
 <li>화면상에서 최상, 중간, 최하의 위치로 <code>H</code>, <code>M</code>, <code>L</code>를 통해 커서를 움직일 수 있다.</li>
 <li><code>w</code>, <code>e</code>를 통해 각각 단어의 첫 글자, 마지막 글자를 향해 앞으로 점프할 수 있다.</li>
 <li><code>b</code>를 통해 단어의 첫 글자를 향해 뒤로 점프할 수 있다.</li>
@@ -238,7 +239,7 @@ language: Korean
 </ul>
 <h2 id="화면-이동">화면 이동</h2>
 <ul>
-<li><code>zz</code>를 통해 커서의 위치를 유지하면서 커서가 화면의 중앙 라인에 위치하도록 표시한다.</li>
+<li><code>zz</code>를 통해 커서의 위치를 유지하면서 커서가 화면의 중앙 라인에 위치하도록 표시할 수 있다.</li>
 <li><code>Ctrl-b</code>: 화면을 한 페이지 앞으로 넘긴다.</li>
 <li><code>Ctrl-f</code>: 화면을 한 페이지 뒤로 넘긴다.</li>
 <li><code>Ctrl-u</code>: 화면을 반 페이지 앞으로 넘긴다.</li>
@@ -255,19 +256,19 @@ language: Korean
 </ul>
 <h2 id="편집하기">편집하기</h2>
 <ul>
-<li><p><code>Ctrl-r</code>: 커서 상의 문자를 다음 스트로크의 문자로 치환한다. 원래의 단축키는 <code>r</code>이다.</p></li>
-<li><p><code>s</code>: 커서 상의 문자를 삭제하고 입력 모드를 시작한다.</p></li>
-<li><p><code>J</code>: 현재 줄과 다음 줄을 공백을 넣어 합친다.</p></li>
-<li><p><code>gJ</code>: 현재 줄과 다음 줄을 공백을 넣지 않고 합친다.</p></li>
-<li><p><code>gwip</code>: 문단을 정렬한다.</p></li>
-<li><p><code>cc</code> 혹은 <code>S</code>: 라인 전체를 삭제하고 입력 모드를 시작한다.</p></li>
-<li><p><code>c$</code> 혹은 <code>C</code>: 현재 위치부터 라인 끝가지를 삭제하고 입력 모드를 시작한다.</p></li>
-<li><p><code>ciw</code>: 커서 상의 단어를 삭제하고 입력 모드를 시작한다.</p></li>
-<li><p><code>cw</code>: 커서부터 단어 끝가지를 삭제하고 입력 모드를 시작한다.</p></li>
-<li><p><code>u</code>: 취소하기를 실행한다.</p></li>
-<li><p><code>r</code>: 취소하기를 취소한다. 원래의 단축키는 <code>Ctrl-r</code>이다.</p></li>
-<li><p><code>.</code>: 위의 명령을 반복한다.</p></li>
-<li><p><code>&gt;&gt;</code>, <code>&lt;&lt;</code>: 커서가 있는 라인의 인덴트를 변경한다.</p></li>
+<li><code>Ctrl-r</code>: 커서 상의 문자를 다음 스트로크의 문자로 치환한다. 원래의 단축키는 <code>r</code>이다.</li>
+<li><code>s</code>: 커서 상의 문자를 삭제하고 입력 모드를 시작한다.</li>
+<li><code>J</code>: 현재 줄과 다음 줄을 공백을 넣어 합친다.</li>
+<li><code>gJ</code>: 현재 줄과 다음 줄을 공백을 넣지 않고 합친다.</li>
+<li><code>gwip</code>: 문단을 정렬한다.</li>
+<li><code>cc</code> 혹은 <code>S</code>: 라인 전체를 삭제하고 입력 모드를 시작한다.</li>
+<li><code>c$</code> 혹은 <code>C</code>: 현재 위치부터 라인 끝가지를 삭제하고 입력 모드를 시작한다.</li>
+<li><code>ciw</code>: 커서 상의 단어를 삭제하고 입력 모드를 시작한다.</li>
+<li><code>cw</code>: 커서부터 단어 끝가지를 삭제하고 입력 모드를 시작한다.</li>
+<li><code>u</code>: 취소하기를 실행한다.</li>
+<li><code>r</code>: 취소하기를 취소한다. 원래의 단축키는 <code>Ctrl-r</code>이다.</li>
+<li><code>.</code>: 위의 명령을 반복한다.</li>
+<li><code>&gt;&gt;</code>, <code>&lt;&lt;</code>: 커서가 있는 라인의 인덴트를 변경한다.</li>
 </ul>
 <h2 id="클립보드">클립보드</h2>
 <ul>
@@ -286,26 +287,26 @@ language: Korean
 <p><code>p</code>명령은 커서 박스의 뒤에 붙여넣는 명령이므로 <code>xp</code>나 <code>ddp</code>와 같이 명령을 조합하면 문자나 줄의 순서를 빠르게 바꿀 수 있다.</p>
 <h2 id="비주얼-모드">비주얼 모드</h2>
 <ul>
-<li><code>v</code>: 비주얼 모드를 시작한다.</li>
-<li><code>V</code>: 줄별 비주얼 모드를 시작한다.</li>
-<li><code>o</code>: 마크한 영역의 반대쪽 끝으로 커서를 이동한다.</li>
-<li><code>Ctrl-v</code>: 블록 비주얼 모드를 시작한다.</li>
-<li><code>O</code>: 마크한 블록 영역의 다른 구석으로 커서를 이동한다.</li>
-</ul>
-<p>아래의 인자는 <code>v</code> 이외에도, 특정 범위를 지정하는 키워드로 다른 명령과 조합할 수 있다. (<code>c</code>나 <code>y</code>, <code>d</code> 등.)</p>
-<ul>
-<li><p><code>ip</code>: 문단을 마크한다.</p></li>
-<li><p><code>ap</code>: 문단과 그 주변을 마크한다.</p></li>
-<li><p><code>iw</code>: 단어만을 마크한다.</p></li>
-<li><p><code>aw</code>: 단어와 그 주변을 마크한다.</p></li>
-<li><p><code>ab</code>: 소괄호 () 로 둘러싸인 블록을 마크한다.</p></li>
-<li><p><code>aB</code>: 중괄호 {} 로 둘러싸인 블록을 마크한다.</p></li>
-<li><p><code>ib</code>: 소괄호 () 로 둘러싸인 블록의 안쪽을 마크한다.</p></li>
-<li><p><code>iB</code>: 중괄호 {} 로 둘러싸인 블록의 안쪽을 마크한다.</p></li>
+<li><p><code>v</code>: 비주얼 모드를 시작한다.</p></li>
+<li><p><code>V</code>: 줄별 비주얼 모드를 시작한다.</p></li>
+<li><p><code>o</code>: 마크한 영역의 반대쪽 끝으로 커서를 이동한다.</p></li>
+<li><p><code>Ctrl-v</code>: 블록 비주얼 모드를 시작한다.</p></li>
+<li><p><code>O</code>: 마크한 블록 영역의 다른 구석으로 커서를 이동한다.</p></li>
 <li><p><code>&gt;</code>, <code>&lt;</code>: 텍스트를 좌우로 움직인다.</p></li>
 <li><p><code>y</code>: 클립보드에 텍스트를 복사한다.</p></li>
 <li><p><code>d</code>: 클립보드에 텍스트를 자르기한다.</p></li>
 <li><p><code>~</code>: 대문자를 소문자로, 소문자를 대문자로 치환한다.</p></li>
+</ul>
+<p>아래의 인자는 <code>v</code> 이외에도, 특정 범위를 지정하는 키워드로 다른 명령과 조합할 수 있다. (<code>c</code>나 <code>y</code>, <code>d</code> 등.)</p>
+<ul>
+<li><code>ip</code>: 문단을 마크한다.</li>
+<li><code>ap</code>: 문단과 그 주변을 마크한다.</li>
+<li><code>iw</code>: 단어만을 마크한다.</li>
+<li><code>aw</code>: 단어와 그 주변을 마크한다.</li>
+<li><code>ab</code>: 소괄호 () 로 둘러싸인 블록을 마크한다.</li>
+<li><code>aB</code>: 중괄호 {} 로 둘러싸인 블록을 마크한다.</li>
+<li><code>ib</code>: 소괄호 () 로 둘러싸인 블록의 안쪽을 마크한다.</li>
+<li><code>iB</code>: 중괄호 {} 로 둘러싸인 블록의 안쪽을 마크한다.</li>
 </ul>
 <h2 id="레지스터">레지스터</h2>
 <p>레지스터는 <code>~/.viminfo</code>에 저장되어 <code>vim</code>을 다시 시작해도 로드된다. 마지막으로 복사한 값은 레지스터 <code>o</code>에 저장된다.</p>
@@ -341,34 +342,34 @@ language: Korean
 </ul>
 <h2 id="검색하기">검색하기</h2>
 <ul>
-<li><p><code>/[패턴]</code>: 지정한 <code>[패턴]</code>을 버퍼 내에서 검색한다. 검색 결과는 하이라이트된다.</p></li>
-<li><p><code>?[패턴]</code>: 지정한 <code>[패턴]</code>을 버퍼 내에서 역순으로 검색한다.</p></li>
-<li><p><code>\[패턴]</code>: 알파벳과 숫자가 아닌 문자를 정규식 부분으로 해석하여 검색한다.</p></li>
-<li><p><code>n</code>: 검색 명령과 같은 방향으로 다음 매치를 향해 점프한다.</p></li>
-<li><p><code>N</code>: 검색 명령과 반대 방향으로 다음 매치를 향해 점프한다.</p></li>
-<li><p><code>:%s/old/new/g</code>: 파일 전체에서의 매치를 지정한 텍스트로 치환한다.</p></li>
-<li><p><code>:%s/old/new/gc</code>: 파일 전체에서의 매치를 확인과 함께 지정한 텍스트로 치환한다.</p></li>
-<li><p><code>noh</code>: 모든 매치의 하이라이트를 취소한다.</p></li>
-<li><p><code>:vimgrep /[패턴]/ [파일명1] [파일명2] ...</code> 복수 파일 내에서 <code>grep</code> 검색을 실행한다. 여기서 파일명은 와일드카드 문자를 포함할 수 있다.</p></li>
-<li><p><code>:cn</code>: 다음 매치로 점프한다.</p></li>
-<li><p><code>:cp</code>: 이전 매치로 점프한다.</p></li>
-<li><p><code>:copen</code>: 매치의 목록을 표시한다.</p></li>
-<li><p><code>:Rg</code>: <code>fzf</code> 플러그인과 <code>rg</code>를 이용하여 검색을 수행할 수 있다.</p></li>
+<li><code>/[패턴]</code>: 지정한 <code>[패턴]</code>을 버퍼 내에서 검색한다. 검색 결과는 하이라이트된다.</li>
+<li><code>?[패턴]</code>: 지정한 <code>[패턴]</code>을 버퍼 내에서 역순으로 검색한다.</li>
+<li><code>\[패턴]</code>: 알파벳과 숫자가 아닌 문자를 정규식 부분으로 해석하여 검색한다.</li>
+<li><code>n</code>: 검색 명령과 같은 방향으로 다음 매치를 향해 점프한다.</li>
+<li><code>N</code>: 검색 명령과 반대 방향으로 다음 매치를 향해 점프한다.</li>
+<li><code>:%s/old/new/g</code>: 파일 전체에서의 매치를 지정한 텍스트로 치환한다.</li>
+<li><code>:%s/old/new/gc</code>: 파일 전체에서의 매치를 확인과 함께 지정한 텍스트로 치환한다.</li>
+<li><code>noh</code>: 모든 매치의 하이라이트를 취소한다.</li>
+<li><code>:vimgrep /[패턴]/ [파일명1] [파일명2] ...</code> 복수 파일 내에서 <code>grep</code> 검색을 실행한다. 여기서 파일명은 와일드카드 문자를 포함할 수 있다.</li>
+<li><code>:cn</code>: 다음 매치로 점프한다.</li>
+<li><code>:cp</code>: 이전 매치로 점프한다.</li>
+<li><code>:copen</code>: 매치의 목록을 표시한다.</li>
+<li><code>:Rg</code>: <code>fzf</code> 플러그인과 <code>rg</code>를 이용하여 검색을 수행할 수 있다.</li>
 </ul>
 <h2 id="버퍼-탭">버퍼, 탭</h2>
 <ul>
-<li><p><code>:e [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러온다.</p></li>
-<li><p><code>:b [숫자]</code>: <code>[숫자]</code>번의 버퍼로 이동한다.</p></li>
-<li><p><code>:bnext</code> 혹은 <code>:bn</code>: 다음 버퍼로 이동한다.</p></li>
-<li><p><code>:bprev</code> 혹은 <code>:bp</code>: 이전 버퍼로 이동한다.</p></li>
-<li><p><code>:bd</code>: 버퍼를 삭제한다.</p>
+<li><code>:e [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러온다.</li>
+<li><code>:b [숫자]</code>: <code>[숫자]</code>번의 버퍼로 이동한다.</li>
+<li><code>:bnext</code> 혹은 <code>:bn</code>: 다음 버퍼로 이동한다.</li>
+<li><code>:bprev</code> 혹은 <code>:bp</code>: 이전 버퍼로 이동한다.</li>
+<li><code>:bd</code>: 버퍼를 삭제한다.
 <ul>
 <li><code>bd [숫자]</code>: <code>[숫자]</code>번의 버퍼를 삭제한다.</li>
 </ul></li>
-<li><p><code>:ls</code>: 열려있는 모든 버퍼의 목록을 표시한다.</p></li>
-<li><p><code>:sp [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러들이고, 창을 나누어 표시한다.</p></li>
-<li><p><code>:vsp [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러들이고, 창을 수직으로 나누어 표시한다.</p></li>
-<li><p><code>Ctrl-w</code>: 창을 관리한다.</p>
+<li><code>:ls</code>: 열려있는 모든 버퍼의 목록을 표시한다.</li>
+<li><code>:sp [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러들이고, 창을 나누어 표시한다.</li>
+<li><code>:vsp [파일명]</code>: <code>[파일명]</code>의 파일을 새 버퍼로 불러들이고, 창을 수직으로 나누어 표시한다.</li>
+<li><code>Ctrl-w</code>: 창을 관리한다.
 <ul>
 <li><code>Ctrl-w, s</code>: 창을 나눈다.</li>
 <li><code>Ctlr-w, v</code>: 창을 수직으로 나눈다.</li>
@@ -377,20 +378,25 @@ language: Korean
 <li><code>Ctrl-w, [방향키,h,j,k,l]</code>: 창 사이를 이동한다.</li>
 <li><code>Ctrl-w, T</code>: 현재 나뉘어진 모든 창을 새 탭으로 각각 이동시킨다.</li>
 </ul></li>
-<li><p><code>:tabnew [파일명]</code>: 새 탭에서 <code>[파일명]</code>의 파일을 불러온다.</p></li>
-<li><p><code>:tabn</code> 혹은 <code>tabnext</code> 혹은 <code>gt</code>: 다음 탭으로 이동한다.</p></li>
-<li><p><code>:tabp</code> 혹은 <code>tabprev</code> 혹은 <code>gT</code>: 이전 탭으로 이동한다.</p></li>
-<li><p><code>[숫자]gt</code>: <code>[숫자]</code>번 탭으로 이동한다.</p></li>
-<li><p><code>:tabmove [숫자]</code>: 현재의 탭을 <code>[숫자]</code>번째 탭으로 이동시킨다. <code>[숫자]</code>는 0-based index이다.</p></li>
-<li><p><code>:tabclose</code> 혹은 <code>:tabc</code>: 현재 탭과 탭에 들어있는 모든 창을 닫는다.</p></li>
-<li><p><code>:tabonly</code> 혹은 <code>:tabo</code>: 현재 탭을 제외하고 모든 탭을 닫는다.</p></li>
-<li><p><code>:tabdo [명령]</code>: 모든 열려있는 탭에서 <code>[명령]</code>을 실행한다.</p></li>
+<li><code>:tabnew [파일명]</code>: 새 탭에서 <code>[파일명]</code>의 파일을 불러온다.</li>
+<li><code>:tabn</code> 혹은 <code>tabnext</code> 혹은 <code>gt</code>: 다음 탭으로 이동한다.</li>
+<li><code>:tabp</code> 혹은 <code>tabprev</code> 혹은 <code>gT</code>: 이전 탭으로 이동한다.</li>
+<li><code>[숫자]gt</code>: <code>[숫자]</code>번 탭으로 이동한다.</li>
+<li><code>:tabmove [숫자]</code>: 현재의 탭을 <code>[숫자]</code>번째 탭으로 이동시킨다. <code>[숫자]</code>는 0-based index이다.</li>
+<li><code>:tabclose</code> 혹은 <code>:tabc</code>: 현재 탭과 탭에 들어있는 모든 창을 닫는다.</li>
+<li><code>:tabonly</code> 혹은 <code>:tabo</code>: 현재 탭을 제외하고 모든 탭을 닫는다.</li>
+<li><code>:tabdo [명령]</code>: 모든 열려있는 탭에서 <code>[명령]</code>을 실행한다.</li>
+</ul>
+<h2 id="참고문헌">참고문헌</h2>
+<ul>
+<li><a href="https://vim.rtorr.com/">Vim Cheat Sheet</a></li>
+<li><a href="https://johngrib.github.io/wiki/two-views-of-vim/">Vim, 두 가지 관점</a></li>
 </ul>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Linux.html">Linux</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-13T23:09:30+0900</code></a>
+    Last modified: <code>2020-06-14T01:17:46+0900</code></a>
 </p>
 <hr>
 
