@@ -124,6 +124,11 @@ signs:
   language: Korean
   mtime: 1589732985
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
+tikz:
+  category: Typesetting
+  language: Korean
+  mtime: 1592171977
+  title: PGF/TikZ
 vim:
   category: Linux
   language: Korean

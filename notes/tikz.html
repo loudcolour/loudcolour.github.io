@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Typesetting</title>
+<title>PGF/TikZ</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,30 +172,54 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/tikz.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=PGF/TikZ"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#pgftikz">PGF/TikZ</a>
+<ul>
+<li><a href="#기본">기본</a></li>
+<li><a href="#가환도식">가환도식</a></li>
+<li><a href="#참고문헌">참고문헌</a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Typesetting</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Typesetting.html">Typesetting</a></span> <span class="link-to-note"><a href="../notes/tikz.html">PGF/TikZ</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Typesetting.html">Typesetting</a></span> <span class="link-to-note"><a href="../notes/katex.html">$\KaTeX$ 적용하기</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Typesetting.html">Typesetting</a></span> <span class="link-to-note"><a href="../notes/latex-font.html">$\LaTeX$ 수식에서 사용가능한 폰트</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Typesetting.html">Typesetting</a></span> <span class="link-to-note"><a href="../notes/latex-matrix.html">$\LaTeX$에서 행렬 표시하기</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "PGF/TikZ"
+language: Korean
+category: Typesetting
+--->
+
+<h1 id="pgftikz">PGF/TikZ</h1>
+<p>TikZ(TikZ ist kein Zeichenprogramm)은 PGF(Portable Graphics Format)를 이용하여 $\LaTeX$ 상에서 도식을 쉽게 그릴 수 있도록하는 패키지이다. <code>\usepackage{tikz}</code>를 preamble에 두어 <code>tikz</code> 패키지를 사용할 수 있다. 또한 <code>\usetikzlibrary{ [TikZ 패키지] }</code> 명령어를 통해 추가적인 TikZ 패키지를 사용하도록 할 수 있다. (<code>arrows</code>, <code>automata</code>, <code>calendar</code>, <code>chains</code>, <code>mindmap</code> 등)</p>
+<h2 id="기본">기본</h2>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[ [옵션] ] <br>[TikZ 명령어]<br><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span><br></pre></div>
+
+<p>이나, 단순히 <code>\tikz[ [옵션] ]{ [TikZ 명령어] }</code>를 통해, TikZ 명령어를 입력할 환경을 만들 수 있다.</p>
+<p>TikZ 명령어에서 사용하는 좌표는 직교좌표와 극좌표를 모두 사용할 수 있다. 직교좌표는 <code>(1cm,2pt)</code>과 같이 <code>,</code>로 구분하여 숫자와 $\LaTeX$에서 사용되는 단위를 표시하면 된다. 극좌표는 <code>(45:1cm)</code>와 같이 <code>:</code>로 구분하여 도단위의 각도도와 직교좌표계에서와 같은 길이 단위를 표시하면 된다. 위의 직교좌표에서 단위를 표시하지 않으면, 기본단위인 <code>cm</code>을 사용하는 것으로 인식한다.</p>
+<p>위 문단과 같은 절대좌표 이외에도 바로 이전에 사용한 좌표로부터의 상대좌표를 이용할 수도 있다. 예를 들어 바로 이전에 사용한 좌표를 원점으로 하여 <code>(1,0)</code>의 위치를 표시하고 싶다면 <code>++(1,0)</code>으로 나타내면 된다.</p>
+<h2 id="가환도식">가환도식</h2>
+<h2 id="참고문헌">참고문헌</h2>
+<ul>
+<li><a href="http://mirror.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf">공식 매뉴얼(PDF)</a></li>
+<li><a href="https://www.ctan.org/topic/pgf-tikz">CTAN, PGF TikZ Topic</a></li>
+<li><a href="https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ">Wikibooks, LaTeX/PGF/TikZ</a></li>
+<li><a href="http://www.texample.net/tikz/">TeXample.net, TikZ and PGF</a></li>
+</ul>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Typesetting.html">Typesetting</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-15T06:59:37+0900</code></a>
 </p>
 <hr>
 
