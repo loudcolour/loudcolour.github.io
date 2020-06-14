@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Mathematics</title>
+<title>Zorn의 보조정리</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,36 +172,43 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/zorns-lemma.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=Zorn의 보조정리"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://duckduckgo.com/?q=site%3Aloudcolour.github.io"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#zorn의-보조정리">Zorn의 보조정리</a></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Mathematics</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택공리</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zorns-lemma.html">Zorn의 보조정리</a></span></li>
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/e-inequality.html">$n!>\left( \frac{n}{e} \right)^n$</a></span></li>
-<li><span class="modified-date">2020-06-06</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/pells-equation.html">Pell의 방정식</a></span></li>
-<li><span class="modified-date">2020-05-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/answer.html">답안 작성 체크리스트</a></span></li>
-<li><span class="modified-date">2020-05-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
-<li><span class="modified-date">2020-04-25</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "Zorn의 보조정리"
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="zorn의-보조정리">Zorn의 보조정리</h1>
+<blockquote>
+<p><strong>정의</strong>. 순서집합 $(X,\leq)$가 주어졌을 때, 임의의 전순서인 부분집합(즉, 사슬(chain))이 위로 유계라면 $(X, \leq)$는 귀납적(inductive)이다.</p>
+</blockquote>
+<blockquote>
+<p><strong>정의</strong>. 순서집합 $(X,\leq)$가 주어졌을 때, $X$의 원소 $a\in X$가 극대라는 것은, $a\leq x$ 인 동시에 $a\not= x$인 $x\in X$가 존재하지 않는 것을 의미한다.</p>
+</blockquote>
+<blockquote>
+<p><strong>보조정리</strong>(Zorn의 보조정리). 귀납적인 순서집합은 적어도 하나의 극대 원소를 갖는다.</p>
+</blockquote>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-14T19:19:13+0900</code></a>
 </p>
 <hr>
 

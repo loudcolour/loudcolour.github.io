@@ -11,7 +11,7 @@ archlinux:
 axiom-of-choice:
   category: Mathematics
   language: Korean
-  mtime: 1592064410
+  mtime: 1592130095
   title: "\uC120\uD0DD\uACF5\uB9AC"
 basel-problem:
   category: Mathematics
@@ -109,3 +109,8 @@ vim:
   language: Korean
   mtime: 1592065263
   title: "vim \uB2E8\uCD95\uD0A4\uC640 \uAE30\uCD08 \uC0AC\uC6A9\uBC95"
+zorns-lemma:
+  category: Mathematics
+  language: Korean
+  mtime: 1592129953
+  title: "Zorn\uC758 \uBCF4\uC870\uC815\uB9AC"

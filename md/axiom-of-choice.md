@@ -64,7 +64,7 @@ $\textsf{ZFC}$를 도입하기도 한다.
 
 $\textsf{ZF}$ 상에서 선택공리와 동치인 것으로 알려진 명제는 다음이 있다.
 
-- Zorn의 보조정리 (Zorn's lemma)
+- [Zorn의 보조정리 (Zorn's lemma)](./zorns-lemma.html)
 	* 임의의 벡터공간상의 기저의 존재
 - 정렬정리 (well-ordering theorem)
 - Tarski 정리: 모든 무한 기수 $\kappa$에 대하여 $\kappa = \kappa^2$이 성립한다.
@@ -73,5 +73,5 @@ $\textsf{ZF}$ 상에서 선택공리와 동치인 것으로 알려진 명제는 
 
 - 의존선택공리 (axiom of dependent choice, $\textsf{DC}$)
 - 가산선택공리 (axiom of countable choice, $\textsf{AC}_\omega$)
-	* 의존선택공리로부터 유도된다.
+	* 의존선택공리로부터 유도된다. 즉, $\textsf{AC}\implies\textsf{DC}\implies\textsf{AC}_\omega$
 
