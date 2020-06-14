@@ -53,6 +53,16 @@ fibonacci:
   language: Korean
   mtime: 1587805964
   title: "Fibonacci \uC218\uC5F4"
+french-honorific:
+  category: French
+  language: Korean
+  mtime: 1592140672
+  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uD638\uCE6D"
+french-pronunciation:
+  category: French
+  language: Korean
+  mtime: 1592140662
+  title: "\uD504\uB791\uC2A4\uC5B4 \uBC1C\uC74C"
 fzf:
   category: Linux
   language: Korean
