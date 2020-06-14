@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>벡터공간상의 기저가 항상 존재함에 대한 증명</title>
+<title>벡터공간의 기저</title>
 
 <style>
 	.container {
@@ -172,8 +172,8 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/existence-of-basis.md"><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=벡터공간상의 기저가 항상 존재함에 대한 증명"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/basis-of-vector-space.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=벡터공간의 기저"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
@@ -181,8 +181,10 @@
 </ul>
 <div class="jump-to-id-list">
 <ul>
-<li><a href="#벡터공간상의-기저가-항상-존재함에-대한-증명">벡터공간상의 기저가 항상 존재함에 대한 증명</a>
+<li><a href="#벡터공간의-기저">벡터공간의 기저</a>
 <ul>
+<li><a href="#정의">정의</a></li>
+<li><a href="#벡터공간의-기저의-존재">벡터공간의 기저의 존재</a></li>
 <li><a href="#참고문헌">참고문헌</a></li>
 </ul></li>
 </ul>
@@ -192,12 +194,21 @@
 </aside>
 <article id="markdown-body" class="markdown-body">
 <!---
-title: 벡터공간상의 기저가 항상 존재함에 대한 증명
+title: 벡터공간의 기저
 language: Korean
 category: Mathematics
 --->
 
-<h1 id="벡터공간상의-기저가-항상-존재함에-대한-증명">벡터공간상의 기저가 항상 존재함에 대한 증명</h1>
+<h1 id="벡터공간의-기저">벡터공간의 기저</h1>
+<h2 id="정의">정의</h2>
+<blockquote>
+<p><strong>정의</strong>. 체 $K$ 상의 벡터공간 $V$가 주어졌을 때, 집합 $X\subset V$가 $V$의 기저(basis)라는 것은, 다음을 동시에 만족하는 것을 의미한다.</p>
+<ol>
+<li>$X$의 각 원소가 선형독립 ($X=\emptyset$인 경우도 이를 만족하는 것으로 본다.)</li>
+<li>$\langle X \rangle = V$</li>
+</ol>
+</blockquote>
+<h2 id="벡터공간의-기저의-존재">벡터공간의 기저의 존재</h2>
 <blockquote>
 <p><strong>정리</strong>(벡터공간상의 기저의 존재). 체 $K$ 상의 임의의 벡터공간 $V$에는 항상 기저(basis)가 존재한다.</p>
 </blockquote>
@@ -211,13 +222,13 @@ category: Mathematics
 <p>따라서 $M$은 $V$의 기저이다. □</p>
 <h2 id="참고문헌">참고문헌</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Basis_(linear_algebra)#Proof_that_every_vector_space_has_a_basis">Wikipedia, Basis(linear algebra)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Basis_(linear_algebra)">Wikipedia, Basis(linear algebra)</a></li>
 </ul>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-14T20:18:30+0900</code></a>
+    Last modified: <code>2020-06-14T20:53:02+0900</code></a>
 </p>
 <hr>
 
