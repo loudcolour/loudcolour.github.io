@@ -38,6 +38,12 @@ entropy:
   language: Korean
   mtime: 1592056881
   title: "\uC815\uBCF4 \uC5D4\uD2B8\uB85C\uD53C"
+existence-of-basis:
+  category: Mathematics
+  language: Korean
+  mtime: 1592133510
+  title: "\uBCA1\uD130\uACF5\uAC04\uC0C1\uC758 \uAE30\uC800\uAC00 \uD56D\uC0C1 \uC874\
+    \uC7AC\uD568\uC5D0 \uB300\uD55C \uC99D\uBA85"
 fft:
   category: Algorithms
   language: Korean
