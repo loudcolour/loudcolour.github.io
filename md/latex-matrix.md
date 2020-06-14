@@ -4,7 +4,7 @@ category: Typesetting
 language: Korean
 --->
 
-# LaTeX에서 행렬 표시하기
+# $\LaTeX$에서 행렬 표시하기
 
 $\LaTeX$을 사용한다면 `amsmath` 패키지를 불러와야 한다.
 $\KaTeX$를 사용한다면 별도의 설정 없이 바로 행렬을 입력할 수 있다.
