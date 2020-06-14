@@ -9,7 +9,7 @@ category: French
 ## 알파벳 이외의 철자
 
 accent aigu, accent grave, accent circonflexe, trema가 붙은 모음과, c cédille,
-e dans l'o, e dans la l'a 가 존재한다.
+e dans l'o, e dans l'a 가 존재한다.
 
 - *accent grave*: à, è, ù
 - *accent circonflexe*: â, ê, î, ô, û
