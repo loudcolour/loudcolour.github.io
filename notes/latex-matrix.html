@@ -183,6 +183,11 @@
 <ul>
 <li><a href="#latex에서-행렬-표시하기">LaTeX에서 행렬 표시하기</a>
 <ul>
+<li><a href="#matrix"><code>matrix</code></a></li>
+<li><a href="#pmatrix"><code>pmatrix</code></a></li>
+<li><a href="#bmatrix-bmatrix"><code>bmatrix</code>, <code>Bmatrix</code></a></li>
+<li><a href="#vmatrix-vmatrix"><code>vmatrix</code>, <code>Vmatrix</code></a></li>
+<li><a href="#이외의-형식">이외의 형식</a></li>
 <li><a href="#참고문헌">참고문헌</a></li>
 </ul></li>
 </ul>
@@ -198,15 +203,80 @@ language: Korean
 --->
 
 <h1 id="latex에서-행렬-표시하기">LaTeX에서 행렬 표시하기</h1>
+<p>$\LaTeX$을 사용한다면 <code>amsmath</code> 패키지를 불러와야 한다. $\KaTeX$를 사용한다면 별도의 설정 없이 바로 행렬을 입력할 수 있다.</p>
+<h2 id="matrix"><code>matrix</code></h2>
+<p>$$
+\begin{matrix}
+   a &amp; b \\
+   c &amp; d
+\end{matrix}
+$$</p>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>matrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>matrix<span class="nb">}</span><br></pre></div>
+
+<h2 id="pmatrix"><code>pmatrix</code></h2>
+<p>$$
+\begin{pmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{pmatrix}
+$$</p>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>pmatrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>pmatrix<span class="nb">}</span><br></pre></div>
+
+<h2 id="bmatrix-bmatrix"><code>bmatrix</code>, <code>Bmatrix</code></h2>
+<p>$$
+\begin{bmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{bmatrix}
+\begin{Bmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{Bmatrix}
+$$</p>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>bmatrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>bmatrix<span class="nb">}</span><br><br><span class="k">\begin</span><span class="nb">{</span>Bmatrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>Bmatrix<span class="nb">}</span><br></pre></div>
+
+<h2 id="vmatrix-vmatrix"><code>vmatrix</code>, <code>Vmatrix</code></h2>
+<p>$$
+\begin{vmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{vmatrix}
+\begin{Vmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{Vmatrix}
+$$</p>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>vmatrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>vmatrix<span class="nb">}</span><br><br><span class="k">\begin</span><span class="nb">{</span>Vmatrix<span class="nb">}</span><br>   a <span class="nb">&amp;</span> b <span class="k">\\</span><br>   c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>Vmatrix<span class="nb">}</span><br></pre></div>
+
+<h2 id="이외의-형식">이외의 형식</h2>
+<p><code>matrix</code> 형식으로 행렬을 불러온 뒤, 원하는 괄호에 <code>\left</code>와 <code>\rigth</code>를 덧붙여 행렬을 감싸도록 하는 것도 가능하다.</p>
+<p>$$
+\left\lceil
+\begin{matrix}
+a &amp; b \\
+c &amp; d
+\end{matrix}
+\right\rceil
+
+\left\langle
+\begin{matrix}
+a &amp; b \\
+c &amp; d
+\end{matrix}
+\right\rangle
+$$</p>
+<div class="highlight"><pre><span></span><span class="k">\left\lceil</span><br><span class="k">\begin</span><span class="nb">{</span>matrix<span class="nb">}</span><br>a <span class="nb">&amp;</span> b <span class="k">\\</span><br>c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>matrix<span class="nb">}</span><br><span class="k">\right\rceil</span><br><br><span class="k">\left\langle</span><br><span class="k">\begin</span><span class="nb">{</span>matrix<span class="nb">}</span><br>a <span class="nb">&amp;</span> b <span class="k">\\</span><br>c <span class="nb">&amp;</span> d<br><span class="k">\end</span><span class="nb">{</span>matrix<span class="nb">}</span><br><span class="k">\right\rangle</span><br></pre></div>
+
 <h2 id="참고문헌">참고문헌</h2>
 <ul>
-<li><a href="https://katex.org/docs/supported.html">Supported Functions</a></li>
+<li><a href="https://katex.org/docs/supported.html">KaTeX, Supported Functions</a></li>
+<li><a href="https://www.overleaf.com/learn/latex/Matrices">Overleaf, Matrices</a></li>
 </ul>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Typesetting.html">Typesetting</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-14T01:50:06+0900</code></a>
+    Last modified: <code>2020-06-15T03:16:36+0900</code></a>
 </p>
 <hr>
 
