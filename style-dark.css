@@ -764,16 +764,11 @@ body.dark-mode-on {
 .markdown-body-dark table td,
 .markdown-body-dark table th {
   padding: 6px 13px;
-  border: 1px solid #201d1a;
+  border: 1px solid #e4e0dc;
 }
 
 .markdown-body-dark table tr {
-  background-color: #000;
-  border-top: 1px solid #39342e;
-}
-
-.markdown-body-dark table tr:nth-child(2n) {
-  background-color: #090705;
+  border-top: 1px solid #e4e0dc;
 }
 
 .markdown-body-dark code {
