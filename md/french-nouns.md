@@ -113,10 +113,16 @@ elles를 사용하는 경우는 집단이 여성만으로 구성되었을 경우
 - 주어를 강조할 때
 - 속사의 의미로 사용할 때
 - 전치사의 뒤에서 사용할 때
+- 명령문의 동사  뒤에서 사용할 때
+- 비교급의 que의 뒤에서 사용할 때
+- Aussi/non plus와 함께 사용할 때
 
 > *Moi*, je parle français.  
 > C'est *toi*.  
-> J'habite avec *lui*.
+> J'habite avec *lui*.  
+> Excusez-*moi*.  
+> Je parle plus vite que *vous*.  
+> Moi aussi, Moi non plus.
 
 ### 의문대명사
 
