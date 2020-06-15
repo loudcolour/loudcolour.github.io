@@ -63,6 +63,11 @@ french-pronunciation:
   language: Korean
   mtime: 1592174663
   title: "\uD504\uB791\uC2A4\uC5B4 \uBC1C\uC74C"
+french-verbs:
+  category: French
+  language: Korean
+  mtime: 1592180808
+  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uB3D9\uC0AC"
 fzf:
   category: Linux
   language: Korean
