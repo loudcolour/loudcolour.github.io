@@ -53,6 +53,11 @@ fibonacci:
   language: Korean
   mtime: 1587805964
   title: "Fibonacci \uC218\uC5F4"
+french-adjective:
+  category: French
+  language: Korean
+  mtime: 1592224230
+  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uD615\uC6A9\uC0AC"
 french-honorific:
   category: French
   language: Korean
@@ -72,7 +77,7 @@ french-nation:
 french-nouns:
   category: French
   language: Korean
-  mtime: 1592223749
+  mtime: 1592223935
   title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uBA85\uC0AC"
 french-pronunciation:
   category: French
