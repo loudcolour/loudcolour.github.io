@@ -8,7 +8,7 @@ language: Korean
 
 ## 끝마디의 음을 높여서 의문문 만들기
 
-문장의 구성을 같게 하고, 문장의 끝을 올리듯이 말함으로써 의문문을 만들 수 있다.
+문장의 구성을 평서문과 같이 하고, 문장의 끝을 올리듯이 말함으로써 의문문을 만들 수 있다.
 
 > Il est étudiant *?*  
 > Marie aime la cusine japonaise *?*
@@ -27,7 +27,7 @@ language: Korean
 주어와 동사를 도치함으로써 의문문을 만들 수 있다.
 의문부사는 앞으로 온다.
 
-> *Est-il* e'tudiant?  
+> *Est-il* étudiant?  
 > Où *habitez-vous*?
 
 단, 주어가 대명사가 아닌 경우에는 단순도치가 아닌 복합도치를 사용하여야 한다.
@@ -43,9 +43,9 @@ language: Korean
 
 긍정을 뜻하는 단어는 Oui, 부정을 뜻하는 단어는 Non이다.
 
-> Est-il e'tudiant?  
-> *Oui*, il est e'tudiant.  
-> *Non*, il n'est pas e'tudiant.
+> Est-il étudiant?  
+> *Oui*, il est étudiant.  
+> *Non*, il n'est pas étudiant.
 
 단, 대답하는 의문문이 부정의문문인 경우, Oui 대신 Si로 대답하는 것이 원칙이다.
 

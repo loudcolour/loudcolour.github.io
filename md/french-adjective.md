@@ -58,7 +58,7 @@ language: Korean
 프랑스어의 지시형용사는 ce, cette, ces의 3가지로,
 ce는 남성 단수 명사에, cette는 여성 단수 명사에, ces는 복수명사에 쓰인다.
 
-> *ce* garc,on, *ces* garc,ons  
+> *ce* garçon, *ces* garçons  
 > *cette* fille, *ces* filles
 
 단, 남성 단수 명사가 모음으로 시작하는 단어인 경우는, ce가 아닌 cet로 쓴다.
