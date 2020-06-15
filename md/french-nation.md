@@ -30,8 +30,8 @@ category: French
 일반적으로 전치사 à가 사용되는 상황에서는, 명사의 성별에 맞게
 en(여성단수형), au(남성단수형), aux(복수형)으로 바꾸어 쓰면 된다.
 
-> J'habite *en* France.
-> J'habite *au* Japon.
+> J'habite *en* France.  
+> J'habite *au* Japon.  
 > J'habite *aux* Etats-Unis.
 
 전치사 de가 사용되는 상황에서는 à처럼, de(혹은 d', 여성단수형), du(남성단수형), des(복수형)
@@ -40,10 +40,10 @@ en(여성단수형), au(남성단수형), aux(복수형)으로 바꾸어 쓰면 
 > 참고로, 국명이 아닌, 세부적인 지명 앞에서 위의 전치사가 쓰이는 경우에는 다음과 같은 규칙이 적용된다.
 > 
 > - 도시 혹은 섬: à, de
-> 	* J'habite à Paris.
-> 	* Je suis de Lyon.
+> 	* J'habite *à* Paris.
+> 	* Je suis *de* Lyon.
 > - 특정한 지역: dans le, du
-> 	* Je suis du Kansaï
+> 	* Je suis *du* Kansaï.
 > 	* 단, 현(県)이나 그에 준하는 행정구역일 경우, dans la préfecture de, de la préfecture de를 사용한다.
 
 ## 국적
@@ -55,8 +55,6 @@ en(여성단수형), au(남성단수형), aux(복수형)으로 바꾸어 쓰면 
 예외적으로 남성형과 여성형이 같은 경우가 존재하는데, 대표적으로 belge, suisse, russe가 그 예이다.
 남성형과 여성형을 다르게 쓰지만 읽는 방법이 같은 경우도 있다. grec / grecque, turc / turque는
 발음은 같지만 철자가 다르다.
-
-### 국명이나 지명에 동서남북, 중앙이 포함되는 경우
 
 국명이나 지명중에는 뒤에 du nord (d는 묵음이다.), du sud, de l'ouest, de l'est가 붙는 것들이 있다.
 (la Corée du Nord, l'Afrique du Sud 등) 이런 경우, 해당하는 국명의 국적에는
