@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Mathematics</title>
+<title>정렬집합</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,39 +172,63 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/well-ordered.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=정렬집합"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#정렬집합">정렬집합</a>
+<ul>
+<li><a href="#정렬집합의-비교정리">정렬집합의 비교정리</a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Mathematics</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-17</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/well-ordered.html">정렬집합</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/series.html">급수</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basis-of-vector-space.html">벡터공간의 기저</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택공리</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zorns-lemma.html">Zorn의 보조정리</a></span></li>
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/e-inequality.html">$n!>\left( \frac{n}{e} \right)^n$</a></span></li>
-<li><span class="modified-date">2020-06-06</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/pells-equation.html">Pell의 방정식</a></span></li>
-<li><span class="modified-date">2020-05-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/answer.html">답안 작성 체크리스트</a></span></li>
-<li><span class="modified-date">2020-05-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
-<li><span class="modified-date">2020-04-25</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "정렬집합"
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="정렬집합">정렬집합</h1>
+<blockquote>
+<p><strong>정의</strong>. 순서집합 $(X, \leq)$에 대하여, $X$의 모든 공집합이 아닌 부분집합이 최소원소를 가질 때, $(X, \leq)$를 정렬집합(well-ordered set)이라고 한다.</p>
+</blockquote>
+<ul>
+<li>정렬집합의 부분집합(과 그 부분집합에 대한 순서의 제한)에 의한 순서집합은 정렬집합이다.</li>
+<li>정렬집합과 순서동형인 순서집합은 정렬집합이다.</li>
+<li>임의의 원소가 2개인 정렬집합의 부분집합은 최소원소를 가지므로, 정렬집합은 전순서집합이다.</li>
+</ul>
+<blockquote>
+<p><strong>정의</strong>. $(X, \leq)$가 정렬집합이라고 하자. 이때 $a\in X$에 대하여, $X\langle a\rangle = \{x\in X\,|\,x\leq a, x\not=a\}$를 $a$에 대한 $X$의 절편이라고 한다.</p>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. 정렬집합 $(X, \leq)$와 단사인 순서보존사상 $f:X\to X$가 주어졌을 때, 임의의 $x\in X$에 대하여 항상 $x\leq f(x)$ 가 성립한다.</p>
+</blockquote>
+<p><em>증명</em>. $a\leq b$인 동시에 $a\not=b$인 것을 $a&lt;b$ 이라고 쓰자. $A= \left\{ x\in X \,|\, f(x)&lt;x \right\}$라고 두어, $A$가 공집합이라는 것을 보이면 된다. $A$가 만약 공집합이 아니라면, $A$는 정렬집합 $X$의 부분집합이므로 최소원소를 갖는다. 이를 $a$라고 하자. 여기서 $A$의 조건에 의하여, $f(a) &lt; a$가 성립하고, 동시에 $f$는 순서를 보존하는 단사사상이므로, $f(f(a)) &lt; f(a)$가 성립함을 확인할 수 있다. 따라서 $f(a)\in A$임을 알 수 있으나, $f(a) &lt; a$가 동시에 성립하고 있으므로, 이는 $a$가 $A$의 최소원소라는 것에 모순이다. 따라서 $A$는 공집합. □</p>
+<blockquote>
+<p><strong>따름정리</strong>. 정렬집합 $X$와, 임의의 $a\in X$에 대하여 $X\not\simeq X \langle a \rangle$ 또한, $a,b\in X$, $a\not=b$이면, $X \langle a \rangle\not\simeq X \langle b \rangle$</p>
+</blockquote>
+<p><em>증명</em>. 만약 $X\simeq X \langle a \rangle$가 성립한다고 가정하면, 전단사인 순서를 보존하는 사상 $f:X\to X \langle a \rangle$가 존재한다. 하지만, $f(a)\in X \langle a \rangle$이고, $f(a) &lt; a$이므로 이는 모순이다. 마찬가지로 $X\langle a \rangle\simeq X \langle b \rangle$가 성립하지 않는 것 또한 보여진다. □</p>
+<h2 id="정렬집합의-비교정리">정렬집합의 비교정리</h2>
+<blockquote>
+<p><strong>정의</strong>. $(X,\leq)$와 $(Y, \leq')$가 정렬집합이라고 하자. 이 때, 어떤 $b\in Y$가 존재하여 $X\simeq Y \langle b \rangle $라면, $\|X\| &lt; \|Y\|$라고 쓰자. 또한 $\|X\|&lt;\|Y\|$이거나 $X\simeq Y$일 때, $\|X\| \leq \|Y\|$라고 쓰도록 하자.</p>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. 정렬집합 $(X,\leq)$와 $(Y,\leq')$가 주어졌을 때, $\|X\|\leq\|Y\|$인 동시에 $\|Y\|\leq\|X\|$이면, $X \simeq Y$이다.</p>
+</blockquote>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-17T01:17:04+0900</code></a>
 </p>
 <hr>
 
