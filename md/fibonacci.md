@@ -42,7 +42,7 @@ $$ \frac1{\sqrt5}\left(\left(\frac{1+\sqrt5}2\right)^n-\left(\frac{1-\sqrt5}2\ri
 ## Python으로 구현
 
 행렬의 거듭제곱에 재귀로 분할정복을 적용하면 Fibonacci 수열의 N번째 항을
-O(log N)에 구할 수 있다. Python으로 구현하면 다음과 같다.
+$O(\log N)$에 구할 수 있다. Python으로 구현하면 다음과 같다.
 
 ```python
 def mat_m(m_1,m_2):
