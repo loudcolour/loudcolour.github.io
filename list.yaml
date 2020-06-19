@@ -160,6 +160,11 @@ tikz:
   language: Korean
   mtime: 1592172569
   title: PGF/TikZ
+vector-space:
+  category: Mathematics
+  language: Korean
+  mtime: 1592578642
+  title: "\uBCA1\uD130\uACF5\uAC04"
 vim:
   category: Linux
   language: Korean

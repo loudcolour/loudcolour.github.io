@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Mathematics</title>
+<title>벡터공간</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,41 +172,97 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/vector-space.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=벡터공간"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#벡터공간">벡터공간</a>
+<ul>
+<li><a href="#정의">정의</a></li>
+<li><a href="#예시">예시</a></li>
+<li><a href="#선형결합-선형독립">선형결합, 선형독립</a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Mathematics</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/vector-space.html">벡터공간</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/linear-map.html">선형사상</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basis-of-vector-space.html">벡터공간의 기저</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/well-ordered.html">정렬집합</a></span></li>
-<li><span class="modified-date">2020-06-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/series.html">급수</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택공리</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zorns-lemma.html">Zorn의 보조정리</a></span></li>
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/e-inequality.html">$n!>\left( \frac{n}{e} \right)^n$</a></span></li>
-<li><span class="modified-date">2020-06-06</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/pells-equation.html">Pell의 방정식</a></span></li>
-<li><span class="modified-date">2020-05-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/answer.html">답안 작성 체크리스트</a></span></li>
-<li><span class="modified-date">2020-05-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "벡터공간"
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="벡터공간">벡터공간</h1>
+<h2 id="정의">정의</h2>
+<blockquote>
+<p><strong>정의</strong>(벡터공간). 공집합이 아닌 집합 $V$가 체 $K$상의 벡터공간이란, 다음 조건을 만족하는 것을 의미한다.</p>
+<ul>
+<li>가법에 해당하는 연산이 존재하여, 가환군을 이룬다. 즉, $x,y,z\in V$로 하여
+<ul>
+<li>$(x+y)+z = x+(y+z)$</li>
+<li>$\exists! 0\in V \left[ x+0 = x \right]$</li>
+<li>$\exists! (-x)\in V \left[ x+(-x) = 0 \right]$</li>
+<li>$x+y = y+x$</li>
+</ul></li>
+<li>스칼라배의 연산이 존재한다. 즉 $\alpha, \beta\in K$, $x,y\in V$에 대하여
+<ul>
+<li>$\alpha(x+y) = \alpha x + \alpha y$</li>
+<li>$(\alpha+\beta)x=\alpha x + \beta x$</li>
+<li>$\alpha(\beta x)=(\alpha\beta)x$</li>
+<li>$1_K\cdot x = x$ ($1_K$는 $K$의 승법에 관한 항등원)</li>
+</ul></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. $V$를 $K$ 상의 벡터공간이라고 하자.</p>
+<ol>
+<li>임의의 $x\in V$에 대하여 $0_K\cdot x = 0$ ($0_K$는 $K$의 가법에 관한 항등원)</li>
+<li>임의의 $\alpha \in K$에 대하여 $\alpha\cdot 0=0$</li>
+<li>임의의 $(-1_K)x = -x$</li>
+</ol>
+</blockquote>
+<p>위에서는 벡터와 스칼라를 구분짓기 위해 $1_K, 0_K$를 체 $K$ 상의 스칼라 값으로 사용했지만, 일반적으로 혼동이 없는 한, $1, 0$으로 각각 승법과 가법의 항등원을 표기하도록 하자.</p>
+<h2 id="예시">예시</h2>
+<ul>
+<li>$ \left\{ 0 \right\}$은 벡터공간이라는 것을 쉽게 확인할 수 있다. 이를 자명한 벡터공간이라고 한다.</li>
+<li>$K^n$은 $K$상의 벡터공간이다. 당연히 $K$ 또한 $K$상의 벡터공간이다.</li>
+<li>$K$계수 일차다항식 전체의 집합 $K[x]$은 $K$상의 벡터공간이다.</li>
+<li>복소수 전체의 집합 $\Complex$는 실수 전체의 집합 $\R$상의 벡터공간이다.</li>
+<li>구간 $(a,b)$상의 연속인 실함수 전체의 집합 $C(a,b):= \left\{ f: (a,b)\to \R \,|\, f: \text{continuous} \right\}$ 는 $\R$ 상의 벡터공간이다.</li>
+</ul>
+<h2 id="선형결합-선형독립">선형결합, 선형독립</h2>
+<blockquote>
+<p><strong>정의</strong>. $K$상의 벡터공간 $V$에 대하여 $x_1, \ldots, x_k \in V$라고 할 때,</p>
+<ul>
+<li>$c_i\in K$, $ \sum_{i=1}^{k}c_ix_i = c_1x_1 + \cdots c_kx_k$를 $x_1, \ldots, x_k$의 선형결합(linear combination)이라고 한다.</li>
+<li>$c_i\in K$, $ \sum_{i=1}^{k}c_ix_i = c_1x_1 + \cdots c_kx_k=0$를 $x_1, \ldots, x_k$에 관한 선형관계식(linear relation)이라고 한다.</li>
+</ul>
+</blockquote>
+<p>만약 임의의 $i$에 대해 $c_i = 0$라면 $ \sum_{i=1}^{k}c_ix_i=0$가 성립하는 것은 자명하다. 이를 자명한 선형관계식이라고 한다.</p>
+<blockquote>
+<p><strong>정의</strong>. $K$상의 벡터공간 $V$에 대하여 $x_1,\ldots,x_k\in V$에 관한 자명하지 않은 선형관계식이 존재하지 않는다면, $x_1, \ldots, x_k$ 혹은 그 집합 $\{x_1, \ldots, x_k\}$는 <strong>선형독립(linearly independent)</strong> 이라고 한다. 즉, $$
+c_i\in K, \sum_{i=1}^{k}c_ix_i \implies \forall i [ c_i = 0]
+$$ 이라면 $\{x_1, \ldots, x_k\}$는 선형독립이다.</p>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. 체 $K$에 대하여 $x_1, \ldots, x_n\in K^n$일 때, 다음 두 조건은 동치이다.</p>
+<ol>
+<li>$X = {x_1, \ldots, x_n}$이 선형독립</li>
+<li>$\det \left[ x_1\,\cdots\,x_n \right]\not=0$</li>
+</ol>
+</blockquote>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-19T23:57:22+0900</code></a>
 </p>
 <hr>
 
