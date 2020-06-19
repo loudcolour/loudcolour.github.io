@@ -13,14 +13,16 @@ language: Korean
 >
 > - 가법에 해당하는 연산이 존재하여, 가환군을 이룬다. 즉, $x,y,z\in V$로 하여
 > 	- $(x+y)+z = x+(y+z)$
-> 	- $\exists! 0\in V \left[ x+0 = x \right]$
-> 	- $\exists! (-x)\in V \left[ x+(-x) = 0 \right]$
+> 	- $\exists 0\in V \left[ x+0 = x \right]$
+> 	- $\exists (-x)\in V \left[ x+(-x) = 0 \right]$
 > 	- $x+y = y+x$
 > - 스칼라배의 연산이 존재한다. 즉 $\alpha, \beta\in K$, $x,y\in V$에 대하여
 > 	- $\alpha(x+y) = \alpha x + \alpha y$
 > 	- $(\alpha+\beta)x=\alpha x + \beta x$
 > 	- $\alpha(\beta x)=(\alpha\beta)x$
 > 	- $1_K\cdot x = x$ ($1_K$는 $K$의 승법에 관한 항등원)
+
+위에서 조건에서 $0$와 $-x$가 각각 존재한다면, 이는 unique하다.
 
 > **명제**. $V$를 $K$ 상의 벡터공간이라고 하자.
 >
