@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Mathematics</title>
+<title>공리적 집합론: ZFC 공리계</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,43 +172,60 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/zfc.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=공리적 집합론: ZFC 공리계"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#공리적-집합론-zfc-공리계">공리적 집합론 ZFC 공리계</a>
+<ul>
+<li><a href="#russel의-역설">Russel의 역설</a></li>
+<li><a href="#zfc-공리계의-공리">ZFC 공리계의 공리</a>
+<ul>
+<li><a href="#외연성공리">외연성공리</a></li>
+<li><a href="#이원집합공리">이원집합공리</a></li>
+<li><a href="#병합공리">병합공리</a></li>
+<li><a href="#멱집합공리">멱집합공리</a></li>
+<li><a href="#분출공리">분출공리</a></li>
+<li><a href="#무한공리">무한공리</a></li>
+<li><a href="#정칙성공리">정칙성공리</a></li>
+<li><a href="#치환공리꼴">치환공리꼴</a></li>
+<li><a href="#선택공리">선택공리</a></li>
+</ul></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Mathematics</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-20</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/bernstein.html">Bernstein의 정리</a></span></li>
-<li><span class="modified-date">2020-06-20</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zfc.html">공리적 집합론: ZFC 공리계</a></span></li>
-<li><span class="modified-date">2020-06-20</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/vector-space.html">벡터공간</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/linear-map.html">선형사상</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basis-of-vector-space.html">벡터공간의 기저</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/well-ordered.html">정렬집합</a></span></li>
-<li><span class="modified-date">2020-06-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/series.html">급수</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택공리</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zorns-lemma.html">Zorn의 보조정리</a></span></li>
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/e-inequality.html">$n!>\left( \frac{n}{e} \right)^n$</a></span></li>
-<li><span class="modified-date">2020-06-06</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/pells-equation.html">Pell의 방정식</a></span></li>
-<li><span class="modified-date">2020-05-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/answer.html">답안 작성 체크리스트</a></span></li>
-<li><span class="modified-date">2020-05-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "공리적 집합론: ZFC 공리계"
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="공리적-집합론-zfc-공리계">공리적 집합론 ZFC 공리계</h1>
+<h2 id="russel의-역설">Russel의 역설</h2>
+<h2 id="zfc-공리계의-공리">ZFC 공리계의 공리</h2>
+<h3 id="외연성공리">외연성공리</h3>
+<h3 id="이원집합공리">이원집합공리</h3>
+<h3 id="병합공리">병합공리</h3>
+<h3 id="멱집합공리">멱집합공리</h3>
+<h3 id="분출공리">분출공리</h3>
+<h3 id="무한공리">무한공리</h3>
+<h3 id="정칙성공리">정칙성공리</h3>
+<h3 id="치환공리꼴">치환공리꼴</h3>
+<h3 id="선택공리">선택공리</h3>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-20T00:12:32+0900</code></a>
 </p>
 <hr>
 
