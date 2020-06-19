@@ -204,7 +204,10 @@ language: Korean
 <ul>
 <li>정렬집합의 부분집합(과 그 부분집합에 대한 순서의 제한)에 의한 순서집합은 정렬집합이다.</li>
 <li>정렬집합과 순서동형인 순서집합은 정렬집합이다.</li>
-<li>임의의 원소가 2개인 정렬집합의 부분집합은 최소원소를 가지므로, 정렬집합은 전순서집합이다.</li>
+<li>임의의 원소가 2개인 정렬집합의 부분집합은 최소원소를 가지므로, 정렬집합은 전순서집합이다.
+<ul>
+<li>유한집합인 전순서집합은 정렬집합이다.</li>
+</ul></li>
 </ul>
 <blockquote>
 <p><strong>정의</strong>. $(X, \leq)$가 정렬집합이라고 하자. 이때 $a\in X$에 대하여, $X\langle a\rangle = \{x\in X\,|\,x\leq a, x\not=a\}$를 $a$에 대한 $X$의 절편이라고 한다.</p>
@@ -225,6 +228,11 @@ language: Korean
 <p><strong>따름정리</strong>. 정렬집합 $X$와, 임의의 $a\in X$에 대하여 $X\not\simeq X \langle a \rangle$ 또한, $a,b\in X$, $a\not=b$이면, $X \langle a \rangle\not\simeq X \langle b \rangle$</p>
 </blockquote>
 <p><em>증명</em>. 만약 $X\simeq X \langle a \rangle$가 성립한다고 가정하면, 전단사인 순서를 보존하는 사상 $f:X\to X \langle a \rangle$가 존재한다. 하지만, $f(a)\in X \langle a \rangle$이고, $f(a) &lt; a$이므로 이는 모순이다. 마찬가지로 $X\langle a \rangle\simeq X \langle b \rangle$가 성립하지 않는 것 또한 보여진다. □</p>
+<blockquote>
+<p><strong>명제</strong>. 무한집합 $X$가 정렬집합일 필요충분조건은 $X$의 원소로부터 생성되는 강한 단소감소열이 존재하지 않는 것이다.</p>
+</blockquote>
+<p><em>증명</em>. 집합 $X$가 정렬집합이라고 하자. 만약 $X$의 원소로부터 생성되는 강한 단소감소열 $ \left\{ x_n \right\}$이 존재한다고 하면, $A= \left\{ x_1, x_2, \ldots \right\} \subset X$라고 둘 때, $X$의 정렬성으로부터 $x_k = \min A$가 존재한다. 하지만 $x_{k+1} &lt; x_k$인 $x_{k+1}\in A$가 존재하므로, 이는 모순. 따라서 강한 단소감소열을 갖지 않는다.</p>
+<p>역으로, 강한 단소감소열을 갖지 않는다고 가정하자. 만약 $X$가 정렬집합이 아니라고 가정하면 최소 원소를 갖지 않는 $X$의 공집합이 아닌 부분집합$A$가 존재한다. 임의의 $a_1\in A$를 선택하면, $a_2 &lt; a_1$인 $a_2\in A$가 존재할 것이고, $a_2$에 대해서도 $a_3 &lt; a_2$인 $a_3\in A$가 존재한다. 이를 무한히 반복하면 강한 단소감소열 $ \left\{ a_n \right\}$을 얻으므로 이는 모순이다. 따라서 $X$는 정렬집합. □</p>
 <h2 id="정렬집합의-비교정리">정렬집합의 비교정리</h2>
 <blockquote>
 <p><strong>정의</strong>. $(X,\leq)$와 $(Y, \leq')$가 정렬집합이라고 하자. 이 때, 어떤 $b\in Y$가 존재하여 $X\simeq Y \langle b \rangle $라면, $\|X\| &lt; \|Y\|$라고 쓰자. 또한 $\|X\|&lt;\|Y\|$이거나 $X\simeq Y$일 때, $\|X\| \leq \|Y\|$라고 쓰도록 하자.</p>
@@ -270,7 +278,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-18T00:22:55+0900</code></a>
+    Last modified: <code>2020-06-19T17:15:24+0900</code></a>
 </p>
 <hr>
 
