@@ -134,9 +134,57 @@ $(a,b)\in f$인 것을 $f(a) = b$ 혹은 $f: a\mapsto b$와 같이 쓰기도 한
 
 ### 무한공리 (axiom of infinity)
 
-여기서 분출공리꼴과 무한공리를 적용하면 공집합 $\emptyset$의 존재를 보일 수 있다.
+> **공리**. $\exists  x \left[ \emptyset \in x \land \forall y \left[ y\in  x \implies y\cup \left\{ y \right\} \in  x \right] \right]$
+
+이 공리에 의하여, 다음과 갈은 집합 $\omega$의 존재가 보장된다.
+
+$$
+\omega =
+\left\{
+\emptyset,
+\left\{ \emptyset \right\},
+\left\{ \emptyset, \left\{ \emptyset \right\} \right\},
+\left\{ \emptyset, \left\{ \emptyset \right\}, \left\{ \emptyset, \left\{ \emptyset \right\} \right\} \right\},
+\ldots
+\right\}
+$$
+
+$\omega$의 각 원소의 원소의 개수가 어떤 의미에서는 자연수에 대응하고 있음을 알 수 있다.
+이를 이용하여 다음과 같이 유한집합과 무한집합을 정의할 수 있다. 전단사에 관해서는 아래의 문단을 참조.
+
+> **정의**. $\exists k [k\in\omega \land \exists f[f\in \text{Map}(A, k) \land \text{f: bijection}] ]$ 이면, $A$는 유한집합이다.
+> 만약 $A$가 유한집합이 아니라면, $A$는 무한집합이다.
+
+*주*. 특히 $\omega$는 무한집합이다. 아래의 정칙성공리를 이용하여 이를 보일 수 있다.
+$\omega$와의 전단사를 갖는, 즉 같은 농도를 갖는 집합을 가산집합이라고 한다.
+
+특이하게도, 분출공리꼴과 무한공리를 적용하면 공집합 $\emptyset$의 존재를 보일 수 있다.
 
 ### 정칙성공리 (axiom of regularity)
+
+> **공리**. $\forall x \left[ x\neq \emptyset \implies \exists y \left[ y\in x \land y\cap x = \emptyset \right] \right]$
+
+> **명제**. 다음 명제가 성립한다.
+> 
+> 1. $\forall x \left[ x\notin x \right]$
+> 1. $\forall x \forall y \left[ \neg \left( x\in y \land y\in x \right) \right]$
+> 1. $\forall x \left[ x\subsetneq x\cup \left\{ x \right\} \right]$
+> 1. **집합 전체의 집합은 존재하지 않는다.**
+
+*증명*.
+
+1. 만약, 어떤 $a$가 $a\in a$를 만족한다고 하자. 그렇다면 $ a\in a\cap \left\{ a \right\} $이고, $ \left\{ a \right\}$의 유일한 원소는 $a$이나,
+   $a\cap \left\{ a \right\} \neq \emptyset$이므로, 이는 정칙성공리에 모순.
+2. $a\in b$인 동시에 $b\in a$를 만족하는 $a$와 $b$가 존재한다고 하자. 정칙성공리에 의하면 $ \left\{ a, b \right\}$에 대해,
+   $a$나 $b$, 둘 중 적어도 하나는 $a\cap \left\{ a, b \right\} = \emptyset$을 만족하여야 한다.
+   만약, $a\cap \left\{ a,b \right\} = \emptyset$라고 하면 $b\in a \left\{ a, b \right\}$이므로, 이는 모순이다.
+   $b\cap \left\{ a, b \right\} = \emptyset$이라고 해도 모순인 것은 마찬가지.
+3. $x\in \left\{ x \right\}$이므로, $x\in x\cup \left\{ x \right\}$는 분명하다. 만약 $x = x\cup \left\{ x \right\}$라고 하면,
+   $ \left\{ x \right\}\subset x$, $x\in x$이므로 이는 모순.
+4. 집합 전체의 집합을 $U$로 가정하면, $U\in U$이므로 이는 모순이다. □
+
+따라서 Russell의 역설에 등장하는 집합 $ \left\{ x \,|\, x\notin x \right\}$은 "집합 전체의 집합"과 같은 의미가 되어,
+ZF 상에서 집합이 아닌 대상이라는 것을 확인할 수 있다.
 
 ### 치환공리꼴 (axiom schema of replacement)
 
@@ -198,7 +246,7 @@ $f(A_1):= \left\{ y\in B \,|\, \exists x\in A_1 \left[ f(x) = y \right] \right\}
 8. $f^{-1}(B_1) \setminus f^{-1}(B_2) = f^{-1}(B_1\setminus B_2)$
 
 집합계 $A: \Lambda\to X$와 사상 $f: Y\to Z$, $g:Z\to Y$가 주어졌을 때,
-임의의 $\lambda\in\Lambda$에 대하여 $A_\lambda \in Y$라면, 다음이 성립한다.
+임의의 $\lambda\in\Lambda$에 대하여 $A_\lambda \subset Y$라면, 다음이 성립한다.
 
 1. $f \left( \bigcup_{\lambda\in\Lambda} A_\lambda \right) = \bigcup_{\lambda\in\Lambda} f(A_\lambda)$
 1. $f \left( \bigcap_{\lambda\in\Lambda} A_\lambda \right) \subset \bigcap_{\lambda\in\Lambda} f(A_\lambda)$

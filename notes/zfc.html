@@ -295,8 +295,47 @@ $$</p>
 <p><em>증명</em>. $\phi(f) = \forall z \left[ z\in x \implies \exists! w \left[ (z,w)\in f \right] \right]$로 두면, 분출공리꼴에 의해 $\forall f \left[ f\in m \iff (f\in\mathscr{P}(x\times y) \land \phi(f)) \right]$인 집합 $m$이 존재한다. □</p>
 <p><em>주</em>. $f$와 같은 순서쌍의 집합을 $x$에서 $y$로의 <em>사상(map)</em> 이라고 한다. $x$에서 $y$로의 사상이라는 것을 나타내기 위해 $f: x\to y$와 같이 쓴다. 또한 $x$에서 $y$ 로의 사상 $m$ 전체의 집합을 $\text{Map}(x,y)$와 같이 쓴다. $(a,b)\in f$인 것을 $f(a) = b$ 혹은 $f: a\mapsto b$와 같이 쓰기도 한다.</p>
 <h3 id="무한공리-axiom-of-infinity">무한공리 (axiom of infinity)</h3>
-<p>여기서 분출공리꼴과 무한공리를 적용하면 공집합 $\emptyset$의 존재를 보일 수 있다.</p>
+<blockquote>
+<p><strong>공리</strong>. $\exists  x \left[ \emptyset \in x \land \forall y \left[ y\in  x \implies y\cup \left\{ y \right\} \in  x \right] \right]$</p>
+</blockquote>
+<p>이 공리에 의하여, 다음과 갈은 집합 $\omega$의 존재가 보장된다.</p>
+<p>$$
+\omega =
+\left\{
+\emptyset,
+\left\{ \emptyset \right\},
+\left\{ \emptyset, \left\{ \emptyset \right\} \right\},
+\left\{ \emptyset, \left\{ \emptyset \right\}, \left\{ \emptyset, \left\{ \emptyset \right\} \right\} \right\},
+\ldots
+\right\}
+$$</p>
+<p>$\omega$의 각 원소의 원소의 개수가 어떤 의미에서는 자연수에 대응하고 있음을 알 수 있다. 이를 이용하여 다음과 같이 유한집합과 무한집합을 정의할 수 있다. 전단사에 관해서는 아래의 문단을 참조.</p>
+<blockquote>
+<p><strong>정의</strong>. $\exists k [k\in\omega \land \exists f[f\in \text{Map}(A, k) \land \text{f: bijection}] ]$ 이면, $A$는 유한집합이다. 만약 $A$가 유한집합이 아니라면, $A$는 무한집합이다.</p>
+</blockquote>
+<p><em>주</em>. 특히 $\omega$는 무한집합이다. 아래의 정칙성공리를 이용하여 이를 보일 수 있다. $\omega$와의 전단사를 갖는, 즉 같은 농도를 갖는 집합을 가산집합이라고 한다.</p>
+<p>특이하게도, 분출공리꼴과 무한공리를 적용하면 공집합 $\emptyset$의 존재를 보일 수 있다.</p>
 <h3 id="정칙성공리-axiom-of-regularity">정칙성공리 (axiom of regularity)</h3>
+<blockquote>
+<p><strong>공리</strong>. $\forall x \left[ x\neq \emptyset \implies \exists y \left[ y\in x \land y\cap x = \emptyset \right] \right]$</p>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. 다음 명제가 성립한다.</p>
+<ol>
+<li>$\forall x \left[ x\notin x \right]$</li>
+<li>$\forall x \forall y \left[ \neg \left( x\in y \land y\in x \right) \right]$</li>
+<li>$\forall x \left[ x\subsetneq x\cup \left\{ x \right\} \right]$</li>
+<li><strong>집합 전체의 집합은 존재하지 않는다.</strong></li>
+</ol>
+</blockquote>
+<p><em>증명</em>.</p>
+<ol>
+<li>만약, 어떤 $a$가 $a\in a$를 만족한다고 하자. 그렇다면 $ a\in a\cap \left\{ a \right\} $이고, $ \left\{ a \right\}$의 유일한 원소는 $a$이나, $a\cap \left\{ a \right\} \neq \emptyset$이므로, 이는 정칙성공리에 모순.</li>
+<li>$a\in b$인 동시에 $b\in a$를 만족하는 $a$와 $b$가 존재한다고 하자. 정칙성공리에 의하면 $ \left\{ a, b \right\}$에 대해, $a$나 $b$, 둘 중 적어도 하나는 $a\cap \left\{ a, b \right\} = \emptyset$을 만족하여야 한다. 만약, $a\cap \left\{ a,b \right\} = \emptyset$라고 하면 $b\in a \left\{ a, b \right\}$이므로, 이는 모순이다. $b\cap \left\{ a, b \right\} = \emptyset$이라고 해도 모순인 것은 마찬가지.</li>
+<li>$x\in \left\{ x \right\}$이므로, $x\in x\cup \left\{ x \right\}$는 분명하다. 만약 $x = x\cup \left\{ x \right\}$라고 하면, $ \left\{ x \right\}\subset x$, $x\in x$이므로 이는 모순.</li>
+<li>집합 전체의 집합을 $U$로 가정하면, $U\in U$이므로 이는 모순이다. □</li>
+</ol>
+<p>따라서 Russell의 역설에 등장하는 집합 $ \left\{ x \,|\, x\notin x \right\}$은 "집합 전체의 집합"과 같은 의미가 되어, ZF 상에서 집합이 아닌 대상이라는 것을 확인할 수 있다.</p>
 <h3 id="치환공리꼴-axiom-schema-of-replacement">치환공리꼴 (axiom schema of replacement)</h3>
 <h3 id="선택공리-axiom-of-choice">선택공리 (axiom of choice)</h3>
 <h2 id="부수적인-성질과-정의">부수적인 성질과 정의</h2>
@@ -343,7 +382,7 @@ $$</p>
 <li>$f(A_1) \setminus f(A_2) \subset f(A_1\setminus A_2)$</li>
 <li>$f^{-1}(B_1) \setminus f^{-1}(B_2) = f^{-1}(B_1\setminus B_2)$</li>
 </ol>
-<p>집합계 $A: \Lambda\to X$와 사상 $f: Y\to Z$, $g:Z\to Y$가 주어졌을 때, 임의의 $\lambda\in\Lambda$에 대하여 $A_\lambda \in Y$라면, 다음이 성립한다.</p>
+<p>집합계 $A: \Lambda\to X$와 사상 $f: Y\to Z$, $g:Z\to Y$가 주어졌을 때, 임의의 $\lambda\in\Lambda$에 대하여 $A_\lambda \subset Y$라면, 다음이 성립한다.</p>
 <ol>
 <li>$f \left( \bigcup_{\lambda\in\Lambda} A_\lambda \right) = \bigcup_{\lambda\in\Lambda} f(A_\lambda)$</li>
 <li>$f \left( \bigcap_{\lambda\in\Lambda} A_\lambda \right) \subset \bigcap_{\lambda\in\Lambda} f(A_\lambda)$</li>
@@ -375,7 +414,7 @@ $g: Y\to X, f(x)\mapsto x$와 같이 정의할 때, $f$의 전단사성으로부
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-21T00:14:17+0900</code></a>
+    Last modified: <code>2020-06-21T01:16:50+0900</code></a>
 </p>
 <hr>
 
