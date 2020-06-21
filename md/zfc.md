@@ -136,7 +136,7 @@ $(a,b)\in f$인 것을 $f(a) = b$ 혹은 $f: a\mapsto b$와 같이 쓰기도 한
 
 > **공리**. $\exists  x \left[ \emptyset \in x \land \forall y \left[ y\in  x \implies y\cup \left\{ y \right\} \in  x \right] \right]$
 
-이 공리에 의하여, 다음과 갈은 집합 $\omega$의 존재가 보장된다.
+이 공리에 의하여, 다음과 같은 집합 $\omega$의 존재가 보장된다.
 
 $$
 \omega =
@@ -152,7 +152,7 @@ $$
 $\omega$의 각 원소의 원소의 개수가 어떤 의미에서는 자연수에 대응하고 있음을 알 수 있다.
 이를 이용하여 다음과 같이 유한집합과 무한집합을 정의할 수 있다. 전단사에 관해서는 아래의 문단을 참조.
 
-> **정의**. $\exists k [k\in\omega \land \exists f[f\in \text{Map}(A, k) \land \text{f: bijection}] ]$ 이면, $A$는 유한집합이다.
+> **정의**. $\exists k [k\in\omega \land \exists f[f\in \text{Map}(A, k) \land f: \text{bijection}] ]$ 이면, $A$는 유한집합이다.
 > 만약 $A$가 유한집합이 아니라면, $A$는 무한집합이다.
 
 *주*. 특히 $\omega$는 무한집합이다. 아래의 정칙성공리를 이용하여 이를 보일 수 있다.
