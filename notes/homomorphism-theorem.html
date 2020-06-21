@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="../highlight.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../style-dark.css">
-<title>Mathematics</title>
+<title>준동형, 동형정리</title>
 
 <style>
 	.container {
@@ -156,7 +156,7 @@
 	}
 
 	.hidden {
-		display: none;
+		
 	}
 
 </style>
@@ -172,44 +172,56 @@
 <ul class="navbar">
 	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
 	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
-	<li><a class="button-link" href=""><span class="nav-button">📜 Revisions</span></a></li>
-	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/homomorphism-theorem.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=준동형, 동형정리"><span class="nav-button">📮 Create an issue...</span></a></li>
 	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
 </ul>
 <ul class="navbar">
 	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
 </ul>
 <div class="jump-to-id-list">
+<ul>
+<li><a href="#준동형-동형정리">준동형, 동형정리</a>
+<ul>
+<li><a href="#준비">준비</a></li>
+<li><a href="#군의-준동형정리">군의 준동형정리</a></li>
+<li><a href="#환의-준동형정리">환의 준동형정리</a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
 </aside>
 <article id="markdown-body" class="markdown-body">
-<h1>Mathematics</h1>
-<ul class="article-list">
-<li><span class="modified-date">2020-06-22</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/homomorphism-theorem.html">준동형, 동형정리</a></span></li>
-<li><span class="modified-date">2020-06-21</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zfc.html">공리적 집합론: ZFC 공리계</a></span></li>
-<li><span class="modified-date">2020-06-20</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/bernstein.html">Bernstein의 정리</a></span></li>
-<li><span class="modified-date">2020-06-20</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/vector-space.html">벡터공간</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/linear-map.html">선형사상</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basis-of-vector-space.html">벡터공간의 기저</a></span></li>
-<li><span class="modified-date">2020-06-19</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/well-ordered.html">정렬집합</a></span></li>
-<li><span class="modified-date">2020-06-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/fibonacci.html">Fibonacci 수열</a></span></li>
-<li><span class="modified-date">2020-06-15</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/series.html">급수</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/axiom-of-choice.html">선택공리</a></span></li>
-<li><span class="modified-date">2020-06-14</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/zorns-lemma.html">Zorn의 보조정리</a></span></li>
-<li><span class="modified-date">2020-06-13</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/e-inequality.html">$n!>\left( \frac{n}{e} \right)^n$</a></span></li>
-<li><span class="modified-date">2020-06-06</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/pells-equation.html">Pell의 방정식</a></span></li>
-<li><span class="modified-date">2020-05-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/answer.html">답안 작성 체크리스트</a></span></li>
-<li><span class="modified-date">2020-05-18</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/signs.html">기호에 관한 약속</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/prime-number.html">소수</a></span></li>
-<li><span class="modified-date">2020-05-12</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/dn-lcm.html">$1,\ldots,n$의 최소공배수</a></span></li>
-<li><span class="modified-date">2020-04-27</span> <span class="category-button"><a href="../category/Mathematics.html">Mathematics</a></span> <span class="link-to-note"><a href="../notes/basel-problem.html">Basel 문제</a></span></li>
-</ul><a href='../categories.html'>List of categories</a><div class="hidden">
+<!---
+title: "준동형, 동형정리"
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="준동형-동형정리">준동형, 동형정리</h1>
+<h2 id="준비">준비</h2>
+<blockquote>
+<p><strong>명제</strong>. $\sim$을 집합 $X$상의 동치관계, $\pi: X\to X/\sim$을 자연스러운 전사라고 할 때, $f: X \to Y$에 대하여 다음 두 조건은 동치이다.</p>
+<ol>
+<li>$\exists! g\in \text{Map}(X/\sim, Y) \left[ f = g\circ \pi \right]$</li>
+<li>$x_1, x_2\in X\left[x_1\sim x_2 \implies f(x_1) = f(x_2)\right]$</li>
+</ol>
+</blockquote>
+<p><em>증명</em>.</p>
+<p><strong>1에서 2를 유도</strong><br />
+각 $x_1, x_2\in X$에 대하여 $x_1\sim x_2$라면 $\pi(x_1) = \pi(x_2)$이다. 따라서 $f(x_1) = g(\pi(x_1)) = g(\pi(x_2)) = f(x_2)$</p>
+<p><strong>2에서 1을 유도</strong><br />
+$\pi(x) = \pi(y)$이면, $f(x) = f(y)$라고 하자. $\pi$의 전사성으로부터, $X/\sim$의 각 원소를 $\pi(a)$와 같이 나타낼 수 있고, $g: X/\sim \to Y, \pi(a)\mapsto f(a)$와 같이 정의하면 2의 가정에 따라 $g$가 well-defined인 사상임을 확인 할 수 있다. 여기서 임의의 $x$에 대하여 $f(x) = g(\pi(x))$가 성립하므로 1의 조건에서의 존재성을 보였다.</p>
+<p>$g$ 이외에 1을 만족하는 사상 $h$가 존재한다고 하면, $g\circ \pi = f = h\circ\pi$ 이므로, 임의의 $x$에 대하여 $g(\pi(x)) = h(\pi(x))$, $\pi$의 전사성에 의하여 $\pi(X) = X/\sim$이므로, $g = h$가 성립함을 알 수 있다. 따라서 $g$의 unique함을 보였다. □</p>
+<p><em>주</em>. 실제로 어떤 관계 $\sim$를 $x_1\sim x_2 \iff f(x_1) = f(x_2)$같이 정의한다면, $\sim$은 동치관계임을 바로 확인할 수 있고, 위 명제에 의하여 $f = g\circ\pi$를 만족하는 $g$또한 존재한다. 특히, $f$가 전사인 사상이라면, $g$는 전단사이다. ($\because$ $f = g\circ\pi$가 전사이므로, $g$는 전사. $g(p_1) = g(p_2)$라고 가정하면, $p_1 = \pi(x_1), p_2 = \pi(x_2)$를 만족하는 $x_1, x_2$가 존재하여, $f(x_1) = g(\pi(x_1)) = g(p_1) = g(p_2) = g(\pi(x_2)) = f(x_2)$, $x_1\sim x_2$이다. 따라서, $p_1 = \pi(x_1) = \pi(x_2) = p_2$, $g$는 단사.)</p>
+<h2 id="군의-준동형정리">군의 준동형정리</h2>
+<h2 id="환의-준동형정리">환의 준동형정리</h2>
+<div class="hidden">
 <hr>
 <p>
-    Category: <a href=""></a>, Language: <a href=""></a>,
-    Last modified: <code></code></a>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-22T05:43:41+0900</code></a>
 </p>
 <hr>
 
