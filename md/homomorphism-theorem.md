@@ -6,7 +6,7 @@ language: Korean
 
 # 준동형, 동형정리
 
-## 준비
+## 고찰
 
 > **명제**. $\sim$을 집합 $X$상의 동치관계, $\pi: X\to X/\sim$을 자연스러운 전사라고 할 때,
 > $f: X \to Y$에 대하여 다음 두 조건은 동치이다.
@@ -41,5 +41,55 @@ $g(p_1) = g(p_2)$라고 가정하면, $p_1 = \pi(x_1), p_2 = \pi(x_2)$를 만족
 따라서, $p_1 = \pi(x_1) = \pi(x_2) = p_2$, $g$는 단사.)
 
 ## 군의 준동형정리
+
+위의 고찰을 바탕으로, 군의 부분군에 의한 동치관계에서, 몫집합을
+얻어 새로운 사상을 유도하는 과정을 생각하자. 고찰한 내용에 따르면,
+새로운 사상을 유도하기 위하여 필요(충분)한 조건은,
+동치관계에 있는 두 원소 $x_1, x_2$에 대하여
+$f(x_1) = f(x_2)$인 사상이 주어지는 것이다.
+준동형사상 $\phi$와 부분군 $\text{Ker}(\phi)$이 주어진다면 이 조건을 만족할 수 있다는
+아이디어로부터, 다음 정리가 얻어진다.
+
+> **정리**(준동형정리).
+> $\phi: G\to H$를 군의 준동형이라고 하자. $\pi: G\to G/\text{Ker}(\phi)$를
+> 자연스러운 준동형이라고 할 때, $\phi = \psi\circ\pi$를 만족하는 준동형
+> $\psi: G/\text{Ker}(\phi) \to H$가 유일하게 존재한다.
+> 또한, $\psi$에 의하여 $G/\text{Ker}(\phi)\simeq \text{Im}(\phi)$이다.
+
+*증명*. $N = \text{Ker}(\phi)$로 두자. $\psi(gN) = \phi(g)$와 같이 정의하면,
+$\psi$가 well-defined인 사상임을 먼저 보이자.
+$gN = g'N$ 인 경우, $\psi(gN) = \psi(g'N)$이 성립하는 것을 보이면 된다.
+$gN = g'N$이므로, $g'\in gN$, $g^{-1}g'\in N$임을 알 수 있다.
+따라서 $\phi(g^{-1}g') = 1_H$이고,
+$\psi(gN) = \phi(g) = \phi(g)\phi(g^{-1}g') = \phi(g') = \psi(g'N)$,
+$\psi$가 well-defined임이 보여진다.
+이 $\psi$는 $\phi=\psi\circ\pi$를 만족하는 동시에, 고찰에서와 같은 이유로, unique하게
+존재함을 알 수 있다.
+
+다음으로, $\psi$가 준동형임을 보이자.
+$g_1,g_2\in G$에 대하여,
+$\psi((g_1N)(g_2N)) = \psi(g_1g_2N) = \phi(g_1g_2) = \phi(g_1)\phi(g_2) = \psi(g_1N)\psi(g_2N)$
+이므로, $\psi$는 준동형이다.
+
+마지막으로, $\psi$에 의하여, $G/\text{Ker}(\phi) \simeq \text{Im}(\phi)$이 성립함을 보이자.
+우선, $\psi$가 단사임을 확인하자.
+$\psi(gN) = 1_H$이라고 할 때, $\phi(g) = \psi(gN) = 1_H$이므로, $g\in \text{Ker}(\phi) = N$,
+$gN = N = 1_{G/N}$이 성립함을 알 수 있다. 따라서 $\psi$는 단사.
+다음으로, $\psi(G/\text{Ker}(\phi)) = \text{Im}(\psi) = \text{Im}(\phi)$임을 보이자.
+$g\in G$에 대하여, $\phi(g) = \psi(gN) \in \text{Im}(\psi)$이므로
+$\text{Im}(\phi)\subset\text{Im}(\psi)$임은 분명하다.
+반대로, 임의의 $G/N$의 원소는 어떤 $g\in G$가 존재하여 $gN$의 꼴로 나타내어지므로,
+$\psi(gN) = \phi(g)\in \text{Im}(\phi)$, $\text{Im}(\psi)\subset\text{Im}(\phi)$,
+따라서, $\text{Im}(\psi)=\text{Im}(\phi)$가 성립한다. 이상을 정리하면
+$G/\text{Ker}(\phi) \simeq \text{Im}(\phi)$ □
+
+*주*. 군 $G$와 그 부분군 $N$이 주어졌을 때, 자연스러운 준동형 $\pi: G\to G/N$ 역시
+준동형이므로, 준동형정리가 성립한다. 그 결과는 당연하게도,
+$\text{Im}(\pi) = G/N$, $\text{Ker}(\pi) = N$에 의하여
+$G/\text{Ker}(\pi) = G/N \simeq G/N = \text{Im}(\pi)$
+
+*예*. 준동형사상 $\det:\text{GL}_n(\R)\to \R^{\times}$이 주어졌을 때,
+$\text{Im}(\det) = \R^{\times}$, $\text{Ker}(\det) = \text{SL}_n(\R)$과
+준동형정리에 따라, $\text{GL}_n(\R)/\text{SL}_n(\R) \simeq \R^{\times}$ 임을 알 수 있다.
 
 ## 환의 준동형정리
