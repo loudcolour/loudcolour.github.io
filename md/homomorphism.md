@@ -56,7 +56,8 @@ $$
 1. $1_{G_2} = \phi(1_{G_1}) = \phi(xx^{-1}) = \phi(x)\phi(x^{-1})$,
 양변에 $\phi(x)^{-1}$을 왼쪽으로 곱하면 $\phi(x^{-1}) = {\phi(x)}^{-1}$ □
 
-> **명제**. $\text{Ker}(\phi)$과 $\text{Im}(\phi)$는 각각 $G_1$과 $G_2$의 부분군이다.
+> **명제**. $\phi:G_1\to G_2$일 때,
+> $\text{Ker}(\phi)$과 $\text{Im}(\phi)$는 각각 $G_1$과 $G_2$의 부분군이다.
 
 *증명*.
 
@@ -67,7 +68,7 @@ $x,y \in\text{Ker}(\phi)$이라고 하면, $\phi(xy) = \phi(x)\phi(y) = 1_{G_2}\
 마지막으로 2번에 의해 $\phi(x)=1_{G_2}$라면, $\phi(x^{-1}) = \phi(x)^{-1}=1_{G_2}$,
 $\text{Ker}(\phi)$는 역원에 대해서도 닫혀있음을 알 수 있다.
 
-**$\text{Im}(\phi)$은 $G_2$의 부분군이다**  
+**$\text{Im}(\phi)$은 $G_2$의 부분군이다.**  
 역시 1번에 의해 $1_{G_{2}}\in\text{Im}(\phi)$. $x,y \in\text{Im}(\phi)$일 때, $\phi(a) = x$,
 $\phi(b) = y$인 $a, b\in G_1$가 존재한다.
 $\phi(ab)=\phi(a)\phi(b)=xy$이므로, $\text{Im}(\phi)$은 닫혀있다.
