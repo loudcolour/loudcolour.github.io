@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="Yu7ZDPtBRajRVL44UXQQ1cT-vuIlgmn5igJw9GlE-ks" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../icons/favicon-apple-touch-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../icons/favicon-apple-touch-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../icons/favicon-apple-touch-144.png">
+<link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="../icons/favicon.ico">
+<link rel="icon" sizes="128x128" href="../icons/favicon.icns">
+<link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+<script defer src="../katex/katex.min.js"></script>
+<script>
+	let delimeters_settings = {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        };
+</script>
+<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, delimeters_settings);"></script>
+<link rel="stylesheet" href="../katex/katex.min.css">
+<link rel="stylesheet" href="../highlight.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style-dark.css">
+<title>준동형과 동형</title>
+
+<style>
+	.container {
+		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+		margin: 45px auto;
+		max-width: 980px;
+
+		display: grid;
+		grid-template-columns: auto 220px 745px auto;
+		grid-template-rows: auto;
+		grid-template-areas: ". sidebar main .";
+		column-gap: 15px;
+
+		box-sizing: border-box;
+	}
+
+	p, h1, h2, h3, h4, h5, h6, li {
+		word-break: keep-all;
+	}
+
+	.markdown-body, .markdown-body-dark {
+		grid-area: main;
+		min-width: 200px;
+		max-width: 745px;
+		margin: 0 auto;
+	}
+
+	.sidebar, .sidebar-dark {
+		position: fixed;
+		width: 220px;
+		height: calc(100% - 90px);
+		overflow: scroll;
+	}
+
+	.katex {
+		font-size: inherit;
+	}
+
+	.katex-display {
+		display: block;
+		padding: 1em 0;
+		overflow: scroll;
+		text-align: center;
+	}
+
+	.license {
+		font-size: 12px;
+		color: #6a737d;
+	}
+
+	.align-right {
+	  text-align: right;
+	}
+
+	.trigger-list {
+		display: none;
+	}
+
+	.visible {
+		display: block;
+	}
+
+	.invisible {
+		display: block;
+	}
+
+	p img {
+		display: block;
+		margin: auto;
+		max-width: 70%;
+	}
+
+	@media (max-width: 1010px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: auto 745px auto;
+			grid-template-rows: auto;
+			grid-template-areas: 
+			". sidebar ."
+			". main .";
+			column-gap: 15px;
+			row-gap: 15px;
+		}
+
+		.sidebar, .sidebar-dark {
+			width: unset;
+			height: unset;
+			position: relative;
+			grid-area: sidebar;
+			min-width: 220px;
+		}
+
+		.trigger-list {
+			display: block;
+		}
+
+		.invisible {
+			display: none;
+		}
+	}
+
+	@media (max-width: 775px) {
+		.container {
+			margin: 45px auto;
+
+			display: grid;
+			grid-template-columns: 15px auto 15px;
+			grid-template-rows: auto;
+			grid-template-areas:
+			". sidebar ."
+			". main .";
+			column-gap: 0px;
+			row-gap: 15px;
+		}
+
+		.markdown-body, .markdown-body-dark {
+			max-width: 100%;
+		}
+
+		ul.article-list {
+			padding-left: 0;
+		}
+
+		p img {
+			max-width: 100%;
+		}
+	}
+
+	.hidden {
+		
+	}
+
+</style>
+</head>
+<body id="body" class="dark-mode-off">
+
+<div class="container">
+<aside id="sidebar" class="sidebar">
+<ul id="navbar" class="navbar">
+<li><a id="expand-list" class="trigger-list button-link" href="#"><span class="nav-button">🔽 Show</span></a></li>
+</ul>
+<div id="inside-sidebar" class="invisible">
+<ul class="navbar">
+	<li><a class="button-link" href="../"><span class="nav-button">🏠 Home</span></a></li>
+	<li><a class="button-link" href="../more.html"><span class="nav-button">📝 More notes</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/blame/master/md/homomorphism.md"><span class="nav-button">📜 Revisions</span></a></li>
+	<li><a class="button-link" href="https://github.com/loudcolour/loudcolour.github.io/issues/new?title=준동형과 동형"><span class="nav-button">📮 Create an issue...</span></a></li>
+	<li><a class="button-link" href="https://cse.google.com/cse?cx=000662269964548083137:nbo_gc_sck0"><span class="nav-button">🔎 Search...</span></a></li>
+</ul>
+<ul class="navbar">
+	<li><a id="toggle-dark-mode" class="button-link"><span class="nav-button">🏙 Turn on dark mode</span></a></li>
+</ul>
+<div class="jump-to-id-list">
+<ul>
+<li><a href="#준동형과-동형">준동형과 동형</a>
+<ul>
+<li><a href="#정의">정의</a></li>
+<li><a href="#군의-준동형에-관한-명제">군의 준동형에 관한 명제</a></li>
+<li><a href="#군의-준동형의-예시">군의 준동형의 예시</a></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+</aside>
+<article id="markdown-body" class="markdown-body">
+<!---
+title: '준동형과 동형'
+category: Mathematics
+language: Korean
+--->
+
+<h1 id="준동형과-동형">준동형과 동형</h1>
+<p>"두 군이 본질적으로 같은 구조를 갖고 있는가"라는 질문에 대답하기 위해서는 군이 단순한 집합이 아닌, 특정한 연산이 주어진 집합이라는 사실을 상기할 필요가 있다. 따라서 두개의 군을 집합 대 집합으로서 비교하는 것은 무리가 있으며, 연산에 직접 대응하는 것이 필요하다는 것을 알 수 있다. 여기서 새로이 도입할 준동형과 동형은 이러한 연산에 대응하고 있는 두 군 사이의 사상이다.</p>
+<h2 id="정의">정의</h2>
+<blockquote>
+<p><strong>정의</strong>(군의 준동형). 군 $G_1, G_2$에 대해서 사상 $\phi: G_1 \to G_2$이 다음 조건을 만족하면 $\phi$는 준동형이다.</p>
+<ul>
+<li>$\forall x,y \in G_1$에 대하여, $\phi(xy) = \phi(x)\phi(y)$</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>정의</strong>. 군 $G_1, G_2$간의 준동형 사상 $\phi$가 역사상을 가지며, 역사상 또한 준동형일 때, $\phi$는 동형 사상이라고 한다. 이 경우, 군 $G_1, G_2$는 서로 동형이라고 하며, 기호로 $G_1\cong G_2$와 같이 나타낸다.</p>
+</blockquote>
+<blockquote>
+<p><strong>정의</strong>. 군 $G_1, G_2$간의 준동형 사상 $\phi$에 대하여 각각 $\text{Ker}(\phi)$와 $\text{Im}(\phi)$를 다음과 같이 정의한다.</p>
+<ul>
+<li>$\text{Ker}(\phi) = \left\{x\in G_1 | \phi(x) = 1_{G_2}\right\}$</li>
+<li>$\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$</li>
+</ul>
+</blockquote>
+<h2 id="군의-준동형에-관한-명제">군의 준동형에 관한 명제</h2>
+<blockquote>
+<p><strong>명제</strong>. 전단사 사상 $\phi:G_1 \to G_2$가 준동형 사상이라면, $\phi$는 동형 사상이다.</p>
+</blockquote>
+<p><em>증명</em>. $\phi$는 전단사이므로 역사상이 존재한다. 그 역사상을 $\psi: G_2 \to G_1$라고 하자. $x,y\in G_2$에 대해</p>
+<p>$$
+\phi(\psi(x)\psi(y)) = \phi(\psi(x))\phi(\psi(y)) = xy = \phi(\psi(xy))
+$$</p>
+<p>가 준동형에 의해 성립하고, $\phi$는 단사이므로, $\psi(x)\psi(y) = \psi(xy)$가 성립한다. □</p>
+<blockquote>
+<p><strong>명제</strong>. $\phi:G_1\to G_2$가 준동형이라면, 다음이 성립한다.</p>
+<ol>
+<li>$\phi(1_{G_1}) = 1_{G_2}$</li>
+<li>$\forall x\in G_1,\ \phi(x^{-1}) = {\phi(x)}^{-1}$</li>
+</ol>
+</blockquote>
+<p><em>증명</em>.</p>
+<ol>
+<li>$\phi(1_{G_1}) = \phi(1_{G_1}\cdot 1_{G_1}) = \phi(1_{G_1})\cdot\phi(1_{G_1})$, 양변에 $\phi(1_{G_1})^{-1}$을 오른쪽에 (혹은 왼쪽에) 곱하면, $1_{G_2} = \phi(1_{G_1})$</li>
+<li>$1_{G_2} = \phi(1_{G_1}) = \phi(xx^{-1}) = \phi(x)\phi(x^{-1})$, 양변에 $\phi(x)^{-1}$을 왼쪽으로 곱하면 $\phi(x^{-1}) = {\phi(x)}^{-1}$ □</li>
+</ol>
+<blockquote>
+<p><strong>명제</strong>. $\text{Ker}(\phi)$과 $\text{Im}(\phi)$는 각각 $G_1$과 $G_2$의 부분군이다.</p>
+</blockquote>
+<p><em>증명</em>.</p>
+<p><strong>$\text{Ker}(\phi)$은 $G_1$의 부분군이다.</strong><br />
+1번에서 알 수 있듯이 $1_{G_1}\in\text{Ker}(\phi)$ 이다. $x,y \in\text{Ker}(\phi)$이라고 하면, $\phi(xy) = \phi(x)\phi(y) = 1_{G_2}\cdot1_{G_2} = 1_{G_2}$, 따라서 $xy\in\text{Ker}(\phi)$, $\text{Ker}(\phi)$는 주어진 연산에 대해 닫혀있다. 마지막으로 2번에 의해 $\phi(x)=1_{G_2}$라면, $\phi(x^{-1}) = \phi(x)^{-1}=1_{G_2}$, $\text{Ker}(\phi)$는 역원에 대해서도 닫혀있음을 알 수 있다.</p>
+<p><strong>$\text{Im}(\phi)$은 $G_2$의 부분군이다</strong><br />
+역시 1번에 의해 $1_{G_{2}}\in\text{Im}(\phi)$. $x,y \in\text{Im}(\phi)$일 때, $\phi(a) = x$, $\phi(b) = y$인 $a, b\in G_1$가 존재한다. $\phi(ab)=\phi(a)\phi(b)=xy$이므로, $\text{Im}(\phi)$은 닫혀있다. $x \in\text{Im}(\phi)$ 이라고 하면 $\phi(a)=x$인 $a\in G_1$이 존재하고, 2번에 의해 $1_{G_2} = \phi(1_{G_1}) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1})$이고, $\phi(a^{-1})\in \text{Im}(\phi)$이므로 $\text{Im}(\phi)$에 대해서도 닫혀있음을 알 수 있다. □</p>
+<h2 id="군의-준동형의-예시">군의 준동형의 예시</h2>
+<ul>
+<li>어떤 군 $G$와 그 부분군 $H$에 대하여, $\phi: H\to G, x\mapsto x$는 준동형 사상이다. $G$와 $H$의 구체적인 예로, $G = \text{GL}_n(\R)$, $H = \text{O}(n)$을 들 수 있다.</li>
+<li>$\R^{+}$는 곱에 의해, $\R$은 합에 의해 군을 이룬다. 여기서 사상 $\phi:\R\to\R^{+}, x\mapsto e^x$은 이 군 사이의 준동형이고, 전단사 사상이므로, 동형 사상이다.</li>
+<li>가역행렬의 행렬식을 사상으로 생각하면, $\text{det}:\text{GL}_n(\R)\to\R^{\times}$와 같이 나타내어지고, 두 행렬 $A, B$에 대해 $\text{det}(AB) = \text{det}(A)\text{det}(B)$이므로, 이는 준동형 사상임을 알 수 있다. $\text{Ker}$의 정의상 $\text{Ker}(\text{det})$은 $\text{SL}_n(\R)$임을 보일 수 있다.</li>
+</ul>
+<div class="hidden">
+<hr>
+<p>
+    Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
+    Last modified: <code>2020-06-22T07:27:51+0900</code></a>
+</p>
+<hr>
+
+<div id="utterances">
+<script src="https://utteranc.es/client.js" repo="loudcolour/loudcolour.github.io" issue-term="pathname" label="💬" theme="github-light" crossorigin="anonymous" async></script>
+</div>
+
+</div>
+<hr>
+<p class="license">Copyright © 2020 S. Hyeon.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU Free Documentation License, Version 1.3</a>
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the <a href="https://github.com/loudcolour/loudcolour.github.io">GitHub repo</a> of this site as <a href="https://github.com/loudcolour/loudcolour.github.io/blob/master/LICENSE_NOTE">LICENSE_NOTE</a>.</p>
+</article>
+</div>
+</body>
+<script src="../common.js">
+</script>

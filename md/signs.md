@@ -86,6 +86,7 @@ $\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$
 동치관계로 한 $G$의 왼쪽 잉여류 전체의 집합이다.
 - $H\backslash G$: 군 $G$와 그 부분군 $H$에 대하여, $x\sim y \iff yx^{-1}\in H$를
 동치관계로 한 $G$의 오른쪽 잉여류 전체의 집합이다.
+- $G\cong H$: $G$와 $H$가 군 혹은 환으로서 동형이다.
 
 ### 특수한 군
 

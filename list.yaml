@@ -99,10 +99,15 @@ fzf:
   language: Korean
   mtime: 1592065751
   title: fzf
+homomorphism:
+  category: Mathematics
+  language: Korean
+  mtime: 1592778471
+  title: "\uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
 homomorphism-theorem:
   category: Mathematics
   language: Korean
-  mtime: 1592776954
+  mtime: 1592777911
   title: "\uC900\uB3D9\uD615, \uB3D9\uD615\uC815\uB9AC"
 katex:
   category: Typesetting
@@ -163,7 +168,7 @@ series:
 signs:
   category: Mathematics
   language: Korean
-  mtime: 1589732985
+  mtime: 1592778100
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
 study:
   category: Misc
