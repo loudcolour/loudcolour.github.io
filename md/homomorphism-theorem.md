@@ -133,12 +133,12 @@ $\psi$는 well-defined인 사상이다.
 마지막으로, **$\phi$와 $\psi$가 서로의 역사상** 임을 보이자.
 
 - 임의의 $H\in X$에 대하여 $(\psi\circ\phi)(H) = H$. 즉 $\pi(\pi^{-1}(H)) = H$.
-	* $\pi(\pi^{-1}(H))\subset H$: 집합의 기본 성질로부터 분명.
+	* $\pi(\pi^{-1}(H))\subset H$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
 	* $\pi(\pi^{-1}(H))\supset H$: $h\in H$라고 하자. $\pi$의 전사성에 의하여,
 	  $h=\pi(g)$를 만족하는 $g\in G$가 존재한다. 따라서 $\pi(g)\in H$, $g\in \pi^{-1}(H)$이다.
 	  따라서 $h = \pi(g) \in \pi(\pi^{-1}(H))$.
 - 임의의 $K\in Y$에 대하여 $(\phi\circ\psi)(K) = K$. 즉 $K = \pi^{-1}(\pi(K))$.
-	* $K\subset \pi^{-1}(\pi(K))$: 집합의 기본 성질로부터 분명.
+	* $K\subset \pi^{-1}(\pi(K))$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
 	* $K\supset \pi^{-1}(\pi(K))$: $g\in\pi^{-1}(\pi(K))$라고 하자.
 	  그렇다면, $\pi(g)\in\pi(K)$이고, $\pi(g) = \pi(k)$인 $k\in K$가 존재하게 된다.
 	  이는 $gN = kN$을 의미하고, $g=kn$인 $n\in N \subset K$가 존재함을 의미한다.
