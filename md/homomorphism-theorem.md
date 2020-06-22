@@ -47,7 +47,7 @@ $g(p_1) = g(p_2)$라고 가정하면, $p_1 = \pi(x_1), p_2 = \pi(x_2)$를 만족
 새로운 사상을 유도하기 위하여 필요(충분)한 조건은,
 동치관계에 있는 두 원소 $x_1, x_2$에 대하여
 $f(x_1) = f(x_2)$인 사상이 주어지는 것이다.
-준동형사상 $\phi$와 부분군 $\text{Ker}(\phi)$이 주어진다면 이 조건을 만족할 수 있다는
+준동형사상 $\phi$와 (정규)부분군 $\text{Ker}(\phi)$이 주어진다면 이 조건을 만족할 수 있다는
 아이디어로부터, 다음 정리가 얻어진다.
 
 > **정리**(준동형정리).
@@ -91,5 +91,94 @@ $G/\text{Ker}(\pi) = G/N \cong G/N = \text{Im}(\pi)$
 *예*. 준동형사상 $\det:\text{GL}_n(\R)\to \R^{\times}$이 주어졌을 때,
 $\text{Im}(\det) = \R^{\times}$, $\text{Ker}(\det) = \text{SL}_n(\R)$과
 준동형정리에 따라, $\text{GL}_n(\R)/\text{SL}_n(\R) \cong \R^{\times}$ 임을 알 수 있다.
+
+> **정리**(부분군의 대응). $N$을 군 $G$의 정규부분군이라고 하자.
+> $\pi: G\to G/N$을 자연스러운 준동형, $X$를 $G/N$의 부분군의 집합,
+> $Y$를 $N$을 포함하는 $G$의 부분군 전체의 집합이라고 두면, 다음 두 사상
+> $\phi$와 $\psi$가 존재하며,
+>
+> - $\phi: X \ni H \mapsto \pi^{-1}(H) \in Y$
+> - $\psi: Y \ni K \mapsto \pi(K) \in X$
+> 
+> $\phi$와 $\psi$는 서로의 역사상이다. 따라서 $X$와 $Y$간에는 일대일 대응이 존재한다.
+
+*증명*. $H\in X$의 $\pi$에 의한 역상 $\pi^{-1}(H)$는 어떠한 형태로도 존재함을 알 수 있으므로,
+**$\phi$가 well-defined임** 을 보이기 위해서는 $\pi^{-1}(H)\in Y$임을 보이는 것만으로도 충분하다.
+즉, $G/N$의 부분군인 $H$에 대하여 $\pi^{-1}(H)$이 $G$의 부분군이며, 동시에 $N$을 포함하는 것을 보이면
+된다.
+
+- $N\subset\pi^{-1}(H)$을 보이는 것은 간단하다. $H\in X$이므로, $ \left\{ 1_{G/N} \right\} \in H$이고,
+$\pi^{-1}\left( \left\{ 1_{G/N} \right\}\right) \subset \pi^{-1}(H)$이다. 여기서 $\pi$의 정의에 따라
+$\pi^{-1}\left(\left\{ 1_{G/N}\right\}\right) = N$이므로, $N\subset \pi^{-1}(H)$.
+- $\pi^{-1}(H)$는 아래의 조건을 만족하므로 $G$의 부분군이다.
+	* $1_G = 1_N\in N \subset \pi^{-1}(H)$.
+	* $x,y \in \pi^{-1}(H)$라고 하면, $\pi(x), \pi(y)\in H$, $\pi(xy)=\pi(x)\pi(y)\in H$이므로,
+	  $xy\in \pi^{-1}(H)$.
+	* $x\in \pi^{-1}(H)$라고 하면, $\pi(x)\in H$, $\pi(x^{-1}) = \pi(x)^{-1}\in H$이므로,
+	  $x^{-1}\in \pi^{-1}(H)$.
+
+따라서 $\pi^{-1}(H) \in Y$, $\phi$는 well-defined이다.
+
+다음으로, **$\psi$가 well-defined** 인 사상임을 보이자.
+$\phi$와 마찬가지로, 군 $G$의 $N$을 포함하는 부분군 $K\subset G$에 대하여
+$\pi(K)\in X$, 즉 $\pi(K)$가 $G/N$의 부분군임을 보이면 된다.
+$N$은 정규부분군이므로, 임의의 $g\in G$에 대하여 $gNg^{-1}\subset N$이 성립한다.
+따라서 임의의 $g\in K$에 대해서도 이가 성립할 것이므로, $K \vartriangleright N$.
+$K/N$은 $g\in K$인 $gN$의 집합이므로, $K/N\subset G/N$인 동시에,
+$\pi(K) = \left\{ gN \,|\, g\in K \right\} = K/N$이다. $\pi(K) = K/N$이 정규부분군 $N$에
+의하여 잉여군의 구조를 갖는
+것으로부터 $\pi(K)$는 $G/N$의 부분군이라는 것을 알 수 있으므로, $\pi(K)\in X$. 따라서
+$\psi$는 well-defined인 사상이다.
+
+마지막으로, **$\phi$와 $\psi$가 서로의 역사상** 임을 보이자.
+
+- 임의의 $H\in X$에 대하여 $(\psi\circ\phi)(H) = H$. 즉 $\pi(\pi^{-1}(H)) = H$.
+	* $\pi(\pi^{-1}(H))\subset H$: 집합의 기본 성질로부터 분명.
+	* $\pi(\pi^{-1}(H))\supset H$: $h\in H$라고 하자. $\pi$의 전사성에 의하여,
+	  $h=\pi(g)$를 만족하는 $g\in G$가 존재한다. 따라서 $\pi(g)\in H$, $g\in \pi^{-1}(H)$이다.
+	  따라서 $h = \pi(g) \in \pi(\pi^{-1}(H))$.
+- 임의의 $K\in Y$에 대하여 $(\phi\circ\psi)(K) = K$. 즉 $K = \pi^{-1}(\pi(K))$.
+	* $K\subset \pi^{-1}(\pi(K))$: 집합의 기본 성질로부터 분명.
+	* $K\supset \pi^{-1}(\pi(K))$: $g\in\pi^{-1}(\pi(K))$라고 하자.
+	  그렇다면, $\pi(g)\in\pi(K)$이고, $\pi(g) = \pi(k)$인 $k\in K$가 존재하게 된다.
+	  이는 $gN = kN$을 의미하고, $g=kn$인 $n\in N \subset K$가 존재함을 의미한다.
+	  따라서 $g\in K$. □
+
+> **정리**(제2동형정리). $H, N$을 군 $G$의 부분군, 특히 $N \vartriangleleft G$라고 하자. 이 때, 다음 사실이 성립한다.
+>
+> 1. $HN = NH$이다.
+> 1. $HN$은 $G$의 부분군이다.
+> 1. $H\cap N \vartriangleleft H$, $N\vartriangleleft HN$
+> 1. $H/H\cap N\cong HN/N $
+
+*증명*.
+
+1. 임의의 $h\in H$에 대하여 $hN=Nh$이므로 $HN=NH$.
+2. $HN$이 부분군의 조건을 만족하는지 확인한다.
+	* $1_G = 1_G1_G \in HN$
+	* $h_1, h_2\in H$, $n_1, n_2\in N$에 대하여, $N$이 정규부분군이므로 $h_1n_1h_2n_2 \in h_1Nh_2N = h_1h_2NN\subset HN$
+	* $h\in H$, $n\in N$에 대하여, $(hn)^{-1}= n^{-1}h^{-1}\in NH = HN$
+3. $H\cap N$이 $H$의 부분군, $N$이 $HN$의 부분군이라는 것은 알기 쉽다. 이들이 정규부분군임을 보이자.
+	* $H\cap N \vartriangleleft H$:  
+	  $\forall h\in H, \forall n\in H \left[ hnh^{-1}\in H \right]$이고,
+	  $\forall h\in H\subset G, \forall n\in N \left[ hnh^{-1}\in N \right]$ 이므로,
+	  $\forall h\in H, \forall n\in H\cap N \left[ hnh^{-1}\in H\cap N \right]$
+	* $N \vartriangleleft HN$:  
+	  $N$은 $G$의 정규부분군이므로, $\forall g\in HN \subset G, \forall n\in N \left[ gng^{-1} \in N \right]$
+4. 3의 결과에 의하여 $H/H\cap N$과 $HN/N$은 군을 이룬다.
+   이 때, $i: H\to HN, h\mapsto h$, $\pi: HN\to HN/N, hn\mapsto hnN = hN$을 이용하여,
+   사상 $\phi = \pi\circ i$을 구축하면, $i$와 $\pi$ 모두 준동형사상이므로, $\phi: H\to HN/N$역시 준동형사상이다.
+    * 임의의 $hnN = hN\in HN/N$에 대하여, $h\in H$, $\phi(h) = hnN$이므로, $\phi$는 전사이다.
+      따라서 $\text{Im}(\phi) = HN/N$.
+    * $x\in H\cap N$이면 $\phi(x) = xN = N$, 따라서 $x\in \text{Ker}(\phi)$이므로 $H\cap N \subset \text{Ker}(\phi)$.
+      역으로 $x\in \text{Ker}(\phi)$라고 하면, $xN = \phi(x) = N$. 따라서 $x\in N$이고, $x\in H$는 분명하므로,
+      $x\in H\cap N$, $\text{Ker}(\phi)\subset H\cap N$ 이므로, $\text{Ker}(\phi) = H\cap N$
+
+   준동형정리에 의하여, $H/H\cap N = H/\text{Ker}(\phi) \cong \text{Im}(\phi) = HN/N$. □
+
+*예*. $G = \Z$, $H = m\Z$, $N = n\Z$로 두자.
+우선 $H$와 $N$ 모두 가환군의 부분군이므로 정규부분군이다.
+따라서 제2동형정리를 이용하면 $G = \gcd(m,n)$, $L = \text{lcm}(m,n)$으로 하여
+$m\Z/L\Z = H/H\cap N \cong HN / N = G\Z/n\Z$이 성립하는 것을 알 수 있다.
 
 ## 환의 준동형정리
