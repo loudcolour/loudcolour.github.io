@@ -107,7 +107,7 @@ $\text{Im}(\det) = \R^{\times}$, $\text{Ker}(\det) = \text{SL}_n(\R)$과
 즉, $G/N$의 부분군인 $H$에 대하여 $\pi^{-1}(H)$이 $G$의 부분군이며, 동시에 $N$을 포함하는 것을 보이면
 된다.
 
-- $N\subset\pi^{-1}(H)$을 보이는 것은 간단하다. $H\in X$이므로, $ \left\{ 1_{G/N} \right\} \in H$이고,
+- $N\subset\pi^{-1}(H)$을 보이는 것은 간단하다. $H\in X$이므로, $ \left\{ 1_{G/N} \right\} \subset H$이고,
 $\pi^{-1}\left( \left\{ 1_{G/N} \right\}\right) \subset \pi^{-1}(H)$이다. 여기서 $\pi$의 정의에 따라
 $\pi^{-1}\left(\left\{ 1_{G/N}\right\}\right) = N$이므로, $N\subset \pi^{-1}(H)$.
 - $\pi^{-1}(H)$는 아래의 조건을 만족하므로 $G$의 부분군이다.
