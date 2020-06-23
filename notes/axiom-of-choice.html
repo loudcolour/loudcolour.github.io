@@ -183,7 +183,6 @@
 <ul>
 <li><a href="#선택공리">선택공리</a>
 <ul>
-<li><a href="#선택공리와-동치인-명제">선택공리와 동치인 명제</a></li>
 <li><a href="#선택공리로부터-유도되는-명제">선택공리로부터 유도되는 명제</a></li>
 </ul></li>
 </ul>
@@ -219,17 +218,16 @@ language: Korean
 $X=\bigcup_{i\in I} A_i$ 라고 두면, $X\not=\emptyset$이다. 따라서 $\forall x\in \mathscr{P}(X)\setminus\left\{\emptyset\right\}$에 대하여, $f(x)\in x$인 사상 $f:\mathscr{P}(X)\setminus\left\{\emptyset\right\}\to X$가 존재한다. $\forall i\in I$에 대해 $A_i\in \mathscr{P}(X)\setminus\left\{\emptyset\right\}$이므로, $f(A_i)\in A_i$가 성립한다. 여기서 $g:I\to X$, $i\mapsto f(A_i)$와 같은 사상을 정의하면, $g(i)\in A_i$이므로 각 $i\in I$에 대해 해당하는 $g(i)$를 선택하여 $g(i)$로 순서쌍 $o(g)$을 만들면 $o(g)\in\prod_{i\in I}A_i$, 따라서 $\prod_{i\in I}A_i\not=\emptyset$</p>
 <p><strong>3에서 1을 유도</strong><br />
 $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\rangle$와 같다. 따라서, 모든 $x\in A$에 대해 $g(x)\in x$를 만족하는 사상 $g:A\to\bigcup A$가 존재하고, 이는 선택공리의 진술과 같다. □</p>
-<h2 id="선택공리와-동치인-명제">선택공리와 동치인 명제</h2>
-<p>$\textsf{ZF}$ 상에서 선택공리는 독립된 명제이다. 따라서 선택공리를 포함하는 공리계로 $\textsf{ZFC}$를 도입하기도 한다.</p>
-<p>$\textsf{ZF}$ 상에서 선택공리와 동치인 것으로 알려진 명제는 다음이 있다.</p>
-<ul>
-<li><a href="./zorns-lemma.html">Zorn의 보조정리 (Zorn's lemma)</a>
-<ul>
-<li>임의의 벡터공간상의 기저의 존재</li>
-</ul></li>
-<li>정렬정리 (well-ordering theorem)</li>
-<li>Tarski 정리: 모든 무한 기수 $\kappa$에 대하여 $\kappa = \kappa^2$이 성립한다.</li>
-</ul>
+<blockquote>
+<p><strong>명제</strong>. $\textsf{ZF}$ 상에서 다음은 모두 동치이다.</p>
+<ol>
+<li>선택공리</li>
+<li><a href="./zorns-lemma.html">Zorn의 보조정리 (Zorn's lemma)</a></li>
+<li><a href="./well-ordered.html#정렬정리">정렬정리 (well-ordering theorem)</a></li>
+<li>집합의 비교정리</li>
+</ol>
+</blockquote>
+<p><em>증명</em>. 1 $\implies$ 2 $\implies$ 3$\implies$ 4$\implies$ 1을 보인다.</p>
 <h2 id="선택공리로부터-유도되는-명제">선택공리로부터 유도되는 명제</h2>
 <ul>
 <li>의존선택공리 (axiom of dependent choice, $\textsf{DC}$)</li>
@@ -242,7 +240,7 @@ $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\ran
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-14T19:21:35+0900</code></a>
+    Last modified: <code>2020-06-24T08:37:09+0900</code></a>
 </p>
 <hr>
 

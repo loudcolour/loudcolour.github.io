@@ -11,7 +11,7 @@ archlinux:
 axiom-of-choice:
   category: Mathematics
   language: Korean
-  mtime: 1592130095
+  mtime: 1592955429
   title: "\uC120\uD0DD\uACF5\uB9AC"
 basel-problem:
   category: Mathematics
@@ -214,7 +214,7 @@ vim:
 well-ordered:
   category: Mathematics
   language: Korean
-  mtime: 1592554524
+  mtime: 1592955381
   title: "\uC815\uB82C\uC9D1\uD569"
 zfc:
   category: Mathematics

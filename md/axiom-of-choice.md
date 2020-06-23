@@ -57,17 +57,14 @@ $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\ran
 따라서, 모든 $x\in A$에 대해 $g(x)\in x$를 만족하는 사상 $g:A\to\bigcup A$가 존재하고,
 이는 선택공리의 진술과 같다. □
 
-## 선택공리와 동치인 명제
+> **명제**. $\textsf{ZF}$ 상에서 다음은 모두 동치이다.
+>
+> 1. 선택공리
+> 1. [Zorn의 보조정리 (Zorn's lemma)](./zorns-lemma.html)
+> 1. [정렬정리 (well-ordering theorem)](./well-ordered.html#정렬정리)
+> 1. 집합의 비교정리
 
-$\textsf{ZF}$ 상에서 선택공리는 독립된 명제이다. 따라서 선택공리를 포함하는 공리계로
-$\textsf{ZFC}$를 도입하기도 한다.
-
-$\textsf{ZF}$ 상에서 선택공리와 동치인 것으로 알려진 명제는 다음이 있다.
-
-- [Zorn의 보조정리 (Zorn's lemma)](./zorns-lemma.html)
-	* 임의의 벡터공간상의 기저의 존재
-- 정렬정리 (well-ordering theorem)
-- Tarski 정리: 모든 무한 기수 $\kappa$에 대하여 $\kappa = \kappa^2$이 성립한다.
+*증명*. 1 $\implies$ 2 $\implies$ 3$\implies$ 4$\implies$ 1을 보인다.
 
 ## 선택공리로부터 유도되는 명제
 
