@@ -140,6 +140,11 @@ linear-map:
   language: Korean
   mtime: 1592575012
   title: "\uC120\uD615\uC0AC\uC0C1"
+list-of-integrals:
+  category: Mathematics
+  language: Korean
+  mtime: 1592872139
+  title: "\uC801\uBD84\uD45C"
 pells-equation:
   category: Mathematics
   language: Korean
@@ -180,11 +185,22 @@ study:
   language: Korean
   mtime: 1592761156
   title: "\uACF5\uBD80\uD558\uB294 \uBC29\uBC95"
+tan-cos-sin-sin:
+  category: Mathematics
+  language: Korean
+  mtime: 1592872823
+  title: "$\\tan 1^{\\circ}$, $\\cos 1^{\\circ}$, $\\sin 1^{\\circ}$, $\\sin 1$\uC740\
+    \ \uC720\uB9AC\uC218\uC778\uAC00"
 tikz:
   category: Typesetting
   language: Korean
   mtime: 1592172569
   title: PGF/TikZ
+trigonometric-functions:
+  category: Mathematics
+  language: Korean
+  mtime: 1592872218
+  title: "\uC0BC\uAC01\uD568\uC218"
 vector-space:
   category: Mathematics
   language: Korean
