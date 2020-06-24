@@ -28,6 +28,11 @@ bernstein:
   language: Korean
   mtime: 1592579653
   title: "Bernstein\uC758 \uC815\uB9AC"
+continuous-function:
+  category: Mathematics
+  language: Korean
+  mtime: 1593042539
+  title: "\uC5F0\uC18D\uD568\uC218"
 dfs-bfs:
   category: Algorithms
   language: Korean
