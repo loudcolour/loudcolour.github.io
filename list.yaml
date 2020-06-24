@@ -135,6 +135,11 @@ latex-matrix:
   language: Korean
   mtime: 1592158779
   title: "$\\LaTeX$\uC5D0\uC11C \uD589\uB82C \uD45C\uC2DC\uD558\uAE30"
+limit-function:
+  category: Mathematics
+  language: Korean
+  mtime: 1593041246
+  title: "\uD568\uC218\uC758 \uADF9\uD55C"
 linear-map:
   category: Mathematics
   language: Korean
@@ -214,7 +219,7 @@ vim:
 well-ordered:
   category: Mathematics
   language: Korean
-  mtime: 1592955381
+  mtime: 1592955687
   title: "\uC815\uB82C\uC9D1\uD569"
 zfc:
   category: Mathematics
