@@ -33,6 +33,11 @@ continuous-function:
   language: Korean
   mtime: 1593042539
   title: "\uC5F0\uC18D\uD568\uC218"
+derivate:
+  category: Mathematics
+  language: Korean
+  mtime: 1593069088
+  title: "\uBBF8\uBD84"
 dfs-bfs:
   category: Algorithms
   language: Korean
@@ -76,7 +81,7 @@ french-honorific:
 french-interrogative:
   category: French
   language: Korean
-  mtime: 1592224400
+  mtime: 1593064095
   title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uC758\uBB38\uBB38"
 french-nation:
   category: French
@@ -119,6 +124,11 @@ homomorphism-theorem:
   language: Korean
   mtime: 1592867857
   title: "\uC900\uB3D9\uD615, \uB3D9\uD615\uC815\uB9AC"
+intermediate-value-theorem:
+  category: Mathematics
+  language: Korean
+  mtime: 1593068917
+  title: "\uC911\uAC04\uAC12\uC815\uB9AC"
 katex:
   category: Typesetting
   language: Korean
