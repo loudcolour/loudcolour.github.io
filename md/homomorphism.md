@@ -12,7 +12,7 @@ language: Korean
 연산에 직접 대응하는 것이 필요하다는 것을 알 수 있다. 여기서 새로이 도입할
 준동형과 동형은 이러한 연산에 대응하고 있는 두 군 사이의 사상이다.
 
-## 정의
+## 군의 준동형
 
 > **정의**(군의 준동형). 군 $G_1, G_2$에 대해서 사상 $\phi: G_1 \to G_2$이
 > 다음 조건을 만족하면 $\phi$는 준동형이다.
@@ -30,7 +30,7 @@ language: Korean
 > - $\text{Ker}(\phi) = \left\{x\in G_1 | \phi(x) = 1_{G_2}\right\}$
 > - $\text{Im}(\phi) = \left\{\phi(x)|x\in G_1\right\}$
 
-## 군의 준동형에 관한 명제
+### 군의 준동형에 관한 명제
 
 > **명제**. 전단사 사상 $\phi:G_1 \to G_2$가 준동형 사상이라면,
 > $\phi$는 동형 사상이다.
@@ -76,7 +76,7 @@ $x \in\text{Im}(\phi)$ 이라고 하면 $\phi(a)=x$인 $a\in G_1$이 존재하�
 $1_{G_2} = \phi(1_{G_1}) = \phi(aa^{-1}) = \phi(a)\phi(a^{-1})$이고,
 $\phi(a^{-1})\in \text{Im}(\phi)$이므로 $\text{Im}(\phi)$에 대해서도 닫혀있음을 알 수 있다. □
 
-## 군의 준동형의 예시
+### 군의 준동형의 예시
 
 - 어떤 군 $G$와 그 부분군 $H$에 대하여, $\phi: H\to G, x\mapsto x$는
 준동형 사상이다. $G$와 $H$의 구체적인 예로, $G = \text{GL}_n(\R)$,
@@ -89,3 +89,5 @@ $\text{det}:\text{GL}_n(\R)\to\R^{\times}$와 같이 나타내어지고,
 두 행렬 $A, B$에 대해 $\text{det}(AB) = \text{det}(A)\text{det}(B)$이므로,
 이는 준동형 사상임을 알 수 있다. $\text{Ker}$의 정의상
 $\text{Ker}(\text{det})$은 $\text{SL}_n(\R)$임을 보일 수 있다.
+
+## 환의 준동형

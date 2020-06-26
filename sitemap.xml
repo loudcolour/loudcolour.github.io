@@ -14,6 +14,8 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/continuous-function.html</loc><lastmod>2020-06-25</lastmod>
 </url><url>
+<loc>https://loudcolour.github.io/notes/derivate.html</loc><lastmod>2020-06-25</lastmod>
+</url><url>
 <loc>https://loudcolour.github.io/notes/dfs-bfs.html</loc><lastmod>2020-06-13</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/dn-lcm.html</loc><lastmod>2020-05-12</lastmod>
@@ -43,8 +45,6 @@
 <loc>https://loudcolour.github.io/notes/fzf.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/group.html</loc><lastmod>2020-06-23</lastmod>
-</url><url>
-<loc>https://loudcolour.github.io/notes/homomorphism.html</loc><lastmod>2020-06-22</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/homomorphism-theorem.html</loc><lastmod>2020-06-23</lastmod>
 </url><url>
@@ -96,5 +96,7 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/zorns-lemma.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/derivate.html</loc><lastmod>2020-06-25</lastmod>
+<loc>https://loudcolour.github.io/notes/homomorphism.html</loc><lastmod>2020-06-26</lastmod>
+</url><url>
+<loc>https://loudcolour.github.io/notes/ring.html</loc><lastmod>2020-06-26</lastmod>
 </url></urlset>

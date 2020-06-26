@@ -117,7 +117,7 @@ group:
 homomorphism:
   category: Mathematics
   language: Korean
-  mtime: 1592778805
+  mtime: 1593176528
   title: "\uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
 homomorphism-theorem:
   category: Mathematics
@@ -185,6 +185,11 @@ regex:
   language: Korean
   mtime: 1592056287
   title: "\uC815\uADDC\uD45C\uD604\uC2DD"
+ring:
+  category: Mathematics
+  language: Korean
+  mtime: 1593176616
+  title: "\uD658"
 segment-tree:
   category: Algorithms
   language: Korean
