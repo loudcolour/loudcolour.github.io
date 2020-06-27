@@ -89,7 +89,7 @@ $\lim_{n\to\infty}f(a_n)=\alpha$가 성립하지 않음을 의미한다. 따라�
 >
 > 1. $\lim_{x\to x_0} f(x)$가 존재한다.
 > 1. $ \forall\varepsilon>0, \exists\delta>0, \forall x_1, \forall x_2$에 대하여
-> $$ \left[ x_1,x_2\in N(x_0, \delta)\setminus \left\{ x_0 \right\} \implies \left|f(x_1)-f(x_2)\right|<\varepsilon \right] $$
+> $$ x_1,x_2\in N(x_0, \delta)\setminus \left\{ x_0 \right\} \implies \left|f(x_1)-f(x_2)\right|<\varepsilon $$
 
 *증명*.
 

@@ -92,58 +92,6 @@ $G/\text{Ker}(\pi) = G/N \cong G/N = \text{Im}(\pi)$
 $\text{Im}(\det) = \R^{\times}$, $\text{Ker}(\det) = \text{SL}_n(\R)$과
 준동형정리에 따라, $\text{GL}_n(\R)/\text{SL}_n(\R) \cong \R^{\times}$ 임을 알 수 있다.
 
-> **정리**(부분군의 대응). $N$을 군 $G$의 정규부분군이라고 하자.
-> $\pi: G\to G/N$을 자연스러운 준동형, $X$를 $G/N$의 부분군의 집합,
-> $Y$를 $N$을 포함하는 $G$의 부분군 전체의 집합이라고 두면, 다음 두 사상
-> $\phi$와 $\psi$가 존재하며,
->
-> - $\phi: X \ni H \mapsto \pi^{-1}(H) \in Y$
-> - $\psi: Y \ni K \mapsto \pi(K) \in X$
-> 
-> $\phi$와 $\psi$는 서로의 역사상이다. 따라서 $X$와 $Y$간에는 일대일 대응이 존재한다.
-
-*증명*. $H\in X$의 $\pi$에 의한 역상 $\pi^{-1}(H)$는 어떠한 형태로도 존재함을 알 수 있으므로,
-**$\phi$가 well-defined임** 을 보이기 위해서는 $\pi^{-1}(H)\in Y$임을 보이는 것만으로도 충분하다.
-즉, $G/N$의 부분군인 $H$에 대하여 $\pi^{-1}(H)$이 $G$의 부분군이며, 동시에 $N$을 포함하는 것을 보이면
-된다.
-
-- $N\subset\pi^{-1}(H)$을 보이는 것은 간단하다. $H\in X$이므로, $ \left\{ 1_{G/N} \right\} \subset H$이고,
-$\pi^{-1}\left( \left\{ 1_{G/N} \right\}\right) \subset \pi^{-1}(H)$이다. 여기서 $\pi$의 정의에 따라
-$\pi^{-1}\left(\left\{ 1_{G/N}\right\}\right) = N$이므로, $N\subset \pi^{-1}(H)$.
-- $\pi^{-1}(H)$는 아래의 조건을 만족하므로 $G$의 부분군이다.
-	* $1_G = 1_N\in N \subset \pi^{-1}(H)$.
-	* $x,y \in \pi^{-1}(H)$라고 하면, $\pi(x), \pi(y)\in H$, $\pi(xy)=\pi(x)\pi(y)\in H$이므로,
-	  $xy\in \pi^{-1}(H)$.
-	* $x\in \pi^{-1}(H)$라고 하면, $\pi(x)\in H$, $\pi(x^{-1}) = \pi(x)^{-1}\in H$이므로,
-	  $x^{-1}\in \pi^{-1}(H)$.
-
-따라서 $\pi^{-1}(H) \in Y$, $\phi$는 well-defined이다.
-
-다음으로, **$\psi$가 well-defined** 인 사상임을 보이자.
-$\phi$와 마찬가지로, 군 $G$의 $N$을 포함하는 부분군 $K\subset G$에 대하여
-$\pi(K)\in X$, 즉 $\pi(K)$가 $G/N$의 부분군임을 보이면 된다.
-$N$은 정규부분군이므로, 임의의 $g\in G$에 대하여 $gNg^{-1}\subset N$이 성립한다.
-따라서 임의의 $g\in K$에 대해서도 이가 성립할 것이므로, $K \vartriangleright N$.
-$K/N$은 $g\in K$인 $gN$의 집합이므로, $K/N\subset G/N$인 동시에,
-$\pi(K) = \left\{ gN \,|\, g\in K \right\} = K/N$이다. $\pi(K) = K/N$이 정규부분군 $N$에
-의하여 잉여군의 구조를 갖는
-것으로부터 $\pi(K)$는 $G/N$의 부분군이라는 것을 알 수 있으므로, $\pi(K)\in X$. 따라서
-$\psi$는 well-defined인 사상이다.
-
-마지막으로, **$\phi$와 $\psi$가 서로의 역사상** 임을 보이자.
-
-- 임의의 $H\in X$에 대하여 $(\psi\circ\phi)(H) = H$. 즉 $\pi(\pi^{-1}(H)) = H$.
-	* $\pi(\pi^{-1}(H))\subset H$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
-	* $\pi(\pi^{-1}(H))\supset H$: $h\in H$라고 하자. $\pi$의 전사성에 의하여,
-	  $h=\pi(g)$를 만족하는 $g\in G$가 존재한다. 따라서 $\pi(g)\in H$, $g\in \pi^{-1}(H)$이다.
-	  따라서 $h = \pi(g) \in \pi(\pi^{-1}(H))$.
-- 임의의 $K\in Y$에 대하여 $(\phi\circ\psi)(K) = K$. 즉 $K = \pi^{-1}(\pi(K))$.
-	* $K\subset \pi^{-1}(\pi(K))$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
-	* $K\supset \pi^{-1}(\pi(K))$: $g\in\pi^{-1}(\pi(K))$라고 하자.
-	  그렇다면, $\pi(g)\in\pi(K)$이고, $\pi(g) = \pi(k)$인 $k\in K$가 존재하게 된다.
-	  이는 $gN = kN$을 의미하고, $g=kn$인 $n\in N \subset K$가 존재함을 의미한다.
-	  따라서 $g\in K$. □
-
 > **정리**(제2동형정리). $H, N$을 군 $G$의 부분군, 특히 $N \vartriangleleft G$라고 하자. 이 때, 다음 사실이 성립한다.
 >
 > 1. $HN = NH$이다.
@@ -213,4 +161,85 @@ $(G/N)/(H/N) = (G/N)/ \text{Ker}(\phi) \cong \text{Im}(\phi) = G/H$이다. □
 *예*. 제3동형정리에 의하면, $(\Z/12\Z)/(3\Z/12\Z)\cong \Z/3\Z$ 임을 쉽게 확인할
 수 있다.
 
+### 부분군의 대응
+
+> **정리**(부분군의 대응). $N$을 군 $G$의 정규부분군이라고 하자.
+> $\pi: G\to G/N$을 자연스러운 준동형, $X$를 $G/N$의 부분군의 집합,
+> $Y$를 $N$을 포함하는 $G$의 부분군 전체의 집합이라고 두면, 다음 두 사상
+> $\phi$와 $\psi$가 존재하며,
+>
+> - $\phi: X \ni H \mapsto \pi^{-1}(H) \in Y$
+> - $\psi: Y \ni K \mapsto \pi(K) \in X$
+> 
+> $\phi$와 $\psi$는 서로의 역사상이다. 따라서 $X$와 $Y$간에는 일대일 대응이 존재한다.
+
+*증명*. $H\in X$의 $\pi$에 의한 역상 $\pi^{-1}(H)$는 어떠한 형태로도 존재함을 알 수 있으므로,
+**$\phi$가 well-defined임** 을 보이기 위해서는 $\pi^{-1}(H)\in Y$임을 보이는 것만으로도 충분하다.
+즉, $G/N$의 부분군인 $H$에 대하여 $\pi^{-1}(H)$이 $G$의 부분군이며, 동시에 $N$을 포함하는 것을 보이면
+된다.
+
+- $N\subset\pi^{-1}(H)$을 보이는 것은 간단하다. $H\in X$이므로, $ \left\{ 1_{G/N} \right\} \subset H$이고,
+$\pi^{-1}\left( \left\{ 1_{G/N} \right\}\right) \subset \pi^{-1}(H)$이다. 여기서 $\pi$의 정의에 따라
+$\pi^{-1}\left(\left\{ 1_{G/N}\right\}\right) = N$이므로, $N\subset \pi^{-1}(H)$.
+- $\pi^{-1}(H)$는 아래의 조건을 만족하므로 $G$의 부분군이다.
+	* $1_G = 1_N\in N \subset \pi^{-1}(H)$.
+	* $x,y \in \pi^{-1}(H)$라고 하면, $\pi(x), \pi(y)\in H$, $\pi(xy)=\pi(x)\pi(y)\in H$이므로,
+	  $xy\in \pi^{-1}(H)$.
+	* $x\in \pi^{-1}(H)$라고 하면, $\pi(x)\in H$, $\pi(x^{-1}) = \pi(x)^{-1}\in H$이므로,
+	  $x^{-1}\in \pi^{-1}(H)$.
+
+따라서 $\pi^{-1}(H) \in Y$, $\phi$는 well-defined이다.
+
+다음으로, **$\psi$가 well-defined** 인 사상임을 보이자.
+$\phi$와 마찬가지로, 군 $G$의 $N$을 포함하는 부분군 $K\subset G$에 대하여
+$\pi(K)\in X$, 즉 $\pi(K)$가 $G/N$의 부분군임을 보이면 된다.
+$N$은 정규부분군이므로, 임의의 $g\in G$에 대하여 $gNg^{-1}\subset N$이 성립한다.
+따라서 임의의 $g\in K$에 대해서도 이가 성립할 것이므로, $K \vartriangleright N$.
+$K/N$은 $g\in K$인 $gN$의 집합이므로, $K/N\subset G/N$인 동시에,
+$\pi(K) = \left\{ gN \,|\, g\in K \right\} = K/N$이다. $\pi(K) = K/N$이 정규부분군 $N$에
+의하여 잉여군의 구조를 갖는
+것으로부터 $\pi(K)$는 $G/N$의 부분군이라는 것을 알 수 있으므로, $\pi(K)\in X$. 따라서
+$\psi$는 well-defined인 사상이다.
+
+마지막으로, **$\phi$와 $\psi$가 서로의 역사상** 임을 보이자.
+
+- 임의의 $H\in X$에 대하여 $(\psi\circ\phi)(H) = H$. 즉 $\pi(\pi^{-1}(H)) = H$.
+	* $\pi(\pi^{-1}(H))\subset H$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
+	* $\pi(\pi^{-1}(H))\supset H$: $h\in H$라고 하자. $\pi$의 전사성에 의하여,
+	  $h=\pi(g)$를 만족하는 $g\in G$가 존재한다. 따라서 $\pi(g)\in H$, $g\in \pi^{-1}(H)$이다.
+	  따라서 $h = \pi(g) \in \pi(\pi^{-1}(H))$.
+- 임의의 $K\in Y$에 대하여 $(\phi\circ\psi)(K) = K$. 즉 $K = \pi^{-1}(\pi(K))$.
+	* $K\subset \pi^{-1}(\pi(K))$: [집합의 기본 성질](./zfc.html#사상에-의한-상과-역상)로부터 분명.
+	* $K\supset \pi^{-1}(\pi(K))$: $g\in\pi^{-1}(\pi(K))$라고 하자.
+	  그렇다면, $\pi(g)\in\pi(K)$이고, $\pi(g) = \pi(k)$인 $k\in K$가 존재하게 된다.
+	  이는 $gN = kN$을 의미하고, $g=kn$인 $n\in N \subset K$가 존재함을 의미한다.
+	  따라서 $g\in K$. □
+
+### 준동형의 분해
+
+> **정리**. $\phi: G\to H$를 군의 준동형, $N\vartriangleleft G$이고
+> $\pi: G\to G/N$을 자연스러운 준동형이라고 할 때, 다음 두 조건은 동치이다.
+>
+> 1. $N\subset \text{Ker}(\phi)$
+> 1. $\phi = \psi\circ\pi$를 만족하는 준동형 $\psi: G/N\to H$가 존재한다.
+
+*증명*.
+
+**1에서 2를 유도**  
+제3동형정리에 의하여
+새로운 준동형사상 $f: G/N\to G/\text{Ker}(\phi)$가 존재하는 것을 알 수 있다.
+또한 준동형정리에 의하여 자연스러운 준동형 $\pi': G\to G/\text{Ker}(\phi)$이
+주어졌을 때, $\phi = \psi'\circ\pi'$를 만족하는 준동형
+$\psi': G/\text{Ker}(\phi)\to H$이 존재한다.
+여기서 $\pi' = f\circ\pi$가 성립하는 것은 분명하므로,
+$\phi = \psi'\circ\pi' = \psi'\circ f\circ\pi$ 가 성립한다.
+따라서 $\psi = \psi'\circ f$로 두면, $\psi$는 준동형이고, 2의 조건을 만족한다.
+
+**2에서 1을 유도**  
+$\phi = \psi\circ\pi$를 만족하는 준동형 $\psi$가 존재한다고 가정하면,
+$N = \text{Ker}(\pi) \subset \text{Ker}(\phi)$. □
+
 ## 환의 준동형정리
+
+
+
