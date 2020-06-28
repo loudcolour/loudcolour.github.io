@@ -2,3 +2,8 @@
 node_modules
 package-lock.json
 modules/__pycache__
+pdf/preamble_ko.tex
+pdf/preamble_ja.tex
+pdf/preamble_en.tex
+pdf/preamble_fr.tex
+
