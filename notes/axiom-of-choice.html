@@ -208,7 +208,7 @@ language: Korean
 <ol>
 <li>선택공리</li>
 <li>$A$가 공집합이 아닌 집합일 때, 모든 $x\in\mathscr{P}(A)\setminus\{\emptyset\}$에 대하여 $f(x)\in x$인 사상 $f:\mathscr{P}(A)\setminus\{\emptyset\}\to A$가 존재한다.</li>
-<li>공집합이 아닌 집합 $I$를 첨자역으로 하는 집합족 $\langle A_i | i\in I\rangle$에 대하여, $\forall i\in I, A_i \not=\emptyset$이라면, 곱집합 $\prod_{i\in I}A_i$또한 공집합이 아니다. 즉, 모든 $i\in I$에 대해 $g(i)\in A_i$인 선택 함수 $g:I\to\bigcup_{i\in I}A_i$가 존재한다.</li>
+<li>공집합이 아닌 집합 $I$를 첨자역으로 하는 집합족 $\left\{ A_i \,|\, i\in I\right\}$에 대하여, $\forall i\in I, A_i \not=\emptyset$이라면, 곱집합 $\prod_{i\in I}A_i$또한 공집합이 아니다. 즉, 모든 $i\in I$에 대해 $g(i)\in A_i$인 선택 함수 $g:I\to\bigcup_{i\in I}A_i$가 존재한다.</li>
 </ol>
 </blockquote>
 <p><em>증명</em>.</p>
@@ -217,19 +217,31 @@ language: Korean
 <p><strong>2에서 3을 유도</strong><br />
 $X=\bigcup_{i\in I} A_i$ 라고 두면, $X\not=\emptyset$이다. 따라서 $\forall x\in \mathscr{P}(X)\setminus\left\{\emptyset\right\}$에 대하여, $f(x)\in x$인 사상 $f:\mathscr{P}(X)\setminus\left\{\emptyset\right\}\to X$가 존재한다. $\forall i\in I$에 대해 $A_i\in \mathscr{P}(X)\setminus\left\{\emptyset\right\}$이므로, $f(A_i)\in A_i$가 성립한다. 여기서 $g:I\to X$, $i\mapsto f(A_i)$와 같은 사상을 정의하면, $g(i)\in A_i$이므로 각 $i\in I$에 대해 해당하는 $g(i)$를 선택하여 $g(i)$로 순서쌍 $o(g)$을 만들면 $o(g)\in\prod_{i\in I}A_i$, 따라서 $\prod_{i\in I}A_i\not=\emptyset$</p>
 <p><strong>3에서 1을 유도</strong><br />
-$A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\rangle$와 같다. 따라서, 모든 $x\in A$에 대해 $g(x)\in x$를 만족하는 사상 $g:A\to\bigcup A$가 존재하고, 이는 선택공리의 진술과 같다. □</p>
+$A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\left\{ x \,|\, x\in A\right\}$와 같다. 따라서, 모든 $x\in A$에 대해 $g(x)\in x$를 만족하는 사상 $g:A\to\bigcup A$가 존재하고, 이는 선택공리의 진술과 같다. □</p>
 <blockquote>
 <p><strong>명제</strong>. $\textsf{ZF}$ 상에서 다음은 모두 동치이다.</p>
 <ol>
 <li>선택공리</li>
 <li><a href="./zorns-lemma.html">Zorn의 보조정리 (Zorn's lemma)</a></li>
 <li><a href="./well-ordered.html#정렬정리">정렬정리 (well-ordering theorem)</a></li>
-<li>집합의 비교정리</li>
 </ol>
 </blockquote>
-<p><em>증명</em>. 1 $\implies$ 2 $\implies$ 3$\implies$ 4$\implies$ 1을 보인다.</p>
+<p><em>증명</em>. 1 $\implies$ 2 $\implies$ 3$\implies$ 1을 보인다.</p>
 <h2 id="선택공리로부터-유도되는-명제">선택공리로부터 유도되는 명제</h2>
+<p>$\textsf{ZF}$ 상에서, 다음과 같은 명제들이 선택공리로부터 유도된다.</p>
 <ul>
+<li>기수(cardinal)를 정의할 수 있다. 즉, 임의의 집합 $X, Y$에 대하여, $|X|\leq |Y|$혹은 $|X|\geq |Y|$가 성립한다.</li>
+<li>임의의 무한집합 $X$에 대하여 $|X^2| = |X|$ 이다. 즉, 임의의 기수 $\kappa$에 대하여 $\kappa^2 =\kappa$. 동시에 선택공리와 동치이다.</li>
+<li>임의의 무한집합 $X$는 가산집합인 부분집합을 갖는다. 따라서 임의의 기수 $\kappa$에 대하여 $\aleph_0 \leq \kappa$.</li>
+<li>가산집합인 $\Lambda$를 첨자역으로하는 집합족 $ \left\{ A_\lambda \,|\, \lambda\in\Lambda \right\}$에 대하여, 모든 $A_\lambda$가 가산집합이라면 $\bigcup_{\lambda\in\Lambda}A_\lambda$ 역시 가산집합이다.</li>
+<li><a href="./basis-of-vector-space.html#벡터공간의-기저의-존재">임의의 벡터공간에는 기저가 존재</a>한다. 동시에 선택공리와 동치이다.
+<ul>
+<li>$\mathbb{Q}$상의 벡터공간 $\R$ 역시 기저를 갖는다. 이를 이용하면, $f(x+y) = f(x) + f(y)$ 혹은 $f(x+y) = f(x)f(y)$를 만족하는 동시에 연속이지 않은 함수 $f$를 만드는 것이 가능하다.</li>
+</ul></li>
+<li>Lebesgue 측도를 갖지 않는 집합이 존재한다.
+<ul>
+<li>Banach-Tarski의 역설: 구를 유한개의 조각으로 쪼개어, 쪼갠 조각을 다시 붙여서 원래의 구와 같은 크기의 구 2개를 만들 수 있다. Lebesgue 측도를 갖지 않는 집합이 존재하지 않으므로, 모순없이 이런 조작이 가능하다.</li>
+</ul></li>
 <li>의존선택공리 (axiom of dependent choice, $\textsf{DC}$)</li>
 <li>가산선택공리 (axiom of countable choice, $\textsf{AC}_\omega$)
 <ul>
@@ -240,7 +252,7 @@ $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\langle x | x\in A\ran
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-24T08:37:09+0900</code></a>
+    Last modified: <code>2020-06-28T09:05:54+0900</code></a>
 </p>
 <hr>
 
