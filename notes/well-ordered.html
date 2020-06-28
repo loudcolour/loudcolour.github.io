@@ -184,6 +184,7 @@
 <li><a href="#정렬집합">정렬집합</a>
 <ul>
 <li><a href="#정렬집합의-비교정리">정렬집합의 비교정리</a></li>
+<li><a href="#정렬집합의-구성정리">정렬집합의 구성정리</a></li>
 <li><a href="#정렬정리">정렬정리</a></li>
 </ul></li>
 </ul>
@@ -275,6 +276,15 @@ $$</p>
 <p>$c\in X_1$, $a\in X_1$, $c&lt;a$일 때 $X \langle a \rangle$와 동형인 $Y \langle b \rangle$는 $X \langle c \rangle$와 동형인 $Y \langle d \rangle$을 부분집합으로 두는 것을 위에서 설명한 기본적인 명제를 통해 알 수 있다. 따라서 $f(c) = d$이고 $f(c) = d &lt; b = f(a)$이므로, $f$는 순서를 보존하는 사상이다. 동시에 $f$와 같은 방법으로 순서를 보존하는 사상 $g: Y_1\to X_1$을 정의할 수 있고, $g\circ f$와 $f\circ g$가 모두 항등사상이 되는 것을 통하여, $f$와 $g$는 서로의 역사상이므로 $f$는 전단사라는 것을 알 수 있다. 따라서 $X_1 \simeq Y_1$이 성립한다.</p>
 <p>만약, $p\in X$와 $q\in Y$가 존재하여 $X_1 = X \langle p \rangle$, $Y_1 = Y \langle q \rangle$라고 하면, $X_1$과 $Y_1$의 정의상 $p\in X_1$, $q\in Y_1$이게 되므로, 이는 모순.</p>
 <p>$X_1 = X$, $Y_1 = Y$라면 $X\simeq Y$이게 되므로, $X\not\simeq Y$인 경우에는 $X_1$과 $Y_1$의 한 쪽은 $X$나 $Y$의 전체, 다른 한 쪽은 남은 한 쪽의 절편이 되는 경우밖에 남지 않는다. □</p>
+<h2 id="정렬집합의-구성정리">정렬집합의 구성정리</h2>
+<blockquote>
+<p><strong>정리</strong>. 집합족 $ \left\{ W_\lambda \right\}_{\lambda\in\Lambda}$에 대하여 $W_\lambda\subset A$이고, 각 $W_\lambda$에는 순서 $\leq_{\lambda}$가 존재하여 $(W_\lambda, \leq_\lambda)$가 정렬집합을 이루고 있다고 하자. 동시에 $\lambda\neq\lambda'$일 때, $W_\lambda$와 $W_{\lambda'}$의 한쪽이 다른 한쪽의 절편과 일치한다면, 다음이 성립한다. (단, $W = \bigcup_{\lambda\in\Lambda}W_\lambda$이다.)</p>
+<ul>
+<li>임의의 $x,y\in W$에 대하여 $x,y\in W_\lambda$인 $\lambda\in\Lambda$가 존재한다.</li>
+<li>특히, $x,y\in W$에 대하여 $x\leq y \iff x\leq_\lambda y $로 순서 $\leq$를 정의하면 $(W,\leq)$는 정렬집합이 된다.</li>
+<li>각 $\lambda\in\Lambda$에 대하여 $(W_\lambda, \leq_\lambda)$는 $(W, \leq)$ 혹은 $(W,\leq)$의 절편과 일치한다.</li>
+</ul>
+</blockquote>
 <h2 id="정렬정리">정렬정리</h2>
 <blockquote>
 <p><strong>정리</strong>(정렬정리). <a href="./axiom-of-choice.html">선택공리</a>를 가정하면, 임의의 집합 $A$에 대하여 $(A,\leq)$가 정렬집합이 되도록 하는 적절한 $A$상의 순서 $\leq$가 존재한다.</p>
@@ -283,7 +293,7 @@ $$</p>
 <hr>
 <p>
     Category: <a href="../category/Mathematics.html">Mathematics</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-24T08:41:27+0900</code></a>
+    Last modified: <code>2020-06-28T15:32:04+0900</code></a>
 </p>
 <hr>
 

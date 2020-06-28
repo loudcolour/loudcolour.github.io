@@ -84,3 +84,9 @@ $\textsf{ZF}$ 상에서, 다음과 같은 명제들이 선택공리로부터 유
 - 가산선택공리 (axiom of countable choice, $\textsf{AC}_\omega$)
 	* 의존선택공리로부터 유도된다. 즉, $\textsf{AC}\implies\textsf{DC}\implies\textsf{AC}_\omega$
 
+## 참고문헌
+
+- [Andreas Blass, *Existence of bases implies the axiom of choice*](http://www.math.lsa.umich.edu/~ablass/bases-AC.pdf)
+- [Steven G. Johnson, *Notes on discontinuous $f(x)$ satisfying $f(x+y) = f(x)· f(y)$* ](https://math.mit.edu/~stevenj/exponential.pdf)
+
+

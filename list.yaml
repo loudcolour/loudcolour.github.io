@@ -11,7 +11,7 @@ archlinux:
 axiom-of-choice:
   category: Mathematics
   language: Korean
-  mtime: 1593302754
+  mtime: 1593325928
   title: "\uC120\uD0DD\uACF5\uB9AC"
 basel-problem:
   category: Mathematics
@@ -28,6 +28,11 @@ bernstein:
   language: Korean
   mtime: 1592579653
   title: "Bernstein\uC758 \uC815\uB9AC"
+cardinality:
+  category: Mathematics
+  language: Korean
+  mtime: 1593302922
+  title: "\uC9D1\uD569\uC758 \uB18D\uB3C4"
 continuous-function:
   category: Mathematics
   language: Korean
@@ -239,7 +244,7 @@ vim:
 well-ordered:
   category: Mathematics
   language: Korean
-  mtime: 1592955687
+  mtime: 1593325924
   title: "\uC815\uB82C\uC9D1\uD569"
 zfc:
   category: Mathematics
@@ -249,5 +254,5 @@ zfc:
 zorns-lemma:
   category: Mathematics
   language: Korean
-  mtime: 1592129953
+  mtime: 1593325919
   title: "Zorn\uC758 \uBCF4\uC870\uC815\uB9AC"

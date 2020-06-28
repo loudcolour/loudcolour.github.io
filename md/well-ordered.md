@@ -149,6 +149,18 @@ $X_1 = X$, $Y_1 = Y$라면 $X\simeq Y$이게 되므로, $X\not\simeq Y$인 경�
 $X_1$과 $Y_1$의 한 쪽은 $X$나 $Y$의 전체, 다른 한 쪽은 남은 한 쪽의 절편이 되는
 경우밖에 남지 않는다. □
 
+## 정렬집합의 구성정리
+
+> **정리**. 집합족 $ \left\{ W_\lambda \right\}_{\lambda\in\Lambda}$에 대하여 $W_\lambda\subset A$이고,
+> 각 $W_\lambda$에는 순서 $\leq_{\lambda}$가 존재하여 $(W_\lambda, \leq_\lambda)$가 정렬집합을 이루고 있다고 하자.
+> 동시에 $\lambda\neq\lambda'$일 때, $W_\lambda$와 $W_{\lambda'}$의 한쪽이 다른 한쪽의 절편과 일치한다면,
+> 다음이 성립한다. (단, $W = \bigcup_{\lambda\in\Lambda}W_\lambda$이다.)
+>
+> - 임의의 $x,y\in W$에 대하여 $x,y\in W_\lambda$인 $\lambda\in\Lambda$가 존재한다.
+> - 특히, $x,y\in W$에 대하여 $x\leq y \iff x\leq_\lambda y $로 순서 $\leq$를 정의하면
+>   $(W,\leq)$는 정렬집합이 된다.
+> - 각 $\lambda\in\Lambda$에 대하여 $(W_\lambda, \leq_\lambda)$는 $(W, \leq)$ 혹은 $(W,\leq)$의 절편과 일치한다.
+
 ## 정렬정리
 
 > **정리**(정렬정리). [선택공리](./axiom-of-choice.html)를 가정하면, 임의의 집합 $A$에 대하여
