@@ -97,7 +97,7 @@ $\text{Im}(\det) = \R^{\times}$, $\text{Ker}(\det) = \text{SL}_n(\R)$과
 > 1. $HN = NH$이다.
 > 1. $HN$은 $G$의 부분군이다.
 > 1. $H\cap N \vartriangleleft H$, $N\vartriangleleft HN$
-> 1. $H/H\cap N\cong HN/N $
+> 1. $H/H\cap N\cong HN/N$
 
 *증명*.
 
@@ -131,7 +131,7 @@ $m\Z/L\Z = H/H\cap N \cong HN / N = G\Z/n\Z$이 성립하는 것을 알 수 있�
 
 > **정리**(제3동형정리).
 > 군 $G$에 대하여, $H\vartriangleleft G$, $N\vartriangleleft G$,
-> $H\subset N$이라면, $ \left( G/N \right)/ \left( H/N \right) \cong G/H$
+> $H\subset N$이라면, $\left( G/N \right)/ \left( H/N \right) \cong G/H$
 
 *증명*.
 사상 $\phi: G/N \ni gN \mapsto gH \in G/H$ 가 well-defined인 사상임을 보이도록 하자.

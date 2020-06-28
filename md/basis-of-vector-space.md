@@ -11,7 +11,7 @@ category: Mathematics
 > **정의**. 체 $K$ 상의 벡터공간 $V$가 주어졌을 때, 집합 $X\subset V$가 $V$의
 > 기저(basis)라는 것은, 다음을 동시에 만족하는 것을 의미한다.
 >
-> 1. $X$에 원소가 존재한다면 각 원소가 선형독립
+> 1. $X$가 선형독립
 > 2. $\langle X \rangle = V$
 
 만약 $X = \left\{ x_1, x_2, \ldots x_n \right\} $이 $V$의 기저라면,
