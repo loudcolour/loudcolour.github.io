@@ -11,7 +11,7 @@ language: Korean
 > **정의**(근방). $x=x_0\in\R$을 중심으로 하는 반경 $R$의 근방 $N(x_0, R)$을
 > $N(x_0, R):= \left\{ x\in \R \,|\, \left|x-x_0\right| < R \right\}$과 같이 정의한다.
 
-> **정의**(함수의 극한). $x_0\in \R$이 주어졌을 때,
+> **정의**($\varepsilon$-$\delta$ 논법에 의한 함수의 극한). $x_0\in \R$이 주어졌을 때,
 > 어떤 $R\in\R$이 존재하여, 함수 $f$가 $N(x_0, R)\setminus \left\{ x_0 \right\}$
 > 에서 정의되어 있다고 하자. 이 때, $\lim_{x\to x_0}f(x) = \alpha$란, 다음이 성립하는
 > 것을 의미한다.
@@ -20,6 +20,9 @@ $$
 \left\{x_0\right\} \implies f(x) \in N(\alpha, \varepsilon)
 \right]
 $$
+
+만약, $\lim_{x\to x_0} f(x)$가 실수로 존재한다면, $f(x)$는 $x\to x_0$에서 수렴,
+존재하지 않는다면, $x\to x_0$에서 발산한다고 한다.
 
 > **정의**(함수의 극한, 무한의 경우). 어떤 $a\in\R$에 대하여
 > $f: \left( a,\infty \right) \to \R$이 주어졌을 때,

@@ -30,4 +30,3 @@ language: Korean
 
 ### 소인수분해
 
-## 국소화

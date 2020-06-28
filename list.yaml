@@ -36,7 +36,7 @@ cardinality:
 continuous-function:
   category: Mathematics
   language: Korean
-  mtime: 1593042539
+  mtime: 1593334052
   title: "\uC5F0\uC18D\uD568\uC218"
 derivate:
   category: Mathematics
@@ -129,11 +129,6 @@ homomorphism-theorem:
   language: Korean
   mtime: 1593258254
   title: "\uC900\uB3D9\uD615, \uB3D9\uD615\uC815\uB9AC"
-intermediate-value-theorem:
-  category: Mathematics
-  language: Korean
-  mtime: 1593068917
-  title: "\uC911\uAC04\uAC12\uC815\uB9AC"
 katex:
   category: Typesetting
   language: Korean
@@ -158,8 +153,13 @@ latex-matrix:
 limit-function:
   category: Mathematics
   language: Korean
-  mtime: 1593246428
+  mtime: 1593336300
   title: "\uD568\uC218\uC758 \uADF9\uD55C"
+limit-sequence:
+  category: Mathematics
+  language: Korean
+  mtime: 1593336298
+  title: "\uC218\uC5F4\uC758 \uADF9\uD55C"
 linear-map:
   category: Mathematics
   language: Korean
@@ -193,7 +193,7 @@ regex:
 ring:
   category: Mathematics
   language: Korean
-  mtime: 1593176616
+  mtime: 1593326501
   title: "\uD658"
 segment-tree:
   category: Algorithms

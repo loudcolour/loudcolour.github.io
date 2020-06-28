@@ -4,6 +4,8 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/archlinux.html</loc><lastmod>2020-06-06</lastmod>
 </url><url>
+<loc>https://loudcolour.github.io/notes/axiom-of-choice.html</loc><lastmod>2020-06-28</lastmod>
+</url><url>
 <loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-04-27</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/basis-of-vector-space.html</loc><lastmod>2020-06-28</lastmod>
@@ -12,7 +14,7 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/cardinality.html</loc><lastmod>2020-06-28</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/continuous-function.html</loc><lastmod>2020-06-25</lastmod>
+<loc>https://loudcolour.github.io/notes/continuous-function.html</loc><lastmod>2020-06-28</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/derivate.html</loc><lastmod>2020-06-25</lastmod>
 </url><url>
@@ -50,8 +52,6 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/homomorphism-theorem.html</loc><lastmod>2020-06-27</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/intermediate-value-theorem.html</loc><lastmod>2020-06-25</lastmod>
-</url><url>
 <loc>https://loudcolour.github.io/notes/katex.html</loc><lastmod>2020-06-15</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/korean-spacing.html</loc><lastmod>2020-06-14</lastmod>
@@ -59,8 +59,6 @@
 <loc>https://loudcolour.github.io/notes/latex-font.html</loc><lastmod>2020-06-15</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/latex-matrix.html</loc><lastmod>2020-06-15</lastmod>
-</url><url>
-<loc>https://loudcolour.github.io/notes/limit-function.html</loc><lastmod>2020-06-27</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/linear-map.html</loc><lastmod>2020-06-19</lastmod>
 </url><url>
@@ -74,7 +72,7 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/regex.html</loc><lastmod>2020-06-13</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/ring.html</loc><lastmod>2020-06-26</lastmod>
+<loc>https://loudcolour.github.io/notes/ring.html</loc><lastmod>2020-06-28</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/segment-tree.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
@@ -94,11 +92,13 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/vim.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
+<loc>https://loudcolour.github.io/notes/well-ordered.html</loc><lastmod>2020-06-28</lastmod>
+</url><url>
 <loc>https://loudcolour.github.io/notes/zfc.html</loc><lastmod>2020-06-21</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/zorns-lemma.html</loc><lastmod>2020-06-28</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/well-ordered.html</loc><lastmod>2020-06-28</lastmod>
+<loc>https://loudcolour.github.io/notes/limit-sequence.html</loc><lastmod>2020-06-28</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/axiom-of-choice.html</loc><lastmod>2020-06-28</lastmod>
+<loc>https://loudcolour.github.io/notes/limit-function.html</loc><lastmod>2020-06-28</lastmod>
 </url></urlset>
