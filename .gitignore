@@ -8,3 +8,4 @@ pdf/preamble_en.tex
 pdf/preamble_fr.tex
 pdf/*.aux
 pdf/*.log
+pdf/*.out
