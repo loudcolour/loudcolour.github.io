@@ -64,6 +64,8 @@ $A$ 그 자체는 $A$를 첨자역으로하는 집합족 $\left\{ x \,|\, x\in A
 > 1. [정렬정리 (well-ordering theorem)](./well-ordered.html#정렬정리)
 
 *증명*. 1 $\implies$ 2 $\implies$ 3$\implies$ 1을 보인다.
+1 $\implies$ 2는 [Zorn의 보조정리의 증명](./zorns-lemma.html)을,
+2 $\implies$ 3과 3 $\implies$ 1 은 [정렬정리의 증명](./well-ordered.html#정렬정리)을 참고. □
 
 ## 선택공리로부터 유도되는 명제
 
