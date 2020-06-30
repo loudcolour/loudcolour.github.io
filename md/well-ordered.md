@@ -159,10 +159,102 @@ $X_1$과 $Y_1$의 한 쪽은 $X$나 $Y$의 전체, 다른 한 쪽은 남은 한 
 > - 임의의 $x,y\in W$에 대하여 $x,y\in W_\lambda$인 $\lambda\in\Lambda$가 존재한다.
 > - 특히, $x,y\in W$에 대하여 $x\leq y \iff x\leq_\lambda y $로 순서 $\leq$를 정의하면
 >   $(W,\leq)$는 정렬집합이 된다.
-> - 각 $\lambda\in\Lambda$에 대하여 $(W_\lambda, \leq_\lambda)$는 $(W, \leq)$ 혹은 $(W,\leq)$의 절편과 일치한다.
+> - 각 $\lambda\in\Lambda$에 대하여
+>   $(W_\lambda, \leq_\lambda)$는 $(W, \leq)$ 혹은 $(W,\leq)$의 절편과 일치한다.
+
+*증명*. $x,y\in W$에 대하여, $x\in W_{\lambda_1}$, $y\in W_{\lambda_2}$
+가 성립하고 있다고 하자.
+가정으로부터 $W_{\lambda_1} \subset W_{\lambda_2}$ 혹은
+$W_{\lambda_1} \supset W_{\lambda_2}$
+이 성립한다. 따라서 $x,y\in W_\lambda$인 $\lambda\in\Lambda$가 존재한다.
+또한, $x,y\in W_\lambda$인 동시에 $x,y\in W_\mu$가 성립한다면,
+한쪽이 다른 한쪽의 절편에 일치하므로 $x\leq_\lambda y \iff x\leq_\mu y$가 성립하여,
+순서 $\leq$를 위와 같이 잘 정의할 수 있다.
+순서 $\leq$는 모든 $x,y\in W$에 대하여 비교가능이므로 전순서이다.
+
+다음으로, $(W, \leq)$가 정렬집합이라는 것을 보이자.
+$M\neq\emptyset$을 $W$의 부분집합이라고 하여, $\min W$가 존재하는 것을 보이면 된다.
+$M\neq\emptyset$이므로, $M\cap W_\lambda \neq\emptyset$인 $\lambda\in\Lambda$가
+존재한다. 이 때, $(W_\lambda,\leq_\lambda)$가 정렬집합이라는 사실으로부터,
+그 부분집합인 $M\cap W_\lambda$의 최소원소 $a:=\min M\cap W_\lambda$가 존재한다.
+여기서 $a = \min M$인 것을 보이자. $x\in M$에 대하여,
+
+- $x\in W_\lambda$인 경우: $x\in M\cap W_\lambda$이므로, 정의에 따라 $a\leq_\lambda x$,
+$a\leq x$
+- $x\notin W_\lambda$인 경우: $x\in W_{\lambda'}$인 $\lambda'\in\Lambda$가 존재한다.
+이 때, $\lambda\neq\lambda'$, $W_{\lambda'}\not\subset W_\lambda$이 성립하므로,
+$W_\lambda$가 $W_{\lambda'}$의 절편이라는 사실을 알 수 있다.
+따라서 $a\in W_\lambda$, $x\in W_{\lambda'}\setminus W_\lambda$이므로,
+$a\leq_{\lambda'} x$, $a\leq x$.
+
+따라서 $M$에는 최소원소가 존재하므로, $(W,\leq)$는 정렬집합이다.
+
+마지막으로, 임의의 $(W_\lambda, \leq_\lambda)$는 $(W, \leq)$이거나 $(W, \leq)$의 절편과
+일치함을 보이자.
+만약, 모든 $W_\lambda$에 대하여 $W_\lambda\subset W_\mu$이 성립한다면,
+$W_\mu = W$, $(W_\mu, \leq_\mu) = (W, \leq)$는 분명하다.
+그렇지 않은 경우,
+$W_\mu \subsetneq W$일 것이고, $(W_\mu, \leq_\mu)$는 $(W, \leq)$의 부분순서집합이 될 것이다.
+여기서, $(W_\mu, \leq_\mu)$가 $(W, \leq)$의 절편이라는 것을 보이기 위해서는,
+$\forall x\in W_\mu, \forall y\in W \left[ x>y \implies y\in W_\mu \right]$를
+보이면 된다.
+$x,y\in W_{\mu'}$가 성립한다고 하자. 그렇다면, $\mu = \mu'$, 혹은 $(W_{\mu}, \leq_{\mu})$가
+$(W_{\mu'}, \leq_{\mu'})$의 절편, 혹은 $(W_{\mu'}, \leq_{\mu'})$가
+$(W_{\mu}, \leq_{\mu})$의 절편일 것이다.
+
+- $\mu = \mu'$ 혹은 $(W_{\mu'}, \leq_{\mu'})$가 $(W_{\mu}, \leq_{\mu})$의 절편:
+$y\in W_{\mu'}$이므로, $y\in W_{\mu}$가 성립한다.
+- $(W_{\mu}, \leq_{\mu})$가 $(W_{\mu'}, \leq_{\mu'})$의 절편:
+$x\in W_{\mu}, y\in W_{\mu'}$이고, $W_{\mu}$는 $W_{\mu'}$의 절편이므로,
+$y>_{\mu'}x\implies y\in W_{\mu}$가 성립. 따라서 $y>x$이면, $y\in W_{\mu}$. □
 
 ## 정렬정리
 
 > **정리**(정렬정리). [선택공리](./axiom-of-choice.html)를 가정하면, 임의의 집합 $A$에 대하여
 > $(A,\leq)$가 정렬집합이 되도록 하는 적절한 $A$상의 순서 $\leq$가 존재한다.
+
+*증명*. 어떤 집합 $A$에 대하여, $A$의 부분집합인 동시에 정렬집합인 집합의 집합을 
+$\mathscr{A}$로 두자. 이 때, $\mathscr{A}\neq\emptyset$이다.
+두 정렬집합 $(W,\leq), (W', \leq')\in\mathscr{A}$에 대하여,
+$(W, \leq) = (W', \leq')$이거나 $(W,\leq)$가 $(W',\leq')$의 절편일 때,
+이항관계 $(W, \leq) \rho (W', \leq')$가 성립한다고하자.
+여기서 $\rho$가 순서관계라는 사실은 간단하게 확인할 수 있다.
+
+실제로, $(\mathscr{A}, \rho)$는 귀납적인 순서집합이다.
+$(\mathscr{A}, \rho)$상의 임의의 사슬 $K$에 대하여 $\bigcup K$는
+정렬집합의 구성정리에 의하여 새로운 정렬집합을 이루고,
+$\bigcup K$가 $K$의 상한이 됨을 알 수 있다.
+[Zorn의 보조정리](./zorns-lemma.html)을 적용하면, $\mathscr{A}$는 극대원소를 가지므로,
+이를 $(W^*, \leq^*)$로 두자.
+
+여기서 $A = W^*$임을 보이면, $\leq^*$가 $A$의 정렬순서가 됨을 알 수 있다.
+이를 보이기 위하여 $A\neq W^*$를 가정하자.
+그렇다면, $A\setminus W^* \neq\emptyset$이므로, 적당한 $a\in A\setminus W^*$가 존재하여,
+$W^{**} := W^* \cup \left\{ a \right\}$로 두고, 어떠한 $x\in W^*$에 대해서도
+$x\leq^{**} a$가 성립하도록 $\leq^*$를 확장하여 $\leq^{**}$를 정의하면,
+$(W^{**}, \leq^{**})\in \mathscr{A}$인 동시에 $(W^*, \leq^*)\rho(W^{**}, \leq^{**})$,
+$(W^*, \leq^*)\neq(W^{**}, \leq^{**})$ 가 성립하므로 이는 $(W^*, \leq^*)$가
+극대원소라는 것에 모순이다. 따라서 $A = W^*$이고 $A$에는 정렬순서가 존재한다. □
+
+> **따름정리**. 임의의 두 집합의 농도를 비교할 수 있다.
+
+*증명*. 집합 $A, B$를 가정하자. 여기서 $|A| < |B|$, $|A| = |B|$, $|A| > |B|$가
+동시에 성립하지 않는 것은 분명하다.
+정렬정리에 의하여 $A$와 $B$에 각각 정렬순서 $\leq_A$와 $\leq_B$를 부여하면,
+정렬집합의 비교정리에 의하여 $A$에서 $B$로의 단사와 $B$에서 $A$로의 단사 중
+적어도 하나가 존재하는 것을 알 수 있다. □
+
+> **명제**(선택공리의 유도). 정렬정리로부터 선택공리가 유도된다.
+
+*증명*.
+각 $\lambda\in\Lambda$에 대하여 $A_\lambda\neq\emptyset$인
+집합족 $ \left\{ A_\lambda \right\}_{\lambda\in\Lambda}$가 주어졌다고 하자.
+이 때, $A := \bigcup_{\lambda\in\Lambda} A_\lambda$ 라고 두면,
+정렬정리에 의하여 $A$에 정렬순서를 부여할 수 있다. 이를 $(A,\leq)$라고 하면,
+각 $A_\lambda$는 $A$의 공집합이 아닌 부분집합이므로, $\min_{\leq} A_\lambda$가 존재한다.
+따라서, 사상
+$s: \Lambda\to \bigcup_{\lambda\in\Lambda} A_\lambda, \lambda\mapsto \min_{\leq}A_\lambda$
+을 구성하면, 임의의 $\lambda\in\Lambda$에 대하여
+$s(\lambda)\in A_{\lambda}$가 성립하므로, 이는 선택사상이고,
+선택공리가 성립하는 것을 알 수 있다. □
 
