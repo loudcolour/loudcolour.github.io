@@ -73,42 +73,6 @@ fibonacci:
   language: Korean
   mtime: 1592407901
   title: "Fibonacci \uC218\uC5F4"
-french-adjective:
-  category: French
-  language: Korean
-  mtime: 1592224989
-  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uD615\uC6A9\uC0AC"
-french-honorific:
-  category: French
-  language: Korean
-  mtime: 1592140672
-  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uD638\uCE6D"
-french-interrogative:
-  category: French
-  language: Korean
-  mtime: 1593064095
-  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uC758\uBB38\uBB38"
-french-nation:
-  category: French
-  language: Korean
-  mtime: 1592208104
-  title: "\uD504\uB791\uC2A4\uC5B4\uC5D0\uC11C\uC758 \uAD6D\uBA85, \uAD6D\uC801, \uC5B8\
-    \uC5B4"
-french-nouns:
-  category: French
-  language: Korean
-  mtime: 1592226535
-  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uBA85\uC0AC"
-french-pronunciation:
-  category: French
-  language: Korean
-  mtime: 1592174663
-  title: "\uD504\uB791\uC2A4\uC5B4 \uBC1C\uC74C"
-french-verbs:
-  category: French
-  language: Korean
-  mtime: 1592180808
-  title: "\uD504\uB791\uC2A4\uC5B4\uC758 \uB3D9\uC0AC"
 fzf:
   category: Linux
   language: Korean
