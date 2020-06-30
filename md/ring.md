@@ -1,6 +1,6 @@
 <!---
 title: "환"
-category: Mathematics
+category: Algebra
 language: Korean
 --->
 

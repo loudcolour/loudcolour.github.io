@@ -1,6 +1,6 @@
 <!---
 title: 군
-category: Mathematics
+category: Algebra
 language: Korean
 --->
 

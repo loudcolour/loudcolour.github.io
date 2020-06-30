@@ -1,6 +1,6 @@
 <!---
 title: "적분표"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

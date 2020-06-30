@@ -1,6 +1,6 @@
 <!---
 title: "Zorn의 보조정리"
-category: Mathematics
+category: Set Theory
 language: Korean
 --->
 

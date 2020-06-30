@@ -1,6 +1,6 @@
 <!---
 title: "급수"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

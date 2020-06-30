@@ -1,6 +1,6 @@
 <!---
 title: '준동형과 동형'
-category: Mathematics
+category: Algebra
 language: Korean
 --->
 

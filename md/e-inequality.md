@@ -1,7 +1,7 @@
 <!---
 title: '$n!>\left( \frac{n}{e} \right)^n$'
 language: Korean
-category: Mathematics
+category: Analysis
 --->
 
 # $n!>\left( \frac{n}{e} \right)^n$

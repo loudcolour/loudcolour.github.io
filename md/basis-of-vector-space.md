@@ -1,7 +1,7 @@
 <!---
 title: 벡터공간의 기저
 language: Korean
-category: Mathematics
+category: Linear Algebra
 --->
 
 # 벡터공간의 기저

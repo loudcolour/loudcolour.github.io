@@ -1,6 +1,6 @@
 <!---
 title: '$1,\ldots,n$의 최소공배수'
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

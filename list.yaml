@@ -9,39 +9,44 @@ archlinux:
   mtime: 1591371288
   title: "Arch Linux \uC124\uCE58 \uCCB4\uD06C\uB9AC\uC2A4\uD2B8"
 axiom-of-choice:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1593526831
+  mtime: 1593528138
   title: "\uC120\uD0DD\uACF5\uB9AC"
 basel-problem:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1587925309
+  mtime: 1593527602
   title: "Basel \uBB38\uC81C"
 basis-of-vector-space:
-  category: Mathematics
+  category: Linear Algebra
   language: Korean
-  mtime: 1593485442
+  mtime: 1593528111
   title: "\uBCA1\uD130\uACF5\uAC04\uC758 \uAE30\uC800"
 bernstein:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1592579653
+  mtime: 1593527837
   title: "Bernstein\uC758 \uC815\uB9AC"
 cardinality:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1593302922
+  mtime: 1593527979
   title: "\uC9D1\uD569\uC758 \uB18D\uB3C4"
 continuous-function:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1593334052
+  mtime: 1593528031
   title: "\uC5F0\uC18D\uD568\uC218"
-derivate:
-  category: Mathematics
+crt:
+  category: Algebra
   language: Korean
-  mtime: 1593069088
+  mtime: 1593527461
+  title: "\uC911\uAD6D\uC778\uC758 \uB098\uBA38\uC9C0\uC815\uB9AC"
+derivate:
+  category: Analysis
+  language: Korean
+  mtime: 1593527940
   title: "\uBBF8\uBD84"
 dfs-bfs:
   category: Algorithms
@@ -49,14 +54,14 @@ dfs-bfs:
   mtime: 1592056824
   title: "DFS\uC640 BFS"
 dn-lcm:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1589293871
+  mtime: 1593527640
   title: "$1,\\ldots,n$\uC758 \uCD5C\uC18C\uACF5\uBC30\uC218"
 e-inequality:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1592043714
+  mtime: 1593527713
   title: $n!>\left( \frac{n}{e} \right)^n$
 entropy:
   category: CompSci
@@ -69,35 +74,45 @@ fft:
   mtime: 1592056865
   title: "\uBE60\uB978 Fourier \uBCC0\uD658"
 fibonacci:
-  category: Mathematics
+  category: Algebra
   language: Korean
-  mtime: 1592407901
+  mtime: 1593527760
   title: "Fibonacci \uC218\uC5F4"
 fzf:
   category: Linux
   language: Korean
   mtime: 1592065751
   title: fzf
-group:
-  category: Mathematics
+graph:
+  category: Graph Theory
   language: Korean
-  mtime: 1592852015
+  mtime: 1593530400
+  title: "\uADF8\uB798\uD504"
+group:
+  category: Algebra
+  language: Korean
+  mtime: 1593527881
   title: "\uAD70"
 homomorphism:
-  category: Mathematics
+  category: Algebra
   language: Korean
-  mtime: 1593179328
+  mtime: 1593527961
   title: "\uC900\uB3D9\uD615\uACFC \uB3D9\uD615"
 homomorphism-theorem:
-  category: Mathematics
+  category: Algebra
   language: Korean
-  mtime: 1593387722
+  mtime: 1593528088
   title: "\uC900\uB3D9\uD615, \uB3D9\uD615\uC815\uB9AC"
 katex:
   category: Typesetting
   language: Korean
   mtime: 1592160925
   title: "$\\KaTeX$ \uC801\uC6A9\uD558\uAE30"
+konig:
+  category: Graph Theory
+  language: Korean
+  mtime: 1593530044
+  title: "K\u0151nig\uC758 \uBCF4\uC870\uC815\uB9AC"
 korean-spacing:
   category: Korean
   language: Korean
@@ -115,29 +130,34 @@ latex-matrix:
   mtime: 1592158779
   title: "$\\LaTeX$\uC5D0\uC11C \uD589\uB82C \uD45C\uC2DC\uD558\uAE30"
 limit-function:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1593336300
+  mtime: 1593528070
   title: "\uD568\uC218\uC758 \uADF9\uD55C"
 limit-sequence:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1593336298
+  mtime: 1593528054
   title: "\uC218\uC5F4\uC758 \uADF9\uD55C"
 linear-map:
-  category: Mathematics
+  category: Linear Algebra
   language: Korean
-  mtime: 1592575012
+  mtime: 1593527793
   title: "\uC120\uD615\uC0AC\uC0C1"
 list-of-integrals:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1592872139
+  mtime: 1593527897
   title: "\uC801\uBD84\uD45C"
-pells-equation:
-  category: Mathematics
+ordinal:
+  category: Set Theory
   language: Korean
-  mtime: 1591435734
+  mtime: 1593527310
+  title: "\uC21C\uC11C\uC218"
+pells-equation:
+  category: Algebra
+  language: Korean
+  mtime: 1593527685
   title: "Pell\uC758 \uBC29\uC815\uC2DD"
 practical-gnupg:
   category: Security
@@ -145,9 +165,9 @@ practical-gnupg:
   mtime: 1592042509
   title: "GnuPG \uC2E4\uC804\uD3B8"
 prime-number:
-  category: Mathematics
+  category: Number Theory
   language: Korean
-  mtime: 1589294105
+  mtime: 1593527669
   title: "\uC18C\uC218"
 regex:
   category: Programming
@@ -155,9 +175,9 @@ regex:
   mtime: 1592056287
   title: "\uC815\uADDC\uD45C\uD604\uC2DD"
 ring:
-  category: Mathematics
+  category: Algebra
   language: Korean
-  mtime: 1593326501
+  mtime: 1593528211
   title: "\uD658"
 segment-tree:
   category: Algorithms
@@ -165,9 +185,9 @@ segment-tree:
   mtime: 1592065976
   title: Segment tree
 series:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1592146948
+  mtime: 1593527734
   title: "\uAE09\uC218"
 signs:
   category: Mathematics
@@ -175,9 +195,9 @@ signs:
   mtime: 1592778100
   title: "\uAE30\uD638\uC5D0 \uAD00\uD55C \uC57D\uC18D"
 tan-cos-sin-sin:
-  category: Mathematics
+  category: Analysis
   language: Korean
-  mtime: 1592872823
+  mtime: 1593527922
   title: "$\\tan 1^{\\circ}$, $\\cos 1^{\\circ}$, $\\sin 1^{\\circ}$, $\\sin 1$\uC740\
     \ \uC720\uB9AC\uC218\uC778\uAC00"
 tikz:
@@ -191,9 +211,9 @@ trigonometric-functions:
   mtime: 1592872218
   title: "\uC0BC\uAC01\uD568\uC218"
 vector-space:
-  category: Mathematics
+  category: Linear Algebra
   language: Korean
-  mtime: 1592578831
+  mtime: 1593527810
   title: "\uBCA1\uD130\uACF5\uAC04"
 vim:
   category: Linux
@@ -201,17 +221,17 @@ vim:
   mtime: 1592065263
   title: "vim \uB2E8\uCD95\uD0A4\uC640 \uAE30\uCD08 \uC0AC\uC6A9\uBC95"
 well-ordered:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1593526596
+  mtime: 1593528129
   title: "\uC815\uB82C\uC9D1\uD569"
 zfc:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1592672572
+  mtime: 1593527861
   title: "\uACF5\uB9AC\uC801 \uC9D1\uD569\uB860: ZFC \uACF5\uB9AC\uACC4"
 zorns-lemma:
-  category: Mathematics
+  category: Set Theory
   language: Korean
-  mtime: 1593325919
+  mtime: 1593527992
   title: "Zorn\uC758 \uBCF4\uC870\uC815\uB9AC"

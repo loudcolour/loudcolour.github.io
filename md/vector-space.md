@@ -1,6 +1,6 @@
 <!---
 title: "벡터공간"
-category: Mathematics
+category: Linear Algebra
 language: Korean
 --->
 

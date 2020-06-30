@@ -1,6 +1,6 @@
 <!---
 title: "연속함수"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

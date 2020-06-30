@@ -1,6 +1,6 @@
 <!---
 title: "정렬집합"
-category: Mathematics
+category: Set Theory
 language: Korean
 --->
 

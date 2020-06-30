@@ -1,6 +1,6 @@
 <!---
 title: "집합의 농도"
-category: Mathematics
+category: Set Theory
 language: Korean
 --->
 

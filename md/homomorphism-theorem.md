@@ -1,6 +1,6 @@
 <!---
 title: "준동형, 동형정리"
-category: Mathematics
+category: Algebra
 language: Korean
 --->
 

@@ -1,6 +1,6 @@
 <!---
 title: "Bernstein의 정리"
-category: Mathematics
+category: Set Theory
 language: Korean
 --->
 

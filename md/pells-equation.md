@@ -1,6 +1,6 @@
 <!---
 title: 'Pell의 방정식'
-category: Mathematics
+category: Algebra
 language: Korean
 --->
 

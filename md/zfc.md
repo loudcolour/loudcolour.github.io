@@ -1,6 +1,6 @@
 <!---
 title: "공리적 집합론: ZFC 공리계"
-category: Mathematics
+category: Set Theory
 language: Korean
 --->
 

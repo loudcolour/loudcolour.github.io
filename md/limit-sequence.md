@@ -1,6 +1,6 @@
 <!---
 title: "수열의 극한"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

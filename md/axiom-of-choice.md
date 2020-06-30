@@ -1,6 +1,6 @@
 <!---
 title: '선택공리'
-category: Mathematics
+category: 'Set Theory'
 language: Korean
 --->
 

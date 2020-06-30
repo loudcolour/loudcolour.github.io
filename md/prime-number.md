@@ -1,6 +1,6 @@
 <!---
 title: '소수'
-category: Mathematics
+category: Number Theory
 language: Korean
 --->
 

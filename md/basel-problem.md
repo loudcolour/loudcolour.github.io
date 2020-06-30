@@ -1,6 +1,6 @@
 <!---
 title: 'Basel 문제'
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

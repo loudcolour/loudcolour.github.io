@@ -1,7 +1,7 @@
 <!---
 title: 'Fibonacci 수열'
 language: Korean
-category: Mathematics
+category: Algebra
 --->
 
 # Fibonacci 수열

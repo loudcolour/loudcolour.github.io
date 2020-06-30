@@ -1,6 +1,6 @@
 <!---
 title: "함수의 극한"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

@@ -1,6 +1,6 @@
 <!---
 title: "미분"
-category: Mathematics
+category: Analysis
 language: Korean
 --->
 

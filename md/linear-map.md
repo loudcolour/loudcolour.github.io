@@ -1,6 +1,6 @@
 <!---
 title: "선형사상"
-category: Mathematics
+category: Linear Algebra
 language: Korean
 --->
 
