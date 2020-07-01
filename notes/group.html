@@ -207,7 +207,7 @@ language: Korean
 <blockquote>
 <p><strong>정의</strong>(군). 집합 $G$와, 집합 $G$ 상의 연산 $\cdot: G\times G\to G$에 대하여, 다음 조건을 만족한다면 $G$는 군(group)이다.</p>
 <ol>
-<li>모든 $a, b, c\in G$에 대하여 $(a\cdot b)\cdot c = a\cdot (b\cdot c)$</li>
+<li>모든 $a, b, c\in G$에 대하여 $(a\cdot b)\cdot c = a\cdot (b\cdot c)$.</li>
 <li>모든 $a\in G$에 대하여 $a\cdot e=e\cdot a=a$를 만족하는 $e\in G$가 존재한다.</li>
 <li>모든 $a\in G$에 대하여 $a\cdot b=b\cdot a=e$를 만족하는 $b\in G$가 존재한다.</li>
 </ol>
@@ -218,12 +218,26 @@ language: Korean
 <p><strong>정의</strong>(가환군). 군 $G$와, 모든 $a,b\in G$에 대하여 $ab = ba$가 성립한다면, 군 $G$를 가환군이라고 한다.</p>
 </blockquote>
 <h2 id="부분군">부분군</h2>
+<blockquote>
+<p><strong>정의</strong>(부분군). 군 $G$의 부분집합 $H$가 $G$와 같은 연산에 의하여 군을 이룬다면, $H$는 $G$의 부분군이다.</p>
+</blockquote>
+<blockquote>
+<p><strong>명제</strong>. 군 $G$와 $H\subset G$가 주어짔을 때, 다음 조건을 모두 만족한다면 $H$는 $G$의 부분군이다.</p>
+<ol>
+<li>$1_G\in H$.</li>
+<li>모든 $x,y \in H$에 대하여 $xy\in H$.</li>
+<li>모든 $x\in H$에 대하여 $x^{-1}\in H$</li>
+</ol>
+</blockquote>
 <h3 id="정규부분군">정규부분군</h3>
+<blockquote>
+<p><strong>정의</strong>(정규부분군). $H$를 군 $G$의 부분군이라고 하자. 임의의 $g\in G$와 $h\in H$에 대하여 $ghg^{-1}\in H$라면, $H$는 $G$의 정규부분군이다. 이 때, $H \vartriangleleft G$와 같이 쓴다.</p>
+</blockquote>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Algebra.html">Algebra</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-07-02T01:02:57+0900</code></a>
+    Last modified: <code>2020-07-02T01:17:06+0900</code></a>
 </p>
 <hr>
 
