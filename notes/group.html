@@ -183,10 +183,7 @@
 <ul>
 <li><a href="#군">군</a>
 <ul>
-<li><a href="#정의">정의</a>
-<ul>
-<li><a href="#다른-대수구조와의-관계">다른 대수구조와의 관계</a></li>
-</ul></li>
+<li><a href="#정의">정의</a></li>
 <li><a href="#부분군">부분군</a>
 <ul>
 <li><a href="#정규부분군">정규부분군</a></li>
@@ -205,15 +202,28 @@ language: Korean
 --->
 
 <h1 id="군">군</h1>
+<p>군은 항등원과 역원의 존재, 결합법칙이 성립하는 대수구조이다.</p>
 <h2 id="정의">정의</h2>
-<h3 id="다른-대수구조와의-관계">다른 대수구조와의 관계</h3>
+<blockquote>
+<p><strong>정의</strong>(군). 집합 $G$와, 집합 $G$ 상의 연산 $\cdot: G\times G\to G$에 대하여, 다음 조건을 만족한다면 $G$는 군(group)이다.</p>
+<ol>
+<li>모든 $a, b, c\in G$에 대하여 $(a\cdot b)\cdot c = a\cdot (b\cdot c)$</li>
+<li>모든 $a\in G$에 대하여 $a\cdot e=e\cdot a=a$를 만족하는 $e\in G$가 존재한다.</li>
+<li>모든 $a\in G$에 대하여 $a\cdot b=b\cdot a=e$를 만족하는 $b\in G$가 존재한다.</li>
+</ol>
+</blockquote>
+<p>일반적으로, 별도의 표시가 없는 경우, $a\cdot b$를 $ab$와 같이 쓰기도 한다.</p>
+<p><em>주</em>. 임의의 $a\in G$에 대하여 $e\in G$가 존재하여 $ae=ea=a$를 만족한다면, 이러한 조건을 만족하는 $e\in G$는 유일하게 존재한다. $e'\in G$가 이를 만족한다고 가정하면 $e = ee' = e'$가 성립하는 것을 쉽게 알 수 있기 때문이다. 마찬가지로 임의의 $a\in G$에 대하여 $b\in G$가 존재하여 $ab=ba=e$를 만족한다면, $b$는 각 $a$에 대하여 유일하게 존재한다. $b'\in G$가 $ab'=b'a=e$를 만족한다고 하면, 역시 $b= be = bab' = eb' =b'$가 성립하기 때문이다. 이러한 성질로부터 각 군 $G$에 대하여 $e$를 $1_G$와 같이 쓸 수 있다. 또한 각 군 $G$의 각 원소 $a\in G$에 대하여 $b$를 $a^{-1}$과 같이 쓸 수 있다.</p>
+<blockquote>
+<p><strong>정의</strong>(가환군). 군 $G$와, 모든 $a,b\in G$에 대하여 $ab = ba$가 성립한다면, 군 $G$를 가환군이라고 한다.</p>
+</blockquote>
 <h2 id="부분군">부분군</h2>
 <h3 id="정규부분군">정규부분군</h3>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Algebra.html">Algebra</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-30T23:38:01+0900</code></a>
+    Last modified: <code>2020-07-02T01:02:57+0900</code></a>
 </p>
 <hr>
 
