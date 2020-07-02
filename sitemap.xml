@@ -8,8 +8,6 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/basel-problem.html</loc><lastmod>2020-06-30</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/basis-of-vector-space.html</loc><lastmod>2020-06-30</lastmod>
-</url><url>
 <loc>https://loudcolour.github.io/notes/bernstein.html</loc><lastmod>2020-06-30</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/cardinality.html</loc><lastmod>2020-06-30</lastmod>
@@ -35,6 +33,8 @@
 <loc>https://loudcolour.github.io/notes/fzf.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/graph.html</loc><lastmod>2020-07-01</lastmod>
+</url><url>
+<loc>https://loudcolour.github.io/notes/group.html</loc><lastmod>2020-07-02</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/homomorphism.html</loc><lastmod>2020-06-30</lastmod>
 </url><url>
@@ -82,7 +82,7 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/trigonometric-functions.html</loc><lastmod>2020-06-23</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/vector-space.html</loc><lastmod>2020-06-30</lastmod>
+<loc>https://loudcolour.github.io/notes/vector-space.html</loc><lastmod>2020-07-02</lastmod>
 </url><url>
 <loc>https://loudcolour.github.io/notes/vim.html</loc><lastmod>2020-06-14</lastmod>
 </url><url>
@@ -92,5 +92,5 @@
 </url><url>
 <loc>https://loudcolour.github.io/notes/zorns-lemma.html</loc><lastmod>2020-06-30</lastmod>
 </url><url>
-<loc>https://loudcolour.github.io/notes/group.html</loc><lastmod>2020-07-02</lastmod>
+<loc>https://loudcolour.github.io/notes/basis-of-vector-space.html</loc><lastmod>2020-07-02</lastmod>
 </url></urlset>

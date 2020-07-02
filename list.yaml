@@ -21,7 +21,7 @@ basel-problem:
 basis-of-vector-space:
   category: Linear Algebra
   language: Korean
-  mtime: 1593528111
+  mtime: 1593687092
   title: "\uBCA1\uD130\uACF5\uAC04\uC758 \uAE30\uC800"
 bernstein:
   category: Set Theory
@@ -213,7 +213,7 @@ trigonometric-functions:
 vector-space:
   category: Linear Algebra
   language: Korean
-  mtime: 1593527810
+  mtime: 1593685704
   title: "\uBCA1\uD130\uACF5\uAC04"
 vim:
   category: Linux
