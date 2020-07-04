@@ -3,10 +3,10 @@ var toggle_button = document.getElementById('expand-list');
 function toggle_list() {
     if (inside_sidebar.className === 'visible') {
         inside_sidebar.className = 'invisible';
-		toggle_button.innerHTML = "<span class=\"nav-button\">🔽 Show</span>"
+		toggle_button.innerHTML = "<span class=\"nav-button\">Show</span>"
     } else {
         inside_sidebar.className = 'visible';
-		toggle_button.innerHTML = "<span class=\"nav-button\">🔼 Hide</span>"
+		toggle_button.innerHTML = "<span class=\"nav-button\">Hide</span>"
     }
 }
 toggle_button.addEventListener('click', toggle_list);
