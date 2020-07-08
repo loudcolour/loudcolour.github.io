@@ -299,24 +299,32 @@ $$</p>
 </ul>
 <h2 id="정렬정리">정렬정리</h2>
 <blockquote>
-<p><strong>정리</strong>(정렬정리). <a href="./axiom-of-choice.html">선택공리</a>를 가정하면, 임의의 집합 $A$에 대하여 $(A,\leq)$가 정렬집합이 되도록 하는 적절한 $A$상의 순서 $\leq$가 존재한다.</p>
+<p><strong>정리</strong>(정렬정리(WOP)). <a href="./axiom-of-choice.html">선택공리</a>를 가정하면, 임의의 집합 $A$에 대하여 $(A,\leq)$가 정렬집합이 되도록 하는 적절한 $A$상의 순서 $\leq$가 존재한다.</p>
 </blockquote>
 <p><em>증명</em>. 어떤 집합 $A$에 대하여, $A$의 부분집합인 동시에 정렬집합인 집합의 집합을 $\mathscr{A}$로 두자. 이 때, $\mathscr{A}\neq\emptyset$이다. 두 정렬집합 $(W,\leq), (W', \leq')\in\mathscr{A}$에 대하여, $(W, \leq) = (W', \leq')$이거나 $(W,\leq)$가 $(W',\leq')$의 절편일 때, 이항관계 $(W, \leq) \rho (W', \leq')$가 성립한다고하자. 여기서 $\rho$가 순서관계라는 사실은 간단하게 확인할 수 있다.</p>
 <p>실제로, $(\mathscr{A}, \rho)$는 귀납적인 순서집합이다. $(\mathscr{A}, \rho)$상의 임의의 사슬 $K$에 대하여 $\bigcup K$는 정렬집합의 구성정리에 의하여 새로운 정렬집합을 이루고, $\bigcup K$가 $K$의 상한이 됨을 알 수 있다. <a href="./zorns-lemma.html">Zorn의 보조정리</a>을 적용하면, $\mathscr{A}$는 극대원소를 가지므로, 이를 $(W^*, \leq^*)$로 두자.</p>
 <p>여기서 $A = W^*$임을 보이면, $\leq^*$가 $A$의 정렬순서가 됨을 알 수 있다. 이를 보이기 위하여 $A\neq W^*$를 가정하자. 그렇다면, $A\setminus W^* \neq\emptyset$이므로, 적당한 $a\in A\setminus W^*$가 존재하여, $W^{**} := W^* \cup \left\{ a \right\}$로 두고, 어떠한 $x\in W^*$에 대해서도 $x\leq^{**} a$가 성립하도록 $\leq^*$를 확장하여 $\leq^{**}$를 정의하면, $(W^{**}, \leq^{**})\in \mathscr{A}$인 동시에 $(W^*, \leq^*)\rho(W^{**}, \leq^{**})$, $(W^*, \leq^*)\neq(W^{**}, \leq^{**})$ 가 성립하므로 이는 $(W^*, \leq^*)$가 극대원소라는 것에 모순이다. 따라서 $A = W^*$이고 $A$에는 정렬순서가 존재한다. □</p>
 <blockquote>
-<p><strong>따름정리</strong>. 임의의 두 집합의 농도를 비교할 수 있다.</p>
+<p><strong>따름정리</strong>(기수 비교의 trichotomy). 임의의 두 집합의 농도를 비교할 수 있다.</p>
 </blockquote>
 <p><em>증명</em>. 집합 $A, B$를 가정하자. 여기서 $|A| &lt; |B|$, $|A| = |B|$, $|A| &gt; |B|$가 동시에 성립하지 않는 것은 분명하다. 정렬정리에 의하여 $A$와 $B$에 각각 정렬순서 $\leq_A$와 $\leq_B$를 부여하면, 정렬집합의 비교정리에 의하여 $A$에서 $B$로의 단사와 $B$에서 $A$로의 단사 중 적어도 하나가 존재하는 것을 알 수 있다. □</p>
+<p><em>주</em>. 임의의 두 집합의 농도를 비교할 수 있다면, 이로부터 WOP를 유도할 수 있다. 즉, WOP와 기수 비교의 trichotomy는 $\textsf{ZF}$상에서 동치이다. 또한, 선택공리와 WOP가 동치인 것이 아래의 명제로부터 보여지므로, 선택공리와 기수 비교의 trichotomy도 동치이다.</p>
 <blockquote>
 <p><strong>명제</strong>(선택공리의 유도). 정렬정리로부터 선택공리가 유도된다.</p>
 </blockquote>
 <p><em>증명</em>. 각 $\lambda\in\Lambda$에 대하여 $A_\lambda\neq\emptyset$인 집합족 $ \left\{ A_\lambda \right\}_{\lambda\in\Lambda}$가 주어졌다고 하자. 이 때, $A := \bigcup_{\lambda\in\Lambda} A_\lambda$ 라고 두면, 정렬정리에 의하여 $A$에 정렬순서를 부여할 수 있다. 이를 $(A,\leq)$라고 하면, 각 $A_\lambda$는 $A$의 공집합이 아닌 부분집합이므로, $\min_{\leq} A_\lambda$가 존재한다. 따라서, 사상 $s: \Lambda\to \bigcup_{\lambda\in\Lambda} A_\lambda, \lambda\mapsto \min_{\leq}A_\lambda$ 을 구성하면, 임의의 $\lambda\in\Lambda$에 대하여 $s(\lambda)\in A_{\lambda}$가 성립하므로, 이는 선택사상이고, 선택공리가 성립하는 것을 알 수 있다. □</p>
+<blockquote>
+<p><strong>명제</strong>. 선택공리와 기수 비교의 trichotomy는 동치이다.</p>
+</blockquote>
+<p><em>증명</em>. 선택공리(WOP)로부터 기수 비교의 trichotomy가 유도되는 것은 위의 따름정리에서 보였다.</p>
+<p>역으로, 기수 비교의 trichotomy가 성립한다면, WOP가 유도되는 것을 보이자. $X$를 임의의 집합으로 두자. $\mathscr{P}(\mathscr{P}(X))$의 원소는 모두 $\mathscr{P}(X)$의 부분집합이므로, $\subset$에 의하여 반순서집합을 이룬다. 개중에는 정렬집합을 이루는 것이 존재할 것이며, 해당하는 <a href="./ordinal.html">순서수</a>가 존재함을 순서수의 정의로부터 알 수 있다. 따라서, $\mathscr{P}(\mathscr{P}(X))$의 정렬집합인 원소가 갖는 순서수 전체의 집합을 $E$로 두자. 그렇다면, $E$ 또한 정렬집합이다. $\lambda\in E$이고 $\mu &lt; \lambda$이면 $\mu\in E$인 것을 순서수의 정의로부터 알 수 있으므로, $\nu'&lt;\nu$인 순서수 $\nu'$전체의 집합을 $S_{\nu}$라고 할때, $E = S_{\nu}$인 $\nu$가 존재한다. $\|E\| = \|S_{\nu}\| = \nu$이므로, $E = S_{\|E\|}$이고, 모든 $\lambda\in E$에 대하여 $\lambda&lt;\|E\|$가 성립한다.</p>
+<p>여기서, $|E|\not\leq |X|$이다. 만약, $|E|\leq|X|$, 단사 $f: E\to X$가 존재한다고 가정하면, $f$의 단사성에 의해 $E$와 $f(E)$ 상의 순서동형을 유도하여, 정렬집합 $(f(E), \prec)$를 얻는다. $f(E)\in \mathscr{P}(X)$의 ($\prec$에 의한) 절편 전체로 이루어진 $A \in\mathscr{P}(\mathscr{P}(X))$는 $\subset$을 순서로 하여 $f(E)$와 순서동형, 즉 $E$와 순서동형이다. $A$는 정렬집합이므로, $\|E\| = \|A\| \in E$. 따라서, $\|E\| &lt; \|E\|$, 이는 모순이다.</p>
+<p>기수 비교의 trichotomy를 적용하면, $|E|&gt;|X|$이다. 단사 사상 $g: X\to E$로 부터, $X$에 정렬순서를 부여할 수 있다. 따라서 WOP가 보여진다. □</p>
 <div class="hidden">
 <hr>
 <p>
     Category: <a href="../category/Set Theory.html">Set Theory</a>, Language: <a href="../language/Korean.html">Korean</a>,
-    Last modified: <code>2020-06-30T23:42:09+0900</code></a>
+    Last modified: <code>2020-07-08T18:54:17+0900</code></a>
 </p>
 <hr>
 

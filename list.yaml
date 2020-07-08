@@ -11,7 +11,7 @@ archlinux:
 axiom-of-choice:
   category: Set Theory
   language: Korean
-  mtime: 1594095874
+  mtime: 1594188949
   title: "\uC120\uD0DD\uACF5\uB9AC"
 basel-problem:
   category: Analysis
@@ -223,7 +223,7 @@ vim:
 well-ordered:
   category: Set Theory
   language: Korean
-  mtime: 1593528129
+  mtime: 1594202057
   title: "\uC815\uB82C\uC9D1\uD569"
 zfc:
   category: Set Theory
